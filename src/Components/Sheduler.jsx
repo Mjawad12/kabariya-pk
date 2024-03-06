@@ -235,10 +235,10 @@ const Options3 = () => {
   const [selectedDate, setselectedDate] = useState(new Date());
   return (
     <div className="flex justify-between items-center gap-2 small:flex-col small:gap-5">
-      <BasicDateCalendar
+      {/* <BasicDateCalendar
         selectedDate={selectedDate}
         setselectedDate={setselectedDate}
-      />
+      /> */}
       <div className="flex w-[20rem] flex-col justify-start items-start small:w-full  ">
         <div className="flex w-full flex-col justify-start items-start gap-3">
           <p className="text-1xl font-pm font-bol">Selected Date</p>
