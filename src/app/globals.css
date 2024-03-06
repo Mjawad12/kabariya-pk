@@ -2,32 +2,57 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@layer components {
+  .btn {
+    @apply bg-black text-white max-w-[6.5rem] w-full h-[3rem] rounded-xl font-pm font-light;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+.li_Nav::after {
+  content: attr(div);
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 100%;
+  background: #0cbc8b;
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+table {
+  border-spacing: 0.1em;
+  border-collapse: separate;
+}
+.rdtPicker {
+  position: relative !important;
+  min-width: 100% !important;
+}
+.form-control {
+  display: none;
+}
+.rdtDays {
+  border: none;
+}
+.rdtPicker {
+  border: none !important;
+  box-shadow: none !important ;
+}
+.rdtDay {
+  border-radius: 100%;
+}
+td {
+  width: 2rem;
+  height: 2.1rem !important;
+}
+.rdtDay:hover {
+  background-color: black !important;
+  color: white !important;
+}
+.rdtActive {
+  background-color: black !important;
+  color: white !important;
+}
+tfoot {
+  display: none;
 }
