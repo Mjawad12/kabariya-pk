@@ -1,12 +1,6 @@
 import HeroSec from "@/Components/HeroSec";
 import Navbar from "@/Components/Navbar";
 
-export const metadata = {
-  title: "Kabariya",
-  description:
-    "Kabariya is a secure online platform dedicated to the selling of scrap materials. Our mission is to minimize the accumulation of unwanted and non-essential metals through recycling.",
-};
-
 export default function Home() {
   return (
     <div
