@@ -60,8 +60,7 @@ function HeroSec() {
                 >
                   <p
                     className="text-white text-[12px] 
-                  tracking-[1.5px] smaller:text-[9px] med:text-[10px]
-                  [word-spacing:3px] smaller:[word-spacing:1px] leading-0"
+                  tracking-[1.5px] smaller:text-[9px] med:text-[10px] leading-0"
                   >
                     Download on the
                   </p>

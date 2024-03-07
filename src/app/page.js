@@ -1,6 +1,10 @@
 import Aboutme from "@/Components/Aboutme";
 import HeroSec from "@/Components/HeroSec";
 import Navbar from "@/Components/Navbar";
+import OurServices from "@/Components/OurServices";
+import Process from "@/Components/Process";
+import WatchVideo from "@/Components/WatchVideo";
+import Whyus from "@/Components/Whyus";
 
 export default function Home() {
   return (
@@ -20,6 +24,10 @@ export default function Home() {
         </h2>
       </div>
       <Aboutme />
+      <WatchVideo />
+      <OurServices />
+      <Whyus />
+      <Process />
     </>
   );
 }

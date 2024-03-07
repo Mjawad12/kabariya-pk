@@ -19,7 +19,7 @@ function Navbar() {
     <nav className="w-full flex justify-between items-center px-1 py-5 gap-5  ">
       <div className="max-w-[232px] ">{logoEng}</div>
       <div className="flex-1 flex-grow-[0.7] larger:hidden ">
-        <ul className="list-none flex  font-pm font-med justify-between items-center gap-5 ">
+        <ul className="list-none flex text-[1.05rem]  font-pm  justify-between items-center gap-6 font-med ">
           {list.map((it, index) => (
             <Li name={it} key={index} index={index} />
           ))}

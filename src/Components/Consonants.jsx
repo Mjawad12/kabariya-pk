@@ -451,6 +451,135 @@ const gallery = (
   </svg>
 );
 
+const play = (
+  <svg
+    width="120"
+    height="120"
+    viewBox="0 0 132 132"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M81.1356 61.4237L63.5508 49.7006C59.8958 47.2639 55 49.884 55 54.2768V77.7232C55 82.116 59.8958 84.7361 63.5508 82.2994L81.1356 70.5763C84.4011 68.3993 84.4011 63.6007 81.1356 61.4237Z"
+      stroke="white"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M115.5 66C115.5 93.3381 93.3381 115.5 66 115.5C38.6619 115.5 16.5 93.3381 16.5 66C16.5 38.6619 38.6619 16.5 66 16.5C93.3381 16.5 115.5 38.6619 115.5 66Z"
+      stroke="white"
+      stroke-width="5"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+const play2 = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="41"
+    height="41"
+    viewBox="0 0 41 41"
+    fill="none"
+    className="bg-black rounded-full "
+  >
+    <path
+      d="M25.2012 19.0786L19.7393 15.4373C18.604 14.6804 17.0833 15.4943 17.0833 16.8587V24.1413C17.0833 25.5057 18.604 26.3196 19.7393 25.5627L25.2012 21.9214C26.2155 21.2452 26.2155 19.7548 25.2012 19.0786Z"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+    <path
+      d="M35.875 20.5C35.875 28.9914 28.9914 35.875 20.5 35.875C12.0086 35.875 5.125 28.9914 5.125 20.5C5.125 12.0086 12.0086 5.125 20.5 5.125C28.9914 5.125 35.875 12.0086 35.875 20.5Z"
+      stroke="white"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+
+const usData = [
+  {
+    text: "At Kabariya.pk, we offer the most competitive prices for your scrap, ensuring you get the best value for your items",
+    title: "Top Market Prices",
+  },
+  {
+    title: "Reliable Team",
+    text: "Our verified and professional scrap collection team ensures a secure and trustworthy experience.",
+  },
+  {
+    title: "Accurate Weight",
+    text: "We employ certified, calibrated digital scales to guarantee utmost accuracy in determining the weight of your items",
+  },
+  {
+    title: "Convenient Pickup",
+    text: "We provide hassle-free scrap pickup services right from your doorstep, scheduled at your preferred date and time for ultimate convenience",
+  },
+  {
+    title: "User-Friendly App",
+    text: "Explore our user-friendly mobile app, designed for quick and effortless scrap selling. Turn your scrap into cash with ease and speed",
+  },
+  {
+    title: "Flexible Payment Options",
+    text: "Experience the convenience of hassle-free payments with us. Choose from multiple payment options, including cash and online transfer.",
+  },
+];
+
+const download = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="20"
+    height="20"
+    viewBox="0 0 23 26"
+    fill="none"
+  >
+    <g clip-path="url(#clip0_48_1309)">
+      <path
+        d="M1.1499 18.9091V22.4546C1.1499 23.0814 1.39222 23.6826 1.82356 24.1259C2.25489 24.5692 2.8399 24.8182 3.4499 24.8182H19.5499C20.1599 24.8182 20.7449 24.5692 21.1762 24.1259C21.6076 23.6826 21.8499 23.0814 21.8499 22.4546V18.9091M6.8999 13L11.4999 17.7273M11.4999 17.7273L16.0999 13M11.4999 17.7273V1.18182"
+        stroke="white"
+        stroke-width="3"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      />
+    </g>
+    <defs>
+      <clipPath id="clip0_48_1309">
+        <rect width="23" height="26" fill="white" />
+      </clipPath>
+    </defs>
+  </svg>
+);
+
+const processDetails = [
+  {
+    tag: "Find & select catagory",
+    title: "Get Estimated Price",
+    desc: "Select the category for what you want to sell, see the estimated price, and proceed to sell.",
+    color: "#2DB473",
+  },
+  {
+    tag: "Select Pick-up",
+    title: "Align pick-up",
+    desc: "Choose your pickup date, enter your pickup address, select your payment method, and confirm your order.",
+    color: "#FFB800",
+  },
+  {
+    tag: "Honestly",
+    title: "Weight & Pricing",
+    desc: "After arriving at your address, we'll inspect your scrap, weigh it, and finalize the price accrodingly.",
+    color: "#E31111",
+  },
+  {
+    tag: "Send Invoice",
+    title: "Make Payment",
+    desc: "We'll send you an invoice, and once you make the payment using your preferred method, our team will proceed to collect your scrap.",
+    color: "#0478ED",
+  },
+];
 export {
   logoEng,
   logoUrdu,
@@ -465,4 +594,9 @@ export {
   hamburger,
   tick,
   gallery,
+  play,
+  play2,
+  usData,
+  download,
+  processDetails,
 };

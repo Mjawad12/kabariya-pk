@@ -16,7 +16,7 @@ export default function BasicDateCalendar({ setselectedDate, selectedDate }) {
 
   return (
     <>
-      <div className="w-full h-[16rem] small:h-[20rem] ">
+      <div className="w-full h-[16rem] small:h-[20rem] relative ">
         <Datetime
           value={selectedDate}
           onChange={(e) => {

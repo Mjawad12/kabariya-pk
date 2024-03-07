@@ -21,7 +21,7 @@
 }
 
 table {
-  border-spacing: 0.1em;
+  border-spacing: 0.6em 0.2em;
   border-collapse: separate;
 }
 .rdtPicker {
@@ -43,7 +43,13 @@ table {
 }
 td {
   width: 2rem;
-  height: 2.1rem !important;
+  height: 2rem !important;
+}
+.rdt {
+  /* scale: 0.9; */
+  position: absolute !important;
+  top: -0px;
+  left: -0px;
 }
 .rdtDay:hover {
   background-color: black !important;
@@ -55,4 +61,65 @@ td {
 }
 tfoot {
   display: none;
+}
+.rdtPicker {
+  margin: 0 !important;
+  padding: 0 !important ;
+}
+.rdtNew {
+  color: transparent !important;
+  pointer-events: none !important;
+}
+
+.video::after {
+  content: "";
+  background-color: rgba(0, 0, 0, 0.77);
+  position: absolute;
+  inset: 0;
+}
+
+@media (max-width: 1256px) and (min-width: 969px) {
+  table {
+    border-spacing: 0.3em 0.2em;
+    border-collapse: separate;
+  }
+  .rdt {
+    position: absolute !important;
+    top: -0px;
+    left: -15px;
+  }
+}
+
+@media (max-width: 969px) {
+  table {
+    border-spacing: 3em 0.2em !important;
+    border-collapse: separate;
+  }
+}
+@media (max-width: 747px) {
+  table {
+    border-spacing: 2em 0.2em !important;
+    border-collapse: separate;
+  }
+}
+@media (max-width: 617px) {
+  table {
+    border-spacing: 1em 0.2em !important;
+    border-collapse: separate;
+  }
+}
+@media (max-width: 500px) {
+  table {
+    border-spacing: 0.2em 0.2em !important;
+    border-collapse: separate;
+  }
+}
+
+.mP {
+  background: linear-gradient(#f3fcf9 22.2%, rgba(255, 255, 255, 0) 73.52%);
+}
+
+.edge {
+  border-bottom: 256px solid #f3fcf9;
+  border-right: 100vw solid white;
 }
