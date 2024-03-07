@@ -54,6 +54,31 @@ const pacifico = localFont({
   display: "swap",
   variable: "--Font-Secondary",
 });
+
+const midan = localFont({
+  src: [
+    {
+      path: "./fonts/Midan-Black.woff2",
+      weight: "900",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--Font-Urdu",
+});
+
+const openSans = localFont({
+  src: [
+    {
+      path: "./fonts/OpenSans-Regular.woff2",
+      weight: "400",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--Font-openSans",
+});
+
 export const metadata = {
   title: "Kabariya",
   description:
@@ -62,7 +87,9 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={` ${pacifico.variable} ${inter.variable}`}>
+      <body
+        className={` ${pacifico.variable} ${inter.variable} ${midan.variable} ${openSans.variable}`}
+      >
         {children}
       </body>
     </html>

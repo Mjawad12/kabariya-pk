@@ -24,6 +24,8 @@ module.exports = {
       fontFamily: {
         pm: "var(--Font-Primary)",
         se: "var(--Font-Secondary)",
+        midan: "var(--Font-Urdu)",
+        open: "var(--Font-openSans)",
       },
       fontWeight: {
         dark: "900",
