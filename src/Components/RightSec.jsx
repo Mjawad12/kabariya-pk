@@ -54,10 +54,10 @@ function RightSec() {
         ) : (
           <div className="w-full flex flex-col justify-center items-center gap-3">
             <img src="./animatedIcon.gif" alt="animated icon" />
-            <p className="text-4xl font-pm font-bol leading-7">
+            <p className="text-4xl font-pm font-bol leading-7 text-center smaller:text-2xl">
               Request Submitted
             </p>
-            <p className="text-1xl font-pm font-reg">
+            <p className="text-1xl font-pm font-reg text-center smaller:text-[0.9rem]">
               Your Request submitted successfully
             </p>
             <p
