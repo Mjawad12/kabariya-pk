@@ -57,7 +57,7 @@ const Service = ({ index, text }) => {
         src={`/house${index + 1}.png`}
         height={200}
         width={200}
-        className="large:w-[170px] med:w-[140px] small:w-[200px]"
+        className="large:w-[170px] med:w-[140px] small:w-[200px] smaller:w-[250px]"
       />
       <p className="absolute bottom-[15px] left-[20px] font-pm font-reg text-white text-[1.2rem] ">
         {text}

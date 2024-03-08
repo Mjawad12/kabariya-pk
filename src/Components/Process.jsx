@@ -55,7 +55,7 @@ const ProcessContainer = ({ index, color, desc, tag, title }) => {
   return (
     <>
       <div
-        className="max-w-[21.5rem] w-full h-[21rem] border
+        className="max-w-[21rem] w-full h-[21rem] border
        border-borderColorP hover:shadow-xl 
         flex flex-col justify-center items-center relative gap-5 px-7 rounded-[24.54px] "
       >

@@ -78,6 +78,11 @@ tfoot {
   inset: 0;
 }
 
+.edge {
+  border-bottom: 256px solid #f3fcf9;
+  border-right: 100vw solid white;
+}
+
 @media (max-width: 1256px) and (min-width: 969px) {
   table {
     border-spacing: 0.3em 0.2em;
@@ -95,11 +100,17 @@ tfoot {
     border-spacing: 3em 0.2em !important;
     border-collapse: separate;
   }
+  .edge {
+    border-bottom: 216px solid #f3fcf9;
+  }
 }
 @media (max-width: 747px) {
   table {
     border-spacing: 2em 0.2em !important;
     border-collapse: separate;
+  }
+  .edge {
+    border-bottom: 150px solid #f3fcf9;
   }
 }
 @media (max-width: 617px) {
@@ -113,13 +124,23 @@ tfoot {
     border-spacing: 0.2em 0.2em !important;
     border-collapse: separate;
   }
+  .edge {
+    border-bottom: 120px solid #f3fcf9;
+  }
 }
 
 .mP {
   background: linear-gradient(#f3fcf9 22.2%, rgba(255, 255, 255, 0) 73.52%);
 }
 
-.edge {
-  border-bottom: 256px solid #f3fcf9;
-  border-right: 100vw solid white;
+.react-multi-carousel-track li {
+  height: 37rem !important ;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.react-multi-carousel-track {
+  display: flex !important ;
+  justify-content: center !important ;
+  align-items: center !important ;
 }

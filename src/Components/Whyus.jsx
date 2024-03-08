@@ -4,13 +4,16 @@ import Image from "next/image";
 function Whyus() {
   return (
     <div className="w-full  ">
-      <div className="w-full max-w-[1320px] min-h-screen flex flex-col justify-start items-start gap-14 m-auto pt-24 pb-6 px-5 larger:px-10">
+      <div
+        className="w-full max-w-[1320px] min-h-screen flex flex-col justify-start
+       items-start gap-14 m-auto pt-24 pb-6 px-5 larger:px-10 small:px-6"
+      >
         <div className="flex flex-col justify-start items-start">
           <h3 className="font-se text-6xl leading-[116.61px]">Why us?</h3>
-          <p className="font-pm text-2xl font-med leading-[40px] ">
+          <p className="font-pm text-[1.8rem] font-med leading-[35px] ">
             Why Choose Kabariya For Scrap Services
           </p>
-          <p className="font-pm font-reg ">
+          <p className="font-pm font-med mt-2 ">
             Choose Kabariya for a seamless and rewarding scrap selling
             experience.
           </p>
@@ -25,7 +28,7 @@ function Whyus() {
             />
           ))}
         </div>
-        <button className="btn bg-white text-black border border-borderColorP rounded-[18.51px] max-w-[9rem] font-med text-[1.2rem] ">
+        <button className="btn bg-white text-black border border-borderColorP rounded-[18.51px] max-w-[9.5rem] font-med text-[1.2rem] ">
           Learn More
         </button>
       </div>
