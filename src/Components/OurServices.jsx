@@ -13,7 +13,7 @@ function OurServices() {
 
   return (
     <div className="w-full">
-      <div className="max-w-[1320px] px-14  m-auto flex small:flex-col small:pt-5 small:gap-9 small:px-5 justify-between items-center min-h-screen relative ">
+      <div className="max-w-[1320px] px-14 py-[9.5rem] pb-[10rem] small:pb-[5rem] m-auto flex small:flex-col small:pt-5 small:gap-9 small:px-5 justify-between items-center min-h-max relative ">
         <div className="flex-1 flex-grow-[0.4]  flex flex-col justify-start items-start gap-7">
           <div className="flex flex-col justify-start items-start">
             <h3 className="font-pm font-bol text-6xl leading-[77.05px] smaller:text-5xl relative left-12 ">

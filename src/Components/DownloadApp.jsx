@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function DownloadApp() {
   return (
-    <div className="w-full min-h-screen">
+    <div className="w-full min-h-max">
       <div className="max-w-[1320px] w-full px-14 flex justify-between items-center m-auto gap-5  small:gap-14 smaller:px-5 small:flex-col">
         <div className="flex-1 flex-grow-[0.55]  flex flex-col justify-start items-start w-full gap-5 small:gap-4 smaller:gap-3 ">
           <h4

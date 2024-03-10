@@ -83,6 +83,38 @@ tfoot {
   border-right: 100vw solid white;
 }
 
+.bg1 {
+  background: linear-gradient(
+    218.79deg,
+    rgba(255, 255, 255, 0) 73.99%,
+    rgba(12, 188, 139, 0.4) 101.95%
+  );
+}
+.bg2 {
+  background: linear-gradient(
+    176deg,
+    rgba(255, 255, 255, 0) 54%,
+    rgba(17, 209, 0, 0.3) 100%
+  );
+}
+
+@media (max-width: 1062px) {
+  .bg1 {
+    background: linear-gradient(
+      218.79deg,
+      rgba(255, 255, 255, 0) 73.99%,
+      rgba(12, 188, 139, 0.4) 101.95%
+    );
+  }
+  .bg2 {
+    background: linear-gradient(
+      176deg,
+      rgba(255, 255, 255, 0) 16%,
+      rgba(17, 209, 0, 0.3) 100%
+    );
+  }
+}
+
 @media (max-width: 1256px) and (min-width: 969px) {
   table {
     border-spacing: 0.3em 0.2em;

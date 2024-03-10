@@ -25,7 +25,7 @@ function Testomonials() {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center min-h-screen py-20">
+    <div className="w-full flex flex-col justify-center items-center min-h-max py-20">
       <div className="flex flex-col justify-center items-center gap-4 ">
         {FeedBack}
         <div className="flex flex-col justify-center items-center">
@@ -75,7 +75,7 @@ function Testomonials() {
           })}
         </Carousel>
       </div>
-      <button className="btn bg-white text-black border border-borderColorP rounded-[18.51px] max-w-[9.5rem] font-med text-[1.2rem] ">
+      <button className="btn bg-white text-black border border-borderColorP rounded-[16.51px] max-w-[9.5rem] font-med text-[1.2rem] ">
         Show More
       </button>
     </div>
@@ -85,11 +85,13 @@ function Testomonials() {
 const CarasouelCard = ({ name, tagline, testmonial, index }) => {
   return (
     <div
-      className="max-w-[17rem] w-full m-auto gap-5 border ml-[10px] mr-[10px]
-       border-[#DADADA]  h-[30rem] border-dashed rounded-[24.54px]
-    flex flex-col justify-between items-start px-9 extLar:px-5 larger:px-4 small:px-5 py-[6rem] relative "
+      className={`max-w-[17.3rem] w-full m-auto gap-4 border mx-[15px] shadow-sm
+       border-[#DADADA] ${
+         index === 1 && "border-[#00000064]"
+       }  h-[29rem] border-dashed rounded-[24.54px]
+    flex flex-col justify-start items-start px-8 pr-7 extLar:px-5 larger:px-4 small:px-5 py-[6rem] pb-[1rem] relative`}
     >
-      <div className="rounded-full p-2 absolute top-[-50px] flex justify-center items-center border border-[#DADADA] border-dashed ">
+      <div className="rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border border-[#DADADA] border-dashed ">
         <Image
           src={`/Testomonials/${index + 1}.png`}
           width={5000}
@@ -103,11 +105,13 @@ const CarasouelCard = ({ name, tagline, testmonial, index }) => {
         <p className="font-se text-2xl">{name}</p>
         <p className="font-pm font-med ">{tagline}</p>
       </div>
-      <p className="font-pm text-[1rem] leading-[26.61px] [font-style:italic] min-h-[14rem] ">
+      <p className="font-pm text-[1rem] leading-[26.61px] [font-style:italic] min-h-[13rem] ">
         "{testmonial}"
       </p>
 
-      <p className="[text-decoration:underline] font-pm font-med ">See more</p>
+      <p className="[text-decoration:underline] font-pm font-bol cursor-pointer underline-offset-2  ">
+        See more
+      </p>
     </div>
   );
 };

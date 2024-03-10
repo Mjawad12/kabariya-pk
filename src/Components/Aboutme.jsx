@@ -9,8 +9,9 @@ function Aboutme() {
           <div className="relative flex justify-center items-center ">
             <span
               className="absolute w-[473px] h-[370px] large:w-[420px] large:h-[320px] med:w-[390px] med:h-[300px] bg-[#2DB4734D] 
-              top-[-35px] left-[-40px] med:top-[-30px] med:left-[-35px] small:w-[350px] small:h-[280px] rounded-[46px] 
-              smaller:w-[300px] smaller:h-[225px] smaller:rounded-[28px]  smaller:top-[-15px] smaller:left-[-15px] "
+              top-[-35px] left-[-40px] med:top-[-30px] med:left-[-35px] small:w-[350px] small:h-[280px]
+               small:top-[-23px] small:left-[-20px] small:rounded-[32px] rounded-[46px] 
+              smaller:w-[300px] smaller:h-[225px] smaller:rounded-[25px]  smaller:top-[-15px] smaller:left-[-15px] "
             />
             <Image
               src={"/pic.png"}

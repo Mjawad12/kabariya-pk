@@ -1,16 +1,13 @@
 "use client";
 import React, { useRef, useState } from "react";
-import { gallery, item, shedule, tick, user } from "./Consonants";
+import { arrowDown, gallery, item, shedule, tick, user } from "./Consonants";
 import BasicDateCalendar from "./Calender";
 
 function Sheduler({ setsubmitted }) {
   const [selected, setselected] = useState(0);
   return (
     <div className="w-full flex flex-col justify-start items-start gap-5 small:gap-12 ">
-      <div
-        className="w-full flex justify-center 
-      items-center gap-2 med:px-9 small:px-4 "
-      >
+      <div className="w-full flex justify-center items-center gap-2 med:px-9 small:px-4 ">
         <SetComp
           svg={user}
           text={"Basic Details"}
@@ -40,6 +37,7 @@ function Sheduler({ setsubmitted }) {
 }
 
 const Form = ({ selected, setselected, setsubmitted }) => {
+  const [selectedOption, setselectedOption] = useState("Karachi");
   const form = useRef(null);
   const submitForm = (e) => {
     const valid = form.current.checkValidity();
@@ -54,7 +52,10 @@ const Form = ({ selected, setselected, setsubmitted }) => {
     <>
       <form action="null" ref={form} className="w-full">
         <div className={`w-full ${selected != 0 && "hidden"}`}>
-          <Options1 />
+          <Options1
+            setselectedOption={setselectedOption}
+            selectedOption={selectedOption}
+          />
         </div>
         {selected === 1 && <Options2 />}
         {selected === 2 && <Options3 />}
@@ -126,7 +127,13 @@ const SetComp = ({ svg, text, index, selected }) => {
   );
 };
 
-const Options1 = () => {
+const Options1 = ({ setselectedOption, selectedOption }) => {
+  const [show, setshow] = useState(false);
+
+  const changeSelected = (e) => {
+    setselectedOption(e.target.innerText);
+  };
+
   return (
     <div className="w-full px-2 flex justify-center items-center flex-wrap gap-5 ">
       <input
@@ -141,13 +148,47 @@ const Options1 = () => {
         placeholder="Mobile Number"
         className=" w-[48%]  outline-none focus:border-black  extLar:w-[47%] small:w-full h-[3rem] small:h-[3.5rem]  rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
       />
-      <select
+      <div
         id="City"
         name="City"
-        className="  w-[48%] outline-none focus:border-black   extLar:w-[47%] small:w-full  h-[3rem] small:h-[3.5rem]  rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
+        onClick={() => setshow(!show)}
+        className="w-[48%] outline-none focus:border-black  extLar:w-[47%] small:w-full  h-[3rem] small:h-[3.5rem] 
+         rounded-xl px-5 pr-4 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms] flex justify-between items-center relative "
       >
-        <option value="pakistan">Pakistan</option>
-      </select>
+        <p className="gont-pm text-gray-400">{selectedOption}</p> {arrowDown}
+        <div
+          className={`absolute ${
+            show ? "flex" : "hidden"
+          } w-full left-0 top-[36px] flex justify-start flex-col items-start bg-white border-borderColorP border`}
+        >
+          <span
+            onClick={changeSelected}
+            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            value="pakistan"
+            selected
+          >
+            Karachi
+          </span>
+          <span
+            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            onClick={changeSelected}
+          >
+            Islamabad
+          </span>
+          <span
+            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            onClick={changeSelected}
+          >
+            Lahore
+          </span>
+          <span
+            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            onClick={changeSelected}
+          >
+            Multan
+          </span>
+        </div>
+      </div>
       <input
         type="email"
         required
@@ -160,7 +201,8 @@ const Options1 = () => {
         placeholder="Address"
         rows={1}
         maxLength={70}
-        className="w-[99%] s outline-none focus:border-black small:h-[6rem] small:w-full  py-3 rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
+        style={{ resize: "none" }}
+        className="w-[99%] outline-none focus:border-black small:h-[6rem] small:w-full  py-3 rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
       />
     </div>
   );
@@ -189,7 +231,7 @@ const Options2 = () => {
 
   return (
     <div className="flex px-2 w-full justify-between items-start gap-1 small:gap-3 small:flex-col ">
-      <div className="flex flex-col justify-start items-start ">
+      <div className="flex flex-col  flex-1 flex-grow-[0.35] justify-start items-start ">
         <div className="flex flex-col justify-start items-start gap-2 small:gap-3">
           <div className="flex flex-col gap-2 ">
             <p className="text-[0.95rem] font-pm font-bol">Sell or Donate</p>
@@ -208,7 +250,7 @@ const Options2 = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col justify-start items-start gap-2">
+      <div className="flex flex-col flex-1 flex-grow-[0.35]  justify-start items-start gap-2">
         <p className="text-[0.95rem] font-pm font-bol">Pupolar</p>
         <div className="flex flex-col small:flex-row small:flex-wrap items-start gap-0 small:gap-x-2 ">
           {pickupItems.map((it, index) => (
@@ -216,7 +258,7 @@ const Options2 = () => {
           ))}
         </div>
       </div>
-      <div className="flex flex-col items-start justify-start gap-3 small:w-full">
+      <div className="flex flex-col flex-1 flex-grow-[0.3]  items-start justify-start gap-3 small:w-full">
         <p className="text-[0.95rem] font-pm font-bol">Remarks</p>
         <textarea
           name="sell"
