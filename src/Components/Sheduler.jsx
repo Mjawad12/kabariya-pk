@@ -81,7 +81,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
         "-" +
         selectedDate.getFullYear(),
     };
-    const data = await fetch("http://localhost:3000/api/emailSend", {
+    const data = await fetch("https://kabariya-pk.vercel.app/api/emailSend", {
       body: JSON.stringify(details),
       method: "POST",
     });

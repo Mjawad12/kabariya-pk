@@ -59,10 +59,8 @@ export async function POST(request) {
 
     const transport = await nodemailer.createTransport({
       host: "smtp.gmail.com",
-      pool: true,
-      maxConnections: 5,
       port: 587,
-      secure: true,
+      secureConnection: false,
       startTLS: true,
       requireTLS: true,
       auth: {
@@ -74,7 +72,7 @@ export async function POST(request) {
         accessToken: accessToken,
       },
       tls: {
-        rejectUnauthorized: false,
+        ciphers: "SSLv3",
       },
     });
 
