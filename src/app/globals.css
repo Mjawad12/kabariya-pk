@@ -135,6 +135,9 @@ tfoot {
   .edge {
     border-bottom: 216px solid #f3fcf9;
   }
+  .rdt {
+    width: 100%;
+  }
 }
 @media (max-width: 747px) {
   table {

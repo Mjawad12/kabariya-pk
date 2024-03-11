@@ -935,6 +935,7 @@ const socialIcons = [
     height="40"
     viewBox="0 0 41 41"
     fill="none"
+    className="smaller:w-[35px] smaller:h-[35px]"
   >
     <g clipPath="url(#clip0_48_1641)">
       <path
@@ -962,6 +963,7 @@ const socialIcons = [
     height="40"
     viewBox="0 0 41 41"
     fill="none"
+    className="smaller:w-[35px] smaller:h-[35px]"
   >
     <g clipPath="url(#clip0_48_1646)">
       <path
@@ -997,6 +999,7 @@ const socialIcons = [
     height="40"
     viewBox="0 0 41 41"
     fill="none"
+    className="smaller:w-[35px] smaller:h-[35px]"
   >
     <g clipPath="url(#clip0_48_1638)">
       <path
@@ -1020,6 +1023,7 @@ const socialIcons = [
     height="40"
     viewBox="0 0 41 41"
     fill="none"
+    className="smaller:w-[35px] smaller:h-[35px]"
   >
     <g clipPath="url(#clip0_48_1653)">
       <path
@@ -1051,6 +1055,7 @@ const socialIcons = [
     height="40"
     viewBox="0 0 41 41"
     fill="none"
+    className="smaller:w-[35px] smaller:h-[35px]"
   >
     <g clipPath="url(#clip0_48_1658)">
       <path
@@ -1088,6 +1093,7 @@ const socialIcons = [
     height="40"
     viewBox="0 0 41 41"
     fill="none"
+    className="smaller:w-[35px] smaller:h-[35px]"
   >
     <g clipPath="url(#clip0_48_1661)">
       <path
@@ -1115,6 +1121,7 @@ const socialIcons = [
     height="40"
     viewBox="0 0 41 41"
     fill="none"
+    className="smaller:w-[35px] smaller:h-[35px]"
   >
     <g clipPath="url(#clip0_48_1666)">
       <path

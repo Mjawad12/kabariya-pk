@@ -3,7 +3,7 @@ import React from "react";
 
 function Aboutme() {
   return (
-    <div className="w-full bg-black flex justify-center items-center min-h-[33rem] pt-10 px-2  small:px-6 ">
+    <div className="w-full bg-black flex justify-center items-center min-h-[33rem] pt-10 px-2  small:px-6 small:pb-10 ">
       <div className="max-w-[1320px] w-full flex small:flex-col justify-center items-center gap-[5rem] extLar:gap-[4rem] large:gap-[3rem] med:gap-[2.5rem] small:py-9 ">
         <div className="max-w-[500px] large:max-w-[450px] w-full flex justify-center items-center">
           <div className="relative flex justify-center items-center ">

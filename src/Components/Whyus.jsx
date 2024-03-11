@@ -9,11 +9,13 @@ function Whyus() {
        items-start gap-10 m-auto pt-28 pb-6 px-7 pr-4 larger:px-10 small:px-6"
       >
         <div className="flex flex-col justify-start items-start">
-          <h3 className="font-se text-6xl leading-[126.61px]">Why us?</h3>
+          <h3 className="font-se text-6xl leading-[126.61px] smaller:text-5xl smaller:leading-[116px]">
+            Why us?
+          </h3>
           <p className="font-pm text-[1.8rem] font-med leading-[35px] ">
             Why Choose Kabariya For Scrap Services
           </p>
-          <p className="font-pm font-med mt-1 ">
+          <p className="font-pm font-med mt-1 mob:text-[0.9rem] ">
             Choose Kabariya for a seamless and rewarding scrap selling
             experience.
           </p>

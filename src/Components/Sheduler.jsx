@@ -310,7 +310,7 @@ const Options2 = ({
 
   return (
     <div className="flex px-2 w-full justify-between items-start gap-1 small:gap-3 small:flex-col ">
-      <div className="flex flex-col  flex-1 flex-grow-[0.35] justify-start items-start ">
+      <div className="flex flex-col  flex-1 flex-grow-[0.3] justify-start items-start ">
         <div className="flex flex-col justify-start items-start gap-2 small:gap-3">
           <div className="flex flex-col gap-2 ">
             <p className="text-[0.95rem] font-pm font-bol">Sell or Donate</p>
@@ -366,7 +366,7 @@ const Options2 = ({
           </div>
         </div>
       </div>
-      <div className="flex flex-col flex-1 flex-grow-[0.35]  justify-start items-start gap-2">
+      <div className="flex flex-col flex-1 flex-grow-[0.2]  justify-start items-start gap-2">
         <p className="text-[0.95rem] font-pm font-bol">Pupolar</p>
         <div className="flex flex-col small:flex-row small:flex-wrap items-start gap-0 small:gap-x-2 ">
           {pickupItems.map((it, index) => (
@@ -392,7 +392,7 @@ const Options2 = ({
           ))}
         </div>
       </div>
-      <div className="flex flex-col flex-1 flex-grow-[0.3]  items-start justify-start gap-3 small:w-full">
+      <div className="flex flex-col flex-1 flex-grow-[0.45] larger:w-[14rem] large:w-[10rem] items-start justify-start gap-3 small:w-full">
         <p className="text-[0.95rem] font-pm font-bol">Remarks</p>
         <textarea
           name="sell"
@@ -402,7 +402,7 @@ const Options2 = ({
           rows="5"
           maxLength={200}
           ref={remarks}
-          className=" small:w-full border small:h-[5rem] outline-none focus:border-black border-borderColorP p-1 px-3 text-[0.9rem] rounded-md"
+          className="w-full small:w-full border small:h-[5rem] outline-none focus:border-black border-borderColorP p-1 px-3 text-[0.9rem] rounded-md"
         ></textarea>
       </div>
     </div>
@@ -465,7 +465,7 @@ const CustomCheckbox = ({ text, gap, st }) => {
       onClick={() => setchecked(!checked)}
       className={`flex ${
         gap ? "gap-" + gap : "gap-1"
-      } justify-center cursor-pointer items-center text-[0.9rem] font-pm font-med`}
+      } justify-center cursor-pointer items-center text-[0.9rem] larger:text-[0.8rem] small:text-[0.9rem] font-pm font-med whitespace-nowrap `}
     >
       <span
         className={`w-[1.15rem] h-[1.15rem] flex justify-center 

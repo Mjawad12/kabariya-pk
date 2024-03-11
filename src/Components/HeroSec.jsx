@@ -9,7 +9,7 @@ function HeroSec() {
       className="max-w-[1320px] w-full m-auto 
       min-h-[calc(100vh-84px)] flex small:flex-col
      small:py-6 mob:pt-3 justify-center items-center px-4 small:px-0  
-     gap-5 small:gap-20 "
+     gap-5 small:gap-20 smaller:gap-12 "
     >
       <div className="w-full ">
         <div className="flex flex-col  justify-start items-start gap-5 extLar:gap-3">

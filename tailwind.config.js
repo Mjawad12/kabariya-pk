@@ -15,6 +15,7 @@ module.exports = {
       smo: { max: "600px" },
       smaller: { max: "500px" },
       mob: { max: "417px" },
+      Smob: { max: "361px" },
     },
     extend: {
       backgroundImage: {

@@ -6,7 +6,7 @@ function Process() {
   return (
     <div className="w-full overflow-hidden">
       <div className="bg-black w-full h-5 edge"></div>
-      <div className="mP w-full px-10 pb-12 min-h-max flex flex-col justify-center items-center gap-20 z-20 ">
+      <div className="mP w-full px-10 pb-12 min-h-max flex flex-col justify-center smaller:px-2 items-center gap-20 z-20 ">
         <div className="flex flex-col justify-center items-center gap-5">
           <p className="font-pm font-med text-3xl leading-[35px]">
             Our Process
@@ -23,7 +23,7 @@ function Process() {
             className="max-w-[21rem] w-full flex justify-center 
             items-center  rounded-[24.54px] bg-white 
             font-pm font-med text-[1.2rem] py-3  gap-5 
-            border border-borderColorP small:text-[0.9rem] small:max-w-max small:px-5  small:py-2 small:rounded-[15.54px]  "
+            border border-borderColorP Smob:text-[1.1rem] small:max-w-max small:px-5  small:py-2 small:rounded-[15.54px]  "
           >
             <span
               className="bg-black w-11 h-11 small:w-8 small:h-8 flex
