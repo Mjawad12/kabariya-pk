@@ -11,7 +11,7 @@ function ScrapCollect() {
         <h3 className="font-pm font-bol text-[1.8rem] small:text-[1.5rem] smaller:text-[1.3rem] ">
           We collect this type scrap at your door step through our app.
         </h3>
-        <div className="w-full flex justify-start flex-wrap items-center gap-2">
+        <div className="w-full flex mt-2 justify-start flex-wrap items-center gap-2">
           {Scrapitems.map((it, index) => {
             return (
               <ScrapBtn
@@ -32,7 +32,7 @@ function ScrapCollect() {
           <p className="font-se text-6xl  small:text-5xl">
             {Scrapitems[selected].name}
           </p>
-          <p className="font-open text-[1.4rem] max-w-[93ch] small:text-[1.2rem] smaller:text-[1rem] ">
+          <p className="font-open text-[1.27rem] max-w-[93ch] small:text-[1.2rem] smaller:text-[1rem] ">
             We purchase a wide range of electronics products as scrap, including
             the ones listed below. Additionally, we also accept other items
             through custom offers.
@@ -53,8 +53,8 @@ const ScrapBtn = ({ text, selected, setselected, index }) => {
     <button
       onClick={() => setselected(index)}
       className={`py-2 px-6 small:px-5 rounded-[10.32px] font-pm text-[1.16rem] font-med bg-[#F5F5F5] ${
-        selected === index && "!bg-primaryGreen text-white"
-      } `}
+        selected === index && "!bg-primaryGreen text-white font-reg"
+      }`}
     >
       {text}
     </button>

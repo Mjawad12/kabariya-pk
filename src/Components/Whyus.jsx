@@ -49,14 +49,14 @@ const Container = ({ text, index, title }) => {
     px-[3.1rem] py-8 small:px-6  border border-borderColorP  rounded-[24.54px] hover:shadow-xl "
     >
       <div
-        className="bg-[#0CBC8B14] rounded-full p-3 small:p-3
-        flex justify-center items-center "
+        className="bg-[#0CBC8B14] rounded-full p-[0.8rem] small:p-3
+        flex justify-center items-center relative right-2 small:right-0 "
       >
         <Image
           src={`/us${index + 1}.png`}
           width={5000}
           height={5000}
-          className="w-[3.7rem] h-[3.6rem] small:w-[3.3rem] small:h-[3.3rem]"
+          className="w-[4.1rem] h-[4rem] small:w-[3.3rem] small:h-[3.3rem]"
           alt="logos"
         />
       </div>

@@ -9,7 +9,7 @@ function Aboutme() {
           <div className="relative flex justify-center items-center ">
             <span
               className="absolute w-[473px] h-[370px] large:w-[420px] large:h-[320px] med:w-[390px] med:h-[300px] bg-[#2DB4734D] 
-              top-[-35px] left-[-40px] med:top-[-30px] med:left-[-35px] small:w-[350px] small:h-[280px]
+              top-[-30px] left-[-30px] small:w-[350px] small:h-[280px]
                small:top-[-23px] small:left-[-20px] small:rounded-[32px] rounded-[46px] 
               smaller:w-[300px] smaller:h-[225px] smaller:rounded-[25px]  smaller:top-[-15px] smaller:left-[-15px] "
             />
@@ -23,7 +23,7 @@ function Aboutme() {
           </div>
         </div>
         <div className="flex flex-col justify-start items-start gap-10 smaller:gap-7">
-          <h2 className="font-pm font-bol text-7xl smaller:text-5xl  text-white">
+          <h2 className="font-pm font-bol text-6xl smaller:text-5xl  text-white">
             About us
           </h2>
           <p

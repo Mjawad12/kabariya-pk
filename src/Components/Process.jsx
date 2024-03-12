@@ -6,7 +6,7 @@ function Process() {
   return (
     <div className="w-full overflow-hidden">
       <div className="bg-black w-full h-5 edge"></div>
-      <div className="mP w-full px-10 pb-12 min-h-max flex flex-col justify-center smaller:px-2 items-center gap-20 z-20 ">
+      <div className="mP w-full px-10 pb-12 min-h-max flex flex-col justify-center smaller:px-5 items-center gap-20 z-20 ">
         <div className="flex flex-col justify-center items-center gap-5">
           <p className="font-pm font-med text-3xl leading-[35px]">
             Our Process
@@ -14,7 +14,7 @@ function Process() {
           <p className="font-pm font-bol text-6xl leading-[41.61px] large:text-5xl small:text-4xl ">
             How it's work
           </p>
-          <p className="font-pm font-reg text-center text-[0.9rem] small:max-w-[30ch] ">
+          <p className="font-pm font-reg text-center text-[1rem] small:max-w-[30ch] ">
             Watch the Video Guide on Placing an Order with the Kabariya App
           </p>
           <a
@@ -22,7 +22,7 @@ function Process() {
             target="_blank"
             className="max-w-[21rem] w-full flex justify-center 
             items-center  rounded-[24.54px] bg-white 
-            font-pm font-med text-[1.2rem] py-3  gap-5 
+            font-pm font-med text-[1.4rem] py-3  gap-5 
             border border-borderColorP Smob:text-[1.1rem] small:max-w-max small:px-5  small:py-2 small:rounded-[15.54px]  "
           >
             <span

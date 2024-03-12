@@ -23,11 +23,11 @@ function OurServices() {
               Avaliable <span className="text-secondaryGreen">for</span>
             </h3>
           </div>
-          <p className="font-pm font-reg text-[1.1rem] max-w-[45ch]">
+          <p className="font-pm font-med text-[1rem] max-w-[45ch]">
             Our services are available for households, offices, shops stores,
             factories, and companies
           </p>
-          <button className="btn max-w-[8rem] rounded-[18.51px]">
+          <button className="btn max-w-[9.5rem] h-[3.2rem]  text-[1.15rem] font-reg rounded-[15.51px]">
             Watch video
           </button>
         </div>
@@ -55,8 +55,8 @@ const Service = ({ index, text }) => {
     <div className="relative ">
       <Image
         src={`/house${index + 1}.png`}
-        height={200}
-        width={200}
+        height={210}
+        width={210}
         className="large:w-[170px] med:w-[140px] small:w-[200px] smaller:w-[250px]"
       />
       <p className="absolute bottom-[15px] left-[20px] font-pm font-reg text-white text-[1.2rem] ">
