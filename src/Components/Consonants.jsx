@@ -668,7 +668,7 @@ const Scrapitems = [
     items: [
       "Refrigerator",
       "D Freezer",
-      "Air conditioner",
+      "Air Conditioner",
       "Water dispenser",
       "Washing machine",
       "Generator",
@@ -677,7 +677,7 @@ const Scrapitems = [
       "Fan",
       "Micro wave",
       "Cooking range",
-      "Smart LED",
+      "Smart Led",
       "Sewing machine",
       "Water pump",
       "Motor",
