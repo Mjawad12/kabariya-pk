@@ -91,7 +91,7 @@ const CarasouelCard = ({ name, tagline, testmonial, index }) => {
        }  h-[29rem] border-dashed rounded-[24.54px]
     flex flex-col justify-start items-start px-8 pr-7 extLar:px-5 larger:px-4 small:px-5 py-[6rem] pb-[1rem] relative`}
     >
-      <div className="rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border border-[#DADADA] border-dashed ">
+      <div className="rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
         <Image
           src={`/Testomonials/${index + 1}.png`}
           width={5000}

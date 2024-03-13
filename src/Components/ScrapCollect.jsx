@@ -32,7 +32,7 @@ function ScrapCollect() {
           <p className="font-se text-6xl  small:text-5xl">
             {Scrapitems[selected].name}
           </p>
-          <p className="font-open text-[1.27rem] max-w-[93ch] small:text-[1.2rem] smaller:text-[1rem] ">
+          <p className="font-open font-[500] text-[1.27rem] max-w-[93ch] small:text-[1.2rem] smaller:text-[1rem] ">
             We purchase a wide range of electronics products as scrap, including
             the ones listed below. Additionally, we also accept other items
             through custom offers.
