@@ -7,7 +7,7 @@ export async function POST(req) {
   try {
     const status = await resend.emails.send({
       from: `onreply@${process.env.EMAIL_URL}`,
-      to: "kabariyaofficialpk@gmail.com",
+      to: "Kabariya.official@gmail.com",
       subject: "New Client",
       react: NewClient(details),
     });

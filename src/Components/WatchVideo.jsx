@@ -15,12 +15,9 @@ function WatchVideo() {
         <div
           className=" video max-w-[1124px] w-full h-[680.56px] larger:h-[600px] large:h-[550px] med:h-[500px]
           small:h-[400px] smaller:h-[250px] mob:h-[210px] smo:h-[250px]
-           bg-black rounded-[31.69px] p-4 small:p-3 small:rounded-[18px] relative overflow-hidden "
+           bg-black rounded-[31.69px] p-2  small:p-2 small:rounded-[18px] relative overflow-hidden "
         >
-          <div
-            style={{ border: "2px dashed white" }}
-            className=" w-full h-full rounded-[18.82px] small:rounded-[10px] z-20 relative flex justify-center items-center "
-          >
+          <div className="dashedDiv w-full h-full rounded-[18.82px] small:rounded-[10px] z-30 relative flex justify-center items-center ">
             {play}
           </div>
           <Image
@@ -28,9 +25,10 @@ function WatchVideo() {
             alt="mobileimage"
             height={500}
             width={500}
-            className="w-full h-full absolute inset-0"
+            className="w-full h-full absolute inset-0 video"
           />
         </div>
+
         <div className="flex flex-col gap-6 justify-center items-center">
           <h3 className="font-pm font-bol text-6xl small:text-4xl ">
             Watch the video

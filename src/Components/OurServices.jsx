@@ -13,7 +13,7 @@ function OurServices() {
 
   return (
     <div className="w-full">
-      <div className="max-w-[1320px] px-14 py-[9.5rem] pb-[10rem] small:pb-[5rem] m-auto flex small:flex-col small:pt-5 small:gap-9 small:px-5 justify-between items-center min-h-max relative ">
+      <div className="max-w-[1440px] px-14 py-[9.5rem] pb-[10rem] small:pb-[5rem] m-auto flex small:px-5 small:flex-col small:pt-5 small:gap-9 justify-between items-center min-h-max relative ">
         <div className="flex-1 flex-grow-[0.4]  flex flex-col justify-start items-start gap-7">
           <div className="flex flex-col justify-start items-start">
             <h3 className="font-pm font-bol text-6xl leading-[77.05px] smaller:text-5xl relative left-12 ">
@@ -55,11 +55,11 @@ const Service = ({ index, text }) => {
     <div className="relative ">
       <Image
         src={`/house${index + 1}.png`}
-        height={210}
-        width={210}
+        height={220}
+        width={220}
         className="large:w-[170px] med:w-[140px] small:w-[200px] smaller:w-[250px] h-auto"
       />
-      <p className="absolute bottom-[15px] left-[20px] font-pm font-reg text-white text-[1.2rem] ">
+      <p className="absolute bottom-[15px] left-[20px] font-pm font-reg text-white text-[1.3rem] ">
         {text}
       </p>
     </div>

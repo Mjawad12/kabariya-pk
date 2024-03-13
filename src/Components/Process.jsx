@@ -20,13 +20,15 @@ function Process() {
           <a
             href="https://www.youtube.com/@Kabariya.official"
             target="_blank"
-            className="max-w-[21rem] w-full flex justify-center 
+            className="max-w-[23.5rem] w-full flex justify-center 
             items-center  rounded-[24.54px] bg-white 
-            font-pm font-med text-[1.4rem] py-3  gap-5 
-            border border-borderColorP Smob:text-[1.1rem] small:max-w-max small:px-5  small:py-2 small:rounded-[15.54px]  "
+            font-pm font-med text-[1.45rem] py-3  gap-5 
+            border border-borderColorP small:text-[1.1rem]
+             Smob:text-[1.05rem] small:max-w-max small:px-5  
+             small:py-2 small:rounded-[15.54px]  "
           >
             <span
-              className="bg-black w-11 h-11 small:w-8 small:h-8 flex
+              className="bg-black w-[2.65rem] h-[2.65rem] small:w-8 small:h-8 flex
            justify-center items-center rounded-full"
             >
               {download}
@@ -59,7 +61,7 @@ const ProcessContainer = ({ index, color, desc, tag, title }) => {
        border-borderColorP ${
          (index === 0 || index === 2) && "shadow-xl"
        } hover:shadow-xl 
-        flex flex-col justify-center items-center relative gap-5 px-6 rounded-[20.54px] z-30`}
+        flex flex-col justify-center items-center relative gap-5 px-6 rounded-[20.54px] z-30 bg-white`}
       >
         <span
           style={{ backgroundColor: color }}

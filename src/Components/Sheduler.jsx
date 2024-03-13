@@ -166,8 +166,8 @@ const SetComp = ({ svg, text, index, selected }) => {
           {index < selected ? tick : svg}
         </div>
         <p
-          className={`w-max font-pm font-med smaller:font-bol text-1xl larger:text-[0.9rem] smaller:text-[0.8rem] ${
-            index <= selected ? "text-secondaryGreen" : "text-black"
+          className={`w-max font-pm font-bol smaller:font-bol text-1xl larger:text-[0.9rem] smaller:text-[0.8rem] ${
+            index <= selected ? "text-secondaryGreen font-med" : "text-black"
           } ${text === "Basic Details" && "larger:pl-2"} `}
         >
           {text}
@@ -175,7 +175,7 @@ const SetComp = ({ svg, text, index, selected }) => {
       </div>
       {text !== "Schedule" && (
         <span
-          className={`w-full max-w-[150px] border border-black mb-5 ${
+          className={`w-full max-w-[180px] border border-black mb-5 ${
             index <= selected ? "border-secondaryGreen" : "border-black"
           }   `}
         />
@@ -407,13 +407,22 @@ const Options2 = ({
 };
 
 const Options3 = ({ selectedDate, setselectedDate, settime }) => {
+  const [selected, setselected] = useState(null);
+  const timing = ["Morning", "Afternoon", "Evening"];
+
+  useEffect(() => {
+    settime(timing[selected]);
+  }, [selected]);
+
   return (
     <div className="flex  justify-between items-start gap-2 small:flex-col small:gap-0">
-      <BasicDateCalendar
-        selectedDate={selectedDate}
-        setselectedDate={setselectedDate}
-      />
-      <div className="flex w-[25rem] flex-col pt-3 justify-start items-start small:w-full small:gap-3  ">
+      <div className="w-full">
+        <BasicDateCalendar
+          selectedDate={selectedDate}
+          setselectedDate={setselectedDate}
+        />
+      </div>
+      <div className="flex w-[30rem] flex-col pt-3 justify-start items-start small:w-full gap-3 ">
         <div className="flex w-full flex-col justify-start items-start gap-3">
           <p className="text-1xl font-pm font-bol small:hidden">
             Selected Date
@@ -436,14 +445,18 @@ const Options3 = ({ selectedDate, setselectedDate, settime }) => {
         <div className="flex w-full flex-col justify-start items-start gap-3  ">
           <p className="text-1xl font-pm font-bol">Time</p>
           <div className="flex flex-col  items-start gap-2 small:gap-3 small:flex-row small:flex-wrap ">
-            <div onClick={() => settime("Morning")}>
-              <CustomCheckbox text={"Morning"} gap={"2"} />
+            <div onClick={() => setselected(0)}>
+              <CustomCheckbox text={"Morning"} gap={"2"} st={selected === 0} />
             </div>
-            <div onClick={() => settime("Afternoon")}>
-              <CustomCheckbox text={"Afternoon"} gap={"2"} />
+            <div onClick={() => setselected(1)}>
+              <CustomCheckbox
+                text={"Afternoon"}
+                gap={"2"}
+                st={selected === 1}
+              />
             </div>
-            <div onClick={() => settime("Evening")}>
-              <CustomCheckbox text={"Evening"} gap={"2"} />
+            <div onClick={() => setselected(2)}>
+              <CustomCheckbox text={"Evening"} gap={"2"} st={selected === 2} />
             </div>
           </div>
         </div>

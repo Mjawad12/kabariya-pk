@@ -6,10 +6,10 @@ import RightSec from "./RightSec";
 function HeroSec() {
   return (
     <div
-      className="max-w-[1320px] w-full m-auto 
+      className="max-w-[1440px] w-full m-auto 
       min-h-[calc(100vh-84px)] flex small:flex-col
      small:py-6 mob:pt-3 justify-center items-center px-4 small:px-0  
-     gap-5 small:gap-20 smaller:gap-12 "
+     gap-1 small:gap-20 smaller:gap-12 "
     >
       <div className="w-full ">
         <div className="flex flex-col  justify-start items-start gap-5 extLar:gap-3">
@@ -50,7 +50,7 @@ function HeroSec() {
             <div className="flex justify-start items-start gap-5 small:gap-3 ">
               <button
                 className="bg-black flex justify-center 
-            items-center w-[200px] med:w-[180px] smaller:w-[150px] gap-3 
+            items-center w-[200px] med:w-[180px] smaller:w-[160px] gap-3 
             pb-1 px-2 med:px-1 rounded-lg"
               >
                 {apple}

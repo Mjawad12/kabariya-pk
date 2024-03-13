@@ -26,7 +26,7 @@ function Testomonials() {
 
   return (
     <div className="w-full flex flex-col justify-center items-center min-h-max py-20">
-      <div className="flex flex-col justify-center items-center gap-4 ">
+      <div className="flex flex-col justify-center items-center gap-5 ">
         {FeedBack}
         <div className="flex flex-col justify-center items-center">
           <h2 className="font-pm font-med text-[1.7rem] smaller:text-[1.3rem]">
@@ -75,7 +75,7 @@ function Testomonials() {
           })}
         </Carousel>
       </div>
-      <button className="btn bg-white text-black border border-borderColorP rounded-[16.51px] max-w-[9.5rem] font-med text-[1.2rem] ">
+      <button className="btn bg-white text-black border border-borderColorP rounded-[16.51px] max-w-[9.5rem] font-med text-[1.2rem] mt-3 ">
         Show More
       </button>
     </div>
@@ -85,13 +85,11 @@ function Testomonials() {
 const CarasouelCard = ({ name, tagline, testmonial, index }) => {
   return (
     <div
-      className={`max-w-[17.3rem] w-full m-auto gap-4 border mx-[15px] shadow-sm
-       border-[#DADADA] ${
-         index === 1 && "border-[#00000064]"
-       }  h-[29rem] border-dashed rounded-[24.54px]
-    flex flex-col justify-start items-start px-8 pr-7 extLar:px-5 larger:px-4 small:px-5 py-[6rem] pb-[1rem] relative`}
+      className={`card max-w-[307px] small:max-w-[290px] w-full m-auto gap-4 border mx-[15px] small:mx-0 shadow-sm
+       border-[#DADADA] h-[480px] small:h-[435px] border-dashed rounded-[24.54px] hover:border-[#0000006f]
+    flex flex-col justify-start items-start px-8 pr-7 py-[6rem] pb-[1rem] relative`}
     >
-      <div className="rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
+      <div className="cardPic rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
         <Image
           src={`/Testomonials/${index + 1}.png`}
           width={5000}
@@ -105,7 +103,7 @@ const CarasouelCard = ({ name, tagline, testmonial, index }) => {
         <p className="font-se text-2xl">{name}</p>
         <p className="font-pm font-med ">{tagline}</p>
       </div>
-      <p className="font-pm text-[1rem] leading-[26.61px] [font-style:italic] min-h-[13rem] ">
+      <p className="font-pm text-[1.1rem] leading-[26.61px] [font-style:italic] min-h-[14rem] small:min-h-[10rem] ">
         "{testmonial}"
       </p>
 
@@ -124,7 +122,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
     <div
       style={{ translate: "-50% -50%" }}
       className="carousel-button-group  gap-4 flex justify-between 
-      items-center w-[90vw] m-auto absolute top-[50%] left-[50%] smaller:hidden"
+      items-center w-[90vw] m-auto absolute top-[50%] left-[50%] small:z-20 smaller:w-[98%]"
     >
       <button className="block" onClick={() => previous()}>
         {left}

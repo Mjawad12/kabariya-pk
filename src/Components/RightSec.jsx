@@ -11,7 +11,7 @@ function RightSec() {
       justify-center items-center px-7 pr-0 small:pl-0"
     >
       <div
-        className={`max-w-[698px] w-full  min-h-[507px]  relative flex flex-col
+        className={`max-w-[700px] w-full  min-h-[507px]  relative flex flex-col
          justify-start ${
            submitted && "justify-center"
          } items-center bg-white p-8 py-10 med:py-6 med:px-4 small:p-7 mob:p-5  gap-5 small:gap-8

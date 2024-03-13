@@ -6,12 +6,12 @@ import Image from "next/image";
 function ScrapCollect() {
   const [selected, setselected] = useState(1);
   return (
-    <div className="w-full  min-h-max">
-      <div className="max-w-[89vw] small:max-w-[100vw]  w-full m-auto  px-5  flex justify-start items-start gap-5 flex-col">
-        <h3 className="font-pm font-bol text-[1.8rem] small:text-[1.5rem] smaller:text-[1.3rem] ">
+    <div className="w-full bg-[#FCFCFC]  min-h-max pb-20">
+      <div className="max-w-[89vw]  small:max-w-[100vw]  w-full m-auto  px-5  flex justify-start items-start gap-5 flex-col">
+        <h3 className="font-pm font-med text-[1.8rem] small:text-[1.5rem] smaller:text-[1.3rem] ">
           We collect this type scrap at your door step through our app.
         </h3>
-        <div className="w-full flex mt-2 justify-start flex-wrap items-center gap-2">
+        <div className="w-full flex mt-2 justify-start flex-wrap items-center gap-2 ">
           {Scrapitems.map((it, index) => {
             return (
               <ScrapBtn
@@ -27,7 +27,7 @@ function ScrapCollect() {
 
         <div
           className="w-full flex flex-col justify-start items-start border border-borderColorP
-        px-8 py-14 gap-6 rounded-[20.54px] hover:shadow-xl small:py-10 mob:px-3 transition-all duration-300 mt-[3rem]  "
+        px-8 py-14 gap-6 rounded-[20.54px] hover:shadow-xl small:py-10 mob:px-3 transition-all duration-300 mt-[3rem] bg-white  "
         >
           <p className="font-se text-6xl  small:text-5xl">
             {Scrapitems[selected].name}
@@ -37,7 +37,7 @@ function ScrapCollect() {
             the ones listed below. Additionally, we also accept other items
             through custom offers.
           </p>
-          <div className="w-full flex justify-start  items-center flex-wrap gap-2 gap-y-3 ">
+          <div className="w-full flex justify-start  items-center flex-wrap gap-2 gap-y-3  ">
             {Scrapitems[selected].items.map((it, index) => (
               <ScrapItem key={index} text={it} index={index} />
             ))}
@@ -74,7 +74,7 @@ const ScrapItem = ({ text, index }) => {
         height={5000}
         className="w-8 h-8 small:w-6 small:h-6"
       />
-      <p className="font-pm font-med small:text-[0.9rem] mob:text-[0.7rem] ">
+      <p className="font-pm font-med small:text-[0.9rem] mob:text-[0.8rem] ">
         {text}
       </p>
     </div>

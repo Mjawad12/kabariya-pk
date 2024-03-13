@@ -51,6 +51,12 @@ td {
   top: -0px;
   left: -0px;
 }
+.rdtDay {
+  font-weight: 500;
+}
+.rdtToday {
+  color: #0cbc8b !important;
+}
 .rdtDay:hover {
   background-color: black !important;
   color: white !important;
@@ -77,6 +83,13 @@ tfoot {
   position: absolute;
   inset: 0;
 }
+.dashedDiv {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='18' ry='18' stroke='rgba(255, 255, 255, 1)' stroke-width='1.5' stroke-dasharray='7.5%2c 12' stroke-dashoffset='25' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 18px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 98% 98%;
+}
 
 .edge {
   border-bottom: 256px solid #f3fcf9;
@@ -97,6 +110,9 @@ tfoot {
     rgba(17, 209, 0, 0.3) 100%
   );
 }
+.rdt {
+  width: 100%;
+}
 
 @media (max-width: 1062px) {
   .bg1 {
@@ -115,6 +131,21 @@ tfoot {
   }
 }
 
+@media (max-width: 1640px) {
+  table {
+    border-spacing: 0.8em 0.45em !important;
+    border-collapse: separate;
+  }
+  .rdt {
+    position: absolute !important;
+    top: -0px;
+    left: -0;
+  }
+  .rdtSwitch {
+    height: 3rem !important;
+  }
+}
+
 @media (max-width: 1256px) and (min-width: 969px) {
   table {
     border-spacing: 0.3em 0.2em;
@@ -127,6 +158,13 @@ tfoot {
   }
 }
 
+@media (max-width: 1141px) {
+  .rdt {
+    position: absolute !important;
+    top: -0px;
+    left: -25px;
+  }
+}
 @media (max-width: 969px) {
   table {
     border-spacing: 3em 0.2em !important;
@@ -136,7 +174,9 @@ tfoot {
     border-bottom: 216px solid #f3fcf9;
   }
   .rdt {
-    width: 100%;
+    position: absolute !important;
+    top: -0px;
+    left: -0px;
   }
 }
 @media (max-width: 747px) {
@@ -165,7 +205,7 @@ tfoot {
 }
 
 .mP {
-  background: linear-gradient(#f3fcf9 22.2%, rgba(255, 255, 255, 0) 73.52%);
+  background: linear-gradient(#f3fcf9 90%, rgba(243, 252, 249, 0.356) 10%);
 }
 
 .react-multi-carousel-track li {
@@ -178,4 +218,11 @@ tfoot {
   display: flex !important ;
   justify-content: center !important ;
   align-items: center !important ;
+}
+
+.react-multi-carousel-list {
+  z-index: 20;
+}
+.card:hover .cardPic {
+  border-color: black;
 }

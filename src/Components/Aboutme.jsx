@@ -22,14 +22,14 @@ function Aboutme() {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-start items-start gap-10 smaller:gap-7">
+        <div className="flex flex-col justify-start items-start gap-7 smaller:gap-7">
           <h2 className="font-pm font-bol text-6xl smaller:text-5xl  text-white">
             About us
           </h2>
           <p
             className="font-open text-white text-[20.5px] smaller:text-[17px]  max-w-[60ch]
             extLar:text-[19px] extLar:max-w-[55ch]   larger:text-[17px] larger:max-w-[58ch] 
-            large:text-[15px] large:max-w-[58ch]  med:text-[14px]  w-full small:max-w-[60ch] small:text-[18px] "
+            large:text-[15px] large:max-w-[58ch]  med:text-[14px]  w-full small:max-w-[60ch] small:text-[18px] mt-3  "
           >
             Welcome to Kabariya, your trusted scrap management and recycling
             partner. We're here to revolutionize the way you interact with scrap
@@ -37,8 +37,9 @@ function Aboutme() {
             you're an individual or a business.
           </p>
           <button
-            className="btn bg-[#FFFFFF1A] border boder-[#FFFFFF80] 
-          font-pm font-reg max-w-[166px] "
+            style={{ border: "0.59px solid #FFFFFF80" }}
+            className="btn bg-[#FFFFFF1A]
+          font-pm font-reg max-w-[8.8rem] rounded-[16.51px] h-[3.2rem]  "
           >
             Learn More
           </button>

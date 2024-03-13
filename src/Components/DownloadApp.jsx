@@ -5,8 +5,8 @@ import Image from "next/image";
 function DownloadApp() {
   return (
     <div className="w-full min-h-max">
-      <div className="max-w-[1320px] w-full px-14 flex justify-between items-center m-auto gap-5  small:gap-14 smaller:px-5 small:flex-col">
-        <div className="flex-1 flex-grow-[0.55]  flex flex-col justify-start items-start w-full gap-5 small:gap-4 smaller:gap-3 ">
+      <div className="max-w-[1440px] w-full px-14 flex justify-between items-center m-auto gap-5  small:gap-14 smaller:px-5 small:flex-col pt-10">
+        <div className="flex-1 flex-grow-[0.52]  flex flex-col justify-start items-start w-full gap-5 small:gap-4 smaller:gap-3 ">
           <h4
             className="font-pm font-bol text-[3.6rem] larger:text-[3.2rem] large:text-[3rem]
            max-w-[13.7ch] leading-[70.6px] small:leading-[58px] smaller:text-[2rem] smaller:leading-[40px]  "
@@ -18,16 +18,16 @@ function DownloadApp() {
             app. Download now and discover a world of effortless scrap selling,
             accurate weighing, competitive pricing, and secure payments.
           </p>
-          <div className="flex justify-start items-start gap-5 small:gap-3 mt-5 ">
+          <div className="flex justify-start items-start gap-5 small:gap-3 mt-5 smallest:flex-col smallest:justify-center smallest:items-center smallest:w-full ">
             <button
               className="bg-black flex justify-center 
-            items-center w-[200px] med:w-[180px] smaller:w-[150px] gap-3 
+            items-center w-[200px] med:w-[180px] smaller:w-[155px]  gap-3 
             pb-1 px-2 med:px-1 rounded-lg"
             >
               {apple}
               <div
                 className="flex flex-col justify-center 
-              items-center h-[60px] med:h-[52px] mob:h-[50px] "
+              items-center h-[60px] med:h-[52px] mob:h-[50px]  "
               >
                 <p
                   className="text-white text-[12px] 
@@ -69,7 +69,7 @@ function DownloadApp() {
             </button>
           </div>
         </div>
-        <div className="flex-1 flex-grow-[0.45] small:max-w-[30rem]  w-full ">
+        <div className="flex-1 flex-grow-[0.48] small:max-w-[30rem]  w-full ">
           <Image
             src="/mobileDownload.png"
             width={5000}

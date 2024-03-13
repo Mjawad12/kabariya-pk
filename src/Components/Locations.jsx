@@ -17,15 +17,15 @@ function Locations() {
         </div>
 
         <div
-          className="max-w-[1320px] w-full px-16 larger:px-6 small:gap-5 m-auto flex small:flex-col small:pt-5
+          className="max-w-[1440px] w-full px-16 larger:px-6 small:gap-5 m-auto flex small:flex-col small:pt-5
             small:px-5 justify-between items-center z-20"
         >
-          <div className="flex-1 flex-grow-[0.55]  flex flex-col justify-start items-start gap-10 small:gap-5">
+          <div className="flex-1 flex-grow-[0.54]  flex flex-col justify-start items-start gap-10 small:gap-5">
             <div>
-              <h3 className="font-pm font-bol text-6xl flex gap-2 small:text-5xl smaller:text-4xl justify-center items-center">
+              <h3 className="font-pm font-bol text-7xl flex gap-2 small:text-5xl smaller:text-4xl justify-center items-center">
                 {locationIcon} Our Presence
               </h3>
-              <h3 className="font-se text-6xl small:text-5xl smaller:text-4xl ">
+              <h3 className="font-se  text-7xl small:text-5xl smaller:text-4xl ">
                 Across{" "}
                 <span className="text-primaryGreen relative">
                   Nation
@@ -36,7 +36,7 @@ function Locations() {
                 </span>
               </h3>
             </div>
-            <p className="font-open text-[1.2rem] small:text-[1rem] ">
+            <p className="font-open text-[1.3rem] small:text-[1rem] ">
               The Kabariya has established its services in karachi cities of
               Pakistan and is now expanding its reach in other parts of the
               country.
@@ -51,7 +51,7 @@ function Locations() {
               ))}
             </div>
           </div>
-          <div className="w-full flex-1 flex-grow-[0.45] z-20  ">
+          <div className="w-full flex-1 flex-grow-[0.46] z-20  ">
             <Image
               style={{
                 filter: "drop-shadow(3px 10px 16px rgba(67, 66, 66, .486))",
@@ -80,7 +80,7 @@ function Locations() {
           style={{ textShadow: "0px 0px 2px #00000052" }}
           className="w-full font-pm text-[13.2vw] relative
           right-12 med:right-10 med:text-[13.4vw] small:text-[13.2vw] small:right-5
-          smaller:right-4 whitespace-nowrap text-center font-bol text-white leading-[200px] extLar:leading-[190px] 
+          smaller:right-4 whitespace-nowrap text-center font-bol text-white leading-[210px] extLar:leading-[190px] 
            larger:leading-[180px] large:leading-[170px] small:leading-[140px] smaller:leading-[90px]  "
         >
           Scrap Collection

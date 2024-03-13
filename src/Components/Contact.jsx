@@ -23,7 +23,7 @@ function Contact() {
           </p>
         </div>
         <div
-          className="w-full bg-black p-7 small:p-6  rounded-[55px] small:rounded-[40px]
+          className="w-full bg-black p-7 small:p-6  rounded-[55px] small:rounded-[35px]
             flex justify-between items-center small:flex-col small:gap-5"
         >
           <div

@@ -5,7 +5,7 @@ function Whyus() {
   return (
     <div className="w-full  ">
       <div
-        className="w-full max-w-[1320px] min-h-max flex flex-col justify-start
+        className="w-full max-w-[1440px] min-h-max flex flex-col justify-start
        items-start gap-10 m-auto pt-28 pb-6 px-7 pr-4 larger:px-10 small:px-6"
       >
         <div className="flex flex-col justify-start items-start">
