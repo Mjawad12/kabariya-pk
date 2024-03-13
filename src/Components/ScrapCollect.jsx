@@ -37,7 +37,7 @@ function ScrapCollect() {
             the ones listed below. Additionally, we also accept other items
             through custom offers.
           </p>
-          <div className="w-full flex justify-start smaller:justify-between Smob:justify-center  items-center flex-wrap gap-2 gap-y-3 ">
+          <div className="w-full flex justify-start  items-center flex-wrap gap-2 gap-y-3 ">
             {Scrapitems[selected].items.map((it, index) => (
               <ScrapItem key={index} text={it} index={index} />
             ))}
@@ -64,7 +64,7 @@ const ScrapBtn = ({ text, selected, setselected, index }) => {
 const ScrapItem = ({ text, index }) => {
   return (
     <div
-      className="bg-white border border-borderColorP pl-4 py-[0.85rem] w-[12.5rem] small:w-[10rem] mob:w-[9.5rem] Smob:w-[8rem] small:pl-2
+      className="bg-white border border-borderColorP pl-4 py-[0.85rem] w-[12.5rem] small:w-[9.5rem] Smob:w-[8rem] small:pl-2
          rounded-[22.54px] small:rounded-[20px]  flex justify-start items-center gap-2 "
     >
       <Image

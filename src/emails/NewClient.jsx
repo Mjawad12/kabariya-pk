@@ -1,22 +1,15 @@
 import {
   Body,
-  Button,
   Container,
   Column,
   Head,
   Heading,
   Html,
-  Img,
-  Preview,
   Row,
   Section,
   Text,
 } from "@react-email/components";
 import * as React from "react";
-
-const baseUrl = process.env.VERCEL_URL
-  ? `https://${process.env.VERCEL_URL}`
-  : "";
 
 export const YelpRecentLoginEmail = (details) => {
   const {

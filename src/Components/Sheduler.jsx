@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useMemo, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { arrowDown, gallery, item, shedule, tick, user } from "./Consonants";
 import BasicDateCalendar from "./Calender";
 
@@ -81,11 +81,10 @@ const Form = ({ selected, setselected, setsubmitted }) => {
         "-" +
         selectedDate.getFullYear(),
     };
-    const data = await fetch("https://kabariya-pk.vercel.app/api/emailSend", {
+    await fetch("https://kabariya.pk/api/email", {
       body: JSON.stringify(details),
       method: "POST",
     });
-    console.log(await data.json());
   };
 
   return (
