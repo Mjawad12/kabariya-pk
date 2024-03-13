@@ -11,7 +11,6 @@ export default function BasicDateCalendar({ setselectedDate, selectedDate }) {
       it.innerHTML = days[index];
       it.style.fontSize = "0.9rem";
     });
-    console.log(document.querySelector(".form-control").value);
   }, []);
 
   return (

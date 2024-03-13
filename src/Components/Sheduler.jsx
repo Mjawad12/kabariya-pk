@@ -64,7 +64,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
 
   const SUBMIT = async () => {
     const details = {
-      name: name.current.value,
+      username: name.current.value,
       phone: phone.current.value,
       address: address.current.value,
       email: email.current.value,
@@ -350,11 +350,9 @@ const Options2 = ({
                         }
                       });
                       settype(ty);
-                      console.log(ty);
                     } else {
                       const ty = [...type, it];
                       settype(ty);
-                      console.log(ty);
                     }
                   }}
                 >

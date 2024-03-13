@@ -16,9 +16,9 @@ function Aboutme() {
             <Image
               src={"/pic.png"}
               width={480}
-              height={350}
-              alt="pic"
-              className="z-20 relative large:w-[410px] med:w-[380px] small:w-[350px] smaller:w-[310px] "
+              height={480}
+              alt="About me"
+              className="z-20 relative large:w-[410px] med:w-[380px] small:w-[350px] smaller:w-[310px]"
             />
           </div>
         </div>

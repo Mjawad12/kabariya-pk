@@ -25,14 +25,27 @@ export const YelpRecentLoginEmail = (details) => {
     date,
     time,
   } = details;
+
+  const baseUrl = process.env.VERCEL_URL
+    ? `https://${process.env.VERCEL_URL}`
+    : "";
+
   return (
     <Html>
       <Head />
       <Body style={main}>
         <Container>
           <Section style={content}>
+            <Image src="" />
             <Row style={{ ...boxInfos, paddingBottom: "0" }}>
               <Column>
+                {/* <Img
+                  src={`${baseUrl}/static/vercel-logo.png`}
+                  width="40"
+                  height="37"
+                  alt="Vercel"
+                  className="my-0 mx-auto"
+                /> */}
                 <Heading
                   style={{
                     fontSize: 32,
@@ -40,7 +53,7 @@ export const YelpRecentLoginEmail = (details) => {
                     textAlign: "center",
                   }}
                 >
-                  New Client from {username}
+                  New Client : {username}
                 </Heading>
                 <Heading
                   as="h2"
@@ -144,7 +157,11 @@ export const YelpRecentLoginEmail = (details) => {
                 >
                   Remarks
                 </Heading>
-                <Text style={{ ...paragraph, marginTop: -5 }}>{remarks}</Text>
+                <Text
+                  style={{ ...paragraph, marginTop: -5, fontStyle: "italics" }}
+                >
+                  {remarks}
+                </Text>
               </Column>
             </Row>
           </Section>
