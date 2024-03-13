@@ -81,7 +81,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
         "-" +
         selectedDate.getFullYear(),
     };
-    await fetch("https://kabariya.pk/api/email", {
+    await fetch("http://localhost:3000/api/email", {
       body: JSON.stringify(details),
       method: "POST",
     });

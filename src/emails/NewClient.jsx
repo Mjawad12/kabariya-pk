@@ -36,7 +36,6 @@ export const YelpRecentLoginEmail = (details) => {
       <Body style={main}>
         <Container>
           <Section style={content}>
-            <Image src="" />
             <Row style={{ ...boxInfos, paddingBottom: "0" }}>
               <Column>
                 {/* <Img
@@ -183,40 +182,12 @@ const paragraph = {
   fontSize: 16,
 };
 
-const logo = {
-  padding: "30px 20px",
-};
-
-const containerButton = {
-  display: "flex",
-  justifyContent: "center",
-  width: "100%",
-};
-
-const button = {
-  backgroundColor: "#e00707",
-  borderRadius: 3,
-  color: "#FFF",
-  fontWeight: "bold",
-  border: "1px solid rgb(0,0,0, 0.1)",
-  cursor: "pointer",
-  padding: "12px 30px",
-};
-
 const content = {
   border: "1px solid rgb(0,0,0, 0.1)",
   borderRadius: "3px",
   overflow: "hidden",
 };
 
-const image = {
-  maxWidth: "100%",
-};
-
 const boxInfos = {
   padding: "20px",
-};
-
-const containerImageFooter = {
-  padding: "45px 0 0 0",
 };

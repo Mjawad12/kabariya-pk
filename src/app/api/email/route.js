@@ -5,15 +5,15 @@ export async function POST(req) {
   const resend = new Resend("re_5zUXTyRk_5YjQ9pTa7WGchv55CiBuEVqH");
   const details = await req.json();
   try {
-    await resend.emails.send({
+    const status = await resend.emails.send({
       from: `onreply@${process.env.EMAIL_URL}`,
       to: "kabariyaofficialpk@gmail.com",
       subject: "New Client",
       react: NewClient(details),
     });
+    return Response.json({ status });
   } catch (error) {
     console.log(error.message);
+    return Response.json({ error: error.message });
   }
-
-  return Response.json({ status: "ok" });
 }
