@@ -87,7 +87,7 @@ const CarasouelCard = ({ name, tagline, testmonial, index }) => {
     <div
       className={`card max-w-[307px] small:max-w-[290px] w-full m-auto gap-4 border mx-[15px] small:mx-0 shadow-sm
        border-[#DADADA] h-[480px] small:h-[435px] border-dashed rounded-[24.54px] hover:border-[#0000006f]
-    flex flex-col justify-start items-start px-8 pr-7 py-[6rem] pb-[1rem] relative`}
+    flex flex-col justify-start items-start px-8 pr-7 py-[6rem] pb-[1rem] relative bg-white`}
     >
       <div className="cardPic rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
         <Image
