@@ -27,7 +27,7 @@ function ScrapCollect() {
 
         <div
           className="w-full flex flex-col justify-start items-start border border-borderColorP
-        px-8 py-14 gap-6 rounded-[20.54px] hover:shadow-xl small:py-10 mob:px-3 transition-all duration-300 mt-[3rem] bg-white  "
+        px-8 py-14 gap-6 rounded-[20.54px] hover:shadow-xl small:py-10 smaller:px-3 transition-all duration-300 mt-[3rem] bg-white  "
         >
           <p className="font-se text-6xl  small:text-5xl">
             {Scrapitems[selected].name}
@@ -37,7 +37,7 @@ function ScrapCollect() {
             the ones listed below. Additionally, we also accept other items
             through custom offers.
           </p>
-          <div className="w-full flex justify-start  items-center flex-wrap gap-2 gap-y-3  ">
+          <div className="w-full flex justify-start items-center flex-wrap gap-2 gap-y-3  ">
             {Scrapitems[selected].items.map((it, index) => (
               <ScrapItem key={index} text={it} index={index} />
             ))}
@@ -64,8 +64,8 @@ const ScrapBtn = ({ text, selected, setselected, index }) => {
 const ScrapItem = ({ text, index }) => {
   return (
     <div
-      className="bg-white border border-borderColorP pl-4 py-[0.85rem] w-[12.5rem] small:w-[9.5rem] Smob:w-[8rem] small:pl-2
-         rounded-[22.54px] small:rounded-[20px]  flex justify-start items-center gap-2 "
+      className="scrapBtn bg-white border border-borderColorP pl-4 py-[0.85rem] w-[12.5rem] small:w-[12rem] small:pl-2 smaller:w-[10.5rem] Smob:w-[8.5rem] 
+         rounded-[22.54px] small:rounded-[20px]  flex justify-start items-center gap-2 Smob:gap-1 "
     >
       <Image
         src={`/ElectrinocsSvgs/${Scrapitems["1"].items[index]}.png`}

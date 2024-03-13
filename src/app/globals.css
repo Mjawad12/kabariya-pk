@@ -226,3 +226,19 @@ tfoot {
 .card:hover .cardPic {
   border-color: black;
 }
+
+@media (max-width: 409px) {
+  .scrapBtn {
+    width: 10rem !important;
+  }
+}
+@media (max-width: 393px) {
+  .scrapBtn {
+    width: 9.5rem !important;
+  }
+}
+@media (max-width: 377px) {
+  .scrapBtn {
+    width: 9rem !important;
+  }
+}

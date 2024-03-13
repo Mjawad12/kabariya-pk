@@ -221,34 +221,34 @@ const Options1 = ({
         className="w-[48%] outline-none focus:border-black  extLar:w-[47%] small:w-full  h-[3rem] small:h-[3.5rem]
          rounded-xl px-5 pr-4 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms] flex justify-between items-center relative "
       >
-        <p className="gont-pm text-gray-400">{selectedOption}</p> {arrowDown}
+        <p className="gont-pm text-black ">{selectedOption}</p> {arrowDown}
         <div
           className={`absolute ${
             show ? "flex" : "hidden"
-          } w-full left-0 top-[36px] flex justify-start flex-col items-start bg-white border-borderColorP border`}
+          } w-full left-0 top-[36px] py-3 flex justify-start flex-col items-start bg-white border-borderColorP border`}
         >
           <span
             onClick={changeSelected}
-            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
             value="pakistan"
             selected
           >
             Karachi
           </span>
           <span
-            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
             onClick={changeSelected}
           >
             Islamabad
           </span>
           <span
-            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
             onClick={changeSelected}
           >
             Lahore
           </span>
           <span
-            className="flex justify-start items-center h-6 w-full px-5 py-2 hover:bg-gray-200 "
+            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
             onClick={changeSelected}
           >
             Multan
@@ -257,9 +257,8 @@ const Options1 = ({
       </div>
       <input
         type="email"
-        required
         ref={email}
-        placeholder="Email"
+        placeholder="Email (optional)"
         className="  w-[48%] outline-none focus:border-black   extLar:w-[47%] small:w-full  h-[3rem] small:h-[3.5rem]  rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
       />
       <textarea

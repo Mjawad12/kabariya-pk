@@ -42,7 +42,7 @@ function WatchVideo() {
             className="max-w-[23.5rem] w-full flex justify-center 
             items-center  rounded-[24.54px] bg-white 
             font-pm font-med text-2xl p-[0.9rem] gap-5 
-            border border-borderColorP small:text-[0.9rem] "
+            border border-borderColorP  small:text-[1.2rem] small:max-w-[20rem] smaller:max-w-[15.5rem] smaller:rounded-[18px] smaller:gap-3 smaller:py-[0.6rem] smaller:text-[1rem] "
           >
             {play2}
             View youtube channel

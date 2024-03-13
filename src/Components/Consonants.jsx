@@ -501,7 +501,7 @@ const play2 = (
     height="41"
     viewBox="0 0 41 41"
     fill="none"
-    className="bg-black rounded-full "
+    className="bg-black rounded-full smaller:w-[30px] smaller:h-[30px] "
   >
     <path
       d="M25.2012 19.0786L19.7393 15.4373C18.604 14.6804 17.0833 15.4943 17.0833 16.8587V24.1413C17.0833 25.5057 18.604 26.3196 19.7393 25.5627L25.2012 21.9214C26.2155 21.2452 26.2155 19.7548 25.2012 19.0786Z"
