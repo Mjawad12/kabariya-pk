@@ -87,15 +87,11 @@ const Form = ({ selected, setselected, setsubmitted }) => {
     };
     const urls = await Upload(files);
     details.imgUrls = urls;
-    await fetch("http://localhost:3000/api/email", {
+    await fetch("https://kabariya.pk/api/email", {
       body: JSON.stringify(details),
       method: "POST",
     });
   };
-
-  useEffect(() => {
-    console.log(files);
-  }, [files]);
 
   const Upload = async (files) => {
     var url = [];
