@@ -6,9 +6,9 @@ import Image from "next/image";
 function ScrapCollect() {
   const [selected, setselected] = useState(1);
   return (
-    <div className="w-full bg-[#FCFCFC]  min-h-max pb-20">
+    <div className="w-full bg-[#FCFCFC]  min-h-max pb-24 small:pb-14">
       <div className="max-w-[89vw]  small:max-w-[100vw]  w-full m-auto  px-5  flex justify-start items-start gap-5 flex-col">
-        <h3 className="font-pm font-med text-[1.8rem] small:text-[1.5rem] smaller:text-[1.3rem] ">
+        <h3 className="font-pm font-med text-[1.8rem] small:text-[1.7rem] ">
           We collect this type scrap at your door step through our app.
         </h3>
         <div className="w-full flex mt-2 justify-start flex-wrap items-center gap-2 ">

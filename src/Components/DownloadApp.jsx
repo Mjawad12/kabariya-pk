@@ -5,15 +5,15 @@ import Image from "next/image";
 function DownloadApp() {
   return (
     <div className="w-full min-h-max">
-      <div className="max-w-[1440px] w-full px-14 flex justify-between items-center m-auto gap-5  small:gap-14 smaller:px-5 small:flex-col pt-10">
-        <div className="flex-1 flex-grow-[0.52]  flex flex-col justify-start items-start w-full gap-5 small:gap-4 smaller:gap-3 ">
+      <div className="max-w-[1400px] w-full px-14 flex justify-between items-center m-auto gap-5  small:gap-14 smaller:px-5 small:flex-col pt-10">
+        <div className="flex-1 flex-grow-[0.55]  flex flex-col justify-start items-start w-full gap-5 small:gap-4 smaller:gap-3 ">
           <h4
-            className="font-pm font-bol text-[3.6rem] larger:text-[3.2rem] large:text-[3rem]
-           max-w-[13.7ch] leading-[70.6px] small:leading-[58px] smaller:text-[2rem] smaller:leading-[40px]  "
+            className="font-pm font-med text-[3.6rem] larger:text-[3.2rem] large:text-[3rem]
+           max-w-[14.7ch] leading-[70.6px] small:leading-[58px] smaller:text-[2rem] smaller:leading-[40px]  "
           >
             Make Easy your Life with Download the Kabariya app
           </h4>
-          <p className="font-pm font-med  text-[1.25rem] larger:text-[1.1rem]  max-w-[45.5ch] text-[#7E7E7E] leading-[33px] small:leading-[25px] ">
+          <p className="font-pm font-med  text-[1.3rem] larger:text-[1.1rem]  max-w-[45.5ch] text-[#7E7E7E] leading-[33px] small:leading-[25px] ">
             Transform the way you manage your scrap with the Kabariya mobile
             app. Download now and discover a world of effortless scrap selling,
             accurate weighing, competitive pricing, and secure payments.
@@ -69,7 +69,7 @@ function DownloadApp() {
             </button>
           </div>
         </div>
-        <div className="flex-1 flex-grow-[0.48] small:max-w-[30rem]  w-full ">
+        <div className="flex-1 flex-grow-[0.45] small:max-w-[30rem]  w-full ">
           <Image
             src="/mobileDownload.png"
             width={5000}

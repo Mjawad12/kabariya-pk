@@ -25,8 +25,8 @@ function Testomonials() {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center min-h-max py-20">
-      <div className="flex flex-col justify-center items-center gap-5 ">
+    <div className="w-full flex flex-col justify-center items-center min-h-max py-20 pt-24 smaller:py-16 smaller:pt-14 ">
+      <div className="flex flex-col justify-center items-center gap-5 small:gap-3 ">
         {FeedBack}
         <div className="flex flex-col justify-center items-center">
           <h2 className="font-pm font-med text-[1.7rem] smaller:text-[1.3rem]">
@@ -36,12 +36,19 @@ function Testomonials() {
             Customer Reviews
           </h3>
         </div>
-        <p className="font-open text-1xl max-w-[46ch] text-center mt-2 small:mt-1 small:text-[0.9rem] small:max-w-[40ch] ">
+        <p className="font-open text-1xl max-w-[46ch] text-center mt-2 small:mt-1 small:text-[0.9rem] small:max-w-[35ch]">
           See the impact of our services through client stories. Experience
           satisfaction in a snapshot.
         </p>
       </div>
-      <div className="w-full mt-16 px-[9rem] extLar:px-[6rem] larger:px-[5rem] small:px-2 relative ">
+      <div className="w-full mt-16 small:my-7 px-[9rem] extLar:px-[6rem] larger:px-[5rem] small:px-2 relative  ">
+        <div
+          style={{
+            background:
+              "linear-gradient(180deg, rgba(255,255,255,1) 5%, rgba(243,252,249,1) 53%, rgba(255,255,255,1) 95%)",
+          }}
+          className="w-full absolute top-[50%] translate-y-[-50%] left-0 h-[480px] small:h-[435px]"
+        ></div>
         <Carousel
           sliderclassName="Slider"
           swipeable={true}
@@ -75,7 +82,7 @@ function Testomonials() {
           })}
         </Carousel>
       </div>
-      <button className="btn bg-white text-black border border-borderColorP rounded-[16.51px] max-w-[9.5rem] font-med text-[1.2rem] mt-3 ">
+      <button className="btn bg-white text-black border border-borderColorP rounded-[16.51px] max-w-[9.5rem] h-[3.1rem] font-med text-[1.2rem] mt-3 ">
         Show More
       </button>
     </div>

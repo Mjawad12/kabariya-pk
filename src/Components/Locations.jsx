@@ -5,7 +5,7 @@ import { locationIcon, locations } from "./Consonants";
 function Locations() {
   return (
     <div className="flex flex-col w-full pt-[6rem] ">
-      <div className="w-full relative flex justify-center items-center min-h-[130vh] small:min-h-screen  small:py-[6rem] smaller:py-[4rem]  ">
+      <div className="w-full relative flex justify-center items-center min-h-[125vh] small:min-h-screen  small:py-[6rem] smaller:py-[4rem]  ">
         <div className="absolute top-0 left-0 w-full">
           <Image
             src={"/locationOnline.png"}
@@ -36,7 +36,7 @@ function Locations() {
                 </span>
               </h3>
             </div>
-            <p className="font-open text-[1.3rem] small:text-[1rem] ">
+            <p className="font-open text-[21px] small:text-[1rem] ">
               The Kabariya has established its services in karachi cities of
               Pakistan and is now expanding its reach in other parts of the
               country.

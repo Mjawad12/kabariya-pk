@@ -57,11 +57,11 @@ const ProcessContainer = ({ index, color, desc, tag, title }) => {
   return (
     <>
       <div
-        className={`max-w-[21rem] w-full h-[21rem] border
+        className={`max-w-[23rem] small:max-w-[21.5rem] small:min-h-[21.5rem] mob:min-h-[20rem]  w-full min-h-[22rem] border
        border-borderColorP ${
          (index === 0 || index === 2) && "shadow-xl"
        } hover:shadow-xl 
-        flex flex-col justify-center items-center relative gap-5 px-6 rounded-[20.54px] z-30 bg-white`}
+        flex flex-col justify-center items-center relative gap-5 px-7 rounded-[20.54px] z-30 bg-white`}
       >
         <span
           style={{ backgroundColor: color }}
@@ -75,15 +75,22 @@ const ProcessContainer = ({ index, color, desc, tag, title }) => {
           src={"/app.png"}
           width={5000}
           height={5000}
-          className="w-[4.5rem] h-[4.5rem]"
+          className="w-[4.9rem] h-[4.9rem]"
           alt="app"
         />
 
         <div className="flex flex-col justify-center items-center gap-1">
-          <p style={{ color: color }}>{tag}</p>
+          <p
+            style={{ color: color }}
+            className="text-[16.28px] font-pm font-med"
+          >
+            {tag}
+          </p>
           <div className="flex flex-col justify-center items-center gap-3">
             <p className="text-[1.4rem] font-bol font-pm">{title}</p>
-            <p className="font-open text-center text-[0.95rem]">{desc}</p>
+            <p className="font-open text-center text-[16.28px] small:text-[15px] ">
+              {desc}
+            </p>
           </div>
         </div>
       </div>

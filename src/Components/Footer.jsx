@@ -26,7 +26,7 @@ function Footer() {
             </li>
 
             <li className="font-pm text-[1.05rem] smaller:text-[0.95rem] max-w-[25ch] med:text-center ">
-              Guslistan e johar block 19 street 13 shop #34, karachi Pakistan
+              36-F PECHS Block 6 Karachi, Pakistan.
             </li>
           </ul>
         </div>
@@ -94,10 +94,10 @@ const Banner = () => {
   return (
     <div className="w-full bg-[#1A1A1A] ">
       <div className="max-w-[1320px]  flex justify-between items-center py-5 px-5 m-auto small:flex-col small:justify-center  small:items-center small:gap-3">
-        <p className="font-pm text-[#FFFFFF] text-center ">
-          Design & Developed by Hokrex
+        <p className="font-pm text-[#FFFFFF] text-center smaller:text-[0.9rem]">
+          Design & Developed by Kabariya technologies (Pvt ltd.)
         </p>
-        <p className="text-[#FFFFFF] text-center">
+        <p className="text-[#FFFFFF] text-center smaller:text-[0.9rem]">
           All copyrights reserved © Kabariya technologies (Pvt ltd.)
         </p>
       </div>

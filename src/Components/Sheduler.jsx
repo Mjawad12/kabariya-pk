@@ -2,6 +2,9 @@
 import React, { useEffect, useRef, useState } from "react";
 import { arrowDown, gallery, item, shedule, tick, user } from "./Consonants";
 import BasicDateCalendar from "./Calender";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { imageDb } from "@/Firbase/ConfigFirebase";
+import { v4 } from "uuid";
 
 function Sheduler({ setsubmitted }) {
   const [selected, setselected] = useState(0);
@@ -49,6 +52,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
   const address = useRef(null);
   const phone = useRef(null);
   const remarks = useRef(null);
+  const [files, setfiles] = useState([]);
 
   const submitForm = (e) => {
     const valid = form.current.checkValidity();
@@ -81,10 +85,38 @@ const Form = ({ selected, setselected, setsubmitted }) => {
         "-" +
         selectedDate.getFullYear(),
     };
-    await fetch("https://kabariya.pk/api/email", {
+    const urls = await Upload(files);
+    details.imgUrls = urls;
+    await fetch("http://localhost:3000/api/email", {
       body: JSON.stringify(details),
       method: "POST",
     });
+  };
+
+  useEffect(() => {
+    console.log(files);
+  }, [files]);
+
+  const Upload = async (files) => {
+    var url = [];
+    for (let i = 0; i < files.length; i++) {
+      const form = new FormData();
+      form.append("file", files[i]);
+      form.append("upload_preset", "Kabariya");
+      form.append("cloud_name", "djvrf1sme");
+
+      const data = await fetch(
+        "https://api.cloudinary.com/v1_1/djvrf1sme/image/upload",
+        {
+          method: "POST",
+          body: form,
+        }
+      );
+      const parsedData = await data.json();
+      url.push(parsedData.url);
+    }
+    console.log(url);
+    return url;
   };
 
   return (
@@ -108,6 +140,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
             remarks={remarks}
             setpupolar={setpupolar}
             pupolar={pupolar}
+            files={files}
           />
         </div>
         <div className={`w-full ${selected != 2 && "hidden"}`}>
@@ -123,7 +156,24 @@ const Form = ({ selected, setselected, setsubmitted }) => {
               onClick={() => document.querySelector("#fileInput").click()}
               className="flex justify-center items-center gap-2"
             >
-              <input type="file" id="fileInput" className="hidden" />
+              <input
+                type="file"
+                id="fileInput"
+                accept="image/*"
+                onInput={(e) => {
+                  const duplicate = files.some((it) => {
+                    return (
+                      it.name.toString() === e.target.files[0]?.name.toString()
+                    );
+                  });
+
+                  if (!duplicate && files.length < 3) {
+                    const images = [...files, e.target?.files[0]];
+                    setfiles(images);
+                  }
+                }}
+                className="hidden"
+              />
               {gallery}
               <p className="[text-decoration:underline] max-w-max whitespace-nowrap font-pm font-med text-secondaryGreen">
                 Upload Images
@@ -282,8 +332,9 @@ const Options2 = ({
   setpupolar,
   remarks,
   pupolar,
+  files,
 }) => {
-  const [st, setst] = useState(false);
+  const [st, setst] = useState(true);
   const [st1, setst1] = useState(false);
 
   const opts = [
@@ -314,22 +365,32 @@ const Options2 = ({
             <p className="text-[0.95rem] font-pm font-bol">Sell or Donate</p>
             <div className="flex justify-start items-start gap-2">
               <div
-                onClick={() => {
+                onClick={(e) => {
                   setprefrence("Sell");
                   setst1(false);
                   setst(true);
                 }}
               >
-                <CustomCheckbox setst={setst} st={st} text={"Sell"} />
+                <CustomCheckbox
+                  setst={setst}
+                  st={st}
+                  text={"Sell"}
+                  sod={true}
+                />
               </div>
               <div
-                onClick={() => {
+                onClick={(e) => {
                   setprefrence("Donate");
                   setst1(true);
                   setst(false);
                 }}
               >
-                <CustomCheckbox setst={setst} st={st1} text={"Donate"} />
+                <CustomCheckbox
+                  setst={setst}
+                  st={st1}
+                  text={"Donate"}
+                  sod={true}
+                />
               </div>
             </div>
           </div>
@@ -464,14 +525,14 @@ const Options3 = ({ selectedDate, setselectedDate, settime }) => {
   );
 };
 
-const CustomCheckbox = ({ text, gap, st }) => {
+const CustomCheckbox = ({ text, gap, st, sod }) => {
   const [checked, setchecked] = useState(false);
   useEffect(() => {
     setchecked(st);
   }, [st]);
   return (
     <label
-      onClick={() => setchecked(!checked)}
+      onClick={() => !sod && setchecked(!checked)}
       className={`flex ${
         gap ? "gap-" + gap : "gap-1"
       } justify-center cursor-pointer items-center text-[0.9rem] larger:text-[0.8rem] small:text-[0.9rem] font-pm font-med whitespace-nowrap `}

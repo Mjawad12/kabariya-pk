@@ -27,7 +27,7 @@ function Aboutme() {
             About us
           </h2>
           <p
-            className="font-open text-white text-[20.5px] smaller:text-[17px]  max-w-[60ch]
+            className="font-open text-white text-[21.5px] smaller:text-[17px]  max-w-[60ch]
             extLar:text-[19px] extLar:max-w-[55ch]   larger:text-[17px] larger:max-w-[58ch] 
             large:text-[15px] large:max-w-[58ch]  med:text-[14px]  w-full small:max-w-[60ch] small:text-[18px] mt-3  "
           >
@@ -39,7 +39,7 @@ function Aboutme() {
           <button
             style={{ border: "0.59px solid #FFFFFF80" }}
             className="btn bg-[#FFFFFF1A]
-          font-pm font-reg max-w-[8.8rem] rounded-[16.51px] h-[3.2rem]  "
+          font-pm font-reg max-w-[9.2rem] rounded-[17.51px] h-[3.2rem] text-[1.1rem]  "
           >
             Learn More
           </button>

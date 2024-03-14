@@ -10,7 +10,7 @@ function WatchVideo() {
           background:
             "linear-gradient(180deg, rgba(12, 188, 139, 0) 0%, rgba(12, 188, 139, 0.05) 100%)",
         }}
-        className="w-full min-h-max px-2 py-[4rem] small:py-[2rem] rounded-3xl flex flex-col justify-center gap-9 items-center"
+        className="w-full min-h-max px-2 py-[4rem] pb-[5.5rem] small:py-[2rem] rounded-3xl smaller:rounded-2xl flex flex-col justify-center gap-9 items-center"
       >
         <div
           className=" video max-w-[1124px] w-full h-[680.56px] larger:h-[600px] large:h-[550px] med:h-[500px]
@@ -29,7 +29,7 @@ function WatchVideo() {
           />
         </div>
 
-        <div className="flex flex-col gap-6 justify-center items-center">
+        <div className="flex flex-col gap-6 justify-center items-center mt-6">
           <h3 className="font-pm font-bol text-6xl small:text-4xl ">
             Watch the video
           </h3>

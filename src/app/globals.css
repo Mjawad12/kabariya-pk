@@ -205,7 +205,23 @@ tfoot {
 }
 
 .mP {
-  background: linear-gradient(#f3fcf9 90%, rgba(243, 252, 249, 0.356) 10%);
+  background: rgb(243, 252, 249);
+  background: -moz-linear-gradient(
+    180deg,
+    rgba(243, 252, 249, 1) 81%,
+    rgba(255, 255, 255, 1) 94%
+  );
+  background: -webkit-linear-gradient(
+    180deg,
+    rgba(243, 252, 249, 1) 81%,
+    rgba(255, 255, 255, 1) 94%
+  );
+  background: linear-gradient(
+    180deg,
+    rgba(243, 252, 249, 1) 81%,
+    rgba(255, 255, 255, 1) 94%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#f3fcf9",endColorstr="#ffffff",GradientType=1);
 }
 
 .react-multi-carousel-track li {
@@ -240,5 +256,10 @@ tfoot {
 @media (max-width: 377px) {
   .scrapBtn {
     width: 9rem !important;
+  }
+}
+@media (max-width: 361px) {
+  .scrapBtn {
+    width: 8.7rem !important;
   }
 }

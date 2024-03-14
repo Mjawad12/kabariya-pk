@@ -14,7 +14,7 @@ function RightSec() {
         className={`max-w-[700px] w-full  min-h-[507px]  relative flex flex-col
          justify-start ${
            submitted && "justify-center"
-         } items-center bg-white p-8 py-10 med:py-6 med:px-4 small:p-7 mob:p-5  gap-5 small:gap-8
+         } items-center bg-white p-8 py-10 med:py-6 med:px-4 small:p-7 smaller:p-4  gap-6 small:gap-8
          shadow-xl rounded-3xl border border-borderColorP`}
       >
         <div className="absolute left-[-80px] bottom-[-38px] -z-10 smaller:top-[-245px] smaller:left-[-135px] ">
