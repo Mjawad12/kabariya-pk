@@ -27,7 +27,7 @@ function ScrapCollect() {
 
         <div
           className="w-full flex flex-col justify-start items-start border border-borderColorP
-        px-8 py-14 gap-6 rounded-[20.54px] hover:shadow-xl small:py-10 smaller:px-3 transition-all duration-300 mt-[3rem] bg-white  "
+        px-8 py-14 gap-6 rounded-[20.54px] hover:shadow-xl small:py-10 smaller:px-3 transition-all duration-300 mt-[3rem] smaller:mt-[1rem] bg-white  "
         >
           <p className="font-se text-6xl  small:text-5xl">
             {Scrapitems[selected].name}

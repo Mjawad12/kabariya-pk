@@ -1,13 +1,35 @@
 "use client";
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import { loc, AtR, WA, phone } from "./Consonants";
+import SubmittedDialog from "./SubmittedDialog";
 
 function Contact() {
+  const [submitted, setsubmitted] = useState(false);
   const formRef = useRef(null);
+  const username = useRef(null);
+  const phoneValue = useRef(null);
+  const message = useRef(null);
+  const email = useRef(null);
+  const [loading, setloading] = useState(false);
 
-  const SubmitForm = (e) => {
+  const SubmitForm = async (e) => {
     if (formRef.current.checkValidity()) {
       e.preventDefault();
+      setloading(true);
+      const data = await fetch("https://kabariya.pk/api/contactEmail", {
+        method: "POST",
+        body: JSON.stringify({
+          username: username.current.value,
+          phone: phoneValue.current.value,
+          email: email.current.value,
+          message: message.current.value,
+        }),
+      });
+      const parsedData = await data.json();
+      if (parsedData.status.error === null) {
+        setsubmitted(true);
+      }
+      setloading(false);
     }
   };
 
@@ -62,47 +84,57 @@ function Contact() {
               </div>
             </div>
           </div>
-          <div className="flex-1 flex-grow-[0.65] small:w-full   ">
-            <form
-              ref={formRef}
-              action="null"
-              className="flex flex-col justify-center items-start w-full pl-[4.8rem] pr-[3.5rem] small:px-0 small:w-full  h-[25rem] gap-5 "
-            >
-              <div className="flex justify-between items-center small:flex-col small:gap-4 gap-5 w-full ">
+          <div className="flex-1 flex-grow-[0.65] small:w-full">
+            {!submitted ? (
+              <form
+                ref={formRef}
+                action="null"
+                className="flex flex-col justify-center items-start w-full pl-[4.8rem] pr-[3.5rem] small:px-0 small:w-full  h-[25rem] gap-5 "
+              >
+                <div className="flex justify-between items-center small:flex-col small:gap-4 gap-5 w-full ">
+                  <input
+                    required
+                    type="text"
+                    placeholder="Name"
+                    ref={username}
+                    className="bg-[#FFFFFF1A] w-full h-[3.2rem] px-5 font-pm rounded-[12.65px] text-white outline-none border border-[#FFFFFF1A]   text-[0.9rem] "
+                  />
+                  <input
+                    required
+                    type="tel"
+                    ref={phoneValue}
+                    placeholder="Phone Number"
+                    className="bg-[#FFFFFF1A] w-full h-[3.2rem] px-5 font-pm rounded-[12.65px] text-white outline-none border border-[#FFFFFF1A]  text-[0.9rem] "
+                  />
+                </div>
+
                 <input
                   required
-                  type="text"
-                  placeholder="Name"
-                  className="bg-[#FFFFFF1A] w-full h-[3.2rem] px-5 font-pm rounded-[12.65px] text-white outline-none border border-[#FFFFFF1A]   text-[0.9rem] "
-                />
-                <input
-                  required
-                  type="tel"
-                  placeholder="Phone Number"
+                  type="email"
+                  ref={email}
+                  placeholder="Email Address"
                   className="bg-[#FFFFFF1A] w-full h-[3.2rem] px-5 font-pm rounded-[12.65px] text-white outline-none border border-[#FFFFFF1A]  text-[0.9rem] "
                 />
-              </div>
 
-              <input
-                required
-                type="email"
-                placeholder="Email Address"
-                className="bg-[#FFFFFF1A] w-full h-[3.2rem] px-5 font-pm rounded-[12.65px] text-white outline-none border border-[#FFFFFF1A]  text-[0.9rem] "
-              />
-
-              <textarea
-                required
-                placeholder="Massage here"
-                rows={6}
-                className="bg-[#FFFFFF1A] w-full [resize:none] px-5 py-3 font-pm rounded-[12.65px] text-white outline-none border border-[#FFFFFF1A]  text-[0.9rem] "
-              />
-              <button
-                onClick={SubmitForm}
-                className="btn bg-primaryGreen text-white max-w-[8rem] h-[3.2rem] small:h-[3.8rem] font-pm font-med text-[1.05rem] "
-              >
-                Submit
-              </button>
-            </form>
+                <textarea
+                  required
+                  placeholder="Massage here"
+                  rows={6}
+                  ref={message}
+                  maxLength={309}
+                  className="bg-[#FFFFFF1A] w-full [resize:none] px-5 py-3 font-pm rounded-[12.65px] text-white outline-none border border-[#FFFFFF1A]  text-[0.9rem] "
+                />
+                <button
+                  disabled={loading}
+                  onClick={SubmitForm}
+                  className="btn  bg-primaryGreen text-white max-w-[8rem] h-[3.2rem] small:h-[3.8rem] font-pm font-med text-[1.05rem] disabled:cursor-not-allowed disabled:bg-gray-600 "
+                >
+                  Submit
+                </button>
+              </form>
+            ) : (
+              <SubmittedDialog setsubmitted={setsubmitted} contact={true} />
+            )}
           </div>
         </div>
       </div>

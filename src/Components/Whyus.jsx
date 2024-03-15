@@ -44,7 +44,7 @@ function Whyus() {
 const Container = ({ text, index, title }) => {
   return (
     <div
-      className="max-w-[28.5rem] w-full min-h-[18rem]
+      className="max-w-[28.5rem] w-full min-h-[18rem] smaller:min-h-[16rem]
     flex flex-col justify-start items-start gap-6 
     px-[3.1rem] py-8 small:px-6  border border-borderColorP  rounded-[24.54px] hover:shadow-xl "
     >
@@ -62,7 +62,7 @@ const Container = ({ text, index, title }) => {
       </div>
       <div className="flex flex-col gap-1">
         <p className="font-pm font-bol text-[1.1rem]">{title}</p>
-        <p className="font-open text-[1rem]">{text}</p>
+        <p className="font-open text-[1rem] smaller:text-[0.9rem] ">{text}</p>
       </div>
     </div>
   );

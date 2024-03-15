@@ -2,9 +2,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { arrowDown, gallery, item, shedule, tick, user } from "./Consonants";
 import BasicDateCalendar from "./Calender";
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { imageDb } from "@/Firbase/ConfigFirebase";
-import { v4 } from "uuid";
 
 function Sheduler({ setsubmitted }) {
   const [selected, setselected] = useState(0);
@@ -79,11 +76,13 @@ const Form = ({ selected, setselected, setsubmitted }) => {
       prefrence: prefrence,
       pupolar: await pupolar.toString(),
       date:
-        selectedDate.getMonth() +
-        "-" +
-        selectedDate.getDate() +
-        "-" +
-        selectedDate.getFullYear(),
+        typeof selectedDate === "string"
+          ? selectedDate
+          : selectedDate.getMonth() +
+            "-" +
+            selectedDate.getDate() +
+            "-" +
+            selectedDate.getFullYear(),
     };
     const urls = await Upload(files);
     details.imgUrls = urls;
@@ -146,7 +145,13 @@ const Form = ({ selected, setselected, setsubmitted }) => {
             settime={settime}
           />
         </div>
-        <div className="max-w-[100%] small:max-w-full w-full flex justify-between items-center mt-7 px-2 small:flex-col small:items-start small:gap-5">
+        <div
+          className={`max-w-[100%] small:max-w-full w-full flex justify-between items-center  ${
+            selected > 0 ? "mt-3" : "mt-5"
+          }  ${
+            selected === 2 && "mt-6"
+          } px-2 small:flex-col small:items-start small:gap-5`}
+        >
           {selected === 1 && (
             <div
               onClick={() => document.querySelector("#fileInput").click()}
@@ -183,12 +188,15 @@ const Form = ({ selected, setselected, setsubmitted }) => {
                   e.preventDefault();
                   setselected(selected - 1);
                 }}
-                className="btn small:!max-w-full border z-[999999999999] border-black text-black font-med bg-transparent"
+                className="btn max-w-[6.85rem] small:!max-w-full border z-[999999999999] border-black text-black font-med bg-transparent"
               >
                 Back
               </button>
             )}
-            <button onClick={submitForm} className="btn small:!max-w-full">
+            <button
+              onClick={submitForm}
+              className="btn small:!max-w-full max-w-[6.85rem] w-full "
+            >
               {selected === 2 ? "Submit" : "Next"}
             </button>
           </div>
@@ -212,16 +220,16 @@ const SetComp = ({ svg, text, index, selected }) => {
           {index < selected ? tick : svg}
         </div>
         <p
-          className={`w-max font-pm font-bol smaller:font-bol text-1xl larger:text-[0.9rem] smaller:text-[0.8rem] ${
-            index <= selected ? "text-secondaryGreen font-med" : "text-black"
-          } ${text === "Basic Details" && "larger:pl-2"} `}
+          className={`w-max font-pm font-bol smaller:font-bol text-1xl larger:text-[0.9rem] smaller:text-[0.8rem]  ${
+            index === selected ? "text-secondaryGreen font-med" : "text-black"
+          } ${text === "Basic Details" && "larger:pl-2"} text-black `}
         >
           {text}
         </p>
       </div>
       {text !== "Schedule" && (
         <span
-          className={`w-full max-w-[180px] border border-black mb-5 ${
+          className={`w-full max-w-[170px] border border-black mb-5 ${
             index <= selected ? "border-secondaryGreen" : "border-black"
           }   `}
         />
@@ -245,7 +253,7 @@ const Options1 = ({
   };
 
   return (
-    <div className="w-full px-2 flex justify-center items-center flex-wrap gap-5 ">
+    <div className="w-full px-2 flex justify-center items-center flex-wrap gap-5 mt-1 ">
       <input
         type="text"
         required
@@ -445,7 +453,7 @@ const Options2 = ({
           ))}
         </div>
       </div>
-      <div className="flex flex-col flex-1 flex-grow-[0.45] larger:w-[14rem] large:w-[10rem] items-start justify-start gap-3 small:w-full">
+      <div className="flex flex-col flex-1 flex-grow-[0.42] larger:w-[14rem] large:w-[10rem] items-start justify-start gap-3 small:w-full">
         <p className="text-[0.95rem] font-pm font-bol">Remarks</p>
         <textarea
           name="sell"
@@ -455,7 +463,7 @@ const Options2 = ({
           rows="5"
           maxLength={200}
           ref={remarks}
-          className="w-full small:w-full border small:h-[5rem] outline-none focus:border-black border-borderColorP p-1 px-3 text-[0.9rem] rounded-md"
+          className="w-full small:w-full border resize-none h-[10.5rem] small:h-[5rem] outline-none hover:shadow-xl focus:border-black border-borderColorP p-1 px-3 text-[0.9rem] rounded-md"
         ></textarea>
       </div>
     </div>
@@ -463,22 +471,34 @@ const Options2 = ({
 };
 
 const Options3 = ({ selectedDate, setselectedDate, settime }) => {
+  const months = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
   const [selected, setselected] = useState(null);
   const timing = ["Morning", "Afternoon", "Evening"];
-
   useEffect(() => {
     settime(timing[selected]);
   }, [selected]);
 
   return (
     <div className="flex  justify-between items-start gap-2 small:flex-col small:gap-0">
-      <div className="w-full">
-        <BasicDateCalendar
-          selectedDate={selectedDate}
-          setselectedDate={setselectedDate}
-        />
-      </div>
-      <div className="flex w-[30rem] flex-col pt-3 justify-start items-start small:w-full gap-3 ">
+      <BasicDateCalendar
+        selectedDate={selectedDate}
+        setselectedDate={setselectedDate}
+      />
+
+      <div className="flex w-[16.5rem] flex-col pt-3 justify-start items-start small:w-full gap-3 ">
         <div className="flex w-full flex-col justify-start items-start gap-3">
           <p className="text-1xl font-pm font-bol small:hidden">
             Selected Date
@@ -489,10 +509,16 @@ const Options3 = ({ selectedDate, setselectedDate, settime }) => {
           >
             <div className="flex gap-2">
               <p className="font-bol hidden small:flex">Selected:</p>
-              {selectedDate.getMonth()} - {selectedDate.getDate()} -{" "}
-              {selectedDate.getFullYear()}
+              {typeof selectedDate === "string"
+                ? selectedDate
+                : months[selectedDate.getMonth()] +
+                  " " +
+                  selectedDate.getDate() +
+                  "," +
+                  " " +
+                  selectedDate.getFullYear()}
             </div>
-            <span className="flex w-6 h-6 bg-secondaryGreen rounded-full ">
+            <span className="flex w-4 h-4 justify-center items-center bg-secondaryGreen rounded-full ">
               {tick}
             </span>
           </span>
@@ -531,13 +557,18 @@ const CustomCheckbox = ({ text, gap, st, sod }) => {
       onClick={() => !sod && setchecked(!checked)}
       className={`flex ${
         gap ? "gap-" + gap : "gap-1"
-      } justify-center cursor-pointer items-center text-[0.9rem] larger:text-[0.8rem] small:text-[0.9rem] font-pm font-med whitespace-nowrap `}
+      } justify-center cursor-pointer items-center text-[0.9rem] larger:text-[0.8rem] small:text-[0.9rem] 
+      font-pm font-med whitespace-nowrap ${
+        checked || text === "Sell" || text === "Donate"
+          ? "text-black"
+          : "text-gray-500"
+      } `}
     >
       <span
         className={`w-[1.15rem] h-[1.15rem] flex justify-center 
-      items-center ${
-        checked && "bg-secondaryGreen"
-      } border border-black rounded-[5px] `}
+      items-center ${checked && "bg-secondaryGreen"} border ${
+          checked ? "border-black" : "border-gray-500"
+        }  rounded-[5px] `}
       >
         {checked && <span className="flex w-[1.1rem] ">{tick}</span>}
       </span>

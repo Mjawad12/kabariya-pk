@@ -13,23 +13,7 @@ import {
 import * as React from "react";
 
 export const YelpRecentLoginEmail = (details) => {
-  const {
-    username,
-    email,
-    phone,
-    city,
-    address,
-    remarks,
-    prefrence,
-    scrap,
-    pupolar,
-    date,
-    time,
-  } = details;
-
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "";
+  const { username, email, phone, message } = details;
 
   return (
     <Html>
@@ -38,7 +22,6 @@ export const YelpRecentLoginEmail = (details) => {
         <Container>
           <Section style={content}>
             <Row style={{ ...boxInfos, paddingBottom: "0" }}>
-              <Img src="" alt="Cat" width="300" height="300" />;
               <Column>
                 <Heading
                   style={{
@@ -47,7 +30,7 @@ export const YelpRecentLoginEmail = (details) => {
                     textAlign: "center",
                   }}
                 >
-                  New Client : {username}
+                  New Client Contacted you : {username}
                 </Heading>
                 <Heading
                   as="h2"
@@ -57,70 +40,20 @@ export const YelpRecentLoginEmail = (details) => {
                     textAlign: "center",
                   }}
                 >
-                  Details of the New Client
+                  Details
                 </Heading>
-                <Heading
-                  as="h3"
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    textAlign: "center",
-                  }}
-                >
-                  Contact Information
-                </Heading>
+
                 <Text style={paragraph}>
                   <b>Name: </b>
                   {username}
                 </Text>
                 <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Phone number: </b>
-                  {phone}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
                   <b>Email Address: </b>
                   {email}
                 </Text>
-
-                <Heading
-                  as="h3"
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    textAlign: "center",
-                  }}
-                >
-                  Location Information
-                </Heading>
                 <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>City: </b>
-                  {city}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Address : </b>
-                  {address}
-                </Text>
-                <Heading
-                  as="h3"
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    textAlign: "center",
-                  }}
-                >
-                  Scrap Information
-                </Heading>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Prefrences : </b>
-                  {prefrence}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Type of scarps : </b>
-                  {scrap}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Pupolar : </b>
-                  {pupolar}
+                  <b>Phone number: </b>
+                  {phone}
                 </Text>
 
                 <Heading
@@ -131,30 +64,17 @@ export const YelpRecentLoginEmail = (details) => {
                     textAlign: "center",
                   }}
                 >
-                  Date and time Information
-                </Heading>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Date of Collection : </b>
-                  {date}
-                </Text>
-                <Text style={{ ...paragraph, marginTop: -5 }}>
-                  <b>Time : </b>
-                  {time}
-                </Text>
-                <Heading
-                  as="h3"
-                  style={{
-                    fontSize: 20,
-                    fontWeight: "bold",
-                    textAlign: "center",
-                  }}
-                >
-                  Remarks
+                  Message
                 </Heading>
                 <Text
-                  style={{ ...paragraph, marginTop: -5, fontStyle: "italics" }}
+                  style={{
+                    ...paragraph,
+                    marginTop: -5,
+                    fontWeight: "bold",
+                    fontStyle: "italic",
+                  }}
                 >
-                  {remarks}
+                  {message}
                 </Text>
               </Column>
             </Row>

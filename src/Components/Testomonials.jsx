@@ -25,7 +25,7 @@ function Testomonials() {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center min-h-max py-20 pt-24 smaller:py-16 smaller:pt-14 ">
+    <div className="w-full flex flex-col justify-center items-center min-h-max py-20 pt-24 smaller:py-10 smaller:pt-14 ">
       <div className="flex flex-col justify-center items-center gap-5 small:gap-3 ">
         {FeedBack}
         <div className="flex flex-col justify-center items-center">
@@ -41,7 +41,7 @@ function Testomonials() {
           satisfaction in a snapshot.
         </p>
       </div>
-      <div className="w-full mt-16 small:my-7 px-[9rem] extLar:px-[6rem] larger:px-[5rem] small:px-2 relative  ">
+      <div className="w-full mt-16 small:mt-14 px-[9rem] extLar:px-[6rem] larger:px-[5rem] small:px-2 relative  ">
         <div
           style={{
             background:
@@ -82,7 +82,7 @@ function Testomonials() {
           })}
         </Carousel>
       </div>
-      <button className="btn bg-white text-black border border-borderColorP rounded-[16.51px] max-w-[9.5rem] h-[3.1rem] font-med text-[1.2rem] mt-3 ">
+      <button className="btn bg-white text-black border border-borderColorP rounded-[16.51px] max-w-[9.5rem] h-[3.1rem] font-med text-[1.2rem] mt-3 smaller:mt-0 ">
         Show More
       </button>
     </div>

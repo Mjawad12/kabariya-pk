@@ -6,9 +6,9 @@ function Process() {
   return (
     <div className="w-full overflow-hidden">
       <div className="bg-black w-full h-5 edge"></div>
-      <div className="mP w-full px-10 pb-12 min-h-max flex flex-col justify-center smaller:px-5 items-center gap-20 z-20 ">
+      <div className="mP w-full px-10 pb-12 min-h-max flex flex-col justify-center smaller:px-5  items-center gap-20 z-20 ">
         <div className="flex flex-col justify-center items-center gap-5">
-          <p className="font-pm font-med text-3xl leading-[35px]">
+          <p className="font-pm font-med text-3xl leading-[35px] smaller:text-2xl">
             Our Process
           </p>
           <p className="font-pm font-bol text-6xl leading-[41.61px] large:text-5xl small:text-4xl ">
@@ -88,7 +88,7 @@ const ProcessContainer = ({ index, color, desc, tag, title }) => {
           </p>
           <div className="flex flex-col justify-center items-center gap-3">
             <p className="text-[1.4rem] font-bol font-pm">{title}</p>
-            <p className="font-open text-center text-[16.28px] small:text-[15px] ">
+            <p className="font-open text-center text-[16.28px] small:text-[15px]">
               {desc}
             </p>
           </div>

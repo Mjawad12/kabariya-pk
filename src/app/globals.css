@@ -4,7 +4,7 @@
 
 @layer components {
   .btn {
-    @apply bg-black text-white max-w-[6.5rem] w-full h-[3rem] rounded-xl font-pm font-light;
+    @apply bg-black text-white max-w-[6.5rem] w-full h-[3rem] rounded-xl font-pm font-light transition-all duration-300;
   }
 }
 
@@ -230,6 +230,11 @@ tfoot {
   justify-content: center;
   align-items: center;
 }
+@media (max-width: 500px) {
+  .react-multi-carousel-track li {
+    height: 34rem !important ;
+  }
+}
 .react-multi-carousel-track {
   display: flex !important ;
   justify-content: center !important ;
@@ -262,4 +267,41 @@ tfoot {
   .scrapBtn {
     width: 8.7rem !important;
   }
+}
+
+.calendar-body .calendar-dates li {
+  position: relative;
+  z-index: 1;
+  cursor: pointer;
+}
+
+.calendar-dates li::before {
+  position: absolute;
+  content: "";
+  z-index: -1;
+  top: 50%;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+@media (max-width: 1262px) {
+  .calendar-dates li::before {
+    width: 30px;
+    height: 30px;
+  }
+}
+@media (max-width: 968px) {
+  .calendar-body li {
+    width: calc(100% / 7) !important;
+  }
+}
+
+.calendar-dates li:not(.active):hover::before {
+  background: black;
+}
+
+.selectedLI::before {
+  background: black;
 }

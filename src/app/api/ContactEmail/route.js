@@ -1,4 +1,5 @@
 import { Resend } from "resend";
+import ContactEmail from "@/emails/ContactEmail";
 
 export async function POST(req) {
   const resend = new Resend("re_5zUXTyRk_5YjQ9pTa7WGchv55CiBuEVqH");
@@ -7,7 +8,8 @@ export async function POST(req) {
     const status = await resend.emails.send({
       from: `onreply@${process.env.EMAIL_URL}`,
       to: "Kabariya.official@gmail.com",
-      subject: "New Client",
+      subject: "New client Contacted",
+      react: ContactEmail(details),
     });
     return Response.json({ status });
   } catch (error) {

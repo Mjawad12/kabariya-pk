@@ -4,7 +4,7 @@ import { locationIcon, locations } from "./Consonants";
 
 function Locations() {
   return (
-    <div className="flex flex-col w-full pt-[6rem] ">
+    <div className="flex flex-col w-full pt-[6rem]  smaller:pt-[2rem] ">
       <div className="w-full relative flex justify-center items-center min-h-[125vh] small:min-h-screen  small:py-[6rem] smaller:py-[4rem]  ">
         <div className="absolute top-0 left-0 w-full">
           <Image
@@ -22,10 +22,10 @@ function Locations() {
         >
           <div className="flex-1 flex-grow-[0.54]  flex flex-col justify-start items-start gap-10 small:gap-5">
             <div>
-              <h3 className="font-pm font-bol text-7xl flex gap-2 small:text-5xl smaller:text-4xl justify-center items-center">
+              <h3 className="font-pm font-bol text-7xl flex gap-2 small:text-5xl smaller:text-[2.5rem] justify-center items-center">
                 {locationIcon} Our Presence
               </h3>
-              <h3 className="font-se  text-7xl small:text-5xl smaller:text-4xl ">
+              <h3 className="font-se  text-7xl small:text-5xl smaller:text-[2.5rem] ">
                 Across{" "}
                 <span className="text-primaryGreen relative">
                   Nation
