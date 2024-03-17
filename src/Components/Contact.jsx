@@ -35,7 +35,7 @@ function Contact() {
 
   return (
     <div className="w-full min-h-max">
-      <div className="max-w-[71rem] m-auto w-full flex flex-col justify-center items-center gap-14 smaller:gap-10 py-20 pt-[13rem] small:pt-[5rem] px-5 small:px-7 smaller:px-5">
+      <div className="max-w-[71rem] m-auto w-full flex flex-col justify-center items-center gap-14 smaller:gap-10 py-20  small:pt-[5rem] px-5 small:px-7 smaller:px-5">
         <div className="flex flex-col justify-center items-center gap-3">
           <h3 className="font-pm font-bol text-6xl larger:text-5xl text-center smaller:text-[2.5rem] smaller:max-w-[12ch] ">
             Get in touch with us

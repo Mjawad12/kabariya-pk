@@ -1,9 +1,19 @@
 "use client";
 import React, { useState } from "react";
-import { hamburger, logoEng, logoUrdu } from "./Consonants";
+import {
+  hamburger,
+  hamburgerWhite,
+  logoEng,
+  logoEngDealer,
+  logoUrdu,
+  logoUrduDealer,
+} from "./Consonants";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 function Navbar() {
   const [mobNav, setMobNav] = useState(false);
+  const pathname = usePathname();
 
   const list = [
     "Home",
@@ -16,12 +26,18 @@ function Navbar() {
   ];
 
   return (
-    <nav className="w-full flex justify-between items-center px-1 py-5 gap-5 pt-9  ">
-      <div className="max-w-[232px] ">{logoEng}</div>
+    <nav
+      className={`w-full flex justify-between items-center py-5 gap-5 pt-9 px-10 smaller:px-6 smaller:pt-5 ${
+        pathname === "/Dealership" && "bg-black"
+      } `}
+    >
+      <div className="max-w-[232px] ">
+        {pathname === "/Dealership" ? logoEngDealer : logoEng}
+      </div>
       <div className="flex-1 flex-grow-[0.7] larger:hidden ">
-        <ul className="list-none flex text-[1.05rem]  font-pm  justify-between items-center gap-6 font-med ">
+        <ul className="list-none flex text-[1.05rem]  font-pm  justify-between items-center gap-6 font-med z-20 relative">
           {list.map((it, index) => (
-            <Li name={it} key={index} index={index} />
+            <Li name={it} key={index} index={index} pathname={pathname} />
           ))}
         </ul>
       </div>
@@ -29,23 +45,28 @@ function Navbar() {
         className="max-w-[150px] w-full 
        flex justify-end items-center larger:gap-9 mob:gap-5 "
       >
-        {logoUrdu}
-        <div className="hidden larger:block">{hamburger}</div>
+        {pathname === "/Dealership" ? logoUrduDealer : logoUrdu}
+        <div className="hidden larger:block">
+          {" "}
+          {pathname === "/Dealership" ? hamburgerWhite : hamburger}
+        </div>
       </div>
     </nav>
   );
 }
 
-const Li = ({ name, index }) => {
-  const [liSelected, setliSelected] = useState(index === 0);
+const Li = ({ name, index, pathname }) => {
   return (
     <li
-      onClick={() => setliSelected(!liSelected)}
       className={`${
-        liSelected && "li_Nav text-secondaryGreen"
-      } relative  hover:text-secondaryGreen cursor-pointer whitespace-nowrap`}
+        pathname.slice(1) === name && "li_Nav !text-secondaryGreen"
+      } ${
+        name === "Home" && pathname === "/" && "li_Nav text-secondaryGreen"
+      } ${
+        pathname === "/Dealership" && "text-white"
+      }  relative  hover:text-secondaryGreen cursor-pointer whitespace-nowrap`}
     >
-      {name}
+      <Link href={name === "Home" ? "/" : name}>{name}</Link>
     </li>
   );
 };

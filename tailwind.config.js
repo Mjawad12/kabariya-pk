@@ -43,6 +43,7 @@ module.exports = {
         primaryGreen: "#2DB473",
         secondaryGreen: "#0CBC8B",
         borderColorP: "#00000012",
+        lightGreen: "#f3fcf9",
       },
     },
   },

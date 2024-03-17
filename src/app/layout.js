@@ -1,3 +1,4 @@
+import Navbar from "@/Components/Navbar";
 import "./globals.css";
 import localFont from "next/font/local";
 
@@ -90,6 +91,8 @@ export default function RootLayout({ children }) {
       <body
         className={` ${pacifico.variable} ${inter.variable} ${midan.variable} ${openSans.variable}`}
       >
+        <Navbar />
+
         {children}
       </body>
     </html>

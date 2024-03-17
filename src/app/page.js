@@ -19,7 +19,6 @@ export default function Home() {
         className="flex flex-col relative justify-start 
       items-start px-10 smaller:px-6 small:pb-20 w-full overflow-hidden"
       >
-        <Navbar />
         <HeroSec />
         <h2
           style={{ textShadow: "0 0 6px #00000012" }}

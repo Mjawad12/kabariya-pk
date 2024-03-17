@@ -129,7 +129,7 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
     <div
       style={{ translate: "-50% -50%" }}
       className="carousel-button-group  gap-4 flex justify-between 
-      items-center w-[90vw] m-auto absolute top-[50%] left-[50%] small:z-20 smaller:w-[98%]"
+      items-center w-[90vw] m-auto absolute top-[50%] left-[50%] z-20 smaller:w-[98%]"
     >
       <button className="block" onClick={() => previous()}>
         {left}
