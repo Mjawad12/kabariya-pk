@@ -78,7 +78,7 @@ const FeatureOpener = ({ index, title, desc }) => {
       ref={scope}
       onClick={animateFeature}
       className={`w-full h-[71px] flex flex-col justify-start items-start px-7 gap-5 p-7 pt-[14px] smo:pt-[10px] smo:p-5 smo:h-[58px] rounded-[23.54px] smo:rounded-[17px]
-       shadow-lg border border-[#0000001A] overflow-hidden cursor-pointer z-20`}
+       shadow-xl border border-[#0000001A] overflow-hidden cursor-pointer z-20`}
     >
       <div className="flex justify-start items-center w-full gap-5">
         <Image

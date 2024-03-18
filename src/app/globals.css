@@ -125,9 +125,16 @@
 
 .mP2 {
   background: linear-gradient(
-    180deg,
-    rgba(243, 252, 249, 1) 92%,
-    rgba(255, 255, 255, 1) 98%
+    179deg,
+    rgba(243, 252, 249, 1) 15%,
+    rgba(255, 255, 255, 1) 69%
+  );
+}
+.mPedge {
+  border-image: linear-gradient(
+    179deg,
+    rgba(243, 252, 249, 1) 15%,
+    rgba(255, 255, 255, 1) 69%
   );
 }
 

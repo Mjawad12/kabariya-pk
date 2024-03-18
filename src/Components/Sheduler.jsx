@@ -265,6 +265,8 @@ const Options1 = ({
         type="tel"
         required
         ref={phone}
+        minLength={11}
+        maxLength={11}
         placeholder="Mobile Number"
         className=" w-[48%]  outline-none focus:border-black  extLar:w-[47%] small:w-full h-[3rem] small:h-[3.5rem]  rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
       />

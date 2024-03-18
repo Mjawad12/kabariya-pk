@@ -14,7 +14,7 @@ function page() {
     <div className=" w-full m-auto  min-h-max flex flex-col justify-start items-start">
       <div
         style={{ borderTopLeftRadius: 0, borderTopRightRadius: 0 }}
-        className="w-full bg-black min-h-[calc(100vh-104px)] rounded-[40px] flex justify-center items-center px-10 smaller:px-5 "
+        className="w-full bg-black min-h-[calc(87vh-104px)] Lar:min-h-[calc(100vh-104px)] rounded-[40px] flex justify-center items-center px-10 smaller:px-5 "
       >
         <div
           className="max-w-[1385px] w-full m-auto flex small:flex-col

@@ -28,9 +28,9 @@ function BecomeDealer() {
 
             <Dealerbtn
               textColor={"black"}
-              bgcolor={"white"}
+              bgcolor={"#f3fcf9"}
               text="GET STARTED"
-              width="181px"
+              width="175px"
             />
           </div>
           <div className="w-full flex justify-start larger:justify-center items-center flex-wrap gap-7">

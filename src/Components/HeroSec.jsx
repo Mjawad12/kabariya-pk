@@ -42,8 +42,8 @@ export default HeroSec;
 const Dealerbtn = ({ bgcolor, textColor, text, width }) => {
   return (
     <div
-      className={`w-full max-w-[233px] h-[62px] ${
-        width && "h-[57px]"
+      className={`w-full max-w-[225px] h-[62px] ${
+        width && "h-[57.5px]"
       } rounded-[50px] flex items-center justify-center`}
       style={{
         background:
@@ -56,12 +56,15 @@ const Dealerbtn = ({ bgcolor, textColor, text, width }) => {
           maxWidth: width && `calc(${width} - 3px)`,
         }}
         className={`flex justify-center items-center gap-3 
-  relative z-10 bg-${bgcolor} text-${textColor} w-full  h-[59px] max-w-[230px] font-med
-   rounded-[50px] py-[8px] px-[14px] ${
-     width && "pl-[14px] pr-[8px] h-[54px]"
+  relative z-10 bg-${bgcolor} text-${textColor} w-full  h-[59px] max-w-[222px] font-med
+   rounded-[50px] py-[8px] pl-[13px] pr-[5px] ${
+     width && "pl-[17px] pr-[8px] h-[54.5px] bg-[#f3fcf9] !gap-2 "
    } ml-[0.1px] mb-[0.3px] `}
       >
-        {text ? text : "BECOME A DEALER"} {RightArrow}
+        {text ? text : "BECOME A DEALER"}{" "}
+        <div className={`${width ? "scale-[0.9]" : "scale-[1]"}`}>
+          {RightArrow}
+        </div>
       </button>
     </div>
   );
