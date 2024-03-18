@@ -4,7 +4,7 @@ import { MobileApp } from "./HeroSec";
 
 function DownloadDealerhip() {
   return (
-    <div className="w-full flex  justify-center items-center pt-[17rem] pb-[7rem] small:pb-[2rem] small:pt-[3rem] mob:pb-0 px-5  gap-5 large:flex-col-reverse large:pt-[4rem] larger:gap-10  ">
+    <div className="w-full flex  justify-center items-center pt-[16rem] pb-[7rem] small:pb-[2rem] small:pt-[3rem] mob:pb-0 px-5  gap-5 large:flex-col-reverse large:pt-[4rem] larger:gap-10  ">
       <div className="w-full  flex justify-center items-end large:mt-9 smaller:mt-20 mob:mt-14   ">
         <div className="flex justify-center items-end  ">
           <div

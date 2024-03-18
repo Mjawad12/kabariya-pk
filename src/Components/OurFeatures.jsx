@@ -7,7 +7,7 @@ import { motion, useAnimate } from "framer-motion";
 function OurFeatures() {
   return (
     <div className="w-full relative overflow-hidden">
-      <div className="w-full max-w-[1152px] m-auto min-h-screen flex justify-center items-center gap-16 small:gap-12 smaller:gap-10 flex-col mt-[7rem] small:mt-[5rem] smaller:mt-[2.5rem] px-5 pb-5">
+      <div className="w-full max-w-[1152px] m-auto min-h-screen flex justify-center items-center gap-16 small:gap-12 smaller:gap-10 flex-col mt-[7rem] small:mt-[5rem] smaller:mt-[2.5rem] px-5 pb-10">
         <div className="mP3 absolute right-[-17%] top-[0] w-[569px] h-[569px] " />
         <div className="flex flex-col justify-center items-center gap-9 small:gap-7 smaller:gap-3">
           <p className="font-pm font-med text-3xl leading-[35px] smaller:text-2xl">
