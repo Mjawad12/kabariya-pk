@@ -156,4 +156,5 @@ const Banner = () => {
   );
 };
 
+export { Banner };
 export default Footer;

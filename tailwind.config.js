@@ -30,6 +30,7 @@ module.exports = {
         se: "var(--Font-Secondary)",
         midan: "var(--Font-Urdu)",
         open: "var(--Font-openSans)",
+        nast: "var(--Font-Nast)",
       },
       fontWeight: {
         dark: "900",

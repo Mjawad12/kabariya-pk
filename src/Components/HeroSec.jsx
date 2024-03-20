@@ -2,6 +2,7 @@ import React from "react";
 import { RightArrow, apple, playStore } from "./Consonants";
 
 import RightSec from "./RightSec";
+import Link from "next/link";
 
 function HeroSec() {
   return (
@@ -26,9 +27,9 @@ function HeroSec() {
             scrap materials. Our mission is to minimize the accumulation of
             unwanted and non-essential metals through recycling.
           </p>
-          <div className="w-full py-5">
+          <Link href={"/Dealerform"} className="w-full py-5">
             <Dealerbtn bgcolor="white" textColor="black" />
-          </div>
+          </Link>
           <MobileApp />
         </div>
       </div>

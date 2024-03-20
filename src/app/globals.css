@@ -6,6 +6,12 @@
   .btn {
     @apply bg-black text-white max-w-[6.5rem] w-full h-[3rem] rounded-xl font-pm font-light transition-all duration-300;
   }
+  .formp {
+    @apply font-pm font-bol text-[1rem] leading-[21.78px];
+  }
+  .forminput {
+    @apply w-full outline-none focus:border-black font-med h-[3.5rem] small:h-[3.5rem]  rounded-xl px-7 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms];
+  }
 }
 
 .li_Nav::after {
@@ -33,7 +39,10 @@
   background-repeat: no-repeat;
   background-size: 98% 98%;
 }
-
+.dashedSmDiv {
+  background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' rx='11' ry='11' stroke='rgba(218, 218, 218, 1)' stroke-width='1.5' stroke-dasharray='5%2c 10' stroke-dashoffset='22' stroke-linecap='square'/%3e%3c/svg%3e");
+  border-radius: 11px;
+}
 .edge {
   border-bottom: 256px solid #f3fcf9;
   border-right: 100vw solid white;
@@ -249,4 +258,8 @@
       rgba(217, 217, 217, 0) 86.46%
     );
   }
+}
+
+.urduul {
+  word-spacing: 0.35em;
 }

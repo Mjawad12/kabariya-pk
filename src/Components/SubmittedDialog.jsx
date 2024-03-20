@@ -1,6 +1,7 @@
+import Link from "next/link";
 import React from "react";
 
-function SubmittedDialog({ setsubmitted, contact }) {
+function SubmittedDialog({ setsubmitted, contact, dealerform }) {
   return (
     <div className="w-full flex flex-col justify-center items-center gap-6">
       <img
@@ -19,15 +20,28 @@ function SubmittedDialog({ setsubmitted, contact }) {
           There are many variations earth.
         </p>
       </div>
-      <p
-        onClick={() => setsubmitted(false)}
-        className={`text-gray-700 ${
-          contact && "text-white"
-        } font-pm font-bol cursor-pointer
+      {dealerform ? (
+        <Link href={"/"}>
+          <p
+            className={`text-gray-700 ${
+              contact && "text-white"
+            } font-pm font-bol cursor-pointer
+          text-[1.1rem] mt-4 [text-decoration:underline]`}
+          >
+            Got it.
+          </p>
+        </Link>
+      ) : (
+        <p
+          onClick={() => setsubmitted(false)}
+          className={`text-gray-700 ${
+            contact && "text-white"
+          } font-pm font-bol cursor-pointer
        text-[1.1rem] mt-4 [text-decoration:underline]`}
-      >
-        Got it.
-      </p>
+        >
+          Got it.
+        </p>
+      )}
     </div>
   );
 }

@@ -79,6 +79,17 @@ const openSans = localFont({
   display: "swap",
   variable: "--Font-openSans",
 });
+const nastaleeq = localFont({
+  src: [
+    {
+      path: "./fonts/JameelNooriNastaleeq.woff2",
+      weight: "500",
+      style: "normal",
+    },
+  ],
+  display: "swap",
+  variable: "--Font-Nast",
+});
 
 export const metadata = {
   title: "Kabariya",
@@ -89,7 +100,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={` ${pacifico.variable} ${inter.variable} ${midan.variable} ${openSans.variable}`}
+        className={` ${pacifico.variable} ${inter.variable} ${midan.variable} ${openSans.variable} ${nastaleeq.variable}`}
       >
         <Navbar />
 
