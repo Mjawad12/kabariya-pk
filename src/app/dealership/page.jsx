@@ -42,7 +42,7 @@ function page() {
               className="bgGradientDark h-[51rem] w-[40rem] rounded-full large:h-[47rem] large:w-[38rem]
              bg-white absolute top-[-65%] left-[-35%] z-[0] small:top-[-397px] small:left-[-351px]   "
             ></div>
-            <div className="dashedBorder z-20 relative max-w-[721px] small:max-w-[100%] small:max-h-[100%]  w-full max-h-[422px] h-full p-4 smaller:p-3 Smob:p-2">
+            <div className="dashedBorder flex items-center  z-20 relative max-w-[721px] small:max-w-[100%] small:max-h-[100%]  w-full max-h-[422px] h-full p-4 smaller:p-3 Smob:p-2">
               <div className="w-full h-full flex justify-center items-center">
                 <Image
                   src={"/DealerMobile.png"}

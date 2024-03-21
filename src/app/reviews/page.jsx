@@ -38,6 +38,7 @@ function page() {
           </button>
         </div>
       </div>
+
       <div className="mt-10 small:mt-5">
         <Banner />
       </div>
