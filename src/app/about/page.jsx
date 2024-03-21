@@ -7,7 +7,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="w-full min-h-screen bg-black">
+    <div className="w-full min-h-screen bg-black pt-12">
       <div className="max-w-[1400px] w-full flex flex-col gap-10 small:gap-0 m-auto">
         <Aboutme page={"About"} />
         <div className="flex flex-col gap-20 small:gap-10 small:px-9 smaller:px-5">
