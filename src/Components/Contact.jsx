@@ -3,7 +3,7 @@ import React, { useRef, useState } from "react";
 import { loc, AtR, WA, phone } from "./Consonants";
 import SubmittedDialog from "./SubmittedDialog";
 
-function Contact() {
+function Contact({ about }) {
   const [submitted, setsubmitted] = useState(false);
   const formRef = useRef(null);
   const username = useRef(null);
@@ -37,23 +37,35 @@ function Contact() {
     <div className="w-full min-h-max">
       <div className="max-w-[71rem] m-auto w-full flex flex-col justify-center items-center gap-14 smaller:gap-10 py-20  small:pt-[5rem] px-5 small:px-7 smaller:px-5">
         <div className="flex flex-col justify-center items-center gap-3">
-          <h3 className="font-pm font-bol text-6xl larger:text-5xl text-center smaller:text-[2.5rem] smaller:max-w-[12ch] ">
+          <h3
+            className={`font-pm font-bol text-6xl larger:text-5xl text-center smaller:text-[2.5rem] smaller:max-w-[12ch] ${
+              about ? "text-white" : "text-black"
+            }`}
+          >
             Get in touch with us
           </h3>
-          <p className="font-pm text-[1.3rem] larger:text-[1.2rem] smaller:text-[1rem] font-med text-center ">
+          <p
+            className={`font-pm text-[1.3rem] larger:text-[1.2rem] smaller:text-[1rem] font-med text-center ${
+              about ? "text-white" : "text-black"
+            }`}
+          >
             Any question or remarks? Just write us a message!
           </p>
         </div>
         <div
-          className="w-full bg-black p-7 small:p-6  rounded-[55px] small:rounded-[35px]
-            flex justify-between items-center small:flex-col small:gap-5"
+          className={`w-full bg-black p-7 small:p-6  rounded-[55px] small:rounded-[35px]
+            flex justify-between items-center small:flex-col small:gap-5 ${
+              about && "border border-[#FFFFFF4D]"
+            } `}
         >
           <div
             className="flex-1 flex-grow-[0.34]  small:w-full flex flex-col justify-start items-start
            p-[1.9rem]  rounded-[32px] bg-[#ECFFEC] min-h-[31rem] small:min-h-[25rem] smaller:px-5 small:rounded-[20px] "
           >
-            <h4 className="font-se text-6xl smaller:text-5xl ">Contact us</h4>
-            <p className="font-pm mt-4 text-[1.15rem] smaller:text-[1rem] font-med ">
+            <h4 className={`font-se text-6xl smaller:text-5xl`}>Contact us</h4>
+            <p
+              className={`font-pm mt-4 text-[1.15rem] smaller:text-[1rem] font-med`}
+            >
               Fill up the form and our Team will get back to you within 24 hours
             </p>
             <div className="flex flex-col justify-start items-start gap-5 mt-5">

@@ -131,4 +131,66 @@ gap-2 px-4 med:px-2 py-[0.58rem] med:py-[0.25rem] rounded-lg"
   );
 };
 
-export { Dealerbtn, MobileApp };
+const AppstoreBtn = ({ borderColor }) => {
+  return (
+    <button
+      className={`bg-black flex justify-center 
+items-center w-[200px] med:w-[180px] smaller:w-[160px] gap-3 
+pb-1 px-2 med:px-1 rounded-lg ${
+        borderColor ? "border border-white hover:border-[#A6A6A6]" : ""
+      }`}
+    >
+      {apple}
+      <div
+        className="flex flex-col justify-center 
+items-center h-[60px] med:h-[52px] mob:h-[50px] "
+      >
+        <p
+          className="text-white text-[12px] 
+tracking-[1.5px] smaller:text-[9px] med:text-[10px] leading-0"
+        >
+          Download on the
+        </p>
+        <p
+          className="text-white text-[1.65rem]  
+med:text-[1.6rem] smaller:text-[1.3rem] font-reg leading-[23px] "
+        >
+          App Store
+        </p>
+      </div>
+    </button>
+  );
+};
+
+const GooglePlayBtn = ({ borderColor }) => {
+  return (
+    <button
+      className={`bg-black flex justify-center 
+items-center w-[215px] med:w-[190px] smaller:w-[150px]
+gap-2 px-4 med:px-2 py-[0.58rem] med:py-[0.25rem] rounded-lg ${
+        borderColor ? "border border-white hover:border-[#A6A6A6]" : ""
+      }`}
+    >
+      {playStore}
+      <div
+        className="flex flex-col justify-center 
+items-start  w-full relative bottom-1 med:bottom-[3px] "
+      >
+        <p
+          className="text-white text-[15px] 
+smaller:text-[10px]"
+        >
+          GET IT ON
+        </p>
+        <p
+          className="text-white text-[1.575rem] smaller:text-[1.1rem] whitespace-nowrap smaller:scale-[1.05]
+med:text-[1.4rem] font-reg leading-[25px] smaller:leading-[20px]  "
+        >
+          Google Play
+        </p>
+      </div>
+    </button>
+  );
+};
+
+export { Dealerbtn, MobileApp, AppstoreBtn, GooglePlayBtn };

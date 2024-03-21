@@ -1,7 +1,7 @@
 import React from "react";
 import { socialIcons, socialIconsColorfull } from "./Consonants";
 
-function Footer({ dealearship }) {
+function Footer({ dealearship, about }) {
   return (
     <div
       className={`w-full border-t ${
@@ -13,7 +13,9 @@ function Footer({ dealearship }) {
           dealearship ? "max-w-[1340px]" : "max-w-[1320px]"
         } min-h-max flex justify-between items-start gap-10 m-auto ${
           dealearship ? "pt-10 pb-9" : "pt-[7.5rem] pb-12"
-        }  px-7 pr-4 larger:px-10 small:px-6 med:flex-col med:items-center larger:py-20 `}
+        } ${
+          about && "!text-white"
+        } px-7 pr-4 larger:px-10 small:px-6 med:flex-col med:items-center larger:py-20 `}
       >
         <div className="flex flex-col justify-start med:items-center items-start gap-4  z-20 ">
           <h4

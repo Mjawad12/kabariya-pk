@@ -142,3 +142,5 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
 };
 
 export default Testomonials;
+
+export { CarasouelCard };

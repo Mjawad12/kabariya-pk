@@ -655,6 +655,31 @@ const play2 = (
     />
   </svg>
 );
+const play2White = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="42"
+    height="42"
+    viewBox="0 0 41 41"
+    fill="none"
+    className="bg-white rounded-full smaller:w-[30px] smaller:h-[30px] "
+  >
+    <path
+      d="M25.2012 19.0786L19.7393 15.4373C18.604 14.6804 17.0833 15.4943 17.0833 16.8587V24.1413C17.0833 25.5057 18.604 26.3196 19.7393 25.5627L25.2012 21.9214C26.2155 21.2452 26.2155 19.7548 25.2012 19.0786Z"
+      stroke="black"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M35.875 20.5C35.875 28.9914 28.9914 35.875 20.5 35.875C12.0086 35.875 5.125 28.9914 5.125 20.5C5.125 12.0086 12.0086 5.125 20.5 5.125C28.9914 5.125 35.875 12.0086 35.875 20.5Z"
+      stroke="black"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 const usData = [
   {
@@ -2105,4 +2130,5 @@ export {
   hamburgerWhite,
   plusGreen,
   uploadImg,
+  play2White,
 };
