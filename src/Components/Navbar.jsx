@@ -28,11 +28,20 @@ function Navbar() {
   return (
     <nav
       className={`w-full flex justify-between items-center py-5 gap-5 pt-9 px-10 smaller:px-6 smaller:pt-5 ${
-        (pathname === "/dealership" || pathname === "/about") && "bg-black"
+        (pathname === "/dealership" ||
+          pathname === "/about" ||
+          pathname === "/contact" ||
+          pathname === "/privacy" ||
+          pathname === "conditions") &&
+        "bg-black"
       } `}
     >
       <div className="max-w-[232px] ">
-        {pathname === "/dealership" || pathname === "/about"
+        {pathname === "/dealership" ||
+        pathname === "/about" ||
+        pathname === "/contact" ||
+        pathname === "/privacy" ||
+        pathname === "conditions"
           ? logoEngDealer
           : logoEng}
       </div>
@@ -53,12 +62,20 @@ function Navbar() {
         className="max-w-[150px] w-full 
        flex justify-end items-center larger:gap-9 mob:gap-5 "
       >
-        {pathname === "/dealership" || pathname === "/about"
+        {pathname === "/dealership" ||
+        pathname === "/about" ||
+        pathname === "/contact" ||
+        pathname === "/privacy" ||
+        pathname === "conditions"
           ? logoUrduDealer
           : logoUrdu}
         <div className="hidden larger:block">
           {" "}
-          {pathname === "/dealership" || pathname === "/about"
+          {pathname === "/dealership" ||
+          pathname === "/about" ||
+          pathname === "/contact" ||
+          pathname === "/privacy" ||
+          pathname === "conditions"
             ? hamburgerWhite
             : hamburger}
         </div>
@@ -73,7 +90,12 @@ const Li = ({ name, index, pathname, slug }) => {
       className={`${pathname === `/${slug}` && "li_Nav !text-secondaryGreen"} ${
         pathname === "/" && slug === "/" && "li_Nav !text-secondaryGreen"
       } ${
-        (pathname === "/dealership" || pathname === "/about") && "text-white"
+        (pathname === "/dealership" ||
+          pathname === "/about" ||
+          pathname === "/contact" ||
+          pathname === "/privacy" ||
+          pathname === "conditions") &&
+        "text-white"
       }  relative  hover:text-secondaryGreen cursor-pointer whitespace-nowrap`}
     >
       <Link href={slug}>{name}</Link>

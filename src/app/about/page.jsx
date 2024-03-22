@@ -120,4 +120,5 @@ const DownloadBanner = () => {
   );
 };
 
+export { DownloadBanner };
 export default page;
