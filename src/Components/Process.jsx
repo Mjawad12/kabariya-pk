@@ -1,5 +1,5 @@
 import React from "react";
-import { download, play2, processDetails } from "./Consonants";
+import { download, processDetails } from "./Consonants";
 import Image from "next/image";
 
 function Process() {

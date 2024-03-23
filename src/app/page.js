@@ -4,7 +4,6 @@ import DownloadApp from "@/Components/DownloadApp";
 import Footer from "@/Components/Footer";
 import HeroSec from "@/Components/HeroSec";
 import Locations from "@/Components/Locations";
-import Navbar from "@/Components/Navbar";
 import OurServices from "@/Components/OurServices";
 import Process from "@/Components/Process";
 import ScrapCollect from "@/Components/ScrapCollect";

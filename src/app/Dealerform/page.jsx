@@ -2,7 +2,6 @@
 import {
   Scrapitems,
   arrowDown,
-  minus,
   plusGreen,
   tick,
   uploadImg,

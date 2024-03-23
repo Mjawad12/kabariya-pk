@@ -1,17 +1,10 @@
 "use client";
 import React, { useEffect } from "react";
-import Datetime from "react-datetime";
-import "react-datetime/css/react-datetime.css";
-import { RightArrow, arrowDown, left } from "./Consonants";
 
-export default function BasicDateCalendar({ setselectedDate, selectedDate }) {
-  // useEffect(() => {
-  //   document.querySelectorAll(".dow").forEach((it, index) => {
-  //     it.innerHTML = days[index];
-  //     it.style.fontSize = "0.9rem";
-  //     it.style.fontWeight = "200";
-  //   });
-  // }, []);
+import "react-datetime/css/react-datetime.css";
+import { left } from "./Consonants";
+
+export default function BasicDateCalendar({ setselectedDate }) {
   useEffect(() => {
     let date = new Date();
     let year = date.getFullYear();

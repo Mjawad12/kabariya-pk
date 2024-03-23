@@ -2,7 +2,7 @@ import { privacyPolicy } from "@/Components/Consonants";
 import Contact from "@/Components/Contact";
 import React from "react";
 import { DownloadBanner } from "../about/page";
-import Footer, { Banner } from "@/Components/Footer";
+import Footer from "@/Components/Footer";
 
 function page() {
   return (

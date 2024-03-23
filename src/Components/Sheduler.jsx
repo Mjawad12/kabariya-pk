@@ -72,7 +72,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
       city: selectedOption,
       time: time,
       remarks: remarks.current.value,
-      type: await type.toString(),
+      scrap: await type.toString(),
       prefrence: prefrence,
       pupolar: await pupolar.toString(),
       date:

@@ -1,11 +1,10 @@
 import BecomeDealer from "@/Components/BecomeDealer";
-import { arrowLeft2, play, play2 } from "@/Components/Consonants";
+import { arrowLeft2, play } from "@/Components/Consonants";
 import Contact from "@/Components/Contact";
 import DownloadDealerhip from "@/Components/DownloadDealerhip";
 import Footer from "@/Components/Footer";
 import { Dealerbtn } from "@/Components/HeroSec";
 import OurFeatures from "@/Components/OurFeatures";
-
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
