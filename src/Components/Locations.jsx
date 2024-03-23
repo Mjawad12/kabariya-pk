@@ -8,7 +8,7 @@ function Locations() {
       <div className="w-full relative flex justify-center items-center min-h-[125vh] small:min-h-screen  small:py-[6rem] smaller:py-[4rem]  ">
         <div className="absolute top-0 left-0 w-full">
           <Image
-            src={"/locationOnline.png"}
+            src={"/locationOnline.webp"}
             width={5000}
             height={5000}
             alt="line"
@@ -56,9 +56,10 @@ function Locations() {
               style={{
                 filter: "drop-shadow(3px 10px 16px rgba(67, 66, 66, .486))",
               }}
-              src={"/pak.png"}
+              src={"/pak.webp"}
               width={5000}
               height={5000}
+              alt="pakistan map"
               className="w-full small:max-w-[30rem] small:m-auto"
             />
           </div>
@@ -66,7 +67,7 @@ function Locations() {
 
         <div className="absolute bottom-0 left-0 w-full">
           <Image
-            src={"/locationOnline2.png"}
+            src={"/locationOnline2.webp"}
             width={5000}
             height={5000}
             alt="line"

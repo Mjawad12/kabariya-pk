@@ -12,9 +12,9 @@ function page() {
        justify-start items-start px-4 gap-16 py-10 small:py-5 small:gap-5 "
       >
         <div>
-          <h4 className="font-pm font-bol text-[45px] leading-[50px] small:text-[40px]">
+          <h1 className="font-pm font-bol text-[45px] leading-[50px] small:text-[40px]">
             Reviews
-          </h4>
+          </h1>
           <p className="font-pm font-reg text-[17px] small:text-[16px]">
             with our Hassle-Free Doorstep Pickup Service In Just few Easy Steps.
           </p>

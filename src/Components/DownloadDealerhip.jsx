@@ -31,7 +31,7 @@ function DownloadDealerhip() {
           rounded-[26px] smaller:rounded-[20px] bg-[#0CBC8B] z-10 absolute"
           ></div>
           <Image
-            src={"/DealerMobileDownload.png"}
+            src={"/DealerMobileDownload.webp"}
             width={425}
             height={425}
             alt="iphone"

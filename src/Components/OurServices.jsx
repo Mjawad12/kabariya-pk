@@ -38,7 +38,7 @@ function OurServices() {
         </div>
         <div className="w-full absolute px-5 bottom-[-15px] small:bottom-[-40px] left-0">
           <Image
-            src={"/service-line.png"}
+            src={"/service-line.webp"}
             height={5000}
             width={5000}
             alt="serviceline"
@@ -54,9 +54,10 @@ const Service = ({ index, text }) => {
   return (
     <div className="relative ">
       <Image
-        src={`/house${index + 1}.png`}
+        src={`/house${index + 1}.webp`}
         height={225}
         width={225}
+        alt={`/house${index + 1}.webp`}
         className="large:w-[170px] med:w-[140px] small:w-[200px] smaller:w-[250px] h-auto"
       />
       <p className="absolute bottom-[15px] left-[20px] font-pm font-reg text-white text-[1.3rem] ">

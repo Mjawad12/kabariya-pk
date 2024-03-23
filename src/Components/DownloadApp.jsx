@@ -71,7 +71,7 @@ function DownloadApp() {
         </div>
         <div className="flex-1 flex-grow-[0.45] small:max-w-[30rem]  w-full ">
           <Image
-            src="/mobileDownload.png"
+            src="/mobileDownload.webp"
             width={5000}
             height={5000}
             alt="mobile Download"

@@ -30,8 +30,8 @@ function page() {
           </p>
         </div>
         <div className="flex justify-center items-center gap-8 mt-8 smaller:mt-5 smaller:gap-5  mob:mt-3 flex-wrap px-3 ">
-          <DownloadCard src={"/iphone.png"} app={true} />
-          <DownloadCard src={"/samsung.png"} app={false} />
+          <DownloadCard src={"/iphone.webp"} app={true} />
+          <DownloadCard src={"/samsung.webp"} app={false} />
         </div>
       </div>
       <div className="max-w-[1600px] w-full mt-14 small:mt-9 smaller:mt-6 border-t border-[#00000033] py-[6.5rem] small:py-20 smaller:py-10 relative  px-5 ">
@@ -55,8 +55,8 @@ function page() {
           </p>
         </div>
         <div className="flex justify-center items-center gap-8 mt-8 smaller:mt-5 mob:mt-3 smaller:gap-5 flex-wrap px-3 ">
-          <DownloadCard src={"/iphone.png"} app={true} border={true} />
-          <DownloadCard src={"/samsung.png"} app={false} border={true} />
+          <DownloadCard src={"/iphone.webp"} app={true} border={true} />
+          <DownloadCard src={"/samsung.webp"} app={false} border={true} />
         </div>
       </div>
 
@@ -88,7 +88,7 @@ const DownloadCard = ({ src, app, border }) => {
       </div>
       <div className="flex flex-col gap-2 items-center smaller:gap-1">
         <Image
-          src={"/qrcode.png"}
+          src={"/qrcode.webp"}
           width={180}
           height={180}
           alt="QRcode"

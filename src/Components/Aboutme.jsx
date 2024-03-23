@@ -19,11 +19,11 @@ function Aboutme({ page }) {
               smaller:w-[300px] smaller:h-[225px] smaller:rounded-[25px]  smaller:top-[-15px] smaller:left-[-15px] "
             />
             <Image
-              src={"/pic.png"}
+              src={"/pic.webp"}
               width={480}
               height={480}
               alt="About me"
-              className="z-20 relative large:w-[410px] med:w-[380px] small:w-[350px] smaller:w-[310px]"
+              className="z-20 relative large:w-[410px]  med:w-[380px]  small:w-[350px]  smaller:w-[310px]"
             />
           </div>
         </div>

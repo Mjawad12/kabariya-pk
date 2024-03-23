@@ -21,8 +21,8 @@ function WatchVideo() {
             {play}
           </div>
           <Image
-            src="/mobileimage.png"
-            alt="mobileimage"
+            src="/mobileimage.webp"
+            alt="mobile"
             height={500}
             width={500}
             className="w-full h-full absolute inset-0 video"

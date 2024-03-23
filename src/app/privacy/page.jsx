@@ -2,7 +2,7 @@ import { privacyPolicy } from "@/Components/Consonants";
 import Contact from "@/Components/Contact";
 import React from "react";
 import { DownloadBanner } from "../about/page";
-import { Banner } from "@/Components/Footer";
+import Footer, { Banner } from "@/Components/Footer";
 
 function page() {
   return (
@@ -36,10 +36,8 @@ function page() {
         </div>
       </div>
       <Contact about={true} />
-      <div className="pb-5 border-b border-primaryGreen">
-        <DownloadBanner />
-      </div>
-      <Banner />
+      <DownloadBanner />
+      <Footer about={true} dealearship={true} />
     </div>
   );
 }
@@ -53,16 +51,15 @@ const PrivacyCard = ({ text, heading, text2, ul }) => {
       <p className="font-pm font-reg text-[18px] leading-[29px] text-white mt-5 small:mt-3 smaller:mt-2 small:text-[17px] smaller:text-[16px] small:leading-[25px] smaller:leading-[23px]">
         {text}
       </p>
-      <ul className="flex flex-col gap-0 [list-style:disc;] ">
-        {ul &&
-          ul
-            .split("_")
-            .map((it) => (
-              <li className="font-pm font-reg text-[18px] leading-[16px] text-white mt-5 small:mt-3 smaller:mt-2 small:text-[17px] smaller:text-[16px] small:leading-[14px] smaller:leading-[12px]">
-                {it}
-              </li>
-            ))}
-      </ul>
+      {ul && (
+        <ul className="flex flex-col gap-0 [list-style:disc;] pl-8 py-6 smaller:pl-3 smaller:py-3 ">
+          {ul.split("_").map((it) => (
+            <li className="font-pm font-reg text-[18px] leading-[19px] text-white mt-5 small:mt-3 smaller:mt-2 small:text-[17px] smaller:text-[16px] ">
+              {it}
+            </li>
+          ))}
+        </ul>
+      )}
       {text2 && (
         <p className="font-pm font-reg text-[18px] leading-[29px] text-white mt-5 small:mt-3 smaller:mt-2 small:text-[17px] smaller:text-[16px] small:leading-[25px] smaller:leading-[23px]">
           {text2}
@@ -71,5 +68,7 @@ const PrivacyCard = ({ text, heading, text2, ul }) => {
     </div>
   );
 };
+
+export { PrivacyCard };
 
 export default page;

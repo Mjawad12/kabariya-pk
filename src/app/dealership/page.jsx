@@ -7,6 +7,7 @@ import { Dealerbtn } from "@/Components/HeroSec";
 import OurFeatures from "@/Components/OurFeatures";
 
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 function page() {
@@ -35,7 +36,9 @@ function page() {
               </p>
               <div className="small:rotate-[90deg]  ">{arrowLeft2}</div>
             </div>
-            <Dealerbtn bgcolor="black" textColor="white" />
+            <Link href={"/Dealerform"} className="w-full">
+              <Dealerbtn bgcolor="black" textColor="white" />
+            </Link>
           </div>
           <div className="max-w-max larger:max-w-[85%] larger:w-full small:max-w-[100%] relative ">
             <div
@@ -45,7 +48,7 @@ function page() {
             <div className="dashedBorder flex items-center  z-20 relative max-w-[721px] small:max-w-[100%] small:max-h-[100%]  w-full max-h-[422px] h-full p-4 smaller:p-3 Smob:p-2">
               <div className="w-full h-full flex justify-center items-center">
                 <Image
-                  src={"/DealerMobile.png"}
+                  src={"/DealerMobile.webp"}
                   height={1000}
                   width={1000}
                   alt="dealermobile"

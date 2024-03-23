@@ -7,7 +7,7 @@ import React from "react";
 
 function page() {
   return (
-    <div className="w-full min-h-screen bg-black pt-12">
+    <div className="w-full min-h-screen bg-black pt-12 small:pt-8 smaller:pt-0">
       <div className="max-w-[1400px] w-full flex flex-col gap-10 small:gap-0 m-auto">
         <Aboutme page={"About"} />
         <div className="flex flex-col gap-20 small:gap-10 small:px-9 smaller:px-5">
@@ -102,7 +102,7 @@ const DownloadBanner = () => {
       <div className="max-w-[71rem] m-auto w-full  small:flex-col flex justify-between items-center small:gap-8">
         <div className="flex justify-center items-center gap-16 small:gap-10 smaller:gap-4">
           <Image
-            src="/mobileDownload.png"
+            src="/mobileDownload.webp"
             width={110}
             height={110}
             alt="mobile app"

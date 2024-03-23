@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { becomeDealerData, mouse } from "./Consonants";
 import { Dealerbtn } from "./HeroSec";
 import Image from "next/image";
@@ -37,9 +37,9 @@ function BecomeDealer() {
             {becomeDealerData.map((it, index) => (
               <>
                 {index === 2 && (
-                  <>
+                  <Fragment key={index}>
                     <Image
-                      src="/dealer1.png"
+                      src="/dealer1.webp"
                       width={99}
                       height={99}
                       alt="delaer1"
@@ -48,14 +48,14 @@ function BecomeDealer() {
                     />
 
                     <Image
-                      src="/dealer2.png"
+                      src="/dealer2.webp"
                       width={67}
                       height={67}
                       alt="delaer1"
                       unoptimized
                       className="relative right-[110px] extLar:right-0  larger:hidden"
                     />
-                  </>
+                  </Fragment>
                 )}
 
                 <ProcessCard

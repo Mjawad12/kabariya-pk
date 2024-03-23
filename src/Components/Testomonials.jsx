@@ -98,7 +98,7 @@ const CarasouelCard = ({ name, tagline, testmonial, index }) => {
     >
       <div className="cardPic rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
         <Image
-          src={`/Testomonials/${index + 1}.png`}
+          src={`/Testomonials/${index + 1}.webp`}
           width={5000}
           height={5000}
           alt={name}
@@ -131,10 +131,14 @@ const ButtonGroup = ({ next, previous, goToSlide, ...rest }) => {
       className="carousel-button-group  gap-4 flex justify-between 
       items-center w-[90vw] m-auto absolute top-[50%] left-[50%] z-20 smaller:w-[98%]"
     >
-      <button className="block" onClick={() => previous()}>
+      <button
+        className="block"
+        onClick={() => previous()}
+        aria-label="previous slide"
+      >
         {left}
       </button>
-      <button onClick={() => next()}>
+      <button onClick={() => next()} aria-label="next slide">
         <span className="block scale-[-1] ">{left}</span>
       </button>
     </div>

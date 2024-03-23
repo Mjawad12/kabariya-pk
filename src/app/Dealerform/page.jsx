@@ -10,7 +10,7 @@ import {
 import { Banner } from "@/Components/Footer";
 import SubmittedDialog from "@/Components/SubmittedDialog";
 import { useRouter } from "next/navigation";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 
 function page() {
   const [page, setpage] = useState(0);
@@ -43,7 +43,6 @@ function page() {
         window.scrollTo(0, 0);
         setpage(1);
       } else if (page === 1) {
-        console.log(document.querySelector("#profileInput").files[0]);
         if (!document.querySelector("#profileInput").files[0]) {
           seterrors("Please upload profile image.");
         } else if (
@@ -92,13 +91,12 @@ function page() {
     details.bankDetails = await bankDetails();
     details.scrap = scrap.toString();
     details.others = other.current.value;
-    console.log(details);
+
     const data = await fetch("http://localhost:3000/api/DealerEmail", {
       method: "POST",
       body: JSON.stringify(details),
     });
     const parsedData = await data.json();
-    console.log(parsedData);
   };
 
   const bankDetails = () => {
@@ -148,12 +146,6 @@ function page() {
     }
     return url;
   };
-
-  useEffect(() => {
-    console.log(profileImg);
-    console.log(cnicImg);
-    console.log(shopimages);
-  }, [profileImg, cnicImg, shopimages]);
 
   return (
     <div className="w-full relative">
@@ -258,6 +250,7 @@ function page() {
                       "Others",
                     ].map((it, index) => (
                       <div
+                        key={index}
                         onClick={() => {
                           if (qualification.includes(it)) {
                             let pop = [];
@@ -273,7 +266,7 @@ function page() {
                           }
                         }}
                       >
-                        <CustomCheckbox gap={3} text={it} key={index} />
+                        <CustomCheckbox gap={3} text={it} />
                       </div>
                     ))}
                   </div>
@@ -422,48 +415,47 @@ function page() {
               </div>
               {Scrapitems.map((it, index) => {
                 return (
-                  <div key={index} className="flex flex-col gap-3 w-full">
-                    <p className="formp text-[1.1rem] font-bol ">
-                      {it.name === "Custom offer" ? "Others" : it.name}
-                    </p>
-                    <div className="flex justify-start items-center gap-[1rem] flex-wrap gap-y-3">
-                      {it.name === "Custom offer" ? (
-                        <input
-                          className="forminput font-pm font-reg"
-                          placeholder="Write here"
-                          required
-                          maxLength={100}
-                          ref={other}
-                        />
-                      ) : (
-                        it.items.map((currentItem, i) => (
-                          <div
-                            className="max-w-[12.5rem] w-full flex"
-                            onClick={() => {
-                              if (scrap.includes(currentItem)) {
-                                let pop = [];
-                                scrap.forEach((ele) => {
-                                  if (ele !== currentItem) {
-                                    pop.push(ele);
-                                  }
-                                });
-                                setscrap(pop);
-                              } else {
-                                const pop = [...scrap, currentItem];
-                                setscrap(pop);
-                              }
-                            }}
-                          >
-                            <CustomCheckbox
-                              gap={3}
-                              text={currentItem}
-                              key={i + 20}
-                            />
-                          </div>
-                        ))
-                      )}
+                  <Fragment key={index}>
+                    <div key={index} className="flex flex-col gap-3 w-full">
+                      <p className="formp text-[1.1rem] font-bol ">
+                        {it.name === "Custom offer" ? "Others" : it.name}
+                      </p>
+                      <div className="flex justify-start items-center gap-[1rem] flex-wrap gap-y-3">
+                        {it.name === "Custom offer" ? (
+                          <input
+                            className="forminput font-pm font-reg"
+                            placeholder="Write here"
+                            required
+                            maxLength={100}
+                            ref={other}
+                          />
+                        ) : (
+                          it.items.map((currentItem, i) => (
+                            <div
+                              key={i + "s"}
+                              className="max-w-[12.5rem] w-full flex"
+                              onClick={() => {
+                                if (scrap.includes(currentItem)) {
+                                  let pop = [];
+                                  scrap.forEach((ele) => {
+                                    if (ele !== currentItem) {
+                                      pop.push(ele);
+                                    }
+                                  });
+                                  setscrap(pop);
+                                } else {
+                                  const pop = [...scrap, currentItem];
+                                  setscrap(pop);
+                                }
+                              }}
+                            >
+                              <CustomCheckbox gap={3} text={currentItem} />
+                            </div>
+                          ))
+                        )}
+                      </div>
                     </div>
-                  </div>
+                  </Fragment>
                 );
               })}
             </div>
@@ -814,7 +806,7 @@ const Option2 = ({
         </p>
         <div className="flex gap-3 w-full flex-wrap">
           {shopimg.map((it, index) => (
-            <>
+            <Fragment key={index}>
               <input
                 type="file"
                 accept="image/*"
@@ -839,7 +831,7 @@ const Option2 = ({
                   Add image
                 </p>
               </div>
-            </>
+            </Fragment>
           ))}
         </div>
       </div>

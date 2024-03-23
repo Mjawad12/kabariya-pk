@@ -53,7 +53,7 @@ const Container = ({ text, index, title }) => {
         flex justify-center items-center relative right-2 small:right-0 "
       >
         <Image
-          src={`/us${index + 1}.png`}
+          src={`/us${index + 1}.webp`}
           width={5000}
           height={5000}
           className="w-[4.1rem] h-[4rem] small:w-[3.3rem] small:h-[3.3rem]"

@@ -68,7 +68,7 @@ const ScrapItem = ({ text, index }) => {
          rounded-[22.54px] small:rounded-[20px]  flex justify-start items-center gap-2 Smob:gap-1 "
     >
       <Image
-        src={`/ElectrinocsSvgs/${Scrapitems["1"].items[index]}.png`}
+        src={`/ElectrinocsSvgs/${Scrapitems["1"].items[index]}.webp`}
         alt={text}
         width={5000}
         height={5000}

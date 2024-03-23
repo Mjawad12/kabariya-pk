@@ -82,7 +82,7 @@ const FeatureOpener = ({ index, title, desc }) => {
     >
       <div className="flex justify-start items-center w-full gap-5">
         <Image
-          src={`/features/${index}.png`}
+          src={`/features/${index}.webp`}
           width={41}
           height={41}
           alt={title}

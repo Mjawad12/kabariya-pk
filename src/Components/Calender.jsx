@@ -107,17 +107,6 @@ export default function BasicDateCalendar({ setselectedDate, selectedDate }) {
 
   return (
     <>
-      {/* <div classNameName="w-full h-[16rem] small:h-[20rem] relative ">
-        <Datetime
-          value={selectedDate}
-          onChange={(e) => {
-            setselectedDate(new Date(e));
-          }}
-          input={true}
-          open={true}
-          classNameName=""
-        />
-      </div> */}
       <div className="max-w-[21rem] larger:max-w-[16rem] med:max-w-[15rem] small:max-w-full w-full flex justify-start items-center">
         <div className="w-full max-w-[18.5rem] larger:max-w-[16rem] med:max-w-[15rem] small:max-w-full h-[10rem] small:h-auto relative flex justify-start flex-col items-center ">
           <header className="flex justify-between items-center calendar-navigation w-full relative">

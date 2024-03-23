@@ -1,5 +1,10 @@
 import React from "react";
-import { socialIcons, socialIconsColorfull } from "./Consonants";
+import {
+  contactPageData,
+  socialIcons,
+  socialIconsColorfull,
+} from "./Consonants";
+import Link from "next/link";
 
 function Footer({ dealearship, about }) {
   return (
@@ -31,15 +36,17 @@ function Footer({ dealearship, about }) {
             }`}
           >
             <li className="font-pm text-[1.05rem] smaller:text-[0.95rem] ">
-              021 45637845
+              <Link href={"Tel: 021 45637845"}>021 45637845</Link>
             </li>
 
             <li className="font-pm text-[1.05rem] smaller:text-[0.95rem] ">
-              0331 7777722
+              <Link href={"Tel:0331 7777722"}>0331 7777722</Link>
             </li>
 
             <li className="font-pm text-[1.05rem] smaller:text-[0.95rem] ">
-              Contact@kabariya.pk
+              <Link href={"mailto:Contact@kabariya.pk"}>
+                Contact@kabariya.pk
+              </Link>
             </li>
 
             <li className="font-pm text-[1.05rem] smaller:text-[0.95rem] max-w-[25ch] med:text-center ">
@@ -60,11 +67,21 @@ function Footer({ dealearship, about }) {
               dealearship ? "[&>li]:font-med" : "[&>li]:font-[400]"
             } `}
           >
-            <li className="font-pm font-reg text-[1.05rem]">Home</li>
-            <li className="font-pm font-reg text-[1.05rem]">About us</li>
-            <li className="font-pm font-reg text-[1.05rem]">Download app</li>
-            <li className="font-pm font-reg text-[1.05rem]">Reviews</li>
-            <li className="font-pm font-reg text-[1.05rem]">Contact us</li>
+            <li className="font-pm font-reg text-[1.05rem]">
+              <Link href={"/"}>Home</Link>
+            </li>
+            <li className="font-pm font-reg text-[1.05rem]">
+              <Link href={"/about"}>About us</Link>
+            </li>
+            <li className="font-pm font-reg text-[1.05rem]">
+              <Link href={"/downloadapp"}>Download app</Link>
+            </li>
+            <li className="font-pm font-reg text-[1.05rem]">
+              <Link href={"/reviews"}>Reviews</Link>
+            </li>
+            <li className="font-pm font-reg text-[1.05rem]">
+              <Link href={"/contact"}>Contact us</Link>
+            </li>
           </ul>
         </div>
         <div className="flex flex-col justify-start items-start gap-4 z-20  med:items-center ">
@@ -80,12 +97,14 @@ function Footer({ dealearship, about }) {
               dealearship ? "[&>li]:font-med" : "[&>li]:font-[400]"
             } `}
           >
-            <li className="font-pm font-reg text-[1.05rem]">Privacy Policy</li>
             <li className="font-pm font-reg text-[1.05rem]">
-              Terms and Conditions
+              <Link href={"/privacy"}>Privacy Policy</Link>
             </li>
             <li className="font-pm font-reg text-[1.05rem]">
-              Become a partner
+              <Link href={"/TermsAndConditions"}>Terms and Conditions</Link>
+            </li>
+            <li className="font-pm font-reg text-[1.05rem]">
+              <Link href={"/Dealerform"}>Become a partner</Link>
             </li>
             <li className="font-pm font-reg text-[1.05rem]">Career</li>
           </ul>
@@ -128,11 +147,29 @@ function Footer({ dealearship, about }) {
             <h4 className="font-pm font-bol text-[1.4rem]">Follow us</h4>
             <div className="flex justify-start items-start gap-2 med:justify-center w-full [&>svg]:cursor-pointer">
               {dealearship
-                ? socialIconsColorfull.map((it) => {
-                    return it;
+                ? socialIconsColorfull.map((it, index) => {
+                    return (
+                      <Link
+                        href={contactPageData[index].link}
+                        key={index}
+                        target="_blank"
+                        aria-label="link to a social platform"
+                      >
+                        {it}
+                      </Link>
+                    );
                   })
-                : socialIcons.map((it) => {
-                    return it;
+                : socialIcons.map((it, index) => {
+                    return (
+                      <Link
+                        href={contactPageData[index].link}
+                        key={index}
+                        target="_blank"
+                        aria-label="link to a social platform"
+                      >
+                        {it}
+                      </Link>
+                    );
                   })}
             </div>
           </div>

@@ -72,7 +72,7 @@ const ProcessContainer = ({ index, color, desc, tag, title }) => {
           {index + 1}
         </span>
         <Image
-          src={"/app.png"}
+          src={"/app.webp"}
           width={5000}
           height={5000}
           className="w-[4.9rem] h-[4.9rem]"

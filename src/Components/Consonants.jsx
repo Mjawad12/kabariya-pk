@@ -1014,10 +1014,11 @@ const left = (
     height="22"
     viewBox="0 0 24 24"
     fill="none"
+    stroke="black"
   >
     <path
       d="M16 19L9 12L16 5"
-      stroke="black"
+      stroke="inherit"
       strokeWidth="2"
       strokeLinecap="round"
       strokeLinejoin="round"
@@ -1641,8 +1642,8 @@ const socialIconsColorfull = [
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(20.361 -13.4835) scale(36.8298)"
       >
-        <stop stop-color="#00ABE5" />
-        <stop offset="1" stop-color="#1B75BC" />
+        <stop stopColor="#00ABE5" />
+        <stop offset="1" stopColor="#1B75BC" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_1690_4852"
@@ -1652,11 +1653,11 @@ const socialIconsColorfull = [
         y2="8.1946"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#C1E8FB" />
-        <stop offset="0.23" stop-color="#DAF1FD" />
-        <stop offset="0.49" stop-color="#EFF9FE" />
-        <stop offset="0.75" stop-color="#FBFDFF" />
-        <stop offset="1" stop-color="white" />
+        <stop stopColor="#C1E8FB" />
+        <stop offset="0.23" stopColor="#DAF1FD" />
+        <stop offset="0.49" stopColor="#EFF9FE" />
+        <stop offset="0.75" stopColor="#FBFDFF" />
+        <stop offset="1" stopColor="white" />
       </linearGradient>
       <clipPath id="clip0_1690_4852">
         <rect width="41" height="41" fill="white" />
@@ -1670,7 +1671,7 @@ const socialIconsColorfull = [
     viewBox="0 0 41 41"
     fill="none"
   >
-    <g clip-path="url(#clip0_1690_4849)">
+    <g clipPath="url(#clip0_1690_4849)">
       <path
         d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
         fill="url(#paint0_radial_1690_4849)"
@@ -1689,10 +1690,10 @@ const socialIconsColorfull = [
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(20.2882 -11.1138) scale(37.2866)"
       >
-        <stop stop-color="#E75830" />
-        <stop offset="0.5" stop-color="#E75530" />
-        <stop offset="0.82" stop-color="#E64D2F" />
-        <stop offset="1" stop-color="#E6442F" />
+        <stop stopColor="#E75830" />
+        <stop offset="0.5" stopColor="#E75530" />
+        <stop offset="0.82" stopColor="#E64D2F" />
+        <stop offset="1" stopColor="#E6442F" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_1690_4849"
@@ -1702,11 +1703,11 @@ const socialIconsColorfull = [
         y2="11.6633"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#FAD3E4" />
-        <stop offset="0.16" stop-color="#FCE5EF" />
-        <stop offset="0.37" stop-color="#FEF4F8" />
-        <stop offset="0.62" stop-color="#FFFCFD" />
-        <stop offset="1" stop-color="white" />
+        <stop stopColor="#FAD3E4" />
+        <stop offset="0.16" stopColor="#FCE5EF" />
+        <stop offset="0.37" stopColor="#FEF4F8" />
+        <stop offset="0.62" stopColor="#FFFCFD" />
+        <stop offset="1" stopColor="white" />
       </linearGradient>
       <clipPath id="clip0_1690_4849">
         <rect width="41" height="41" fill="white" />
@@ -1720,7 +1721,7 @@ const socialIconsColorfull = [
     viewBox="0 0 41 41"
     fill="none"
   >
-    <g clip-path="url(#clip0_1690_4857)">
+    <g clipPath="url(#clip0_1690_4857)">
       <path
         d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
         fill="url(#paint0_radial_1690_4857)"
@@ -1751,12 +1752,12 @@ const socialIconsColorfull = [
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(42.2775 -10.8358) scale(80.9873)"
       >
-        <stop offset="0.16" stop-color="#AD55A5" />
-        <stop offset="0.22" stop-color="#B85C9A" />
-        <stop offset="0.41" stop-color="#D66D7E" />
-        <stop offset="0.52" stop-color="#E17374" />
-        <stop offset="0.73" stop-color="#F0B375" />
-        <stop offset="0.83" stop-color="#F8D476" />
+        <stop offset="0.16" stopColor="#AD55A5" />
+        <stop offset="0.22" stopColor="#B85C9A" />
+        <stop offset="0.41" stopColor="#D66D7E" />
+        <stop offset="0.52" stopColor="#E17374" />
+        <stop offset="0.73" stopColor="#F0B375" />
+        <stop offset="0.83" stopColor="#F8D476" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_1690_4857"
@@ -1766,12 +1767,12 @@ const socialIconsColorfull = [
         y2="8.65154"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#ECDCB8" />
-        <stop offset="0.04" stop-color="#EDDFBD" />
-        <stop offset="0.28" stop-color="#F5EDDA" />
-        <stop offset="0.52" stop-color="#FBF7EF" />
-        <stop offset="0.75" stop-color="#FEFDFB" />
-        <stop offset="0.98" stop-color="white" />
+        <stop stopColor="#ECDCB8" />
+        <stop offset="0.04" stopColor="#EDDFBD" />
+        <stop offset="0.28" stopColor="#F5EDDA" />
+        <stop offset="0.52" stopColor="#FBF7EF" />
+        <stop offset="0.75" stopColor="#FEFDFB" />
+        <stop offset="0.98" stopColor="white" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_1690_4857"
@@ -1781,12 +1782,12 @@ const socialIconsColorfull = [
         y2="8.65168"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#ECDCB8" />
-        <stop offset="0.04" stop-color="#EDDFBD" />
-        <stop offset="0.28" stop-color="#F5EDDA" />
-        <stop offset="0.52" stop-color="#FBF7EF" />
-        <stop offset="0.75" stop-color="#FEFDFB" />
-        <stop offset="0.98" stop-color="white" />
+        <stop stopColor="#ECDCB8" />
+        <stop offset="0.04" stopColor="#EDDFBD" />
+        <stop offset="0.28" stopColor="#F5EDDA" />
+        <stop offset="0.52" stopColor="#FBF7EF" />
+        <stop offset="0.75" stopColor="#FEFDFB" />
+        <stop offset="0.98" stopColor="white" />
       </linearGradient>
       <clipPath id="clip0_1690_4857">
         <rect width="41" height="41" fill="white" />
@@ -1800,7 +1801,7 @@ const socialIconsColorfull = [
     viewBox="0 0 41 41"
     fill="none"
   >
-    <g clip-path="url(#clip0_1690_4864)">
+    <g clipPath="url(#clip0_1690_4864)">
       <path
         d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
         fill="url(#paint0_radial_1690_4864)"
@@ -1827,9 +1828,9 @@ const socialIconsColorfull = [
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(20.6456 -9.55828) scale(33.3613)"
       >
-        <stop stop-color="#4F97D1" />
-        <stop offset="0.4" stop-color="#428EC9" />
-        <stop offset="1" stop-color="#267BB7" />
+        <stop stopColor="#4F97D1" />
+        <stop offset="0.4" stopColor="#428EC9" />
+        <stop offset="1" stopColor="#267BB7" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_1690_4864"
@@ -1839,12 +1840,12 @@ const socialIconsColorfull = [
         y2="14.7679"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#B1E3FA" />
-        <stop offset="0.13" stop-color="#C7EBFB" />
-        <stop offset="0.32" stop-color="#E0F4FD" />
-        <stop offset="0.52" stop-color="#F1FAFE" />
-        <stop offset="0.74" stop-color="#FCFEFF" />
-        <stop offset="0.99" stop-color="white" />
+        <stop stopColor="#B1E3FA" />
+        <stop offset="0.13" stopColor="#C7EBFB" />
+        <stop offset="0.32" stopColor="#E0F4FD" />
+        <stop offset="0.52" stopColor="#F1FAFE" />
+        <stop offset="0.74" stopColor="#FCFEFF" />
+        <stop offset="0.99" stopColor="white" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_1690_4864"
@@ -1854,12 +1855,12 @@ const socialIconsColorfull = [
         y2="15.0854"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#B1E3FA" />
-        <stop offset="0.13" stop-color="#C7EBFB" />
-        <stop offset="0.32" stop-color="#E0F4FD" />
-        <stop offset="0.52" stop-color="#F1FAFE" />
-        <stop offset="0.74" stop-color="#FCFEFF" />
-        <stop offset="0.99" stop-color="white" />
+        <stop stopColor="#B1E3FA" />
+        <stop offset="0.13" stopColor="#C7EBFB" />
+        <stop offset="0.32" stopColor="#E0F4FD" />
+        <stop offset="0.52" stopColor="#F1FAFE" />
+        <stop offset="0.74" stopColor="#FCFEFF" />
+        <stop offset="0.99" stopColor="white" />
       </linearGradient>
       <linearGradient
         id="paint3_linear_1690_4864"
@@ -1869,12 +1870,12 @@ const socialIconsColorfull = [
         y2="8.35994"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#B1E3FA" />
-        <stop offset="0.13" stop-color="#C7EBFB" />
-        <stop offset="0.32" stop-color="#E0F4FD" />
-        <stop offset="0.52" stop-color="#F1FAFE" />
-        <stop offset="0.74" stop-color="#FCFEFF" />
-        <stop offset="0.99" stop-color="white" />
+        <stop stopColor="#B1E3FA" />
+        <stop offset="0.13" stopColor="#C7EBFB" />
+        <stop offset="0.32" stopColor="#E0F4FD" />
+        <stop offset="0.52" stopColor="#F1FAFE" />
+        <stop offset="0.74" stopColor="#FCFEFF" />
+        <stop offset="0.99" stopColor="white" />
       </linearGradient>
       <clipPath id="clip0_1690_4864">
         <rect width="41" height="41" fill="white" />
@@ -1888,7 +1889,7 @@ const socialIconsColorfull = [
     viewBox="0 0 41 41"
     fill="none"
   >
-    <g clip-path="url(#clip0_1690_4869)">
+    <g clipPath="url(#clip0_1690_4869)">
       <path
         d="M29.7737 0H11.2263C5.02621 0 0 5.01487 0 11.201V29.7065C0 35.8927 5.02621 40.9075 11.2263 40.9075H29.7737C35.9738 40.9075 41 35.8927 41 29.7065V11.201C41 5.01487 35.9738 0 29.7737 0Z"
         fill="url(#paint0_radial_1690_4869)"
@@ -1907,10 +1908,10 @@ const socialIconsColorfull = [
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(23.0551 -18.3404) scale(36.1878 36.1062)"
       >
-        <stop stop-color="#1F1F1F" />
-        <stop offset="0.44" stop-color="#232222" />
-        <stop offset="0.82" stop-color="#2D2B2B" />
-        <stop offset="1" stop-color="#353132" />
+        <stop stopColor="#1F1F1F" />
+        <stop offset="0.44" stopColor="#232222" />
+        <stop offset="0.82" stopColor="#2D2B2B" />
+        <stop offset="1" stopColor="#353132" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_1690_4869"
@@ -1920,11 +1921,11 @@ const socialIconsColorfull = [
         y2="9.41113"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#D1D3D4" />
-        <stop offset="0.15" stop-color="#DEE0E1" />
-        <stop offset="0.41" stop-color="#F1F1F2" />
-        <stop offset="0.69" stop-color="#FBFCFC" />
-        <stop offset="1" stop-color="white" />
+        <stop stopColor="#D1D3D4" />
+        <stop offset="0.15" stopColor="#DEE0E1" />
+        <stop offset="0.41" stopColor="#F1F1F2" />
+        <stop offset="0.69" stopColor="#FBFCFC" />
+        <stop offset="1" stopColor="white" />
       </linearGradient>
       <clipPath id="clip0_1690_4869">
         <rect width="41" height="41" fill="white" />
@@ -1938,7 +1939,7 @@ const socialIconsColorfull = [
     viewBox="0 0 41 41"
     fill="none"
   >
-    <g clip-path="url(#clip0_1690_4872)">
+    <g clipPath="url(#clip0_1690_4872)">
       <path
         d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
         fill="url(#paint0_radial_1690_4872)"
@@ -1961,8 +1962,8 @@ const socialIconsColorfull = [
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(20.6456 -12.0935) scale(39.4974)"
       >
-        <stop stop-color="#B6E4FA" />
-        <stop offset="1" stop-color="#5CCAFA" />
+        <stop stopColor="#B6E4FA" />
+        <stop offset="1" stopColor="#5CCAFA" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_1690_4872"
@@ -1972,13 +1973,13 @@ const socialIconsColorfull = [
         y2="9.98841"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#A0DDF9" />
-        <stop offset="0.06" stop-color="#AEE2FA" />
-        <stop offset="0.21" stop-color="#CCEDFC" />
-        <stop offset="0.37" stop-color="#E2F5FD" />
-        <stop offset="0.55" stop-color="#F2FBFE" />
-        <stop offset="0.74" stop-color="#FCFEFF" />
-        <stop offset="1" stop-color="white" />
+        <stop stopColor="#A0DDF9" />
+        <stop offset="0.06" stopColor="#AEE2FA" />
+        <stop offset="0.21" stopColor="#CCEDFC" />
+        <stop offset="0.37" stopColor="#E2F5FD" />
+        <stop offset="0.55" stopColor="#F2FBFE" />
+        <stop offset="0.74" stopColor="#FCFEFF" />
+        <stop offset="1" stopColor="white" />
       </linearGradient>
       <clipPath id="clip0_1690_4872">
         <rect width="41" height="41" fill="white" />
@@ -1992,7 +1993,7 @@ const socialIconsColorfull = [
     viewBox="0 0 41 41"
     fill="none"
   >
-    <g clip-path="url(#clip0_1690_4877)">
+    <g clipPath="url(#clip0_1690_4877)">
       <path
         d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
         fill="url(#paint0_radial_1690_4877)"
@@ -2023,8 +2024,8 @@ const socialIconsColorfull = [
         gradientUnits="userSpaceOnUse"
         gradientTransform="translate(20.2485 -17.7397) scale(40.113)"
       >
-        <stop stop-color="#B1FFCF" />
-        <stop offset="1" stop-color="#8FEA7C" />
+        <stop stopColor="#B1FFCF" />
+        <stop offset="1" stopColor="#8FEA7C" />
       </radialGradient>
       <linearGradient
         id="paint1_linear_1690_4877"
@@ -2034,11 +2035,11 @@ const socialIconsColorfull = [
         y2="7.4863"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#CDFFCF" />
-        <stop offset="0.14" stop-color="#D9FFDB" />
-        <stop offset="0.43" stop-color="#EEFFEF" />
-        <stop offset="0.72" stop-color="#FBFFFB" />
-        <stop offset="1" stop-color="white" />
+        <stop stopColor="#CDFFCF" />
+        <stop offset="0.14" stopColor="#D9FFDB" />
+        <stop offset="0.43" stopColor="#EEFFEF" />
+        <stop offset="0.72" stopColor="#FBFFFB" />
+        <stop offset="1" stopColor="white" />
       </linearGradient>
       <linearGradient
         id="paint2_linear_1690_4877"
@@ -2048,11 +2049,11 @@ const socialIconsColorfull = [
         y2="7.48664"
         gradientUnits="userSpaceOnUse"
       >
-        <stop stop-color="#CDFFCF" />
-        <stop offset="0.14" stop-color="#D9FFDB" />
-        <stop offset="0.43" stop-color="#EEFFEF" />
-        <stop offset="0.72" stop-color="#FBFFFB" />
-        <stop offset="1" stop-color="white" />
+        <stop stopColor="#CDFFCF" />
+        <stop offset="0.14" stopColor="#D9FFDB" />
+        <stop offset="0.43" stopColor="#EEFFEF" />
+        <stop offset="0.72" stopColor="#FBFFFB" />
+        <stop offset="1" stopColor="white" />
       </linearGradient>
       <clipPath id="clip0_1690_4877">
         <rect width="41" height="41" fill="white" />
@@ -2120,8 +2121,8 @@ const contactPageData = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(20.361 -13.4835) scale(36.8298)"
           >
-            <stop stop-color="#00ABE5" />
-            <stop offset="1" stop-color="#1B75BC" />
+            <stop stopColor="#00ABE5" />
+            <stop offset="1" stopColor="#1B75BC" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_1690_4852"
@@ -2131,11 +2132,11 @@ const contactPageData = [
             y2="8.1946"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#C1E8FB" />
-            <stop offset="0.23" stop-color="#DAF1FD" />
-            <stop offset="0.49" stop-color="#EFF9FE" />
-            <stop offset="0.75" stop-color="#FBFDFF" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="#C1E8FB" />
+            <stop offset="0.23" stopColor="#DAF1FD" />
+            <stop offset="0.49" stopColor="#EFF9FE" />
+            <stop offset="0.75" stopColor="#FBFDFF" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <clipPath id="clip0_1690_4852">
             <rect width="41" height="41" fill="white" />
@@ -2155,7 +2156,7 @@ const contactPageData = [
         fill="none"
         className="small:w-[45px] smo:w-[38px] smaller:w-[30px] mob-[28px]  "
       >
-        <g clip-path="url(#clip0_1690_4849)">
+        <g clipPath="url(#clip0_1690_4849)">
           <path
             d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
             fill="url(#paint0_radial_1690_4849)"
@@ -2174,10 +2175,10 @@ const contactPageData = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(20.2882 -11.1138) scale(37.2866)"
           >
-            <stop stop-color="#E75830" />
-            <stop offset="0.5" stop-color="#E75530" />
-            <stop offset="0.82" stop-color="#E64D2F" />
-            <stop offset="1" stop-color="#E6442F" />
+            <stop stopColor="#E75830" />
+            <stop offset="0.5" stopColor="#E75530" />
+            <stop offset="0.82" stopColor="#E64D2F" />
+            <stop offset="1" stopColor="#E6442F" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_1690_4849"
@@ -2187,11 +2188,11 @@ const contactPageData = [
             y2="11.6633"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#FAD3E4" />
-            <stop offset="0.16" stop-color="#FCE5EF" />
-            <stop offset="0.37" stop-color="#FEF4F8" />
-            <stop offset="0.62" stop-color="#FFFCFD" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="#FAD3E4" />
+            <stop offset="0.16" stopColor="#FCE5EF" />
+            <stop offset="0.37" stopColor="#FEF4F8" />
+            <stop offset="0.62" stopColor="#FFFCFD" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <clipPath id="clip0_1690_4849">
             <rect width="41" height="41" fill="white" />
@@ -2211,7 +2212,7 @@ const contactPageData = [
         fill="none"
         className="small:w-[45px] smo:w-[38px] smaller:w-[30px] mob-[28px]  "
       >
-        <g clip-path="url(#clip0_1690_4857)">
+        <g clipPath="url(#clip0_1690_4857)">
           <path
             d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
             fill="url(#paint0_radial_1690_4857)"
@@ -2242,12 +2243,12 @@ const contactPageData = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(42.2775 -10.8358) scale(80.9873)"
           >
-            <stop offset="0.16" stop-color="#AD55A5" />
-            <stop offset="0.22" stop-color="#B85C9A" />
-            <stop offset="0.41" stop-color="#D66D7E" />
-            <stop offset="0.52" stop-color="#E17374" />
-            <stop offset="0.73" stop-color="#F0B375" />
-            <stop offset="0.83" stop-color="#F8D476" />
+            <stop offset="0.16" stopColor="#AD55A5" />
+            <stop offset="0.22" stopColor="#B85C9A" />
+            <stop offset="0.41" stopColor="#D66D7E" />
+            <stop offset="0.52" stopColor="#E17374" />
+            <stop offset="0.73" stopColor="#F0B375" />
+            <stop offset="0.83" stopColor="#F8D476" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_1690_4857"
@@ -2257,12 +2258,12 @@ const contactPageData = [
             y2="8.65154"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ECDCB8" />
-            <stop offset="0.04" stop-color="#EDDFBD" />
-            <stop offset="0.28" stop-color="#F5EDDA" />
-            <stop offset="0.52" stop-color="#FBF7EF" />
-            <stop offset="0.75" stop-color="#FEFDFB" />
-            <stop offset="0.98" stop-color="white" />
+            <stop stopColor="#ECDCB8" />
+            <stop offset="0.04" stopColor="#EDDFBD" />
+            <stop offset="0.28" stopColor="#F5EDDA" />
+            <stop offset="0.52" stopColor="#FBF7EF" />
+            <stop offset="0.75" stopColor="#FEFDFB" />
+            <stop offset="0.98" stopColor="white" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_1690_4857"
@@ -2272,12 +2273,12 @@ const contactPageData = [
             y2="8.65168"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#ECDCB8" />
-            <stop offset="0.04" stop-color="#EDDFBD" />
-            <stop offset="0.28" stop-color="#F5EDDA" />
-            <stop offset="0.52" stop-color="#FBF7EF" />
-            <stop offset="0.75" stop-color="#FEFDFB" />
-            <stop offset="0.98" stop-color="white" />
+            <stop stopColor="#ECDCB8" />
+            <stop offset="0.04" stopColor="#EDDFBD" />
+            <stop offset="0.28" stopColor="#F5EDDA" />
+            <stop offset="0.52" stopColor="#FBF7EF" />
+            <stop offset="0.75" stopColor="#FEFDFB" />
+            <stop offset="0.98" stopColor="white" />
           </linearGradient>
           <clipPath id="clip0_1690_4857">
             <rect width="41" height="41" fill="white" />
@@ -2297,7 +2298,7 @@ const contactPageData = [
         fill="none"
         className="small:w-[45px] smo:w-[38px] smaller:w-[30px] mob-[28px]  "
       >
-        <g clip-path="url(#clip0_1690_4864)">
+        <g clipPath="url(#clip0_1690_4864)">
           <path
             d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
             fill="url(#paint0_radial_1690_4864)"
@@ -2324,9 +2325,9 @@ const contactPageData = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(20.6456 -9.55828) scale(33.3613)"
           >
-            <stop stop-color="#4F97D1" />
-            <stop offset="0.4" stop-color="#428EC9" />
-            <stop offset="1" stop-color="#267BB7" />
+            <stop stopColor="#4F97D1" />
+            <stop offset="0.4" stopColor="#428EC9" />
+            <stop offset="1" stopColor="#267BB7" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_1690_4864"
@@ -2336,12 +2337,12 @@ const contactPageData = [
             y2="14.7679"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B1E3FA" />
-            <stop offset="0.13" stop-color="#C7EBFB" />
-            <stop offset="0.32" stop-color="#E0F4FD" />
-            <stop offset="0.52" stop-color="#F1FAFE" />
-            <stop offset="0.74" stop-color="#FCFEFF" />
-            <stop offset="0.99" stop-color="white" />
+            <stop stopColor="#B1E3FA" />
+            <stop offset="0.13" stopColor="#C7EBFB" />
+            <stop offset="0.32" stopColor="#E0F4FD" />
+            <stop offset="0.52" stopColor="#F1FAFE" />
+            <stop offset="0.74" stopColor="#FCFEFF" />
+            <stop offset="0.99" stopColor="white" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_1690_4864"
@@ -2351,12 +2352,12 @@ const contactPageData = [
             y2="15.0854"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B1E3FA" />
-            <stop offset="0.13" stop-color="#C7EBFB" />
-            <stop offset="0.32" stop-color="#E0F4FD" />
-            <stop offset="0.52" stop-color="#F1FAFE" />
-            <stop offset="0.74" stop-color="#FCFEFF" />
-            <stop offset="0.99" stop-color="white" />
+            <stop stopColor="#B1E3FA" />
+            <stop offset="0.13" stopColor="#C7EBFB" />
+            <stop offset="0.32" stopColor="#E0F4FD" />
+            <stop offset="0.52" stopColor="#F1FAFE" />
+            <stop offset="0.74" stopColor="#FCFEFF" />
+            <stop offset="0.99" stopColor="white" />
           </linearGradient>
           <linearGradient
             id="paint3_linear_1690_4864"
@@ -2366,12 +2367,12 @@ const contactPageData = [
             y2="8.35994"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#B1E3FA" />
-            <stop offset="0.13" stop-color="#C7EBFB" />
-            <stop offset="0.32" stop-color="#E0F4FD" />
-            <stop offset="0.52" stop-color="#F1FAFE" />
-            <stop offset="0.74" stop-color="#FCFEFF" />
-            <stop offset="0.99" stop-color="white" />
+            <stop stopColor="#B1E3FA" />
+            <stop offset="0.13" stopColor="#C7EBFB" />
+            <stop offset="0.32" stopColor="#E0F4FD" />
+            <stop offset="0.52" stopColor="#F1FAFE" />
+            <stop offset="0.74" stopColor="#FCFEFF" />
+            <stop offset="0.99" stopColor="white" />
           </linearGradient>
           <clipPath id="clip0_1690_4864">
             <rect width="41" height="41" fill="white" />
@@ -2391,7 +2392,7 @@ const contactPageData = [
         fill="none"
         className="small:w-[45px] smo:w-[38px] smaller:w-[30px] mob-[28px]  "
       >
-        <g clip-path="url(#clip0_1690_4869)">
+        <g clipPath="url(#clip0_1690_4869)">
           <path
             d="M29.7737 0H11.2263C5.02621 0 0 5.01487 0 11.201V29.7065C0 35.8927 5.02621 40.9075 11.2263 40.9075H29.7737C35.9738 40.9075 41 35.8927 41 29.7065V11.201C41 5.01487 35.9738 0 29.7737 0Z"
             fill="url(#paint0_radial_1690_4869)"
@@ -2410,10 +2411,10 @@ const contactPageData = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(23.0551 -18.3404) scale(36.1878 36.1062)"
           >
-            <stop stop-color="#1F1F1F" />
-            <stop offset="0.44" stop-color="#232222" />
-            <stop offset="0.82" stop-color="#2D2B2B" />
-            <stop offset="1" stop-color="#353132" />
+            <stop stopColor="#1F1F1F" />
+            <stop offset="0.44" stopColor="#232222" />
+            <stop offset="0.82" stopColor="#2D2B2B" />
+            <stop offset="1" stopColor="#353132" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_1690_4869"
@@ -2423,11 +2424,11 @@ const contactPageData = [
             y2="9.41113"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#D1D3D4" />
-            <stop offset="0.15" stop-color="#DEE0E1" />
-            <stop offset="0.41" stop-color="#F1F1F2" />
-            <stop offset="0.69" stop-color="#FBFCFC" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="#D1D3D4" />
+            <stop offset="0.15" stopColor="#DEE0E1" />
+            <stop offset="0.41" stopColor="#F1F1F2" />
+            <stop offset="0.69" stopColor="#FBFCFC" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <clipPath id="clip0_1690_4869">
             <rect width="41" height="41" fill="white" />
@@ -2447,7 +2448,7 @@ const contactPageData = [
         fill="none"
         className="small:w-[45px] smo:w-[38px] smaller:w-[30px] mob-[28px]  "
       >
-        <g clip-path="url(#clip0_1690_4872)">
+        <g clipPath="url(#clip0_1690_4872)">
           <path
             d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
             fill="url(#paint0_radial_1690_4872)"
@@ -2470,8 +2471,8 @@ const contactPageData = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(20.6456 -12.0935) scale(39.4974)"
           >
-            <stop stop-color="#B6E4FA" />
-            <stop offset="1" stop-color="#5CCAFA" />
+            <stop stopColor="#B6E4FA" />
+            <stop offset="1" stopColor="#5CCAFA" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_1690_4872"
@@ -2481,13 +2482,13 @@ const contactPageData = [
             y2="9.98841"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#A0DDF9" />
-            <stop offset="0.06" stop-color="#AEE2FA" />
-            <stop offset="0.21" stop-color="#CCEDFC" />
-            <stop offset="0.37" stop-color="#E2F5FD" />
-            <stop offset="0.55" stop-color="#F2FBFE" />
-            <stop offset="0.74" stop-color="#FCFEFF" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="#A0DDF9" />
+            <stop offset="0.06" stopColor="#AEE2FA" />
+            <stop offset="0.21" stopColor="#CCEDFC" />
+            <stop offset="0.37" stopColor="#E2F5FD" />
+            <stop offset="0.55" stopColor="#F2FBFE" />
+            <stop offset="0.74" stopColor="#FCFEFF" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <clipPath id="clip0_1690_4872">
             <rect width="41" height="41" fill="white" />
@@ -2507,7 +2508,7 @@ const contactPageData = [
         fill="none"
         className="small:w-[45px] smo:w-[38px] smaller:w-[30px] mob-[28px]  "
       >
-        <g clip-path="url(#clip0_1690_4877)">
+        <g clipPath="url(#clip0_1690_4877)">
           <path
             d="M29.7737 0H11.2263C5.02621 0 0 5.02621 0 11.2263V29.7737C0 35.9738 5.02621 41 11.2263 41H29.7737C35.9738 41 41 35.9738 41 29.7737V11.2263C41 5.02621 35.9738 0 29.7737 0Z"
             fill="url(#paint0_radial_1690_4877)"
@@ -2538,8 +2539,8 @@ const contactPageData = [
             gradientUnits="userSpaceOnUse"
             gradientTransform="translate(20.2485 -17.7397) scale(40.113)"
           >
-            <stop stop-color="#B1FFCF" />
-            <stop offset="1" stop-color="#8FEA7C" />
+            <stop stopColor="#B1FFCF" />
+            <stop offset="1" stopColor="#8FEA7C" />
           </radialGradient>
           <linearGradient
             id="paint1_linear_1690_4877"
@@ -2549,11 +2550,11 @@ const contactPageData = [
             y2="7.4863"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#CDFFCF" />
-            <stop offset="0.14" stop-color="#D9FFDB" />
-            <stop offset="0.43" stop-color="#EEFFEF" />
-            <stop offset="0.72" stop-color="#FBFFFB" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="#CDFFCF" />
+            <stop offset="0.14" stopColor="#D9FFDB" />
+            <stop offset="0.43" stopColor="#EEFFEF" />
+            <stop offset="0.72" stopColor="#FBFFFB" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <linearGradient
             id="paint2_linear_1690_4877"
@@ -2563,11 +2564,11 @@ const contactPageData = [
             y2="7.48664"
             gradientUnits="userSpaceOnUse"
           >
-            <stop stop-color="#CDFFCF" />
-            <stop offset="0.14" stop-color="#D9FFDB" />
-            <stop offset="0.43" stop-color="#EEFFEF" />
-            <stop offset="0.72" stop-color="#FBFFFB" />
-            <stop offset="1" stop-color="white" />
+            <stop stopColor="#CDFFCF" />
+            <stop offset="0.14" stopColor="#D9FFDB" />
+            <stop offset="0.43" stopColor="#EEFFEF" />
+            <stop offset="0.72" stopColor="#FBFFFB" />
+            <stop offset="1" stopColor="white" />
           </linearGradient>
           <clipPath id="clip0_1690_4877">
             <rect width="41" height="41" fill="white" />
@@ -2592,16 +2593,18 @@ const arrowRight = (
     <path
       d="M25.666 11L36.666 22L25.666 33"
       stroke="inherit"
-      stroke-width="3.66667"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="3.66667"
+      st
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
     <path
       d="M36.6663 22L7.33301 22"
       stroke="inherit"
-      stroke-width="3.66667"
-      stroke-linecap="round"
-      stroke-linejoin="round"
+      strokeWidth="3.66667"
+      st
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );
@@ -2643,6 +2646,80 @@ const privacyPolicy = [
     text: "We welcome your input and comments regarding our Privacy Policy and the services we provide. You can send your comments and responses to us via post.",
   },
 ];
+
+const terms_conditions = [
+  {
+    heading: "Introduction",
+    text: "Please carefully read the terms and conditions located on the website (Kabariya). These terms, guidelines, privacy policy, and other documents are made available by the website from time to time. In case of any conflict between these terms or documents, these terms will take precedence. This agreement establishes the legally binding agreement between users of the website and Kabariya.",
+  },
+  {
+    heading: "Acceptance of Terms of Use",
+    text: "By accessing or using the website in any manner, such as visiting, browsing, or surfing the site, you agree to be bound by these terms. These terms and any rights may not be transferred or assigned by the user but may be assigned by the website without restriction. Any attempted transfer or assignment in violation shall be null and void.",
+
+    text2:
+      "By using or browsing the website, you are agreeing to and accepting the terms, as amended from time to time with or without notice. This website is owned and operated by Kabariya, and it reserves the right to modify or discontinue its services at any time, with or without notice.",
+  },
+  {
+    heading: "Services",
+    text: "Kabariya operates in the scrap industry, facilitating the sale of materials such as metal, plastic, paper, and e-waste. It provides an online platform for users to directly sell and execute deals. Registered users can see their profiles and past performance information, and the website provides an e-commerce platform for scrap transactions.",
+  },
+  {
+    heading: "Obligations of Kabariya",
+    text: "Kabariya operates as a service-based platform, offering a space where sellers of scrap products may interact and strike sale deals. Kabariya and its website do not assume liabilities, responsibilities, or obligations regarding any item sold through the website.",
+  },
+  {
+    heading: "Cancellation Policy for Pickups",
+    text: "Cancellation of scrap pick-up service is subject to accessibility and terms provided on the website. Once the service boy reaches the location and pays for the scrap, you cannot cancel the request.",
+  },
+  {
+    heading: "User IDs, Passwords, and Account Deletion",
+    text: "Your user ID and password are for personal use only. You must maintain password confidentiality and notify us immediately of unauthorized account access.",
+  },
+  {
+    heading: "Electronic Signature Consent",
+    text: "By using the website, you consent not to access third-party accounts without consent, not to use the website for illegal purposes, not to infringe content, not to attempt unauthorized access, not to upload viruses, and not to cause damage to the website.",
+  },
+  {
+    heading: "Effect of Breach by User",
+    text: "In case of a breach, Kabariya may impose penalties, restrictions, refusals, or bans on the use of its services.",
+  },
+  {
+    heading: "Trademarks",
+    text: "The website's logos and registered trademarks belong to Kabariya. Unauthorized use may infringe on Intellectual Property Rights.",
+  },
+  {
+    heading: "Amendments",
+    text: "Kabariya reserves the right to update, modify, change, amend, terminate, or discontinue the website, the terms, and policies at its discretion. Any changes will be displayed on the website and may be notified through email.",
+  },
+];
+
+const cross = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="38"
+    height="41"
+    viewBox="0 0 38 41"
+    fill="none"
+  >
+    <rect y="0.5" width="38" height="39.8269" rx="11" fill="#FAFAFA" />
+    <path
+      d="M12 13L26 27"
+      stroke="black"
+      strokeWidth="2"
+      st
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M26 13L12 27"
+      stroke="black"
+      strokeWidth="2"
+      st
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
 
 export {
   loc,
@@ -2692,4 +2769,6 @@ export {
   contactPageData,
   arrowRight,
   privacyPolicy,
+  terms_conditions,
+  cross,
 };
