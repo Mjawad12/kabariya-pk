@@ -2,6 +2,7 @@
 import React, { useRef, useState } from "react";
 import { loc, AtR, WA, phone } from "./Consonants";
 import SubmittedDialog from "./SubmittedDialog";
+import { motion } from "framer-motion";
 
 function Contact({ about }) {
   const [submitted, setsubmitted] = useState(false);
@@ -34,9 +35,18 @@ function Contact({ about }) {
   };
 
   return (
-    <div className="w-full min-h-max">
+    <motion.div className="w-full min-h-max">
       <div className="max-w-[71rem] m-auto w-full flex flex-col justify-center items-center gap-14 smaller:gap-10 py-20  small:pt-[5rem] px-5 small:px-7 smaller:px-5">
-        <div className="flex flex-col justify-center items-center gap-3">
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0.2, type: "ease" },
+          }}
+          initial={{ opacity: 0, y: "30px" }}
+          className="flex flex-col justify-center items-center gap-3"
+        >
           <h3
             className={`font-pm font-bol text-6xl larger:text-5xl text-center smaller:text-[2.5rem] smaller:max-w-[12ch] ${
               about ? "text-white" : "text-black"
@@ -51,8 +61,15 @@ function Contact({ about }) {
           >
             Any question or remarks? Just write us a message!
           </p>
-        </div>
-        <div
+        </motion.div>
+        <motion.div
+          viewport={{ once: true }}
+          whileInView={{
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.5, delay: 0.5, type: "ease" },
+          }}
+          initial={{ opacity: 0, y: "30px" }}
           className={`w-full bg-black p-7 small:p-6  rounded-[55px] small:rounded-[35px]
             flex justify-between items-center small:flex-col small:gap-5 ${
               about && "border border-[#FFFFFF4D]"
@@ -148,9 +165,9 @@ function Contact({ about }) {
               <SubmittedDialog setsubmitted={setsubmitted} contact={true} />
             )}
           </div>
-        </div>
+        </motion.div>
       </div>
-    </div>
+    </motion.div>
   );
 }
 

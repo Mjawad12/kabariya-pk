@@ -1,23 +1,82 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { download, processDetails } from "./Consonants";
 import Image from "next/image";
+import { motion, stagger, useAnimate, useInView } from "framer-motion";
 
 function Process() {
+  const [scope, animate] = useAnimate();
+  const [scope2, animate2] = useAnimate();
+  const isInView = useInView(scope, { once: true });
+
+  useEffect(() => {
+    isInView && aimateFunc();
+  }, [isInView]);
+
+  const aimateFunc = async () => {
+    await animate(
+      "h3",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring", delay: stagger(0.2) }
+    );
+
+    await animate(
+      "p",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring" }
+    );
+    animate2(
+      ".anim",
+      {
+        opacity: 1,
+        x: 0,
+      },
+      { duration: 0.5, type: "spring", delay: stagger(0.5) }
+    );
+    await animate(
+      "a",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring" }
+    );
+  };
+
   return (
     <div className="w-full overflow-hidden">
       <div className="bg-black w-full h-5 edge"></div>
       <div className="mP w-full px-10 pb-12 min-h-max flex flex-col justify-center smaller:px-5  items-center gap-20 z-20 ">
-        <div className="flex flex-col justify-center items-center gap-5">
-          <p className="font-pm font-med text-3xl leading-[35px] smaller:text-2xl">
+        <motion.div
+          ref={scope}
+          className="flex flex-col justify-center items-center gap-5"
+        >
+          <motion.h3
+            initial={{ opacity: 0, y: "30px" }}
+            className="font-pm font-med text-3xl leading-[35px] smaller:text-2xl"
+          >
             Our Process
-          </p>
-          <p className="font-pm font-bol text-6xl leading-[41.61px] large:text-5xl small:text-4xl ">
+          </motion.h3>
+          <motion.h3
+            initial={{ opacity: 0, y: "30px" }}
+            className="font-pm font-bol text-6xl leading-[41.61px] large:text-5xl small:text-4xl "
+          >
             How it's work
-          </p>
-          <p className="font-pm font-reg text-center text-[1rem] small:max-w-[30ch] ">
+          </motion.h3>
+          <motion.p
+            initial={{ opacity: 0, y: "30px" }}
+            className="font-pm font-reg text-center text-[1rem] small:max-w-[30ch] "
+          >
             Watch the Video Guide on Placing an Order with the Kabariya App
-          </p>
-          <a
+          </motion.p>
+          <motion.a
+            initial={{ opacity: 0, y: "30px" }}
             href="https://www.youtube.com/@Kabariya.official"
             target="_blank"
             className="max-w-[23.5rem] w-full flex justify-center 
@@ -34,9 +93,12 @@ function Process() {
               {download}
             </span>
             First Download the app
-          </a>
-        </div>
-        <div className="w-full flex justify-center items-center flex-wrap gap-5 small:gap-7 ">
+          </motion.a>
+        </motion.div>
+        <motion.div
+          ref={scope2}
+          className="w-full flex justify-center items-center flex-wrap gap-5 small:gap-7 "
+        >
           {processDetails.map((it, index) => (
             <ProcessContainer
               key={index}
@@ -47,7 +109,7 @@ function Process() {
               title={it.title}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
     </div>
   );
@@ -56,8 +118,9 @@ function Process() {
 const ProcessContainer = ({ index, color, desc, tag, title }) => {
   return (
     <>
-      <div
-        className={`max-w-[23rem] small:max-w-[21.5rem] small:min-h-[21.5rem] mob:min-h-[20rem]  w-full min-h-[22rem] border
+      <motion.div
+        initial={{ opacity: 0, x: "-50px" }}
+        className={`anim max-w-[23rem] small:max-w-[21.5rem] small:min-h-[21.5rem] mob:min-h-[20rem]  w-full min-h-[22rem] border
        border-borderColorP ${
          (index === 0 || index === 2) && "shadow-xl"
        } hover:shadow-xl 
@@ -93,7 +156,7 @@ const ProcessContainer = ({ index, color, desc, tag, title }) => {
             </p>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 };

@@ -1,10 +1,37 @@
-import React from "react";
+"use client";
+import React, { useEffect } from "react";
 import { RightArrow, apple, playStore } from "./Consonants";
 
 import RightSec from "./RightSec";
 import Link from "next/link";
+import { motion, stagger, useAnimate } from "framer-motion";
 
 function HeroSec() {
+  const [scope, animate] = useAnimate();
+
+  useEffect(() => {
+    animationFunc();
+  }, []);
+
+  const animationFunc = async () => {
+    await animate(
+      "h2",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring", delay: stagger(0.2) }
+    );
+    await animate(
+      "p",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring" }
+    );
+  };
+
   return (
     <div
       className="max-w-[1440px] w-full m-auto 
@@ -12,27 +39,36 @@ function HeroSec() {
      small:py-6 mob:pt-3 justify-center items-center px-4 small:px-0  
      gap-1 small:gap-20 smaller:gap-12 "
     >
-      <div className="w-full ">
+      <motion.div ref={scope} className="w-full ">
         <div className="flex flex-col  justify-start items-start gap-5 extLar:gap-3">
           <div>
-            <h2 className="font-pm font-bol text-[62px] extLar:text-[50px] larger:text-[45px] leading-[4rem] small:leading-[3rem] ">
+            <motion.h2
+              initial={{ opacity: 0, y: "30px" }}
+              className="font-pm font-bol text-[62px] extLar:text-[50px] larger:text-[45px] leading-[4rem] small:leading-[3rem] "
+            >
               <span className="text-primaryGreen">Pakistan's</span> First
-            </h2>
-            <h2 className="font-se font-reg text-[62px] extLar:text-[50px] larger:text-[45px] small:leading-[3.5rem] ">
+            </motion.h2>
+            <motion.h2
+              initial={{ opacity: 0, y: "30px" }}
+              className="font-se font-reg text-[62px] extLar:text-[50px] larger:text-[45px] small:leading-[3.5rem] "
+            >
               Scrap Platform <span className="text-primaryGreen">Ever!</span>
-            </h2>
+            </motion.h2>
           </div>
-          <p className="font-pm font-reg leading-[27px] max-w-[55ch] text-[18px]  extLar:text-[16px]  small:font-med small:text-[17px] ">
+          <motion.p
+            initial={{ opacity: 0, y: "30px" }}
+            className="font-pm font-reg leading-[27px] max-w-[55ch] text-[18px]  extLar:text-[16px]  small:font-med small:text-[17px] "
+          >
             Kabariya is a secure online platform dedicated to the selling of
             scrap materials. Our mission is to minimize the accumulation of
             unwanted and non-essential metals through recycling.
-          </p>
+          </motion.p>
           <Link href={"/Dealerform"} className="w-full py-5">
             <Dealerbtn bgcolor="white" textColor="black" />
           </Link>
           <MobileApp />
         </div>
-      </div>
+      </motion.div>
       <RightSec />
     </div>
   );
@@ -42,7 +78,14 @@ export default HeroSec;
 
 const Dealerbtn = ({ bgcolor, textColor, text, width }) => {
   return (
-    <div
+    <motion.div
+      viewport={{ once: true }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, delay: 0.7, ease: "backInOut" },
+      }}
+      initial={{ opacity: 0, y: "30px" }}
       className={`w-full max-w-[225px] h-[62px] ${
         width && "h-[57.5px]"
       } rounded-[50px] flex items-center justify-center`}
@@ -67,13 +110,22 @@ const Dealerbtn = ({ bgcolor, textColor, text, width }) => {
           {RightArrow}
         </div>
       </button>
-    </div>
+    </motion.div>
   );
 };
 
 const MobileApp = () => {
   return (
-    <div className="flex flex-col justify-start items-start gap-4 smallest:w-full smallest:items-center ">
+    <motion.div
+      viewport={{ once: true }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.5, delay: 0.8, ease: "backInOut" },
+      }}
+      initial={{ opacity: 0, y: "30px" }}
+      className="flex flex-col justify-start items-start gap-4 smallest:w-full smallest:items-center "
+    >
       <p className="font-pm font-bol text-[20px] mob:text-[15px] ">
         Mobile App Coming Soon
       </p>
@@ -127,7 +179,7 @@ gap-2 px-4 med:px-2 py-[0.58rem] med:py-[0.25rem] rounded-lg"
           </div>
         </button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

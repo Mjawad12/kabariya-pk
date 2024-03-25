@@ -1,9 +1,35 @@
-import React, { Fragment } from "react";
+"use client";
+import React, { Fragment, useEffect } from "react";
 import { becomeDealerData, mouse } from "./Consonants";
 import { Dealerbtn } from "./HeroSec";
 import Image from "next/image";
-
+import { motion, stagger, useAnimate, useInView } from "framer-motion";
 function BecomeDealer() {
+  const [scope, animate] = useAnimate();
+  const [scope2, animate2] = useAnimate();
+  const isInView = useInView(scope, { once: true });
+  useEffect(() => {
+    isInView && aimateFunc();
+  }, [isInView]);
+
+  const aimateFunc = async () => {
+    await animate(
+      "p",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring", delay: stagger(0.2) }
+    );
+    await animate2(
+      ".prCard",
+      {
+        opacity: 1,
+        x: 0,
+      },
+      { duration: 0.5, type: "spring", delay: stagger(0.3) }
+    );
+  };
   return (
     <div className="w-full flex flex-col justify-center items-center overflow-hidden">
       <div className="w-full flex justify-end end-start h-[200px] small:h-[151px] smaller:h-[70px]  relative">
@@ -15,16 +41,28 @@ function BecomeDealer() {
       </div>
       <div className="mP2 w-full min-h-max pb-10 px-5">
         <div className="flex flex-col justify-start items-center max-w-[1230px] min-h-max m-auto gap-16  small:gap-14 ">
-          <div className="flex flex-col justify-center items-center gap-8 small:gap-7 smaller:gap-3 z-20">
-            <p className="font-pm font-med text-3xl leading-[35px] smaller:text-2xl">
+          <motion.div
+            ref={scope}
+            className="flex flex-col justify-center items-center gap-8 small:gap-7 smaller:gap-3 z-20"
+          >
+            <motion.p
+              initial={{ opacity: 0, y: "30px" }}
+              className="font-pm font-med text-3xl leading-[35px] smaller:text-2xl"
+            >
               How To Become
-            </p>
-            <p className="font-pm font-bol text-6xl leading-[41.61px] large:text-5xl small:text-4xl text-center ">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: "30px" }}
+              className="font-pm font-bol text-6xl leading-[41.61px] large:text-5xl small:text-4xl text-center "
+            >
               A Kabariya Dealer
-            </p>
-            <p className="font-pm font-reg text-center text-[1rem] small:max-w-[35ch] smaller:mb-5 ">
+            </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: "30px" }}
+              className="font-pm font-reg text-center text-[1rem] small:max-w-[35ch] smaller:mb-5 "
+            >
               Watch the Video Guide on Placing an Order with the Kabariya App
-            </p>
+            </motion.p>
 
             <Dealerbtn
               textColor={"black"}
@@ -32,8 +70,11 @@ function BecomeDealer() {
               text="GET STARTED"
               width="175px"
             />
-          </div>
-          <div className="w-full flex justify-start larger:justify-center items-center flex-wrap gap-7">
+          </motion.div>
+          <motion.div
+            ref={scope2}
+            className="w-full flex justify-start larger:justify-center items-center flex-wrap gap-7"
+          >
             {becomeDealerData.map((it, index) => (
               <>
                 {index === 2 && (
@@ -70,7 +111,7 @@ function BecomeDealer() {
                 />
               </>
             ))}
-          </div>
+          </motion.div>
         </div>
       </div>
     </div>
@@ -81,9 +122,10 @@ export default BecomeDealer;
 
 const ProcessCard = ({ svg, tag, desc, title, index, color, bgColor }) => {
   return (
-    <div
+    <motion.div
+      initial={{ opacity: 0, x: "-50px" }}
       style={{ boxShadow: "rgba(0, 0, 0, 0.1) 0px 15px 26px 0px" }}
-      className="max-w-[525px] w-full min-h-max bg-white rounded-[25px] 
+      className="prCard max-w-[525px] w-full min-h-max bg-white rounded-[25px] 
     border border-borderColorP flex justify-start gap-8 
     items-start relative p-10 pb-9 smaller:p-6 smaller:flex-col smaller:gap-2 smaller:pb-9"
     >
@@ -112,6 +154,6 @@ const ProcessCard = ({ svg, tag, desc, title, index, color, bgColor }) => {
       >
         {index + 1}
       </span>
-    </div>
+    </motion.div>
   );
 };

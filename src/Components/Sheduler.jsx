@@ -2,11 +2,20 @@
 import React, { useEffect, useRef, useState } from "react";
 import { arrowDown, gallery, item, shedule, tick, user } from "./Consonants";
 import BasicDateCalendar from "./Calender";
+import { motion } from "framer-motion";
 
 function Sheduler({ setsubmitted }) {
   const [selected, setselected] = useState(0);
   return (
-    <div className="w-full flex flex-col justify-start items-start gap-5 small:gap-12 ">
+    <div
+      whileInView={{
+        opacity: 1,
+        scale: 1,
+        transition: { duration: 0.5, type: "pring" },
+      }}
+      initial={{ opacity: 0, scale: 0.5 }}
+      className="w-full flex flex-col justify-start items-start gap-5 small:gap-12 "
+    >
       <div className="w-full flex justify-center items-center gap-2 med:px-9 small:px-4 ">
         <SetComp
           svg={user}

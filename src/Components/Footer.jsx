@@ -1,3 +1,4 @@
+"use client";
 import React from "react";
 import {
   contactPageData,
@@ -5,7 +6,7 @@ import {
   socialIconsColorfull,
 } from "./Consonants";
 import Link from "next/link";
-
+import { motion } from "framer-motion";
 function Footer({ dealearship, about }) {
   return (
     <div
@@ -13,7 +14,13 @@ function Footer({ dealearship, about }) {
         dealearship ? "border-primaryGreen mt-6 " : "border-none"
       } `}
     >
-      <div
+      <motion.div
+        whileInView={{
+          opacity: 1,
+
+          transition: { duration: 1, delay: 0.2, type: "ease" },
+        }}
+        initial={{ opacity: 0 }}
         className={`w-full  ${
           dealearship ? "max-w-[1340px]" : "max-w-[1320px]"
         } min-h-max flex justify-between items-start gap-10 m-auto ${
@@ -174,7 +181,7 @@ function Footer({ dealearship, about }) {
             </div>
           </div>
         </div>
-      </div>
+      </motion.div>
       <Banner />
     </div>
   );
@@ -182,7 +189,14 @@ function Footer({ dealearship, about }) {
 
 const Banner = () => {
   return (
-    <div className="w-full bg-[#1A1A1A] ">
+    <motion.div
+      whileInView={{
+        opacity: 1,
+        transition: { duration: 0.5, delay: 0.2, ease: "easeIn" },
+      }}
+      initial={{ opacity: 0 }}
+      className="w-full bg-[#1A1A1A] "
+    >
       <div className="max-w-[1320px]  flex justify-between items-center py-5 px-5 m-auto small:flex-col small:justify-center  small:items-center small:gap-3">
         <p className="font-pm text-[#FFFFFF] text-center smaller:text-[0.9rem]">
           Design & Developed by Kabariya technologies (Pvt ltd.)
@@ -191,7 +205,7 @@ const Banner = () => {
           All copyrights reserved © Kabariya technologies (Pvt ltd.)
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

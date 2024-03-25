@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import Sheduler from "./Sheduler";
 import { leftPic, rightPic } from "./Consonants";
 import SubmittedDialog from "./SubmittedDialog";
+import { motion } from "framer-motion";
 
 function RightSec() {
   const [submitted, setsubmitted] = useState(false);

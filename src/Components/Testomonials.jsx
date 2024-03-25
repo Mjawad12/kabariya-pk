@@ -1,11 +1,53 @@
 "use client";
-import React from "react";
+import React, { useEffect } from "react";
 import { FeedBack, clientReviews, left, star } from "./Consonants";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
-
+import { motion, useAnimate, useInView } from "framer-motion";
 function Testomonials() {
+  const [scope, animate] = useAnimate();
+  const isInView = useInView(scope, { once: true });
+
+  useEffect(() => {
+    isInView && aimateFunc();
+  }, [isInView]);
+  const aimateFunc = async () => {
+    await animate(
+      ".spq",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring" }
+    );
+    await animate(
+      "h2",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring" }
+    );
+    await animate(
+      "h3",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring" }
+    );
+
+    await animate(
+      "p",
+      {
+        opacity: 1,
+        y: 0,
+      },
+      { duration: 0.5, type: "spring" }
+    );
+  };
+
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1176 },
@@ -26,21 +68,35 @@ function Testomonials() {
 
   return (
     <div className="w-full flex flex-col justify-center items-center min-h-max py-20 pt-24 smaller:py-10 smaller:pt-14 ">
-      <div className="flex flex-col justify-center items-center gap-5 small:gap-3 ">
-        {FeedBack}
+      <motion.div
+        ref={scope}
+        className="flex flex-col justify-center items-center gap-5 small:gap-3 "
+      >
+        <motion.span initial={{ opacity: 0, y: "30px" }} className="spq">
+          {FeedBack}
+        </motion.span>
         <div className="flex flex-col justify-center items-center">
-          <h2 className="font-pm font-med text-[1.7rem] smaller:text-[1.3rem]">
+          <motion.h2
+            initial={{ opacity: 0, y: "30px" }}
+            className="font-pm font-med text-[1.7rem] smaller:text-[1.3rem]"
+          >
             Testimonials
-          </h2>
-          <h3 className="font-se text-6xl small:text-5xl smaller:text-4xl text-center leading-[60px]">
+          </motion.h2>
+          <motion.h3
+            initial={{ opacity: 0, y: "30px" }}
+            className="font-se text-6xl small:text-5xl smaller:text-4xl text-center leading-[60px]"
+          >
             Customer Reviews
-          </h3>
+          </motion.h3>
         </div>
-        <p className="font-open text-1xl max-w-[46ch] text-center mt-2 small:mt-1 small:text-[0.9rem] small:max-w-[35ch]">
+        <motion.p
+          initial={{ opacity: 0, y: "30px" }}
+          className="font-open text-1xl max-w-[46ch] text-center mt-2 small:mt-1 small:text-[0.9rem] small:max-w-[35ch]"
+        >
           See the impact of our services through client stories. Experience
           satisfaction in a snapshot.
-        </p>
-      </div>
+        </motion.p>
+      </motion.div>
       <div className="w-full mt-16 small:mt-14 px-[9rem] extLar:px-[6rem] larger:px-[5rem] small:px-2 relative  ">
         <div
           style={{

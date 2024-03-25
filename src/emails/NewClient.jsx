@@ -178,7 +178,7 @@ export const YelpRecentLoginEmail = (details) => {
                         width="40"
                         height="37"
                         alt="Vercel"
-                        className="my-0 mx-auto w-full min-h-[80vh]"
+                        className="my-0 mx-auto w-full h-full"
                       />
                     </div>
                   ))}
