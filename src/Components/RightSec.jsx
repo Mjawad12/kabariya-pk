@@ -8,7 +8,20 @@ import { motion } from "framer-motion";
 function RightSec() {
   const [submitted, setsubmitted] = useState(false);
   return (
-    <div
+    <motion.div
+      viewport={{ once: true }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+        transition: {
+          duration: 0.5,
+          delay: 0.2,
+          type: "spring",
+          mass: 1,
+          stiffness: 600,
+        },
+      }}
+      initial={{ opacity: 0, y: "30px" }}
       className="w-[100%]  min-h-[calc(100vh-84px)] flex 
       justify-center items-center px-7 pr-0 small:pl-0"
     >
@@ -57,7 +70,7 @@ function RightSec() {
           <SubmittedDialog setsubmitted={setsubmitted} />
         )}
       </div>
-    </div>
+    </motion.div>
   );
 }
 

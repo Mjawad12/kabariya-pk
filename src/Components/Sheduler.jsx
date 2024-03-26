@@ -177,7 +177,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
                     );
                   });
 
-                  if (!duplicate && files.length < 3) {
+                  if (!duplicate && files.length < 5) {
                     const images = [...files, e.target?.files[0]];
                     setfiles(images);
                   }
