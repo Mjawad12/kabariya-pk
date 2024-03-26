@@ -17,8 +17,7 @@ function Footer({ dealearship, about }) {
       <motion.div
         whileInView={{
           opacity: 1,
-
-          transition: { duration: 1, delay: 0.2, type: "ease" },
+          transition: { duration: 0.5, type: "ease" },
         }}
         initial={{ opacity: 0 }}
         className={`w-full  ${
