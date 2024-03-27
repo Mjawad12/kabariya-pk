@@ -29,7 +29,11 @@ function Navbar() {
   ];
 
   return (
-    <nav
+    <motion.nav
+      initial={{ opacity: 0, y: "-20px" }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.8, ease: "easeInOut" }}
       className={`w-full flex justify-between items-center py-5 gap-5 pt-9 px-10 smaller:px-6 smaller:pt-5 ${
         (pathname === "/dealership" ||
           pathname === "/about" ||
@@ -91,7 +95,7 @@ function Navbar() {
             : hamburger}
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
 

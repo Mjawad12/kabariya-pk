@@ -10,25 +10,27 @@ function HeroSec() {
   const [scope, animate] = useAnimate();
 
   useEffect(() => {
-    animationFunc();
+    setTimeout(() => {
+      animationFunc();
+    }, 500);
   }, []);
 
   const animationFunc = async () => {
-    await animate(
+    animate(
       "h2",
       {
         opacity: 1,
-        y: 0,
+        scale: 1,
       },
-      { duration: 0.5, type: "spring", delay: stagger(0.2) }
+      { duration: 1, ease: "easeInOut", delay: stagger(0.2) }
     );
-    await animate(
+    animate(
       "p",
       {
         opacity: 1,
-        y: 0,
+        scale: 1,
       },
-      { duration: 0.5, type: "spring" }
+      { duration: 0.8, ease: "easeInOut", delay: 0.6 }
     );
   };
 
@@ -43,20 +45,20 @@ function HeroSec() {
         <div className="flex flex-col  justify-start items-start gap-5 extLar:gap-3">
           <div>
             <motion.h2
-              initial={{ opacity: 0, y: "30px" }}
+              initial={{ opacity: 0, scale: 1.1 }}
               className="font-pm font-bol text-[62px] extLar:text-[50px] larger:text-[45px] leading-[4rem] small:leading-[3rem] "
             >
               <span className="text-primaryGreen">Pakistan's</span> First
             </motion.h2>
             <motion.h2
-              initial={{ opacity: 0, y: "30px" }}
+              initial={{ opacity: 0, scale: 1.1 }}
               className="font-se font-reg text-[62px] extLar:text-[50px] larger:text-[45px] small:leading-[3.5rem] "
             >
               Scrap Platform <span className="text-primaryGreen">Ever!</span>
             </motion.h2>
           </div>
           <motion.p
-            initial={{ opacity: 0, y: "30px" }}
+            initial={{ opacity: 0, scale: 1.05 }}
             className="font-pm font-reg leading-[27px] max-w-[55ch] text-[18px]  extLar:text-[16px]  small:font-med small:text-[17px] "
           >
             Kabariya is a secure online platform dedicated to the selling of
@@ -120,10 +122,10 @@ const MobileApp = () => {
       viewport={{ once: true }}
       whileInView={{
         opacity: 1,
-        y: 0,
-        transition: { duration: 0.5, delay: 0.8, ease: "backInOut" },
+        x: 0,
+        transition: { duration: 1, delay: 0.8, ease: "easeInOut" },
       }}
-      initial={{ opacity: 0, y: "30px" }}
+      initial={{ opacity: 0, x: "-20px" }}
       className="flex flex-col justify-start items-start gap-4 smallest:w-full smallest:items-center "
     >
       <p className="font-pm font-bol text-[20px] mob:text-[15px] ">
