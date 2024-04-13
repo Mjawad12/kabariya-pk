@@ -19,7 +19,7 @@ function Aboutme({ page }) {
             whileInView={{
               opacity: 1,
               y: 0,
-              transition: { duration: 0.5, delay: 0.2, type: "spring" },
+              transition: { duration: 1, delay: 0.2, type: "spring" },
             }}
             className="relative flex justify-center items-center "
           >

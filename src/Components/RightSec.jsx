@@ -12,16 +12,10 @@ function RightSec() {
       viewport={{ once: true }}
       whileInView={{
         opacity: 1,
-        y: 0,
-        transition: {
-          duration: 0.5,
-          delay: 0.2,
-          type: "spring",
-          mass: 1,
-          stiffness: 600,
-        },
+        scale: 1,
+        transition: { duration: 1, ease: "easeInOut", delay: 0.7 },
       }}
-      initial={{ opacity: 0, y: "30px" }}
+      initial={{ opacity: 0, scale: 1.1 }}
       className="w-[100%]  min-h-[calc(100vh-84px)] flex 
       justify-center items-center px-7 pr-0 small:pl-0"
     >

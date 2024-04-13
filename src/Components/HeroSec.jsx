@@ -105,7 +105,7 @@ const Dealerbtn = ({ bgcolor, textColor, text, width }) => {
   relative z-10 bg-${bgcolor} text-${textColor} w-full  h-[59px] max-w-[222px] font-med
    rounded-[50px] py-[8px] pl-[13px] pr-[5px] ${
      width && "pl-[17px] pr-[8px] h-[54.5px] bg-[#f3fcf9] !gap-2 "
-   } ml-[0.1px] mb-[0.3px] `}
+   } ml-[0.1px] mb-[0.3px] whitespace-nowrap`}
       >
         {text ? text : "BECOME A DEALER"}{" "}
         <div className={`${width ? "scale-[0.9]" : "scale-[1]"}`}>
