@@ -15,7 +15,7 @@ function RightSec() {
         scale: 1,
         transition: { duration: 1, ease: "easeInOut", delay: 0.7 },
       }}
-      initial={{ opacity: 0, scale: 1.1 }}
+      initial={{ opacity: 0, scale: 1.15 }}
       className="w-[100%]  min-h-[calc(100vh-84px)] flex 
       justify-center items-center px-7 pr-0 small:pl-0"
     >

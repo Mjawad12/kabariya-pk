@@ -4,54 +4,54 @@ import { RightArrow, apple, playStore } from "./Consonants";
 
 import RightSec from "./RightSec";
 import Link from "next/link";
-import { motion, stagger, useAnimate } from "framer-motion";
+import { motion } from "framer-motion";
 
 function HeroSec() {
-  const [scope, animate] = useAnimate();
-
   useEffect(() => {
-    setTimeout(() => {
-      animationFunc();
-    }, 500);
+    console.log(
+      ` %cHello! This website was developed by %cMuhammad Jawad.
+      %cCheck out my GitHub: %chttps://github.com/Mjawad12
+      %cConnect with me on LinkedIn: %chttps://www.linkedin.com/in/muhammad-jawad-08a793268/
+      %cThanks for visiting!
+       `,
+      "font-size: 20px; color: #E4C59E; font-weight: bold;",
+      "font-size: 24px; color: #FF0000; font-weight: bold;", // This makes your name red
+      "font-size: 17px; color: #E4C59E; font-weight: bold;",
+      "font-size: 15px; color: #0E46A3; font-weight: bold;", // This makes the GitHub link blue
+      "font-size: 17px; color: #E4C59E; font-weight: bold;",
+      "font-size: 15px; color: #0E46A3; font-weight: bold;", // This makes the LinkedIn link blue
+      "font-size: 19px; color: #7F9F80; font-weight: bold;"
+    );
   }, []);
-
-  const animationFunc = async () => {
-    animate(
-      "h2",
-      {
-        opacity: 1,
-        scale: 1,
-      },
-      { duration: 1, ease: "easeInOut", delay: stagger(0.2) }
-    );
-    animate(
-      "p",
-      {
-        opacity: 1,
-        scale: 1,
-      },
-      { duration: 0.8, ease: "easeInOut", delay: 0.6 }
-    );
-  };
-
   return (
     <div
       className="max-w-[1440px] w-full m-auto 
       min-h-[calc(100vh-84px)] flex small:flex-col
-     small:py-6 mob:pt-3 justify-center items-center px-4 small:px-0  
+     small:py-6 mob:pt-3 justify-center items-center px-4 small:px-0   
      gap-1 small:gap-20 smaller:gap-12 "
     >
-      <motion.div ref={scope} className="w-full ">
+      <motion.div className="w-full ">
         <div className="flex flex-col  justify-start items-start gap-5 extLar:gap-3">
           <div>
             <motion.h2
-              initial={{ opacity: 0, scale: 1.1 }}
+              initial={{ opacity: 0, scale: 1.15, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+              }}
               className="font-pm font-bol text-[62px] extLar:text-[50px] larger:text-[45px] leading-[4rem] small:leading-[3rem] "
             >
               <span className="text-primaryGreen">Pakistan's</span> First
             </motion.h2>
             <motion.h2
-              initial={{ opacity: 0, scale: 1.1 }}
+              initial={{ opacity: 0, scale: 1.15, y: 10 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{
+                duration: 1,
+                ease: "easeInOut",
+                delay: 0.3,
+              }}
               className="font-se font-reg text-[62px] extLar:text-[50px] larger:text-[45px] small:leading-[3.5rem] "
             >
               Scrap Platform <span className="text-primaryGreen">Ever!</span>
@@ -59,6 +59,12 @@ function HeroSec() {
           </div>
           <motion.p
             initial={{ opacity: 0, scale: 1.05 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              duration: 1,
+              ease: "easeInOut",
+              delay: 0.4,
+            }}
             className="font-pm font-reg leading-[27px] max-w-[55ch] text-[18px]  extLar:text-[16px]  small:font-med small:text-[17px] "
           >
             Kabariya is a secure online platform dedicated to the selling of
@@ -85,7 +91,7 @@ const Dealerbtn = ({ bgcolor, textColor, text, width }) => {
       whileInView={{
         opacity: 1,
         y: 0,
-        transition: { duration: 0.5, delay: 0.7, ease: "backInOut" },
+        transition: { duration: 0.8, delay: 0.7, ease: "backInOut" },
       }}
       initial={{ opacity: 0, y: "30px" }}
       className={`w-full max-w-[225px] h-[62px] ${
@@ -125,7 +131,7 @@ const MobileApp = () => {
         x: 0,
         transition: { duration: 1, delay: 0.8, ease: "easeInOut" },
       }}
-      initial={{ opacity: 0, x: "-20px" }}
+      initial={{ opacity: 0, x: -40 }}
       className="flex flex-col justify-start items-start gap-4 smallest:w-full smallest:items-center "
     >
       <p className="font-pm font-bol text-[20px] mob:text-[15px] ">

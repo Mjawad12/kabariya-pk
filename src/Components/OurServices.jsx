@@ -6,7 +6,7 @@ import React, { useEffect, useRef } from "react";
 function OurServices() {
   const [scope, animate] = useAnimate();
   const [scope2, animate2] = useAnimate();
-  const isInView = useInView(scope, { once: true });
+  const isInView = useInView(scope, { once: true, amount: "50" });
 
   const array = [
     "Household",
@@ -36,7 +36,7 @@ function OurServices() {
         opacity: 1,
         x: 0,
       },
-      { duration: 0.5, delay: stagger(0.2), type: "spring" }
+      { duration: 0.5, delay: stagger(0.2), ease: "easeInOut" }
     );
     await animate(
       "p",

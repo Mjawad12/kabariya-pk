@@ -2380,7 +2380,7 @@ const contactPageData = [
         </defs>
       </svg>
     ),
-    link: "https://www.Linkedin.com/Kabariya-pk",
+    link: "https://www.linkedin.com/company/kabariya-pk",
   },
   {
     svg: (
@@ -2436,7 +2436,7 @@ const contactPageData = [
         </defs>
       </svg>
     ),
-    link: "https://www.tiktok.com/Kabariya-pk",
+    link: "https://www.tiktok.com/@kabariya.pk?_t=8lqapMwvBXG&_r=1",
   },
   {
     svg: (
@@ -2721,6 +2721,514 @@ const cross = (
   </svg>
 );
 
+const trash = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="15"
+    height="17"
+    viewBox="0 0 15 17"
+    fill="none"
+  >
+    <path
+      d="M13.8332 4.5415H1.1665"
+      stroke="#707070"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M12.25 6.9165L11.7196 12.7432C11.6482 13.5327 11.2834 14.2667 10.6971 14.8003C10.1107 15.3338 9.34564 15.6281 8.55292 15.6248H6.41542C5.62269 15.6281 4.85758 15.3338 4.27127 14.8003C3.68496 14.2667 3.32009 13.5327 3.24875 12.7432L2.75 6.9165"
+      stroke="#707070"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M5.9165 8.5V10.875"
+      stroke="#707070"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M9.0752 8.5V10.875"
+      stroke="#707070"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M11.0625 4.54169H3.9375L4.33333 2.87128C4.43916 2.43895 4.68874 2.05542 5.04115 1.78356C5.39356 1.5117 5.82789 1.36765 6.27292 1.37503H8.72708C9.17211 1.36765 9.60644 1.5117 9.95885 1.78356C10.3113 2.05542 10.5608 2.43895 10.6667 2.87128L11.0625 4.54169Z"
+      stroke="#707070"
+      strokeWidth="1.75"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
+const towns = {
+  Karachi: [
+    {
+      name: "Baldia town",
+      subdivide: [
+        "U.C. 1 Gulshan-e-Ghazi",
+        "U.C. 2 Ittehad Town",
+        "U.C. 3 Islam Nagar",
+        "U.C. 4 Nai Abadi",
+        "U.C. 5 Saeedabad",
+        "U.C. 6 Muslim Mujahid Colony",
+        "U.C. 7 Muhajir Camp",
+        "U.C. 8 Rasheedabad",
+      ],
+    },
+    {
+      name: "Bin qasim town",
+      subdivide: [
+        "U.C. 1 Ibrahim Hyderi",
+        "U.C. 2 Rehri",
+        "U.C. 3 Cattle Colony",
+        "U.C. 4 Qaidabad",
+        "U.C. 5 Landhi Colony",
+        "U.C. 6 Gulshan-e-Hadeed",
+        "U.C. 7 Gaghar",
+      ],
+    },
+    {
+      name: "Gadap town ",
+      subdivide: [
+        "U.C. 1 Murad Memon Goth",
+        "U.C. 2 Darsano Chana",
+        "U.C. 3 Gadap",
+        "U.C. 4 Gujro",
+        "U.C. 5 Songal",
+        "U.C. 6 Maymarabad",
+        "U.C. 7 Yousuf Goth",
+        "U.C. 8 Manghopir",
+        "U.C.9 Ghaniyabad",
+        "U.C.10 Deh Malh",
+      ],
+    },
+    {
+      name: "Gulberg town",
+      subdivide: [
+        "U.C. 1 Azizabad",
+        "U.C. 2 Karimabad",
+        "U.C. 3 Aisha Manzil",
+        "U.C. 4 Ancholi",
+        "U.C. 5 Naseerabad",
+        "U.C. 6 Yaseenabad",
+        "U.C. 7 Water Pump",
+      ],
+    },
+    {
+      name: "Gulshan town",
+      subdivide: [
+        "Gulshan town",
+        "U.C. 1 Delhi Mercantile Society",
+        "U.C. 2 Civic Centre",
+        "U.C. 3 Pir Ilahi Buksh Colony",
+        "U.C. 4 Essa Nagri",
+        "U.C. 5 Gulshan-e-Iqbal",
+        "U.C. 6 Gillani Railway Station",
+        "U.C. 7 Dalmia",
+        "U.C. 8 Jamali Colony",
+        "U.C. 9 Gulshan-e-Iqbal II",
+        "U.C. 10 Pehlwan Goth",
+        "U.C. 11 Metroville Colony",
+        "U.C. 29 Gulzar-e-Hijri",
+        "U.C. 13 Safooran Goth",
+        "U.C. 14 Faisal Cantt.",
+        "U.C. 26 New Dhoraji",
+      ],
+    },
+    {
+      name: "Jamshed town",
+      subdivide: [
+        "U.C. 1 Akhtar Colony",
+        "U.C. 2 Manzoor Colony",
+        "U.C. 3 Azam Basti",
+        "U.C. 4 Chanesar Goth",
+        "U.C. 5 Mehmoodabad",
+        "U.C. 6 P.E.C.H.S I",
+        "U.C. 7 P.E.C.H.S II",
+        "U.C. 8 Jut Line",
+        "U.C. 9 Jacob Lines",
+        "U.C. 10 Jamshed Quarters",
+        "U.C. 11 Garden East",
+        "U.C. 12 Soldier Bazar",
+        "U.C. 13 Pakistan Quarters",
+      ],
+    },
+    {
+      name: "Kiamari town",
+      subdivide: [
+        "U.C. 3 Kiamari",
+        "U.C. 4 Baba Bhit",
+        "U.C. 5 Machar Colony",
+        "U.C. 6 Maripur",
+        "U.C. 7 SherShah",
+        "U.C. 8 Gabo Pat",
+      ],
+    },
+    {
+      name: "Korangi town",
+      subdivide: [
+        "U.C. 1 Bilal Colony",
+        "U.C. 2 Nasir Colony",
+        "U.C. 3 Chakra Goth",
+        "U.C. 4 Silver Town",
+        "U.C. 5 Hundred Quarters",
+        "U.C. 8 Zaman Town",
+        "U.C. 9 Hasrat Mohani Colony",
+        "U.C. 10 Bhatti Colony",
+      ],
+    },
+    {
+      name: "Landhi town",
+      subdivide: [
+        "U.C. 1 Muzafarabad",
+        "U.C. 2 Muslimabad",
+        "U.C. 3 Dawood Chowrangi",
+        "U.C. 4 Moinabad",
+        "U.C. 5 Sharafi Goth",
+        "U.C. 6 Bhutto Nagar",
+        "U.C. 7 Khawaja Ajmeer Colony",
+        "U.C. 8 Landhi",
+        "U.C. 9 Awami Colony",
+        "U.C. 10 Burmee Colony",
+        "U.C. 11 Korangi",
+        "U.C. 12 Sherabad",
+      ],
+    },
+    {
+      name: "Liaquatabad town",
+      subdivide: [
+        "Liaquatabad town",
+        "U.C. 1 Rizvia Society (R.C.H.S.)",
+        "U.C. 2 Firdous Colony",
+        "U.C. 3 Super Market",
+        "U.C. 4 Dak Khana",
+        "U.C. 5 Qasimabad",
+        "U.C. 6 Bandhani Colony",
+        "U.C. 7 Sharifabad",
+        "U.C. 8 Commercial Area",
+        "U.C. 9 Mujahid Colony",
+        "U.C. 10 Nazimabad 1",
+        "U.C. 11 Abbasi Shaheed",
+      ],
+    },
+    {
+      name: "Lyari town",
+      subdivide: [
+        "U.C. 1 Agra Taj Colony",
+        "U.C. 2 Daryaabad",
+        "U.C. 3 Nawabad",
+        "U.C. 4 Khada Memon Society",
+        "U.C. 5 Baghdadi",
+        "U.C. 6 Moosa Lane",
+        "U.C. 7 Shah Baig Line",
+        "U.C. 8 Bihar Colony",
+        "U.C. 9 Ragiwara",
+        "U.C. 10 Singo Line",
+        "U.C. 11 Chakiwara",
+        "U.C. 12 Allama Iqbal Colony",
+      ],
+    },
+    {
+      name: "Malir town",
+      subdivide: [
+        "U.C. 1 Model Colony",
+        "U.C. 2 Kala Board",
+        "U.C. 3 Saudabad",
+        "U.C. 4 Khokhra Par",
+        "U.C. 5 Jafar-e-Tayyar",
+        "U.C. 6 Gharibabad",
+        "U.C. 7 Ghazi Brohi Goth",
+      ],
+    },
+    {
+      name: "New Karachi town",
+      subdivide: [
+        "U.C. 1 North Karachi",
+        "U.C. 2 Sir Syed Colony",
+        "U.C. 3 Fatima Jinnah Colony",
+        "U.C. 4 Godhra",
+        "U.C. 5 Abu Zar Ghaffari",
+        "U.C. 6 Hakim Ahsan",
+        "U.C. 7 Madina Colony",
+        "U.C. 8 Faisal Colony",
+        "U.C. 9 Khamiso Goth",
+        "U.C. 10 Mustufa Colony",
+        "U.C. 11 Khawaja Ajmeer Nagri",
+        "U.C. 12 Gulshan-e-Saeed",
+        "U.C. 13 Shah Nawaz Bhutto Colony",
+      ],
+    },
+    {
+      name: "North nazimabad town",
+      subdivide: [
+        "U.C. 1 Paposh Nagar",
+        "U.C. 2 Pahar Ganj",
+        "U.C. 3 Khandu Goth",
+        "U.C. 4 Hyderi",
+        "U.C. 5 Sakhi Hassan",
+        "U.C. 6 Farooq-e-Azam",
+        "U.C. 7 Nusrat Bhutto Colony",
+        "U.C. 8 Shadman Town",
+        "U.C. 9 Buffer Zone",
+        "U.C. 10 Buffer Zone II",
+      ],
+    },
+    {
+      name: "Orangi town",
+      subdivide: [
+        "U.C. 1 Mominabad",
+        "U.C. 2 Haryana Colony",
+        "U.C. 3 Hanifabad",
+        "U.C. 4 Mohammad Nagar",
+        "U.C. 5 Madina Colony",
+        "U.C. 6 Ghaziabad",
+        "U.C. 7 Chisti Nagar",
+        "U.C. 8 Bilal Colony/sector 14 & 15",
+        "U.C. 9 Islam Chowk / Iqbal Baloch Colony",
+        "U.C. 10 Gabol Colony",
+        "U.C. 11 Data Nagar",
+        "U.C. 12 Mujahidabad",
+        "U.C. 13 Baloch Goth",
+      ],
+    },
+    {
+      name: "Saddar town",
+      subdivide: [
+        "U.C. 1 Old Haji Camp",
+        "U.C. 2 Garden",
+        "U.C. 3 Kharadar",
+        "U.C. 4 City Railway Colony",
+        "U.C. 5 Nanak Wara",
+        "U.C. 6 Gazdarabad",
+        "U.C. 7 Millat Nagar/Islam Pura",
+        "U.C. 8 Saddar",
+        "U.C. 9 Civil Line",
+        "U.C. 10 Clifton",
+        "U.C. 11 Kehkashan",
+        "U.C. 12 Dehli Colony P & T Colony",
+      ],
+    },
+    {
+      name: "shah faisal town",
+      subdivide: [
+        "U.C. 1 Natha Khan Goth",
+        "U.C. 2 Sadat Colony",
+        "U.C. 3 Drigh Colony",
+        "U.C. 4 Reta Plot",
+        "U.C. 13 Moria Khan Goth",
+        "U.C. 6 Rafa-e-Aam Society",
+        "U.C. 7 Al-Falah Society",
+        "U.C. 8 PAF",
+        "U.C. 9 Drig Road/Air Port",
+      ],
+    },
+    { name: "surjani town", subdivide: ["U.C. 4 Surjani"] },
+    {
+      name: "site Town",
+      subdivide: [
+        "U.C. 1 Pak Colony",
+        "U.C. 2 Old Golimar",
+        "U.C. 3 Jahanabad",
+        "U.C. 4 Metrovil",
+        "U.C. 5 Bhawani Chali",
+        "U.C. 6 Frontier Colony",
+        "U.C. 7 Banaras Colony",
+      ],
+    },
+    {
+      name: "Indistirial Areas",
+      subdivide: [
+        "SITE Karachi",
+        "Korangi Industrial Area",
+        "Landhi Industrial Area",
+        "North Karachi Industrial Area",
+        "Federal B Industrial Area",
+        "Korangi Creek Industrial Park",
+        "Karachi Export Processing Zone",
+        "Pakistan Textile City",
+        "West Wharf Industrial Area",
+        "SITE Super Highway Phase-I",
+        "SITE Super Highway Phase-II",
+      ],
+    },
+  ],
+  Islamabad: [
+    "Saidpur, IslamabadSaidpur",
+    "Noorpur Shahan, IslamabadNoorpur Shahan",
+    "Mal Pur",
+    "Kot Hathial (Shamal)",
+    "Kot Hathial (Janoob)",
+    "Phulgran",
+    "Pind Begwal",
+    "Tumair",
+    "Charah, IslamabadCharah",
+    "Kirpa, Islamabad Capital TerritoryKirpa",
+    "Mughal, Islamabad Capital TerritoryMughal",
+    "Rawat, IslamabadRawat",
+    "Humak",
+    "Sihala",
+    "Lohi Bhair",
+    "Darwala",
+    "Koral, PunjabKoral",
+    "Khana Dak",
+    "Tarlai Kalan",
+    "Ali Pur",
+    "Sohan",
+    "Chak Shahzad",
+    "Kuri, ICTKuri",
+    "Shahrak-e-Rawal",
+    "Sector F-6",
+    "F-6/1, F-6/, F-6/3, F-6/4, Farooqi Bazar, Madni Masjid, Dhobi Gat",
+    "Sector G-6/1",
+    "Sector G-6",
+    "Sector G-6/, Sector G-6/3 & Sector G-6/4",
+    "Sector F-7, F-8, F-9",
+    "Sector F-10, F-11",
+    "Sector G-7/3, G-7/4",
+    "Sector G-7/1, G-7/2",
+    "Sector G-8/3, G-8/4",
+    "Sector G-8/1, G-8/2 ",
+    "Sector G-9",
+    "Sector G-9/, G-9/3, G-9/4",
+    "Sector G-9/2",
+    "Sector G-10/3, G-10/4",
+    "Sector G-10/1, G-10/2 ",
+    "Sector G-11",
+    "Sector G-11/1, G-11/2, G-11/3, G-11/4",
+    "Maira Sumbal Jaffar",
+    "G-13",
+    "Sector I-8",
+    "Sector I-8/1,I8/2,I8/3,I8/4",
+    "Sector I-9",
+    "Sector I-10/1",
+    "Sector I-10",
+    "Sector I-10/2, I-10/3, I-10/4",
+    "Bokra",
+    "Jhangi SayedanJhangi Saydan",
+    "Village Noon",
+    "Tarnol, IslamabadTarnol",
+    "Sarai Kharbooza",
+    "Shah Allah Ditta",
+    "Golra Sharif",
+  ],
+  Multan: [
+    "DHA Defence",
+    "Buch Executive Villas",
+    "Multan Public School Road",
+    "Multan Bypass",
+    "Garden Town",
+    "Wapda Town",
+    "Model Town",
+    "Air Force Officers Housing Scheme",
+    "Northern Bypass",
+    "Purana Shujabad Road",
+    "Citi Housing",
+    "Old Shujabad Road",
+    "Shalimar Colony",
+    "PGSHF",
+    "Zakariya Town",
+    "Bosan Road",
+    "Canal Bank Road",
+    "Bahadurpur",
+    "Nawabpur Road",
+    "Abdali Road",
+    "New Shalimar Colony",
+    "Canal Cantt View Housing Society",
+    "Green Fort Plus",
+    "Khanewal Road",
+    "Mattital Road",
+    "BZU Road",
+    "Chowk Kumharanwala",
+    "MA Jinnah Road",
+    "Nasheman Colony",
+    "Others",
+    "Cantt",
+    "Askari Bypass",
+    "Dunya Pur Road",
+    "Southern Bypass",
+    "Usman-e-Ghani Road",
+    "Khan Village",
+    "MDA Chowk",
+    "Head Muhammad Wala",
+    "Shah Town",
+    "Chungi No 6",
+  ],
+  Lahore: [
+    "Johar Town",
+    "DHA Defence",
+    "Allama Iqbal Town",
+    "Cantt",
+    "Bahria Town",
+    "Gulberg",
+    "Bilal Gunj",
+    "Wapda Town",
+    "UET Housing Society",
+    "Model Town",
+    "Township",
+    "Sabzazar",
+    "Gulshan-e-Ravi",
+    "Montgomery Road",
+    "Shahdara",
+    "Askari",
+    "Shadbagh",
+    "Valencia Town",
+    "Samanabad",
+    "Faisal Town",
+    "Thokar Niaz Baig",
+    "Ferozepur Road",
+    "Jail Road",
+    "Mughalpura",
+    "Raiwind Road",
+    "GT Road",
+    "Pak Arab Housing Society",
+    "Walton Road",
+    "Al Rehman Garden",
+    "Abbot Road",
+    "Harbanspura",
+    "Chungi Amar Sadhu",
+    "EME Society",
+    "Marghzar Officers Colony",
+    "Bahria Orchard",
+    "Daroghewala",
+    "Baghbanpura",
+    "Garden Town",
+    "Badami Bagh",
+    "Shalimar Link Road",
+  ],
+};
+
+const search = (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="19"
+    height="19"
+    viewBox="0 0 19 19"
+    fill="none"
+  >
+    <path
+      d="M13.4583 13.4583L16.6249 16.6249"
+      stroke="black"
+      strokeWidth="1.58333"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M8.70833 15.0417C12.2061 15.0417 15.0417 12.2061 15.0417 8.70833C15.0417 5.21053 12.2061 2.375 8.70833 2.375C5.21053 2.375 2.375 5.21053 2.375 8.70833C2.375 12.2061 5.21053 15.0417 8.70833 15.0417Z"
+      stroke="black"
+      strokeWidth="1.58333"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+  </svg>
+);
+
 export {
   loc,
   AtR,
@@ -2771,4 +3279,7 @@ export {
   privacyPolicy,
   terms_conditions,
   cross,
+  trash,
+  towns,
+  search,
 };

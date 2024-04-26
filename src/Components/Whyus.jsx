@@ -27,7 +27,7 @@ function Whyus() {
         opacity: 1,
         x: 0,
       },
-      { duration: 0.5, type: "spring", delay: stagger(0.5) }
+      { duration: 0.5, ease: "easeInOut", delay: stagger(0.5) }
     );
     await animate(
       "p",

@@ -139,8 +139,9 @@ const Mobnav = ({ list, setmobnav, pathname }) => {
         {cross}
       </div>
       <ul className="flex flex-col justify-start items-start py-20 px-10 gap-3">
-        {list.map((it) => (
+        {list.map((it, index) => (
           <li
+            key={index}
             onClick={() => {
               setmobnav(false);
             }}

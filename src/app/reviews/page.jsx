@@ -67,9 +67,12 @@ function page() {
           >
             {clientReviews.map((it, index) => {
               return (
-                <motion.div initial={{ opacity: 0, x: "-50px" }} className="tp">
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: "-50px" }}
+                  className="tp"
+                >
                   <CarasouelCard
-                    key={index}
                     name={it.name}
                     tagline={it.workplace}
                     testmonial={it.review}

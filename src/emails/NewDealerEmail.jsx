@@ -93,6 +93,10 @@ export const YelpRecentLoginEmail = (details) => {
                     {details["city"]}
                   </Text>
                   <Text style={{ ...paragraph, marginTop: -5 }}>
+                    <b>town : </b>
+                    {details["town"]}
+                  </Text>
+                  <Text style={{ ...paragraph, marginTop: -5 }}>
                     <b>phone : </b>
                     {details["phone"]}
                   </Text>
@@ -138,23 +142,35 @@ export const YelpRecentLoginEmail = (details) => {
                   >
                     Bank details({details["bankDetails"].length})
                   </Heading>
-                  {details["bankDetails"].map((it) => {
+                  {details["bankDetails"].map((it, index) => {
                     return (
-                      <div className="flex flex-col justify-center  items-center gap-5 flex-wrap">
-                        <Text style={{ ...paragraph, marginTop: -5 }}>
-                          <b>Bank : </b>
-                          {it.bank}
-                        </Text>
+                      <div className="w-full flex flex-col">
+                        <Heading
+                          as="h4"
+                          style={{
+                            fontSize: 18,
+                            fontWeight: "bold",
+                            textAlign: "start",
+                          }}
+                        >
+                          Bank {index} :
+                        </Heading>
+                        <div className="flex flex-col justify-start  items-center gap-2">
+                          <Text style={{ ...paragraph, marginTop: -5 }}>
+                            <b>Bank : </b>
+                            {it.bank}
+                          </Text>
 
-                        <Text style={{ ...paragraph, marginTop: -5 }}>
-                          <b>Account name : </b>
-                          {it.accountname}
-                        </Text>
+                          <Text style={{ ...paragraph, marginTop: -5 }}>
+                            <b>Account name : </b>
+                            {it.accountname}
+                          </Text>
 
-                        <Text style={{ ...paragraph, marginTop: -5 }}>
-                          <b>IBAN no : </b>
-                          {it.Ibanno}
-                        </Text>
+                          <Text style={{ ...paragraph, marginTop: -5 }}>
+                            <b>IBAN no : </b>
+                            {it.Ibanno}
+                          </Text>
+                        </div>
                       </div>
                     );
                   })}

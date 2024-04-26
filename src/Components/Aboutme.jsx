@@ -14,7 +14,7 @@ function Aboutme({ page }) {
       >
         <div className="max-w-[500px] large:max-w-[450px] w-full flex justify-center items-center">
           <motion.div
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: "50" }}
             initial={{ opacity: 0, y: "30px" }}
             whileInView={{
               opacity: 1,
@@ -40,7 +40,7 @@ function Aboutme({ page }) {
         </div>
         <div className="flex flex-col justify-start items-start gap-7 smaller:gap-7">
           <motion.h2
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: "50" }}
             initial={{ opacity: 0, y: "30px" }}
             whileInView={{
               opacity: 1,
@@ -54,12 +54,12 @@ function Aboutme({ page }) {
             About us
           </motion.h2>
           <motion.p
-            viewport={{ once: true }}
+            viewport={{ once: true, amount: "50" }}
             initial={{ opacity: 0, y: "30px" }}
             whileInView={{
               opacity: 1,
               y: 0,
-              transition: { duration: 0.5, delay: 0.4, type: "spring" },
+              transition: { duration: 0.5, delay: 0.3, type: "spring" },
             }}
             className="font-open text-white text-[21.5px] smaller:text-[17px]  max-w-[60ch]
             extLar:text-[19px] extLar:max-w-[55ch]   larger:text-[17px] larger:max-w-[58ch] 
@@ -76,7 +76,7 @@ function Aboutme({ page }) {
             whileInView={{
               opacity: 1,
               y: 0,
-              transition: { duration: 0.5, delay: 0.5, type: "spring" },
+              transition: { duration: 0.5, delay: 0.1, type: "spring" },
             }}
             className="w-full"
           >

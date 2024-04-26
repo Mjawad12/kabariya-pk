@@ -2,18 +2,23 @@
 import {
   Scrapitems,
   arrowDown,
+  towns,
   plusGreen,
   tick,
+  trash,
   uploadImg,
+  search,
 } from "@/Components/Consonants";
 import { Banner } from "@/Components/Footer";
 import SubmittedDialog from "@/Components/SubmittedDialog";
+import { motion, useAnimationControls } from "framer-motion";
 import { useRouter } from "next/navigation";
+import { Input } from "postcss";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 
 function page() {
   const [page, setpage] = useState(0);
-  const [totalpickups, settotalpickups] = useState([1, 2]);
+  const [totalpickups, settotalpickups] = useState([1]);
   const [totalBank, settotalBank] = useState([1]);
   const [st1, setst1] = useState(false);
   const [st, setst] = useState(true);
@@ -23,6 +28,7 @@ function page() {
   const [purchasingStart, setpurchasingStart] = useState("50,000");
   const [purchasingEnd, setpurchasingEnd] = useState("100,000");
   const [city, setcity] = useState("Karachi");
+  const [town, settown] = useState("Baldia town");
   const [scrap, setscrap] = useState([]);
   const shopAddress = useRef(null);
   const other = useRef(null);
@@ -34,13 +40,37 @@ function page() {
   const [submitted, setsubmitted] = useState(false);
   const [loading, setloading] = useState(false);
   const [errors, seterrors] = useState(null);
+  const [errorsObj, seterrorsObj] = useState({
+    quali: false,
+    vehic: false,
+  });
 
-  const handleSubmit = (e) => {
+  useEffect(() => console.log(scrap), [scrap]);
+
+  const handleSubmit = async (e) => {
     if (form.current.checkValidity()) {
+      seterrorsObj({});
       e.preventDefault();
       if (page === 0) {
         window.scrollTo(0, 0);
-        setpage(1);
+        if (qualification.length < 1) {
+          const obj = errorsObj;
+          obj.quali = true;
+          setTimeout(() => seterrorsObj(obj), [100]);
+          document
+            .querySelector("#quali")
+            .scrollIntoView({ behavior: "smooth" });
+        } else if (pickupVehicles.length < 1) {
+          seterrorsObj({});
+          const obj = errorsObj;
+          obj.vehic = true;
+          setTimeout(() => seterrorsObj(obj), [100]);
+          document
+            .querySelector("#vechi")
+            .scrollIntoView({ behavior: "smooth" });
+        } else {
+          setpage(1);
+        }
       } else if (page === 1) {
         if (!document.querySelector("#profileInput").files[0]) {
           seterrors("Please upload profile image.");
@@ -49,6 +79,12 @@ function page() {
           !document.querySelector("#backPic").files[0]
         ) {
           seterrors("Upload Front and Back side image of your CNIC.");
+        } else if (
+          !Array.from(document.querySelectorAll(".shopImg")).every((it) => {
+            return it.files[0];
+          })
+        ) {
+          seterrors("Please Upload Shop Images");
         } else {
           seterrors(null);
           window.scrollTo(0, 0);
@@ -56,10 +92,7 @@ function page() {
         }
       } else if (page >= 2) {
         setloading(true);
-        submitDealerForm();
-        setTimeout(() => {
-          setsubmitted(true);
-        }, 3000);
+        await submitDealerForm().then(() => setsubmitted(true));
       }
     }
   };
@@ -81,20 +114,24 @@ function page() {
     details.purchasingStart = purchasingStart;
     details.purchasingEnd = purchasingEnd;
     details.city = city;
+    details.town = town;
     details.ShopAddress = shopAddress.current.value;
     let pickupAreas = [];
     document.querySelectorAll("#pickupAreas").forEach((it) => {
-      pickupAreas = [...pickupAreas, it.innerText];
+      pickupAreas = [...pickupAreas, it.getAttribute("data-value")];
     });
     details.pickupAreas = pickupAreas.toString();
     details.bankDetails = await bankDetails();
     details.scrap = scrap.toString();
     details.others = other.current.value;
 
-    const data = await fetch("http://localhost:3000/api/DealerEmail", {
-      method: "POST",
-      body: JSON.stringify(details),
-    });
+    const data = await fetch(
+      `${process.env.NEXT_PUBLIC_PORT}/api/DealerEmail`,
+      {
+        method: "POST",
+        body: JSON.stringify(details),
+      }
+    );
     const parsedData = await data.json();
   };
 
@@ -176,7 +213,10 @@ function page() {
                 <InputFull type="text" require={true} text="Full Name" />
                 <InputFull type="text" require={true} text="Father Name" />
                 <InputFull type="text" require={true} text="CNIC" />
-                <InputFull type="date" require={true} text="Date of Birth" />
+                <div className="flex max-w-[610px] extLar:max-w-[550px] larger:max-w-[100%] w-full flex-col justify-start items-start gap-3">
+                  <p className="formp small:hidden">{"Date of Birth"}</p>
+                  <InputDate />
+                </div>
                 <InputFull type="email" text="Email (Optional)" />
               </div>
               <div className="flex justify-start items-end flex-wrap w-full gap-4 small:gap-5  ">
@@ -187,6 +227,8 @@ function page() {
                     placeholder="Whatsapp Number"
                     className="forminput num"
                     required
+                    maxLength={13}
+                    minLength={11}
                     id="whatsapp"
                   />
                 </div>
@@ -197,17 +239,27 @@ function page() {
                     placeholder="Phone Number"
                     className="forminput num"
                     required
+                    maxLength={13}
+                    minLength={11}
                     id="phone"
                   />
                 </div>
                 {othernum ? (
-                  <div className="flex flex-col justify-start items-start gap-3 max-w-[308px] w-full">
+                  <div className="flex flex-col justify-start items-start gap-3 max-w-[308px] w-full relative">
+                    <span
+                      onClick={() => setothernum(false)}
+                      className="absolute top-0 right-0  small:top-5 small:right-3 cursor-pointer  [&_svg]:w-[20px]"
+                    >
+                      {trash}
+                    </span>
                     <p className="formp small:hidden ">Others</p>
                     <input
                       type="tel"
                       placeholder="Number"
                       className="forminput num"
                       id="other number"
+                      maxLength={13}
+                      minLength={11}
                     />
                   </div>
                 ) : (
@@ -239,7 +291,17 @@ function page() {
                   </div>
                 </div>
                 <div className="flex flex-col gap-5">
-                  <p className="formp">Qualifications</p>
+                  <div
+                    id="quali"
+                    className="flex justify-start items-center gap-3"
+                  >
+                    <p className="formp">Qualifications</p>
+                    {errorsObj.quali && (
+                      <p className="text-red-600 font-pm font-[700] text-[13px]">
+                        * Please Select your Qualification
+                      </p>
+                    )}
+                  </div>
                   <div className="flex justify-start items-start flex-wrap gap-6 small:gap-3">
                     {[
                       "Mactric",
@@ -251,6 +313,10 @@ function page() {
                       <div
                         key={index}
                         onClick={() => {
+                          seterrorsObj("");
+                          const obj = errorsObj;
+                          obj.quali = false;
+                          setTimeout(() => seterrorsObj(obj), [100]);
                           if (qualification.includes(it)) {
                             let pop = [];
                             qualification.forEach((ele) => {
@@ -272,7 +338,17 @@ function page() {
                 </div>
               </div>
               <div className="flex flex-col gap-5">
-                <p className="formp">Pickup Vehicles</p>
+                <div
+                  id="vechi"
+                  className="flex justify-start items-center gap-3"
+                >
+                  <p className="formp">Pickup Vehicles</p>
+                  {errorsObj.vehic && (
+                    <p className="text-red-600 font-pm font-[700] text-[13px]">
+                      * Please Select your Vehicle
+                    </p>
+                  )}
+                </div>
                 <div className="flex justify-start items-start flex-wrap gap-6 small:gap-3">
                   {[
                     "Bike",
@@ -281,10 +357,15 @@ function page() {
                     "Shehzore",
                     "Truck",
                     "Others",
+                    "No Vehicle",
                   ].map((it, index) => (
                     <div
                       key={index}
                       onClick={() => {
+                        seterrorsObj({});
+                        const obj = errorsObj;
+                        obj.vehic = false;
+                        setTimeout(() => seterrorsObj(obj), [100]);
                         if (pickupVehicles.includes(it)) {
                           let pop = [];
                           pickupVehicles.forEach((ele) => {
@@ -325,13 +406,25 @@ function page() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col gap-3 w-full">
-                <p className="formp small:hidden">Select city</p>
-                <DropDown
-                  data={["Karachi", "Islamabad", "Multan", "Quetta"]}
-                  selectedOption={city}
-                  setselectedOption={setcity}
-                />
+              <div className="w-full flex gap-5 small:gap-3  small:flex-col">
+                <div className="flex flex-col gap-3 w-full">
+                  <p className="formp small:hidden">Select city</p>
+                  <DropDown
+                    data={["Karachi", "Islamabad", "Multan", "Lahore"]}
+                    selectedOption={city}
+                    setselectedOption={setcity}
+                  />
+                </div>
+                <div className="flex flex-col gap-3 w-full">
+                  <p className="formp small:hidden">Select Town</p>
+                  <DropDown
+                    data={towns[city ?? "Karachi"]}
+                    city={city}
+                    selectedOption={town}
+                    setselectedOption={settown}
+                    overflow={true}
+                  />
+                </div>
               </div>
               <div className="flex flex-col gap-3 w-full">
                 <p className="formp small:hidden">Shop Address</p>
@@ -347,11 +440,21 @@ function page() {
                 <p className="formp">Select Pick up Areas</p>
                 <div className="flex gap-4 small:gap-3 w-full flex-wrap">
                   {totalpickups.map((it, index) => (
-                    <DropDown2
+                    <DropDown3
                       key={index}
-                      data={["Ladhi Town", "Korangi"]}
                       ini={"Korangi"}
                       id={"pickupAreas"}
+                      data={towns[city]}
+                      city={city}
+                      onDelete={() => {
+                        if (totalpickups.length > 1) {
+                          const Tp = totalpickups.splice(
+                            0,
+                            totalpickups.length - 1
+                          );
+                          settotalpickups(Tp);
+                        }
+                      }}
                     />
                   ))}
                   {totalpickups.length < 5 && (
@@ -374,7 +477,33 @@ function page() {
                         className="w-full flex small:flex-col gap-4 small:gap-2 "
                       >
                         <DropDown2
-                          data={["HBL", "UBL", "Meezan"]}
+                          data={[
+                            "Askari Bank",
+                            "Al Baraka Bank (Pakistan) Limited",
+                            "Allied Bank Limited (ABL)",
+                            "Bank Alfalah (BAFL)",
+                            "Bank Al Habib (BAHL)",
+                            "BankIslami Pakistan Limited",
+                            "Dubai Islamic Bank Pakistan Limited (DIB Pakistan)",
+                            "Faysal Bank (FBL)",
+                            "Habib Bank Limited (HBL)",
+                            "Habib Metropolitan Bank",
+                            "Habib Bank AG Zurich",
+                            "JS Bank",
+                            "Meezan Bank Limited",
+                            "MCB Bank Limited",
+                            "Samba Bank (Pakistan) Limited",
+                            "Silkbank Limited",
+                            "Standard Chartered Pakistan (SC Pakistan)",
+                            "Soneri Bank",
+                            "Bank Makramah Limited",
+                            "United Bank Limited (UBL)",
+                            "NayaPay",
+                            "Sadapay",
+                            "JazzCash",
+                            "Easypaisa",
+                            "Ubank",
+                          ]}
                           ini={"HBL"}
                           id={"banks"}
                         />
@@ -424,7 +553,6 @@ function page() {
                           <input
                             className="forminput font-pm font-reg"
                             placeholder="Write here"
-                            required
                             maxLength={100}
                             ref={other}
                           />
@@ -512,6 +640,9 @@ function page() {
                   className={`btn font-med max-w-[7.3rem] h-[3.4rem] small:h-[3rem] transition-all duration-700 disabled:cursor-not-allowed disabled:bg-gray-700 ${
                     page < 2 ? "bg-black" : "bg-primaryGreen"
                   }`}
+                  // onClick={(e) => {
+                  //   e.preventDefault();
+                  // }}
                   onClick={handleSubmit}
                 >
                   {page < 2 ? "Next" : "Submit"}
@@ -540,7 +671,7 @@ const InputFull = ({ text, type, require }) => {
         type={type}
         placeholder={text}
         maxLength={text === "CNIC" ? 14 : 25}
-        minLength={text === "CNIC" && 14}
+        minLength={text === "CNIC" ? 14 : "undefined"}
         required={require}
         id={text}
       />
@@ -574,7 +705,13 @@ const CustomCheckbox = ({ text, gap, st, sod }) => {
   );
 };
 
-const DropDown = ({ data, selectedOption, setselectedOption }) => {
+const DropDown = ({
+  data,
+  selectedOption,
+  setselectedOption,
+  overflow,
+  city,
+}) => {
   const [show, setshow] = useState(false);
 
   const changeSelected = (e) => {
@@ -589,7 +726,9 @@ const DropDown = ({ data, selectedOption, setselectedOption }) => {
       <div
         className={`absolute ${
           show ? "flex" : "hidden"
-        } w-full left-0 top-[36px] py-3 flex justify-start flex-col items-start bg-white border-borderColorP border z-20`}
+        } w-full left-0 top-[45px] py-3 flex justify-start flex-col items-start bg-white border-borderColorP border z-20 max-h-[12rem] ${
+          overflow ? "overflow-y-scroll" : ""
+        }`}
       >
         {data.map((it, index) => (
           <span
@@ -598,7 +737,7 @@ const DropDown = ({ data, selectedOption, setselectedOption }) => {
             className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
             value={it}
           >
-            {it}
+            {city === "Karachi" ? it.name : it}
           </span>
         ))}
       </div>
@@ -625,13 +764,13 @@ const DropDown2 = ({ data, ini, id }) => {
       <div
         className={`absolute ${
           show ? "flex" : "hidden"
-        } w-full left-0 top-[36px] py-3 flex justify-start flex-col items-start bg-white border-borderColorP border z-20`}
+        } w-full left-0 top-[45px] py-3 flex justify-start flex-col items-start bg-white border-borderColorP border z-20 max-h-[15rem] overflow-y-scroll`}
       >
         {data.map((it, index) => (
           <span
             key={index}
             onClick={changeSelected}
-            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
+            className="flex justify-start items-center min-h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
             value={it}
           >
             {it}
@@ -664,7 +803,7 @@ const Option2 = ({
   errors,
 }) => {
   const shopimg = [1, 2, 3, 4, 5, 6];
-
+  const [currentUploaded, setcurrentUploaded] = useState(0);
   const fileRef = useRef(null);
 
   useEffect(() => {
@@ -801,7 +940,9 @@ const Option2 = ({
       <div className="w-full flex flex-col justify-center items-start gap-8 py-9 ">
         <p className="formp text-[1.3rem] flex justify-between items-center w-full">
           Shop images{" "}
-          <span className="text-[0.9rem] text-[#828282] font-reg">0/6</span>
+          <span className="text-[0.9rem] text-[#828282] font-reg">
+            {currentUploaded}/6
+          </span>
         </p>
         <div className="flex gap-3 w-full flex-wrap">
           {shopimg.map((it, index) => (
@@ -811,14 +952,21 @@ const Option2 = ({
                 accept="image/*"
                 className="hidden shopImg"
                 id={`shopImg-${index}`}
-                onInput={(e) => imageGiverFunc(`#shopimages-${index}`, e, true)}
+                onInput={(e) => {
+                  imageGiverFunc(`#shopimages-${index}`, e, true);
+                  document.querySelectorAll(".shopImg").forEach((it) => {
+                    if (it.files[0]) {
+                      setcurrentUploaded(currentUploaded + 1);
+                    }
+                  });
+                }}
               />
               <div
                 onClick={() =>
                   document.querySelector(`#shopImg-${index}`).click()
                 }
                 key={it}
-                className="dashedSmDiv  w-full min-h-[10rem] max-w-[12rem] smaller:max-w-[8.5rem] smaller:min-h-[8rem] flex justify-center items-center flex-col cursor-pointer"
+                className="dashedSmDiv relative w-full min-h-[10rem] max-w-[12rem] smaller:max-w-[8.5rem] smaller:min-h-[8rem] flex justify-center items-center flex-col cursor-pointer"
               >
                 <img
                   src=""
@@ -924,6 +1072,137 @@ const SubmittedShower = () => {
       >
         <SubmittedDialog dealerform={true} />
       </div>
+    </div>
+  );
+};
+
+const DropDown3 = ({ ini, id, onDelete, city, data }) => {
+  const [show, setshow] = useState(false);
+  const [selectedOption, setselectedOption] = useState(ini);
+
+  const chengeVal = (value) => {
+    setselectedOption(value);
+    setshow(false);
+  };
+
+  return (
+    <div
+      onClick={(e) => {
+        setshow(!show);
+      }}
+      className="w-full max-w-[21.7rem] focus:border-black h-[3.5rem]  rounded-xl px-5 pr-4 border border-borderColorP cursor-pointer focus:text-black  hover:shadow-xl transition duration-[100ms] flex justify-between items-center relative "
+    >
+      <p className="formp font-med" id={id} data-value={selectedOption}>
+        {selectedOption.length > 20
+          ? selectedOption.slice(0, 35) + "..."
+          : selectedOption}
+      </p>
+      <div className="flex gap-5 items-center">
+        <span
+          onClick={onDelete}
+          className="p-1.5 bg-[#F9F9F9] cursor-pointer rounded-md"
+        >
+          {trash}
+        </span>
+        <span>{arrowDown}</span>
+      </div>
+      <div
+        onClick={(e) => e.stopPropagation()}
+        className={`absolute ${
+          show ? "flex" : "hidden"
+        } w-full left-0 top-[45px] pt-3  flex justify-start flex-col gap-5 items-start bg-white border-borderColorP border z-20 max-h-[25rem] overflow-y-scroll`}
+      >
+        <div className="w-full px-3">
+          <div className="forminput justify-center items-center h-[48px] flex px-2 gap-3 hover:shadow-none">
+            {search}
+            <input
+              type="text"
+              placeholder="Search area"
+              className="outline-none border-none w-full font-[500] font-pm"
+            />
+          </div>
+        </div>
+        <div className="flex flex-col  w-full px-3  ">
+          {data?.map((it, index) => (
+            <DropDownChild
+              key={index}
+              it={it}
+              city={city}
+              index={index}
+              setselectedOption={setselectedOption}
+              chengeVal={chengeVal}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
+};
+
+const DropDownChild = ({ it, city, index, chengeVal }) => {
+  const [play, setplay] = useState(false);
+  const ref = useRef(null);
+  const controls = useAnimationControls();
+  return (
+    <motion.div
+      ref={ref}
+      key={index}
+      onClick={() => {
+        !play && controls.start({ height: ref.current?.scrollHeight });
+
+        play &&
+          controls.start({
+            height: 40,
+          });
+        setplay(!play);
+      }}
+      initial={{ height: 40 }}
+      animate={controls}
+      className="flex flex-col justify-start items-center  cursor-pointer w-full  py-2 border-b border-[#0000001A] px-2 overflow-hidden h-[44px] "
+      value={it}
+    >
+      <div className="w-full flex justify-between items-center">
+        <p className="text-[18px] text-[#00000080]">
+          {city === "Karachi" ? it.name : it}
+        </p>
+        <motion.span animate={{ rotate: play ? 0 : -90 }}>
+          {arrowDown}
+        </motion.span>
+      </div>
+      <ul
+        style={{ listStyle: "inside" }}
+        className="flex flex-col gap-1 w-full text-pm font-[500] text-[16px] py-3"
+      >
+        {it.subdivide?.map((val, key) => (
+          <li
+            onClick={() =>
+              chengeVal(city === "Karachi" ? it.name + " - " + val : it)
+            }
+            key={key}
+          >
+            {val}
+          </li>
+        ))}
+      </ul>
+    </motion.div>
+  );
+};
+
+const InputDate = () => {
+  return (
+    <div className="flex justify-start items-center forminput small:gap-0 gap-2 focus:border-black border ">
+      <p
+        className="min-w-[6.4rem] text-gray-400 "
+        onClick={(e) => e.target.nextElementSibling.click()}
+      >
+        Date of Birth :{" "}
+      </p>
+      <input
+        type="date"
+        className="outline-none border-none w-full userdet bg-transparent"
+        required={true}
+        id={"Date of Birth"}
+      />
     </div>
   );
 };
