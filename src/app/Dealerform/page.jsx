@@ -183,6 +183,10 @@ function page() {
     return url;
   };
 
+  useEffect(() => {
+    console.log(totalpickups);
+  }, [totalpickups]);
+
   return (
     <div className="w-full relative">
       <div className="max-w-[1440px] flex flex-col justify-start items-start gap-5 m-auto px-5 py-16 small:py-10 smaller:py-4">
@@ -441,17 +445,23 @@ function page() {
                 <div className="flex gap-4 small:gap-3 w-full flex-wrap">
                   {totalpickups.map((it, index) => (
                     <DropDown3
-                      key={index}
+                      key={it}
                       ini={"Korangi"}
                       id={"pickupAreas"}
                       data={towns[city]}
                       city={city}
+                      index={it}
                       onDelete={() => {
+                        // document.querySelector(`#pickuparea-${it}`).remove();
+
                         if (totalpickups.length > 1) {
-                          const Tp = totalpickups.splice(
-                            0,
-                            totalpickups.length - 1
-                          );
+                          let Tp = [];
+                          totalpickups.forEach((val) => {
+                            if (val !== it) {
+                              Tp = [...Tp, val];
+                            }
+                          });
+
                           settotalpickups(Tp);
                         }
                       }}
@@ -460,7 +470,10 @@ function page() {
                   {totalpickups.length < 5 && (
                     <Addbtn
                       onClick={() => {
-                        const Tp = [...totalpickups, totalpickups.length];
+                        const Tp = [
+                          ...totalpickups,
+                          totalpickups[totalpickups.length - 1] + 1,
+                        ];
                         settotalpickups(Tp);
                       }}
                     />
@@ -1076,7 +1089,8 @@ const SubmittedShower = () => {
   );
 };
 
-const DropDown3 = ({ ini, id, onDelete, city, data }) => {
+const DropDown3 = ({ ini, id, onDelete, city, data, index }) => {
+  const [currentData, setcurrentData] = useState(data);
   const [show, setshow] = useState(false);
   const [selectedOption, setselectedOption] = useState(ini);
 
@@ -1090,6 +1104,7 @@ const DropDown3 = ({ ini, id, onDelete, city, data }) => {
       onClick={(e) => {
         setshow(!show);
       }}
+      id={`pickuparea-${index}`}
       className="w-full max-w-[21.7rem] focus:border-black h-[3.5rem]  rounded-xl px-5 pr-4 border border-borderColorP cursor-pointer focus:text-black  hover:shadow-xl transition duration-[100ms] flex justify-between items-center relative "
     >
       <p className="formp font-med" id={id} data-value={selectedOption}>
@@ -1119,11 +1134,30 @@ const DropDown3 = ({ ini, id, onDelete, city, data }) => {
               type="text"
               placeholder="Search area"
               className="outline-none border-none w-full font-[500] font-pm"
+              onInput={(e) => {
+                if (city === "Karachi") {
+                  let newData = [];
+                  data.forEach((it) => {
+                    if (
+                      it.name
+                        .toLowerCase()
+                        .includes(e.target.value.toLowerCase()) ||
+                      it.subdivide.includes(
+                        (val) =>
+                          val.toLowerCase() === e.target.value.toLowerCase()
+                      )
+                    ) {
+                      newData.push(it);
+                    }
+                  });
+                  setcurrentData(newData);
+                }
+              }}
             />
           </div>
         </div>
         <div className="flex flex-col  w-full px-3  ">
-          {data?.map((it, index) => (
+          {currentData?.map((it, index) => (
             <DropDownChild
               key={index}
               it={it}
