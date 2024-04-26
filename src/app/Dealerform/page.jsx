@@ -452,8 +452,6 @@ function page() {
                       city={city}
                       index={it}
                       onDelete={() => {
-                        // document.querySelector(`#pickuparea-${it}`).remove();
-
                         if (totalpickups.length > 1) {
                           let Tp = [];
                           totalpickups.forEach((val) => {

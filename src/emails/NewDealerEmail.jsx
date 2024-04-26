@@ -155,18 +155,18 @@ export const YelpRecentLoginEmail = (details) => {
                         >
                           Bank {index} :
                         </Heading>
-                        <div className="flex flex-col justify-start  items-center gap-2">
-                          <Text style={{ ...paragraph, marginTop: -5 }}>
+                        <div className="flex flex-col gap-2">
+                          <Text style={{ ...paragraph }}>
                             <b>Bank : </b>
                             {it.bank}
                           </Text>
 
-                          <Text style={{ ...paragraph, marginTop: -5 }}>
+                          <Text style={{ ...paragraph }}>
                             <b>Account name : </b>
                             {it.accountname}
                           </Text>
 
-                          <Text style={{ ...paragraph, marginTop: -5 }}>
+                          <Text style={{ ...paragraph }}>
                             <b>IBAN no : </b>
                             {it.Ibanno}
                           </Text>
