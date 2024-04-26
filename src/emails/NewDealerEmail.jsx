@@ -109,10 +109,6 @@ export const YelpRecentLoginEmail = (details) => {
                     {details["other number"]}
                   </Text>
                   <Text style={{ ...paragraph, marginTop: -5 }}>
-                    <b>pickupAreas : </b>
-                    {details["pickupAreas"]}
-                  </Text>
-                  <Text style={{ ...paragraph, marginTop: -5 }}>
                     <b>pickupVehicles : </b>
                     {details["pickupVehicles"]}
                   </Text>
@@ -132,6 +128,16 @@ export const YelpRecentLoginEmail = (details) => {
                     <b>others : </b>
                     {details["others"]}
                   </Text>
+                  <div className="flex flex-col">
+                    <Text style={{ ...paragraph, marginTop: -5 }}>
+                      <b>pickupAreas : </b>
+                    </Text>
+                    {details["pickupAreas"].map((it, index) => (
+                      <p key={index} className="text-[16px] font-bold">
+                        {index + 1}. {it}
+                      </p>
+                    ))}
+                  </div>
                   <Heading
                     as="h3"
                     style={{
@@ -142,38 +148,40 @@ export const YelpRecentLoginEmail = (details) => {
                   >
                     Bank details({details["bankDetails"].length})
                   </Heading>
-                  {details["bankDetails"].map((it, index) => {
-                    return (
-                      <div className="w-full flex flex-col">
-                        <Heading
-                          as="h4"
-                          style={{
-                            fontSize: 18,
-                            fontWeight: "bold",
-                            textAlign: "start",
-                          }}
-                        >
-                          Bank {index} :
-                        </Heading>
-                        <div className="flex flex-col gap-2">
-                          <Text style={{ ...paragraph }}>
-                            <b>Bank : </b>
-                            {it.bank}
-                          </Text>
+                  <div className="flex flex-col gap-5">
+                    {details["bankDetails"].map((it, index) => {
+                      return (
+                        <div className="w-full flex flex-col">
+                          <Heading
+                            as="h4"
+                            style={{
+                              fontSize: 18,
+                              fontWeight: "bold",
+                              textAlign: "start",
+                            }}
+                          >
+                            Bank {index + 1} :
+                          </Heading>
+                          <div className="flex flex-col gap-2">
+                            <Text style={{ ...paragraph }}>
+                              <b>Bank : </b>
+                              {it.bank}
+                            </Text>
 
-                          <Text style={{ ...paragraph }}>
-                            <b>Account name : </b>
-                            {it.accountname}
-                          </Text>
+                            <Text style={{ ...paragraph }}>
+                              <b>Account name : </b>
+                              {it.accountname}
+                            </Text>
 
-                          <Text style={{ ...paragraph }}>
-                            <b>IBAN no : </b>
-                            {it.Ibanno}
-                          </Text>
+                            <Text style={{ ...paragraph }}>
+                              <b>IBAN no : </b>
+                              {it.Ibanno}
+                            </Text>
+                          </div>
                         </div>
-                      </div>
-                    );
-                  })}
+                      );
+                    })}
+                  </div>
                   <Heading
                     as="h3"
                     style={{

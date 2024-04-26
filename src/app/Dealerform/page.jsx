@@ -1,4 +1,6 @@
 "use client";
+import AB_calender from "@/Components/AB_calender";
+import BasicDateCalendar from "@/Components/Calender";
 import {
   Scrapitems,
   arrowDown,
@@ -13,7 +15,6 @@ import { Banner } from "@/Components/Footer";
 import SubmittedDialog from "@/Components/SubmittedDialog";
 import { motion, useAnimationControls } from "framer-motion";
 import { useRouter } from "next/navigation";
-import { Input } from "postcss";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 
 function page() {
@@ -43,9 +44,10 @@ function page() {
   const [errorsObj, seterrorsObj] = useState({
     quali: false,
     vehic: false,
+    pickup: false,
+    date: false,
   });
-
-  useEffect(() => console.log(scrap), [scrap]);
+  const [selectedDate, setselectedDate] = useState("");
 
   const handleSubmit = async (e) => {
     if (form.current.checkValidity()) {
@@ -53,7 +55,12 @@ function page() {
       e.preventDefault();
       if (page === 0) {
         window.scrollTo(0, 0);
-        if (qualification.length < 1) {
+        if (selectedDate === "") {
+          const obj = errorsObj;
+          obj.date = true;
+          setTimeout(() => seterrorsObj(obj), [100]);
+          document.querySelector("#dob").scrollIntoView({ behavior: "smooth" });
+        } else if (qualification.length < 1) {
           const obj = errorsObj;
           obj.quali = true;
           setTimeout(() => seterrorsObj(obj), [100]);
@@ -67,6 +74,18 @@ function page() {
           setTimeout(() => seterrorsObj(obj), [100]);
           document
             .querySelector("#vechi")
+            .scrollIntoView({ behavior: "smooth" });
+        } else if (
+          Array.from(document.querySelectorAll("#pickupAreas")).some((it) => {
+            return it.getAttribute("data-value") === "Select";
+          })
+        ) {
+          seterrorsObj({});
+          const obj = errorsObj;
+          obj.pickup = true;
+          setTimeout(() => seterrorsObj(obj), [100]);
+          document
+            .querySelector("#pick-up-Er")
             .scrollIntoView({ behavior: "smooth" });
         } else {
           setpage(1);
@@ -105,10 +124,11 @@ function page() {
     document.querySelectorAll(".userdet").forEach((it) => {
       details[it.id] = it.value;
     });
+    details["Date of Birth"] = selectedDate;
     document.querySelectorAll(".num").forEach((it) => {
       details[it.id] = it.value;
     });
-    details.sM = st;
+    details.sM = st ? "Yes" : "No";
     details.Qualifications = qualification.toString();
     details.pickupVehicles = pickupVehicles.toString();
     details.purchasingStart = purchasingStart;
@@ -120,7 +140,7 @@ function page() {
     document.querySelectorAll("#pickupAreas").forEach((it) => {
       pickupAreas = [...pickupAreas, it.getAttribute("data-value")];
     });
-    details.pickupAreas = pickupAreas.toString();
+    details.pickupAreas = pickupAreas;
     details.bankDetails = await bankDetails();
     details.scrap = scrap.toString();
     details.others = other.current.value;
@@ -161,31 +181,28 @@ function page() {
   };
 
   const Upload = async (files) => {
-    var url = [];
-    for (let i = 0; i < files.length; i++) {
-      if (typeof files[i] !== "undefined") {
-        const form = new FormData();
-        form.append("file", files[i]);
-        form.append("upload_preset", "Kabariya");
-        form.append("cloud_name", "djvrf1sme");
+    // var url = [];
+    // for (let i = 0; i < files.length; i++) {
+    //   if (typeof files[i] !== "undefined") {
+    //     const form = new FormData();
+    //     form.append("file", files[i]);
+    //     form.append("upload_preset", "Kabariya");
+    //     form.append("cloud_name", "djvrf1sme");
 
-        const data = await fetch(
-          "https://api.cloudinary.com/v1_1/djvrf1sme/image/upload",
-          {
-            method: "POST",
-            body: form,
-          }
-        );
-        const parsedData = await data.json();
-        url.push(parsedData.url);
-      }
-    }
-    return url;
+    //     const data = await fetch(
+    //       "https://api.cloudinary.com/v1_1/djvrf1sme/image/upload",
+    //       {
+    //         method: "POST",
+    //         body: form,
+    //       }
+    //     );
+    //     const parsedData = await data.json();
+    //     url.push(parsedData.url);
+    //   }
+    // }
+    // return url;
+    return ["testasdasdasdasd"];
   };
-
-  useEffect(() => {
-    console.log(totalpickups);
-  }, [totalpickups]);
 
   return (
     <div className="w-full relative">
@@ -218,8 +235,18 @@ function page() {
                 <InputFull type="text" require={true} text="Father Name" />
                 <InputFull type="text" require={true} text="CNIC" />
                 <div className="flex max-w-[610px] extLar:max-w-[550px] larger:max-w-[100%] w-full flex-col justify-start items-start gap-3">
-                  <p className="formp small:hidden">{"Date of Birth"}</p>
-                  <InputDate />
+                  <div id="dob" className="flex gap-3">
+                    <p className="formp small:hidden">Date of Birth</p>
+                    {errorsObj.date && (
+                      <p className="text-red-600 font-pm font-[700] text-[13px]">
+                        * Please Select your date of birth
+                      </p>
+                    )}
+                  </div>
+                  <InputDate
+                    selectedDate={selectedDate}
+                    setselectedDate={setselectedDate}
+                  />
                 </div>
                 <InputFull type="email" text="Email (Optional)" />
               </div>
@@ -441,12 +468,19 @@ function page() {
                 />
               </div>
               <div className="flex flex-col gap-3 w-full">
-                <p className="formp">Select Pick up Areas</p>
+                <div id="pick-up-Er" className="flex gap-3">
+                  <p className="formp">Select Pick up Areas</p>
+                  {errorsObj.pickup && (
+                    <p className="text-red-600 font-pm font-[700] text-[13px]">
+                      * Please Select a pick up area
+                    </p>
+                  )}
+                </div>
                 <div className="flex gap-4 small:gap-3 w-full flex-wrap">
                   {totalpickups.map((it, index) => (
                     <DropDown3
                       key={it}
-                      ini={"Korangi"}
+                      ini={"Select"}
                       id={"pickupAreas"}
                       data={towns[city]}
                       city={city}
@@ -484,7 +518,7 @@ function page() {
                   {totalBank.map((it, index) => {
                     return (
                       <div
-                        key={index}
+                        key={it}
                         className="w-full flex small:flex-col gap-4 small:gap-2 "
                       >
                         <DropDown2
@@ -517,6 +551,17 @@ function page() {
                           ]}
                           ini={"HBL"}
                           id={"banks"}
+                          onDelete={() => {
+                            if (totalBank.length > 1) {
+                              let Tb = [];
+                              totalBank.forEach((val) => {
+                                if (val !== it) {
+                                  Tb = [...Tb, val];
+                                }
+                              });
+                              settotalBank(Tb);
+                            }
+                          }}
                         />
                         <div className=" max-w-[21.7rem] w-full">
                           <input
@@ -541,7 +586,10 @@ function page() {
                             <div>
                               <Addbtn
                                 onClick={() => {
-                                  const Tb = [...totalBank, totalBank.length];
+                                  const Tb = [
+                                    ...totalBank,
+                                    totalBank[totalBank.length - 1] + 1,
+                                  ];
                                   settotalBank(Tb);
                                 }}
                               />
@@ -651,9 +699,6 @@ function page() {
                   className={`btn font-med max-w-[7.3rem] h-[3.4rem] small:h-[3rem] transition-all duration-700 disabled:cursor-not-allowed disabled:bg-gray-700 ${
                     page < 2 ? "bg-black" : "bg-primaryGreen"
                   }`}
-                  // onClick={(e) => {
-                  //   e.preventDefault();
-                  // }}
                   onClick={handleSubmit}
                 >
                   {page < 2 ? "Next" : "Submit"}
@@ -756,7 +801,7 @@ const DropDown = ({
   );
 };
 
-const DropDown2 = ({ data, ini, id }) => {
+const DropDown2 = ({ data, ini, id, onDelete }) => {
   const [show, setshow] = useState(false);
   const [selectedOption, setselectedOption] = useState(ini);
   const changeSelected = (e) => {
@@ -771,7 +816,16 @@ const DropDown2 = ({ data, ini, id }) => {
       <p className="formp font-med" id={id}>
         {selectedOption}
       </p>
-      {arrowDown}
+      <div className="flex gap-5 items-center">
+        <span
+          onClick={onDelete}
+          className="p-1.5 bg-[#F9F9F9] cursor-pointer rounded-md"
+        >
+          {trash}
+        </span>
+        <span>{arrowDown}</span>
+      </div>
+
       <div
         className={`absolute ${
           show ? "flex" : "hidden"
@@ -1096,6 +1150,9 @@ const DropDown3 = ({ ini, id, onDelete, city, data, index }) => {
     setselectedOption(value);
     setshow(false);
   };
+  useEffect(() => {
+    setcurrentData(data);
+  }, [data]);
 
   return (
     <div
@@ -1149,12 +1206,22 @@ const DropDown3 = ({ ini, id, onDelete, city, data, index }) => {
                     }
                   });
                   setcurrentData(newData);
+                } else {
+                  let newData = [];
+                  data.forEach((it) => {
+                    if (
+                      it.toLowerCase().includes(e.target.value.toLowerCase())
+                    ) {
+                      newData.push(it);
+                    }
+                  });
+                  setcurrentData(newData);
                 }
               }}
             />
           </div>
         </div>
-        <div className="flex flex-col  w-full px-3  ">
+        <div className="flex flex-col  w-full">
           {currentData?.map((it, index) => (
             <DropDownChild
               key={index}
@@ -1190,12 +1257,21 @@ const DropDownChild = ({ it, city, index, chengeVal }) => {
       }}
       initial={{ height: 40 }}
       animate={controls}
-      className="flex flex-col justify-start items-center  cursor-pointer w-full  py-2 border-b border-[#0000001A] px-2 overflow-hidden h-[44px] "
-      value={it}
+      className="flex flex-col justify-start items-center  cursor-pointer w-full  pb-2 border-b border-[#0000001A] overflow-hidden h-[44px] "
     >
-      <div className="w-full flex justify-between items-center">
+      <div
+        onClick={() => {
+          city !== "Karachi" && chengeVal(it);
+        }}
+        className="w-full flex justify-between items-center hover:bg-gray-200  px-5 py-2"
+      >
         <p className="text-[18px] text-[#00000080]">
-          {city === "Karachi" ? it.name : it}
+          {city === "Karachi"
+            ? it.name?.length > 20
+              ? it.name?.slice(0, 20) + "..."
+              : it.name?.slice(0, 20)
+            : !it?.name &&
+              (it.length > 20 ? it.slice(0, 20) + "..." : it.slice(0, 20))}
         </p>
         <motion.span animate={{ rotate: play ? 0 : -90 }}>
           {arrowDown}
@@ -1205,8 +1281,9 @@ const DropDownChild = ({ it, city, index, chengeVal }) => {
         style={{ listStyle: "inside" }}
         className="flex flex-col gap-1 w-full text-pm font-[500] text-[16px] py-3"
       >
-        {it.subdivide?.map((val, key) => (
+        {it?.subdivide?.map((val, key) => (
           <li
+            className="hover:bg-gray-200 px-3 py-1"
             onClick={() =>
               chengeVal(city === "Karachi" ? it.name + " - " + val : it)
             }
@@ -1220,21 +1297,29 @@ const DropDownChild = ({ it, city, index, chengeVal }) => {
   );
 };
 
-const InputDate = () => {
+const InputDate = ({ selectedDate, setselectedDate }) => {
+  const [show, setshow] = useState(false);
   return (
-    <div className="flex justify-start items-center forminput small:gap-0 gap-2 focus:border-black border ">
-      <p
-        className="min-w-[6.4rem] text-gray-400 "
-        onClick={(e) => e.target.nextElementSibling.click()}
-      >
-        Date of Birth :{" "}
+    <div
+      onClick={(e) => {
+        e.stopPropagation();
+        setshow(!show);
+      }}
+      id="dob"
+      className="flex justify-start items-center forminput small:gap-0 gap-2 focus:border-black border relative cursor-pointer "
+    >
+      <p className="min-w-[6.4rem] text-gray-400 ">
+        Date of Birth : {selectedDate}
       </p>
-      <input
-        type="date"
-        className="outline-none border-none w-full userdet bg-transparent"
-        required={true}
-        id={"Date of Birth"}
-      />
+
+      {show && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className="absolute top-14 right-0"
+        >
+          <AB_calender setselectedDate={setselectedDate} setshow={setshow} />
+        </div>
+      )}
     </div>
   );
 };

@@ -873,7 +873,7 @@ const Scrapitems = [
     items: [
       "White Plastic",
       "Mix Plastic",
-      "Mix Carton",
+
       "PVC Pipes",
       "Soft Plastic",
       "Hard Plastic",

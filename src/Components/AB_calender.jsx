@@ -1,10 +1,8 @@
 "use client";
 import React, { useEffect } from "react";
+import { left } from "@/Components/Consonants";
 
-import "react-datetime/css/react-datetime.css";
-import { left } from "./Consonants";
-
-export default function BasicDateCalendar({ setselectedDate }) {
+export default function AB_calender({ setselectedDate, setshow }) {
   useEffect(() => {
     let date = new Date();
     let year = date.getFullYear();
@@ -48,6 +46,7 @@ export default function BasicDateCalendar({ setselectedDate }) {
             }
             it.classList.add("selectedLI");
             it.style.color = "white";
+            setshow(false);
           }
         });
       });
@@ -100,8 +99,11 @@ export default function BasicDateCalendar({ setselectedDate }) {
 
   return (
     <>
-      <div className="max-w-[21rem] larger:max-w-[16rem] med:max-w-[15rem] small:max-w-full w-full flex justify-start items-center">
-        <div className="w-full max-w-[18.5rem] larger:max-w-[16rem] med:max-w-[15rem] small:max-w-full h-[10rem] small:h-auto relative flex justify-start flex-col items-center ">
+      <div
+        style={{ boxShadow: "0px 0px 10px -1mm gray" }}
+        className="max-w-[21rem]  small:max-w-full w-full flex justify-start items-center bg-white rounded-3xl  py-5 px-5 "
+      >
+        <div className="w-full max-w-[18.5rem]  small:max-w-full  small:h-auto relative flex justify-start flex-col items-center ">
           <header className="flex justify-between items-center calendar-navigation w-full relative">
             <span
               id="calendar-prev"
