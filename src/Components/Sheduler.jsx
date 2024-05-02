@@ -3,14 +3,15 @@ import React, { useEffect, useRef, useState } from "react";
 import { arrowDown, gallery, item, shedule, tick, user } from "./Consonants";
 import BasicDateCalendar from "./Calender";
 
-function Sheduler({ setsubmitted }) {
+function Sheduler({ setsubmitted, setloading }) {
   const [selected, setselected] = useState(0);
+
   return (
     <div
       initial={{ opacity: 0, scale: 0.5 }}
-      className="w-full flex flex-col justify-start items-start gap-5 small:gap-12 "
+      className="flex flex-col items-start justify-start w-full gap-5 small:gap-12 "
     >
-      <div className="w-full flex justify-center items-center gap-2 med:px-9 small:px-4 ">
+      <div className="flex items-center justify-center w-full gap-2 med:px-9 small:px-4 ">
         <SetComp
           svg={user}
           text={"Basic Details"}
@@ -34,12 +35,13 @@ function Sheduler({ setsubmitted }) {
         selected={selected}
         setselected={setselected}
         setsubmitted={setsubmitted}
+        setloading={setloading}
       />
     </div>
   );
 }
 
-const Form = ({ selected, setselected, setsubmitted }) => {
+const Form = ({ selected, setselected, setsubmitted, setloading }) => {
   const [selectedOption, setselectedOption] = useState("Karachi");
   const [prefrence, setprefrence] = useState("donate");
   const [pupolar, setpupolar] = useState([]);
@@ -67,6 +69,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
   };
 
   const SUBMIT = async () => {
+    setloading(true);
     const details = {
       username: name.current.value,
       phone: phone.current.value,
@@ -89,10 +92,11 @@ const Form = ({ selected, setselected, setsubmitted }) => {
     };
     const urls = await Upload(files);
     details.imgUrls = urls;
-    await fetch(`${NEXT_PUBLIC_PORT}/api/email`, {
+    await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/email`, {
       body: JSON.stringify(details),
       method: "POST",
     });
+    setloading(false);
   };
 
   const Upload = async (files) => {
@@ -139,6 +143,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
             setpupolar={setpupolar}
             pupolar={pupolar}
             files={files}
+            required={selected === 1}
           />
         </div>
         <div className={`w-full ${selected != 2 && "hidden"}`}>
@@ -158,7 +163,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
           {selected === 1 && (
             <div
               onClick={() => document.querySelector("#fileInput").click()}
-              className="flex justify-center items-center gap-2"
+              className="flex items-center justify-center gap-2"
             >
               <input
                 type="file"
@@ -184,7 +189,7 @@ const Form = ({ selected, setselected, setsubmitted }) => {
               </p>
             </div>
           )}
-          <div className="flex justify-end items-center gap-2 w-full">
+          <div className="flex items-center justify-end w-full gap-2">
             {selected > 0 && (
               <button
                 onClick={(e) => {
@@ -256,7 +261,7 @@ const Options1 = ({
   };
 
   return (
-    <div className="w-full px-2 flex justify-center items-center flex-wrap gap-5 mt-1 ">
+    <div className="flex flex-wrap items-center justify-center w-full gap-5 px-2 mt-1 ">
       <input
         type="text"
         required
@@ -280,7 +285,7 @@ const Options1 = ({
         className="w-[48%] outline-none focus:border-black  extLar:w-[47%] small:w-full  h-[3rem] small:h-[3.5rem]
          rounded-xl px-5 pr-4 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms] flex justify-between items-center relative "
       >
-        <p className="gont-pm text-black ">{selectedOption}</p> {arrowDown}
+        <p className="text-black gont-pm ">{selectedOption}</p> {arrowDown}
         <div
           className={`absolute ${
             show ? "flex" : "hidden"
@@ -288,26 +293,26 @@ const Options1 = ({
         >
           <span
             onClick={changeSelected}
-            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
+            className="flex items-center justify-start w-full px-5 py-2 text-gray-400 cursor-pointer h-7 hover:bg-gray-200 "
             value="pakistan"
             selected
           >
             Karachi
           </span>
           <span
-            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
+            className="flex items-center justify-start w-full px-5 py-2 text-gray-400 cursor-pointer h-7 hover:bg-gray-200 "
             onClick={changeSelected}
           >
             Islamabad
           </span>
           <span
-            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
+            className="flex items-center justify-start w-full px-5 py-2 text-gray-400 cursor-pointer h-7 hover:bg-gray-200 "
             onClick={changeSelected}
           >
             Lahore
           </span>
           <span
-            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
+            className="flex items-center justify-start w-full px-5 py-2 text-gray-400 cursor-pointer h-7 hover:bg-gray-200 "
             onClick={changeSelected}
           >
             Multan
@@ -341,7 +346,7 @@ const Options2 = ({
   setpupolar,
   remarks,
   pupolar,
-  files,
+  required,
 }) => {
   const [st, setst] = useState(true);
   const [st1, setst1] = useState(false);
@@ -367,12 +372,12 @@ const Options2 = ({
   ];
 
   return (
-    <div className="flex px-2 w-full justify-between items-start gap-1 small:gap-3 small:flex-col ">
+    <div className="flex items-start justify-between w-full gap-1 px-2 small:gap-3 small:flex-col ">
       <div className="flex flex-col  flex-1 flex-grow-[0.3] justify-start items-start ">
-        <div className="flex flex-col justify-start items-start gap-2 small:gap-3">
+        <div className="flex flex-col items-start justify-start gap-2 small:gap-3">
           <div className="flex flex-col gap-2 ">
             <p className="text-[0.95rem] font-pm font-bol">Sell or Donate</p>
-            <div className="flex justify-start items-start gap-2">
+            <div className="flex items-start justify-start gap-2">
               <div
                 onClick={(e) => {
                   setprefrence("Sell");
@@ -405,7 +410,7 @@ const Options2 = ({
           </div>
           <div className="flex flex-col gap-1">
             <p className="text-[0.95rem] font-pm font-bol">Types of Scrap</p>
-            <div className="flex flex-col small:flex-row small:flex-wrap items-start gap-0 small:gap-x-2">
+            <div className="flex flex-col items-start gap-0 small:flex-row small:flex-wrap small:gap-x-2">
               {opts.map((it, index) => (
                 <div
                   key={index}
@@ -434,7 +439,7 @@ const Options2 = ({
       </div>
       <div className="flex flex-col flex-1 flex-grow-[0.2]  justify-start items-start gap-2">
         <p className="text-[0.95rem] font-pm font-bol">Pupolar</p>
-        <div className="flex flex-col small:flex-row small:flex-wrap items-start gap-0 small:gap-x-2 ">
+        <div className="flex flex-col items-start gap-0 small:flex-row small:flex-wrap small:gap-x-2 ">
           {pickupItems.map((it, index) => (
             <div
               key={index}
@@ -459,7 +464,7 @@ const Options2 = ({
         </div>
       </div>
       <div className="flex flex-col flex-1 flex-grow-[0.42] larger:w-[14rem] large:w-[10rem] items-start justify-start gap-3 small:w-full">
-        <p className="text-[0.95rem] font-pm font-bol">Remarks</p>
+        <p className="text-[0.95rem] font-pm font-bol">Remarks & Demand</p>
         <textarea
           name="sell"
           placeholder="Describe what you want to sell."
@@ -468,6 +473,7 @@ const Options2 = ({
           rows="5"
           maxLength={200}
           ref={remarks}
+          required={required}
           className="w-full small:w-full border resize-none h-[10.5rem] small:h-[5rem] outline-none hover:shadow-xl focus:border-black border-borderColorP p-1 px-3 text-[0.9rem] rounded-md"
         ></textarea>
       </div>
@@ -497,23 +503,20 @@ const Options3 = ({ selectedDate, setselectedDate, settime }) => {
   }, [selected]);
 
   return (
-    <div className="flex  justify-between items-start gap-2 small:flex-col small:gap-0">
+    <div className="flex items-start justify-between gap-2 small:flex-col small:gap-0">
       <BasicDateCalendar
         selectedDate={selectedDate}
         setselectedDate={setselectedDate}
       />
 
       <div className="flex w-[16.5rem] flex-col pt-3 justify-start items-start small:w-full gap-3 ">
-        <div className="flex w-full flex-col justify-start items-start gap-3">
+        <div className="flex flex-col items-start justify-start w-full gap-3">
           <p className="text-1xl font-pm font-bol small:hidden">
             Selected Date
           </p>
-          <span
-            className="flex border w-full rounded-lg font-pm hover:shadow-lg
-         font-med border-borderColorP px-4 py-2 justify-between items-center "
-          >
+          <span className="flex items-center justify-between w-full px-4 py-2 border rounded-lg font-pm hover:shadow-lg font-med border-borderColorP ">
             <div className="flex gap-2">
-              <p className="font-bol hidden small:flex">Selected:</p>
+              <p className="hidden font-bol small:flex">Selected:</p>
               {typeof selectedDate === "string"
                 ? selectedDate
                 : months[selectedDate.getMonth()] +
@@ -523,15 +526,15 @@ const Options3 = ({ selectedDate, setselectedDate, settime }) => {
                   " " +
                   selectedDate.getFullYear()}
             </div>
-            <span className="flex w-4 h-4 justify-center items-center bg-secondaryGreen rounded-full ">
+            <span className="flex items-center justify-center w-4 h-4 rounded-full bg-secondaryGreen ">
               {tick}
             </span>
           </span>
         </div>
 
-        <div className="flex w-full flex-col justify-start items-start gap-3  ">
+        <div className="flex flex-col items-start justify-start w-full gap-3 ">
           <p className="text-1xl font-pm font-bol">Time</p>
-          <div className="flex flex-col  items-start gap-2 small:gap-3 small:flex-row small:flex-wrap ">
+          <div className="flex flex-col items-start gap-2 small:gap-3 small:flex-row small:flex-wrap ">
             <div onClick={() => setselected(0)}>
               <CustomCheckbox text={"Morning"} gap={"2"} st={selected === 0} />
             </div>

@@ -1,6 +1,5 @@
 "use client";
 import AB_calender from "@/Components/AB_calender";
-import BasicDateCalendar from "@/Components/Calender";
 import {
   Scrapitems,
   arrowDown,
@@ -110,13 +109,14 @@ function page() {
           setpage(2);
         }
       } else if (page >= 2) {
-        setloading(true);
-        await submitDealerForm().then(() => setsubmitted(true));
+        setsubmitted(true);
+        await submitDealerForm();
       }
     }
   };
 
   const submitDealerForm = async () => {
+    setloading(true);
     const details = {};
     details.profileimg = await Upload([profileImg]);
     details.Cnicimg = await Upload(cnicImg);
@@ -153,6 +153,7 @@ function page() {
       }
     );
     const parsedData = await data.json();
+    setloading(false);
   };
 
   const bankDetails = () => {
@@ -181,31 +182,30 @@ function page() {
   };
 
   const Upload = async (files) => {
-    // var url = [];
-    // for (let i = 0; i < files.length; i++) {
-    //   if (typeof files[i] !== "undefined") {
-    //     const form = new FormData();
-    //     form.append("file", files[i]);
-    //     form.append("upload_preset", "Kabariya");
-    //     form.append("cloud_name", "djvrf1sme");
+    var url = [];
+    for (let i = 0; i < files.length; i++) {
+      if (typeof files[i] !== "undefined") {
+        const form = new FormData();
+        form.append("file", files[i]);
+        form.append("upload_preset", "Kabariya");
+        form.append("cloud_name", "djvrf1sme");
 
-    //     const data = await fetch(
-    //       "https://api.cloudinary.com/v1_1/djvrf1sme/image/upload",
-    //       {
-    //         method: "POST",
-    //         body: form,
-    //       }
-    //     );
-    //     const parsedData = await data.json();
-    //     url.push(parsedData.url);
-    //   }
-    // }
-    // return url;
-    return ["testasdasdasdasd"];
+        const data = await fetch(
+          "https://api.cloudinary.com/v1_1/djvrf1sme/image/upload",
+          {
+            method: "POST",
+            body: form,
+          }
+        );
+        const parsedData = await data.json();
+        url.push(parsedData.url);
+      }
+    }
+    return url;
   };
 
   return (
-    <div className="w-full relative">
+    <div className="relative w-full">
       <div className="max-w-[1440px] flex flex-col justify-start items-start gap-5 m-auto px-5 py-16 small:py-10 smaller:py-4">
         <div className="px-3 smaller:px-2">
           <h2 className="font-pm font-bol text-[3.1rem] leading-[54px] small:text-[3rem] smaller:text-[2rem]">
@@ -225,7 +225,7 @@ function page() {
                 page === 0 ? "flex" : "hidden"
               } `}
             >
-              <div className="flex justify-start items-start flex-wrap gap-4 gap-y-11 larger:gap-y-9 small:gap-y-5 w-full">
+              <div className="flex flex-wrap items-start justify-start w-full gap-4 gap-y-11 larger:gap-y-9 small:gap-y-5">
                 <InputFull
                   type="text"
                   require={true}
@@ -250,7 +250,7 @@ function page() {
                 </div>
                 <InputFull type="email" text="Email (Optional)" />
               </div>
-              <div className="flex justify-start items-end flex-wrap w-full gap-4 small:gap-5  ">
+              <div className="flex flex-wrap items-end justify-start w-full gap-4 small:gap-5 ">
                 <div className="flex flex-col justify-start items-start gap-3 max-w-[308px] w-full">
                   <p className="formp small:hidden ">Whatsapp Number</p>
                   <input
@@ -299,10 +299,10 @@ function page() {
                   </div>
                 )}
               </div>
-              <div className="flex justify-start items-start gap-20 small:gap-5 small:mt-3 flex-wrap">
+              <div className="flex flex-wrap items-start justify-start gap-20 small:gap-5 small:mt-3">
                 <div className="flex flex-col gap-5 ">
                   <p className="formp">Use Smart mobile</p>
-                  <div className="flex justify-start items-start gap-6 small:gap-3">
+                  <div className="flex items-start justify-start gap-6 small:gap-3">
                     <div
                       onClick={(e) => {
                         setst1(false);
@@ -324,7 +324,7 @@ function page() {
                 <div className="flex flex-col gap-5">
                   <div
                     id="quali"
-                    className="flex justify-start items-center gap-3"
+                    className="flex items-center justify-start gap-3"
                   >
                     <p className="formp">Qualifications</p>
                     {errorsObj.quali && (
@@ -333,7 +333,7 @@ function page() {
                       </p>
                     )}
                   </div>
-                  <div className="flex justify-start items-start flex-wrap gap-6 small:gap-3">
+                  <div className="flex flex-wrap items-start justify-start gap-6 small:gap-3">
                     {[
                       "Mactric",
                       "Intermedate",
@@ -371,7 +371,7 @@ function page() {
               <div className="flex flex-col gap-5">
                 <div
                   id="vechi"
-                  className="flex justify-start items-center gap-3"
+                  className="flex items-center justify-start gap-3"
                 >
                   <p className="formp">Pickup Vehicles</p>
                   {errorsObj.vehic && (
@@ -380,7 +380,7 @@ function page() {
                     </p>
                   )}
                 </div>
-                <div className="flex justify-start items-start flex-wrap gap-6 small:gap-3">
+                <div className="flex flex-wrap items-start justify-start gap-6 small:gap-3">
                   {[
                     "Bike",
                     "Loader Rickshaw",
@@ -416,9 +416,9 @@ function page() {
                   ))}
                 </div>
               </div>
-              <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-col w-full gap-3">
                 <p className="formp">Daily Purchasing strength</p>
-                <div className="flex  gap-5 small:gap-3 w-full">
+                <div className="flex w-full gap-5 small:gap-3">
                   <DropDown
                     data={["50,000", "60,000", "70,000", "80,000", "90,000"]}
                     selectedOption={purchasingStart}
@@ -431,14 +431,17 @@ function page() {
                       "300,000",
                       "400,000",
                       "500,000",
+                      "10,00,000",
+                      "20,00,000",
+                      "Unlimited",
                     ]}
                     selectedOption={purchasingEnd}
                     setselectedOption={setpurchasingEnd}
                   />
                 </div>
               </div>
-              <div className="w-full flex gap-5 small:gap-3  small:flex-col">
-                <div className="flex flex-col gap-3 w-full">
+              <div className="flex w-full gap-5 small:gap-3 small:flex-col">
+                <div className="flex flex-col w-full gap-3">
                   <p className="formp small:hidden">Select city</p>
                   <DropDown
                     data={["Karachi", "Islamabad", "Multan", "Lahore"]}
@@ -446,7 +449,7 @@ function page() {
                     setselectedOption={setcity}
                   />
                 </div>
-                <div className="flex flex-col gap-3 w-full">
+                <div className="flex flex-col w-full gap-3">
                   <p className="formp small:hidden">Select Town</p>
                   <DropDown
                     data={towns[city ?? "Karachi"]}
@@ -457,7 +460,7 @@ function page() {
                   />
                 </div>
               </div>
-              <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-col w-full gap-3">
                 <p className="formp small:hidden">Shop Address</p>
                 <textarea
                   ref={shopAddress}
@@ -467,7 +470,7 @@ function page() {
                   maxLength={100}
                 />
               </div>
-              <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-col w-full gap-3">
                 <div id="pick-up-Er" className="flex gap-3">
                   <p className="formp">Select Pick up Areas</p>
                   {errorsObj.pickup && (
@@ -476,7 +479,7 @@ function page() {
                     </p>
                   )}
                 </div>
-                <div className="flex gap-4 small:gap-3 w-full flex-wrap">
+                <div className="flex flex-wrap w-full gap-4 small:gap-3">
                   {totalpickups.map((it, index) => (
                     <DropDown3
                       key={it}
@@ -512,14 +515,14 @@ function page() {
                   )}
                 </div>
               </div>
-              <div className="flex flex-col gap-3 w-full">
+              <div className="flex flex-col w-full gap-3">
                 <p className="formp">Bank Accounts</p>
                 <div className="flex flex-col gap-9 small:gap-5">
                   {totalBank.map((it, index) => {
                     return (
                       <div
                         key={it}
-                        className="w-full flex small:flex-col gap-4 small:gap-2 "
+                        className="flex w-full gap-4 small:flex-col small:gap-2 "
                       >
                         <DropDown2
                           data={[
@@ -603,7 +606,7 @@ function page() {
               {Scrapitems.map((it, index) => {
                 return (
                   <Fragment key={index}>
-                    <div key={index} className="flex flex-col gap-3 w-full">
+                    <div key={index} className="flex flex-col w-full gap-3">
                       <p className="formp text-[1.1rem] font-bol ">
                         {it.name === "Custom offer" ? "Others" : it.name}
                       </p>
@@ -678,13 +681,13 @@ function page() {
                   I Have Read Terms & Conditions{" "}
                   <a
                     href="https://www.youtube.com/@Kabariya.official"
-                    className="text-primaryGreen underline underline-offset-2"
+                    className="underline text-primaryGreen underline-offset-2"
                   >
                     Watch video
                   </a>
                 </p>
               )}
-              <div className="flex w-full gap-3 justify-end items-center">
+              <div className="flex items-center justify-end w-full gap-3">
                 <button
                   onClick={(e) => {
                     e.preventDefault();
@@ -711,7 +714,7 @@ function page() {
       <div className="mt-10 small:mt-5">
         <Banner />
       </div>
-      {submitted && <SubmittedShower />}
+      {submitted && <SubmittedShower loading={loading} />}
     </div>
   );
 }
@@ -790,7 +793,7 @@ const DropDown = ({
           <span
             key={index}
             onClick={changeSelected}
-            className="flex justify-start items-center h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
+            className="flex items-center justify-start w-full px-5 py-2 text-gray-400 cursor-pointer h-7 hover:bg-gray-200 "
             value={it}
           >
             {city === "Karachi" ? it.name : it}
@@ -816,7 +819,7 @@ const DropDown2 = ({ data, ini, id, onDelete }) => {
       <p className="formp font-med" id={id}>
         {selectedOption}
       </p>
-      <div className="flex gap-5 items-center">
+      <div className="flex items-center gap-5">
         <span
           onClick={onDelete}
           className="p-1.5 bg-[#F9F9F9] cursor-pointer rounded-md"
@@ -835,7 +838,7 @@ const DropDown2 = ({ data, ini, id, onDelete }) => {
           <span
             key={index}
             onClick={changeSelected}
-            className="flex justify-start items-center min-h-7 cursor-pointer w-full px-5 py-2 text-gray-400 hover:bg-gray-200 "
+            className="flex items-center justify-start w-full px-5 py-2 text-gray-400 cursor-pointer min-h-7 hover:bg-gray-200 "
             value={it}
           >
             {it}
@@ -909,7 +912,7 @@ const Option2 = ({
 
   return (
     <>
-      <div className="w-full flex flex-col justify-center items-start gap-8 py-9 small:py-5 small:pt-0  border-b border-borderColorP  small:border-0 ">
+      <div className="flex flex-col items-start justify-center w-full gap-8 border-b py-9 small:py-5 small:pt-0 border-borderColorP small:border-0 ">
         <p className="formp text-[1.3rem]">Profile</p>
         <input
           ref={fileRef}
@@ -930,7 +933,7 @@ const Option2 = ({
               id="profileImg"
             />
             {uploadImg}
-            <p className="formp font-med  underline underline-offset-4">
+            <p className="underline formp font-med underline-offset-4">
               Drag & Upload
             </p>
           </div>
@@ -939,9 +942,9 @@ const Option2 = ({
           </p>
         </div>
       </div>
-      <div className="w-full flex flex-col justify-center items-start gap-8 py-9  border-b border-borderColorP small:border-0  ">
+      <div className="flex flex-col items-start justify-center w-full gap-8 border-b py-9 border-borderColorP small:border-0 ">
         <p className="formp text-[1.3rem]">CNIC</p>
-        <div className="flex justify-start items-start flex-wrap gap-5 w-full">
+        <div className="flex flex-wrap items-start justify-start w-full gap-5">
           <div className="flex flex-col justify-center items-start gap-5 max-w-[25rem] w-full ">
             <span className="bg-[#f6f6f6] text-[#828282] font-pm text-[0.85rem] font-med px-3 rounded-[5px]">
               Front
@@ -965,7 +968,7 @@ const Option2 = ({
               />
               <div className="dashedSmDiv  w-full min-h-[15rem] flex justify-center items-center flex-col">
                 {uploadImg}
-                <p className="formp font-med  underline underline-offset-4">
+                <p className="underline formp font-med underline-offset-4">
                   Drag & Upload
                 </p>
               </div>
@@ -994,7 +997,7 @@ const Option2 = ({
               />
               <div className="dashedSmDiv  w-full min-h-[15rem] flex justify-center items-center flex-col">
                 {uploadImg}
-                <p className="formp font-med  underline underline-offset-4">
+                <p className="underline formp font-med underline-offset-4">
                   Drag & Upload
                 </p>
               </div>
@@ -1002,14 +1005,14 @@ const Option2 = ({
           </div>
         </div>
       </div>
-      <div className="w-full flex flex-col justify-center items-start gap-8 py-9 ">
+      <div className="flex flex-col items-start justify-center w-full gap-8 py-9 ">
         <p className="formp text-[1.3rem] flex justify-between items-center w-full">
           Shop images{" "}
           <span className="text-[0.9rem] text-[#828282] font-reg">
             {currentUploaded}/6
           </span>
         </p>
-        <div className="flex gap-3 w-full flex-wrap">
+        <div className="flex flex-wrap w-full gap-3">
           {shopimg.map((it, index) => (
             <Fragment key={index}>
               <input
@@ -1039,7 +1042,7 @@ const Option2 = ({
                   id={`shopimages-${index}`}
                 />
                 {uploadImg}
-                <p className="formp font-med  underline underline-offset-4">
+                <p className="underline formp font-med underline-offset-4">
                   Add image
                 </p>
               </div>
@@ -1056,7 +1059,7 @@ const Option2 = ({
 
 const TermsConditions = () => {
   return (
-    <div className="w-full flex flex-col justify-end items-end gap-6 small:gap-4 ">
+    <div className="flex flex-col items-end justify-end w-full gap-6 small:gap-4 ">
       <p className="font-nast font-med text-[3rem] small:text-[2rem] ">
         شرائط و ضوابط
       </p>
@@ -1127,7 +1130,7 @@ const TermsConditions = () => {
   );
 };
 
-const SubmittedShower = () => {
+const SubmittedShower = ({ loading }) => {
   return (
     <div className="fixed top-0 left-0 bg-[#00000066] min-h-screen w-full flex justify-center items-center">
       <div
@@ -1135,7 +1138,7 @@ const SubmittedShower = () => {
          justify-center  items-center bg-white  p-10 med:py-6 med:px-4 small:p-7 smaller:p-4  gap-6 small:gap-8
          shadow-xl rounded-3xl border border-borderColorP"
       >
-        <SubmittedDialog dealerform={true} />
+        <SubmittedDialog dealerform={true} loading={loading} />
       </div>
     </div>
   );
@@ -1167,7 +1170,7 @@ const DropDown3 = ({ ini, id, onDelete, city, data, index }) => {
           ? selectedOption.slice(0, 35) + "..."
           : selectedOption}
       </p>
-      <div className="flex gap-5 items-center">
+      <div className="flex items-center gap-5">
         <span
           onClick={onDelete}
           className="p-1.5 bg-[#F9F9F9] cursor-pointer rounded-md"
@@ -1221,7 +1224,7 @@ const DropDown3 = ({ ini, id, onDelete, city, data, index }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col  w-full">
+        <div className="flex flex-col w-full">
           {currentData?.map((it, index) => (
             <DropDownChild
               key={index}
@@ -1263,7 +1266,7 @@ const DropDownChild = ({ it, city, index, chengeVal }) => {
         onClick={() => {
           city !== "Karachi" && chengeVal(it);
         }}
-        className="w-full flex justify-between items-center hover:bg-gray-200  px-5 py-2"
+        className="flex items-center justify-between w-full px-5 py-2 hover:bg-gray-200"
       >
         <p className="text-[18px] text-[#00000080]">
           {city === "Karachi"
@@ -1283,7 +1286,7 @@ const DropDownChild = ({ it, city, index, chengeVal }) => {
       >
         {it?.subdivide?.map((val, key) => (
           <li
-            className="hover:bg-gray-200 px-3 py-1"
+            className="px-3 py-1 hover:bg-gray-200"
             onClick={() =>
               chengeVal(city === "Karachi" ? it.name + " - " + val : it)
             }
@@ -1306,7 +1309,7 @@ const InputDate = ({ selectedDate, setselectedDate }) => {
         setshow(!show);
       }}
       id="dob"
-      className="flex justify-start items-center forminput small:gap-0 gap-2 focus:border-black border relative cursor-pointer "
+      className="relative flex items-center justify-start gap-2 border cursor-pointer forminput small:gap-0 focus:border-black "
     >
       <p className="min-w-[6.4rem] text-gray-400 ">
         Date of Birth : {selectedDate}
@@ -1315,7 +1318,7 @@ const InputDate = ({ selectedDate, setselectedDate }) => {
       {show && (
         <div
           onClick={(e) => e.stopPropagation()}
-          className="absolute top-14 right-0"
+          className="absolute right-0 top-14"
         >
           <AB_calender setselectedDate={setselectedDate} setshow={setshow} />
         </div>

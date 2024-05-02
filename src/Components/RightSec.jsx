@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 
 function RightSec() {
   const [submitted, setsubmitted] = useState(false);
+  const [loading, setloading] = useState(false);
   return (
     <motion.div
       viewport={{ once: true }}
@@ -46,7 +47,7 @@ function RightSec() {
         </div>
         {!submitted ? (
           <>
-            <div className="w-full flex flex-col justify-start items-start">
+            <div className="flex flex-col items-start justify-start w-full">
               <h3
                 className="font-pm font-bol text-[45px]
                 leading-[52px] larger:text-[30px] mob:text-[27px] "
@@ -58,10 +59,10 @@ function RightSec() {
                 Steps.
               </p>
             </div>
-            <Sheduler setsubmitted={setsubmitted} />
+            <Sheduler setsubmitted={setsubmitted} setloading={setloading} />
           </>
         ) : (
-          <SubmittedDialog setsubmitted={setsubmitted} />
+          <SubmittedDialog setsubmitted={setsubmitted} loading={loading} />
         )}
       </div>
     </motion.div>
