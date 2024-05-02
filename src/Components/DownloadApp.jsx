@@ -5,7 +5,7 @@ import Image from "next/image";
 function DownloadApp() {
   return (
     <div className="w-full min-h-max">
-      <div className="max-w-[1400px] w-full px-14 flex justify-between items-center m-auto gap-5 mb-20 small:mb-0 small:gap-14 small:px-5 small:flex-col py-10 smaller:pt-5">
+      <div className="max-w-[1400px] m-auto w-full px-14 flex justify-between items-center gap-5 mb-20 small:mb-0 small:gap-14 small:px-5 small:flex-col py-10 smaller:pt-5">
         <div className="flex-1 flex-grow-[0.55]  flex flex-col justify-start items-start w-full gap-5 small:gap-4 smaller:gap-3 ">
           <h4
             className="font-pm font-med text-[3.6rem] larger:text-[3.2rem] large:text-[3rem]
@@ -18,7 +18,7 @@ function DownloadApp() {
             app. Download now and discover a world of effortless scrap selling,
             accurate weighing, competitive pricing, and secure payments.
           </p>
-          <div className="flex justify-start items-start gap-5 small:gap-3 mt-5 smallest:flex-col smallest:justify-center smallest:items-center smallest:w-full ">
+          <div className="flex items-start justify-start gap-5 mt-5 small:gap-3 smallest:flex-col smallest:justify-center smallest:items-center smallest:w-full ">
             <button
               className="bg-black flex justify-center 
             items-center w-[200px] med:w-[180px] smaller:w-[155px]  gap-3 

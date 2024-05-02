@@ -6,7 +6,7 @@ import {
   socialIconsColorfull,
 } from "./Consonants";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 function Footer({ dealearship, about }) {
   return (
     <div
@@ -14,12 +14,7 @@ function Footer({ dealearship, about }) {
         dealearship ? "border-primaryGreen mt-6 " : "border-none"
       } `}
     >
-      <motion.div
-        whileInView={{
-          opacity: 1,
-          transition: { duration: 0.5, type: "ease" },
-        }}
-        initial={{ opacity: 0 }}
+      <div
         className={`w-full  ${
           dealearship ? "max-w-[1340px]" : "max-w-[1320px]"
         } min-h-max flex justify-between items-start gap-10 m-auto ${
@@ -28,7 +23,7 @@ function Footer({ dealearship, about }) {
           about && "!text-white"
         } px-7 pr-4 larger:px-10 small:px-6 med:flex-col med:items-center larger:py-20 `}
       >
-        <div className="flex flex-col justify-start med:items-center items-start gap-4  z-20 ">
+        <div className="z-20 flex flex-col items-start justify-start gap-4 med:items-center ">
           <h4
             className={`font-pm font-bol text-[1.25rem] whitespace-nowrap ${
               dealearship ? "text-[#2DB473]" : "text-black"
@@ -60,7 +55,7 @@ function Footer({ dealearship, about }) {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col justify-start med:items-center items-start gap-4 z-20 ">
+        <div className="z-20 flex flex-col items-start justify-start gap-4 med:items-center ">
           <h4
             className={`font-pm font-bol text-[1.25rem] whitespace-nowrap ${
               dealearship ? "text-[#2DB473]" : "text-black"
@@ -90,7 +85,7 @@ function Footer({ dealearship, about }) {
             </li>
           </ul>
         </div>
-        <div className="flex flex-col justify-start items-start gap-4 z-20  med:items-center ">
+        <div className="z-20 flex flex-col items-start justify-start gap-4 med:items-center ">
           <h4
             className={`font-pm font-bol text-[1.25rem] ${
               dealearship ? "text-[#2DB473]" : "text-black"
@@ -129,7 +124,7 @@ function Footer({ dealearship, about }) {
             } rounded-[0.7rem]`}
           >
             <input
-              className="border-none pl-3 w-full outline-none bg-transparent"
+              className="w-full pl-3 bg-transparent border-none outline-none"
               type="email"
               placeholder="Email address"
             />
@@ -149,7 +144,7 @@ function Footer({ dealearship, about }) {
           >
             Upgrade to Spotify Premium and take your music.
           </p>
-          <div className="flex flex-col justify-start med:items-center items-start gap-3">
+          <div className="flex flex-col items-start justify-start gap-3 med:items-center">
             <h4 className="font-pm font-bol text-[1.4rem]">Follow us</h4>
             <div className="flex justify-start items-start gap-2 med:justify-center w-full [&>svg]:cursor-pointer">
               {dealearship
@@ -180,7 +175,7 @@ function Footer({ dealearship, about }) {
             </div>
           </div>
         </div>
-      </motion.div>
+      </div>
       <Banner />
     </div>
   );
@@ -188,7 +183,7 @@ function Footer({ dealearship, about }) {
 
 const Banner = () => {
   return (
-    <motion.div
+    <div
       whileInView={{
         opacity: 1,
         transition: { duration: 0.5, delay: 0.2, ease: "easeIn" },
@@ -204,7 +199,7 @@ const Banner = () => {
           All copyrights reserved © Kabariya technologies (Pvt ltd.)
         </p>
       </div>
-    </motion.div>
+    </div>
   );
 };
 

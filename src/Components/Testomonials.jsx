@@ -1,53 +1,11 @@
 "use client";
-import React, { useEffect } from "react";
+import React from "react";
 import { FeedBack, clientReviews, left, star } from "./Consonants";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import Image from "next/image";
-import { motion, useAnimate, useInView } from "framer-motion";
+
 function Testomonials() {
-  const [scope, animate] = useAnimate();
-  const isInView = useInView(scope, { once: true });
-
-  useEffect(() => {
-    isInView && aimateFunc();
-  }, [isInView]);
-  const aimateFunc = async () => {
-    await animate(
-      ".spq",
-      {
-        opacity: 1,
-        y: 0,
-      },
-      { duration: 0.5, type: "spring" }
-    );
-    await animate(
-      "h2",
-      {
-        opacity: 1,
-        y: 0,
-      },
-      { duration: 0.5, type: "spring" }
-    );
-    await animate(
-      "h3",
-      {
-        opacity: 1,
-        y: 0,
-      },
-      { duration: 0.5, type: "spring" }
-    );
-
-    await animate(
-      "p",
-      {
-        opacity: 1,
-        y: 0,
-      },
-      { duration: 0.5, type: "spring" }
-    );
-  };
-
   const responsive = {
     desktop: {
       breakpoint: { max: 3000, min: 1176 },
@@ -67,36 +25,22 @@ function Testomonials() {
   };
 
   return (
-    <div className="w-full flex flex-col justify-center items-center min-h-max py-20 pt-24 smaller:py-10 smaller:pt-14 ">
-      <motion.div
-        ref={scope}
-        className="flex flex-col justify-center items-center gap-5 small:gap-3 "
-      >
-        <motion.span initial={{ opacity: 0, y: "30px" }} className="spq">
-          {FeedBack}
-        </motion.span>
-        <div className="flex flex-col justify-center items-center">
-          <motion.h2
-            initial={{ opacity: 0, y: "30px" }}
-            className="font-pm font-med text-[1.7rem] smaller:text-[1.3rem]"
-          >
+    <div className="flex flex-col items-center justify-center w-full py-20 pt-24 min-h-max smaller:py-10 smaller:pt-14 ">
+      <div className="flex flex-col items-center justify-center gap-5 small:gap-3 ">
+        <span>{FeedBack}</span>
+        <div className="flex flex-col items-center justify-center">
+          <h2 className="font-pm font-med text-[1.7rem] smaller:text-[1.3rem]">
             Testimonials
-          </motion.h2>
-          <motion.h3
-            initial={{ opacity: 0, y: "30px" }}
-            className="font-se text-6xl small:text-5xl smaller:text-4xl text-center leading-[60px]"
-          >
+          </h2>
+          <h3 className="font-se text-6xl small:text-5xl smaller:text-4xl text-center leading-[60px]">
             Customer Reviews
-          </motion.h3>
+          </h3>
         </div>
-        <motion.p
-          initial={{ opacity: 0, y: "30px" }}
-          className="font-open text-1xl max-w-[46ch] text-center mt-2 small:mt-1 small:text-[0.9rem] small:max-w-[35ch]"
-        >
+        <p className="font-open text-1xl max-w-[46ch] text-center mt-2 small:mt-1 small:text-[0.9rem] small:max-w-[35ch]">
           See the impact of our services through client stories. Experience
           satisfaction in a snapshot.
-        </motion.p>
-      </motion.div>
+        </p>
+      </div>
       <div className="w-full mt-16 small:mt-14 px-[9rem] extLar:px-[6rem] larger:px-[5rem] small:px-2 relative  ">
         <div
           style={{
@@ -162,8 +106,8 @@ const CarasouelCard = ({ name, tagline, testmonial, index }) => {
         />
       </div>
       <span className="absolute top-3 right-3">{star}</span>
-      <div className="flex flex-col justify-start items-start">
-        <p className="font-se text-2xl">{name}</p>
+      <div className="flex flex-col items-start justify-start">
+        <p className="text-2xl font-se">{name}</p>
         <p className="font-pm font-med ">{tagline}</p>
       </div>
       <p className="font-pm text-[1.1rem] leading-[26.61px] [font-style:italic] min-h-[14rem] small:min-h-[10rem] ">

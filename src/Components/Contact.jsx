@@ -2,7 +2,6 @@
 import React, { useRef, useState } from "react";
 import { loc, AtR, WA, phone } from "./Consonants";
 import SubmittedDialog from "./SubmittedDialog";
-import { motion } from "framer-motion";
 
 function Contact({ about }) {
   const [submitted, setsubmitted] = useState(false);
@@ -35,9 +34,9 @@ function Contact({ about }) {
   };
 
   return (
-    <motion.div className="w-full min-h-max">
+    <div className="w-full min-h-max">
       <div className="max-w-[71rem] m-auto w-full flex flex-col justify-center items-center gap-14 smaller:gap-10 py-20  small:pt-[5rem] px-5 small:px-7 smaller:px-5">
-        <motion.div
+        <div
           viewport={{ once: true }}
           whileInView={{
             opacity: 1,
@@ -45,7 +44,7 @@ function Contact({ about }) {
             transition: { duration: 0.5, delay: 0.2, type: "ease" },
           }}
           initial={{ opacity: 0, y: "30px" }}
-          className="flex flex-col justify-center items-center gap-3"
+          className="flex flex-col items-center justify-center gap-3"
         >
           <h3
             className={`font-pm font-bol text-6xl larger:text-5xl text-center smaller:text-[2.5rem] smaller:max-w-[12ch] ${
@@ -61,8 +60,8 @@ function Contact({ about }) {
           >
             Any question or remarks? Just write us a message!
           </p>
-        </motion.div>
-        <motion.div
+        </div>
+        <div
           viewport={{ once: true }}
           whileInView={{
             opacity: 1,
@@ -85,26 +84,26 @@ function Contact({ about }) {
             >
               Fill up the form and our Team will get back to you within 24 hours
             </p>
-            <div className="flex flex-col justify-start items-start gap-5 mt-5">
-              <div className="flex justify-start items-start gap-3">
+            <div className="flex flex-col items-start justify-start gap-5 mt-5">
+              <div className="flex items-start justify-start gap-3">
                 {phone}
                 <p className="font-pm text-[1.15rem] smaller:text-[0.95rem] ">
                   021 45637845
                 </p>
               </div>
-              <div className="flex justify-start items-start gap-3">
+              <div className="flex items-start justify-start gap-3">
                 {WA}
                 <p className="font-pm text-[1.15rem] smaller:text-[0.95rem] ">
                   0331 7777722
                 </p>
               </div>
-              <div className="flex justify-start items-start gap-3">
+              <div className="flex items-start justify-start gap-3">
                 {AtR}
                 <p className="font-pm text-[1.15rem] smaller:text-[0.95rem] ">
                   Contact@kabariya.pk
                 </p>
               </div>
-              <div className="flex justify-start items-start gap-3">
+              <div className="flex items-start justify-start gap-3">
                 {loc}
                 <p className="font-pm text-[1.2rem] smaller:text-[0.95rem] max-w-[22ch] ">
                   Guslistan e johar block 19 street 13 shop #34, karachi
@@ -120,7 +119,7 @@ function Contact({ about }) {
                 action="null"
                 className="flex flex-col justify-center items-start w-full pl-[4.8rem] pr-[3.5rem] small:px-0 small:w-full  h-[25rem] gap-5 "
               >
-                <div className="flex justify-between items-center small:flex-col small:gap-4 gap-5 w-full ">
+                <div className="flex items-center justify-between w-full gap-5 small:flex-col small:gap-4 ">
                   <input
                     required
                     type="text"
@@ -165,9 +164,9 @@ function Contact({ about }) {
               <SubmittedDialog setsubmitted={setsubmitted} contact={true} />
             )}
           </div>
-        </motion.div>
+        </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 

@@ -1,7 +1,6 @@
 "use client";
 import React, { useEffect } from "react";
 import { RightArrow, apple, playStore } from "./Consonants";
-
 import RightSec from "./RightSec";
 import Link from "next/link";
 import { motion } from "framer-motion";
@@ -31,7 +30,7 @@ function HeroSec() {
      gap-1 small:gap-20 smaller:gap-12 "
     >
       <motion.div className="w-full ">
-        <div className="flex flex-col  justify-start items-start gap-5 extLar:gap-3">
+        <div className="flex flex-col items-start justify-start gap-5 extLar:gap-3">
           <div>
             <motion.h2
               initial={{ opacity: 0, scale: 1.15, y: 10 }}
@@ -132,12 +131,12 @@ const MobileApp = () => {
         transition: { duration: 1, delay: 0.8, ease: "easeInOut" },
       }}
       initial={{ opacity: 0, x: -40 }}
-      className="flex flex-col justify-start items-start gap-4 smallest:w-full smallest:items-center "
+      className="flex flex-col items-start justify-start gap-4 smallest:w-full smallest:items-center "
     >
       <p className="font-pm font-bol text-[20px] mob:text-[15px] ">
         Mobile App Coming Soon
       </p>
-      <div className="flex justify-start items-start gap-5 small:gap-3 smallest:flex-col smallest:justify-center smallest:items-center smallest:w-full">
+      <div className="flex items-start justify-start gap-5 small:gap-3 smallest:flex-col smallest:justify-center smallest:items-center smallest:w-full">
         <button
           className="bg-black flex justify-center 
   items-center w-[200px] med:w-[180px] smaller:w-[160px] gap-3 

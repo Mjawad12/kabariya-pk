@@ -29,11 +29,7 @@ function Navbar() {
   ];
 
   return (
-    <motion.nav
-      initial={{ opacity: 0, y: "-20px" }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.8, ease: "easeInOut" }}
+    <nav
       className={`w-full flex justify-between items-center py-5 gap-5 pt-9 px-10 smaller:px-6 smaller:pt-5 ${
         (pathname === "/dealership" ||
           pathname === "/about" ||
@@ -95,7 +91,7 @@ function Navbar() {
             : hamburger}
         </div>
       </div>
-    </motion.nav>
+    </nav>
   );
 }
 
@@ -128,7 +124,7 @@ const Mobnav = ({ list, setmobnav, pathname }) => {
         x: "-100%",
         transition: { delay: 0.5, duration: 1, type: "spring" },
       }}
-      className="w-full min-h-screen hidden larger:flex absolute bg-white top-0 left-0 z-30 justify-start items-start overflow-hidden "
+      className="absolute top-0 left-0 z-30 items-start justify-start hidden w-full min-h-screen overflow-hidden bg-white larger:flex "
     >
       <div
         onClick={() => {
@@ -138,7 +134,7 @@ const Mobnav = ({ list, setmobnav, pathname }) => {
       >
         {cross}
       </div>
-      <ul className="flex flex-col justify-start items-start py-20 px-10 gap-3">
+      <ul className="flex flex-col items-start justify-start gap-3 px-10 py-20">
         {list.map((it, index) => (
           <li
             key={index}
