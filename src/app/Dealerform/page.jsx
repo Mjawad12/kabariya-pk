@@ -728,9 +728,10 @@ const InputFull = ({ text, type, require }) => {
       <input
         className="forminput userdet"
         type={type}
-        placeholder={text}
+        placeholder={text === "CNIC" ? "CNIC - XXXXX-XXXXXX-X" : text}
         maxLength={text === "CNIC" ? 14 : 25}
         minLength={text === "CNIC" ? 14 : "undefined"}
+        pattern={text === "CNIC" ? "^[0-9]{5}-[0-9]{6}-[0-9]{1}" : null}
         required={require}
         id={text}
       />
@@ -785,7 +786,7 @@ const DropDown = ({
       <div
         className={`absolute ${
           show ? "flex" : "hidden"
-        } w-full left-0 top-[45px] py-3 flex justify-start flex-col items-start bg-white border-borderColorP border z-20 max-h-[12rem] ${
+        } w-full left-0 top-[45px] py-3 flex justify-start flex-col items-start bg-white border-borderColorP border z-20 max-h-[15rem] ${
           overflow ? "overflow-y-scroll" : ""
         }`}
       >
@@ -870,7 +871,7 @@ const Option2 = ({
   setshopimages,
   errors,
 }) => {
-  const shopimg = [1, 2, 3, 4, 5, 6];
+  const shopimg = [1, 2, 3];
   const [currentUploaded, setcurrentUploaded] = useState(0);
   const fileRef = useRef(null);
 
@@ -1009,7 +1010,7 @@ const Option2 = ({
         <p className="formp text-[1.3rem] flex justify-between items-center w-full">
           Shop images{" "}
           <span className="text-[0.9rem] text-[#828282] font-reg">
-            {currentUploaded}/6
+            {currentUploaded}/3
           </span>
         </p>
         <div className="flex flex-wrap w-full gap-3">
