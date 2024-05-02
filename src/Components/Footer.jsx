@@ -183,14 +183,7 @@ function Footer({ dealearship, about }) {
 
 const Banner = () => {
   return (
-    <div
-      whileInView={{
-        opacity: 1,
-        transition: { duration: 0.5, delay: 0.2, ease: "easeIn" },
-      }}
-      initial={{ opacity: 0 }}
-      className="w-full bg-[#1A1A1A] "
-    >
+    <div className="w-full bg-[#1A1A1A] ">
       <div className="max-w-[1320px]  flex justify-between items-center py-5 px-5 m-auto small:flex-col small:justify-center  small:items-center small:gap-3">
         <p className="font-pm text-[#FFFFFF] text-center smaller:text-[0.9rem]">
           Design & Developed by Kabariya technologies (Pvt ltd.)
