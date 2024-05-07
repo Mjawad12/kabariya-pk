@@ -48,6 +48,10 @@ function page() {
   });
   const [selectedDate, setselectedDate] = useState("");
 
+  useEffect(() => {
+    console.log(scrap);
+  }, [scrap]);
+
   const handleSubmit = async (e) => {
     if (form.current.checkValidity()) {
       seterrorsObj({});
@@ -236,7 +240,10 @@ function page() {
                 <InputFull type="text" require={true} text="CNIC" />
                 <div className="flex max-w-[610px] extLar:max-w-[550px] larger:max-w-[100%] w-full flex-col justify-start items-start gap-3">
                   <div id="dob" className="flex gap-3">
-                    <p className="formp small:hidden">Date of Birth</p>
+                    <p className="formp small:hidden">
+                      Date of Birth
+                      <span className="text-red-600 text-[1.1rem]">*</span>
+                    </p>
                     {errorsObj.date && (
                       <p className="text-red-600 font-pm font-[700] text-[13px]">
                         * Please Select your date of birth
@@ -252,7 +259,10 @@ function page() {
               </div>
               <div className="flex flex-wrap items-end justify-start w-full gap-4 small:gap-5 ">
                 <div className="flex flex-col justify-start items-start gap-3 max-w-[308px] w-full">
-                  <p className="formp small:hidden ">Whatsapp Number</p>
+                  <p className="formp small:hidden ">
+                    Whatsapp Number
+                    <span className="text-red-600 text-[1.1rem]">*</span>
+                  </p>
                   <input
                     type="tel"
                     placeholder="Whatsapp Number"
@@ -264,7 +274,10 @@ function page() {
                   />
                 </div>
                 <div className="flex flex-col justify-start items-start gap-3 max-w-[308px] w-full">
-                  <p className="formp small:hidden ">Phone Number</p>
+                  <p className="formp small:hidden ">
+                    Phone Number
+                    <span className="text-red-600 text-[1.1rem]">*</span>
+                  </p>
                   <input
                     type="tel"
                     placeholder="Phone Number"
@@ -301,7 +314,10 @@ function page() {
               </div>
               <div className="flex flex-wrap items-start justify-start gap-20 small:gap-5 small:mt-3">
                 <div className="flex flex-col gap-5 ">
-                  <p className="formp">Use Smart mobile</p>
+                  <p className="formp">
+                    Use Smart mobile
+                    <span className="text-red-600 text-[1.1rem]">*</span>
+                  </p>
                   <div className="flex items-start justify-start gap-6 small:gap-3">
                     <div
                       onClick={(e) => {
@@ -326,7 +342,10 @@ function page() {
                     id="quali"
                     className="flex items-center justify-start gap-3"
                   >
-                    <p className="formp">Qualifications</p>
+                    <p className="formp">
+                      Qualifications
+                      <span className="text-red-600 text-[1.1rem]">*</span>
+                    </p>
                     {errorsObj.quali && (
                       <p className="text-red-600 font-pm font-[700] text-[13px]">
                         * Please Select your Qualification
@@ -373,7 +392,10 @@ function page() {
                   id="vechi"
                   className="flex items-center justify-start gap-3"
                 >
-                  <p className="formp">Pickup Vehicles</p>
+                  <p className="formp">
+                    Pickup Vehicles
+                    <span className="text-red-600 text-[1.1rem]">*</span>
+                  </p>
                   {errorsObj.vehic && (
                     <p className="text-red-600 font-pm font-[700] text-[13px]">
                       * Please Select your Vehicle
@@ -417,7 +439,10 @@ function page() {
                 </div>
               </div>
               <div className="flex flex-col w-full gap-3">
-                <p className="formp">Daily Purchasing strength</p>
+                <p className="formp">
+                  Daily Purchasing strength
+                  <span className="text-red-600 text-[1.1rem]">*</span>
+                </p>
                 <div className="flex w-full gap-5 small:gap-3">
                   <DropDown
                     data={["50,000", "60,000", "70,000", "80,000", "90,000"]}
@@ -442,7 +467,10 @@ function page() {
               </div>
               <div className="flex w-full gap-5 small:gap-3 small:flex-col">
                 <div className="flex flex-col w-full gap-3">
-                  <p className="formp small:hidden">Select city</p>
+                  <p className="formp small:hidden">
+                    Select city
+                    <span className="text-red-600 text-[1.1rem]">*</span>
+                  </p>
                   <DropDown
                     data={["Karachi", "Islamabad", "Multan", "Lahore"]}
                     selectedOption={city}
@@ -450,7 +478,10 @@ function page() {
                   />
                 </div>
                 <div className="flex flex-col w-full gap-3">
-                  <p className="formp small:hidden">Select Town</p>
+                  <p className="formp small:hidden">
+                    Select Town
+                    <span className="text-red-600 text-[1.1rem]">*</span>
+                  </p>
                   <DropDown
                     data={towns[city ?? "Karachi"]}
                     city={city}
@@ -461,7 +492,10 @@ function page() {
                 </div>
               </div>
               <div className="flex flex-col w-full gap-3">
-                <p className="formp small:hidden">Shop Address</p>
+                <p className="formp small:hidden">
+                  Shop Address
+                  <span className="text-red-600 text-[1.1rem]">*</span>
+                </p>
                 <textarea
                   ref={shopAddress}
                   className="w-full outline-none focus:border-black fonr-pm rounded-xl px-6 py-4 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms] resize-none"
@@ -472,7 +506,10 @@ function page() {
               </div>
               <div className="flex flex-col w-full gap-3">
                 <div id="pick-up-Er" className="flex gap-3">
-                  <p className="formp">Select Pick up Areas</p>
+                  <p className="formp">
+                    Select Pick up Areas
+                    <span className="text-red-600 text-[1.1rem]">*</span>
+                  </p>
                   {errorsObj.pickup && (
                     <p className="text-red-600 font-pm font-[700] text-[13px]">
                       * Please Select a pick up area
@@ -516,7 +553,10 @@ function page() {
                 </div>
               </div>
               <div className="flex flex-col w-full gap-3">
-                <p className="formp">Bank Accounts</p>
+                <p className="formp">
+                  Bank Accounts
+                  <span className="text-red-600 text-[1.1rem]">*</span>
+                </p>
                 <div className="flex flex-col gap-9 small:gap-5">
                   {totalBank.map((it, index) => {
                     return (
@@ -604,12 +644,47 @@ function page() {
                 </div>
               </div>
               {Scrapitems.map((it, index) => {
+                const [checked, setchecked] = useState(false);
                 return (
                   <Fragment key={index}>
-                    <div key={index} className="flex flex-col w-full gap-3">
-                      <p className="formp text-[1.1rem] font-bol ">
-                        {it.name === "Custom offer" ? "Others" : it.name}
-                      </p>
+                    <div key={index} className="flex flex-col w-full gap-5">
+                      <div className="flex gap-3">
+                        <span
+                          onClick={() => {
+                            setchecked(!checked);
+                            if (!checked) {
+                              let newScrap = [...scrap];
+                              it.items.forEach((val) => {
+                                if (!newScrap.includes(val)) {
+                                  newScrap.unshift(val);
+                                }
+                              });
+                              setscrap(newScrap);
+                            } else {
+                              let newScrap = [...scrap];
+                              it.items.forEach((val) => {
+                                if (newScrap.includes(val)) {
+                                  newScrap.splice(
+                                    newScrap.indexOf(val),
+                                    newScrap.indexOf(val) + 1
+                                  );
+                                }
+                              });
+                              setscrap(newScrap);
+                            }
+                          }}
+                          className={`w-[1.2rem] h-[1.2rem] flex justify-center items-center ${
+                            checked && "bg-black"
+                          } border border-gray-300 rounded-[5px] `}
+                        >
+                          {checked && (
+                            <span className="flex w-[1.1rem] ">{tick}</span>
+                          )}
+                        </span>
+                        <p className="formp text-[1.1rem] font-bol ">
+                          {it.name === "Custom offer" ? "Others" : it.name}
+                        </p>
+                      </div>
                       <div className="flex justify-start items-center gap-[1rem] flex-wrap gap-y-3">
                         {it.name === "Custom offer" ? (
                           <input
@@ -623,6 +698,7 @@ function page() {
                             <div
                               key={i + "s"}
                               className="max-w-[12.5rem] w-full flex"
+                              id={it.name + "-checker"}
                               onClick={() => {
                                 if (scrap.includes(currentItem)) {
                                   let pop = [];
@@ -638,7 +714,11 @@ function page() {
                                 }
                               }}
                             >
-                              <CustomCheckbox gap={3} text={currentItem} />
+                              <CustomCheckbox
+                                gap={3}
+                                text={currentItem}
+                                st={checked}
+                              />
                             </div>
                           ))
                         )}
@@ -724,16 +804,29 @@ export default page;
 const InputFull = ({ text, type, require }) => {
   return (
     <div className="flex max-w-[610px] extLar:max-w-[550px] larger:max-w-[100%] w-full flex-col justify-start items-start gap-3">
-      <p className="formp small:hidden">{text}</p>
+      <p className="formp small:hidden">
+        {text}
+        {require && <span className="text-red-600 text-[1.1rem]">*</span>}
+      </p>
       <input
         className="forminput userdet"
         type={type}
-        placeholder={text === "CNIC" ? "CNIC - XXXXX-XXXXXX-X" : text}
+        placeholder={text === "CNIC" ? "XXXXX-XXXXXX-X" : text}
         maxLength={text === "CNIC" ? 14 : 25}
         minLength={text === "CNIC" ? 14 : "undefined"}
         pattern={text === "CNIC" ? "^[0-9]{5}-[0-9]{6}-[0-9]{1}" : null}
         required={require}
         id={text}
+        onKeyDown={(e) => {
+          if (text === "CNIC") {
+            if (
+              e.key !== "Backspace" &&
+              (e.target.value.length === 5 || e.target.value.length === 12)
+            ) {
+              e.target.value += "-";
+            }
+          }
+        }}
       />
     </div>
   );
