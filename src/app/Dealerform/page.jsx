@@ -48,10 +48,6 @@ function page() {
   });
   const [selectedDate, setselectedDate] = useState("");
 
-  useEffect(() => {
-    console.log(scrap);
-  }, [scrap]);
-
   const handleSubmit = async (e) => {
     if (form.current.checkValidity()) {
       seterrorsObj({});
@@ -649,38 +645,40 @@ function page() {
                   <Fragment key={index}>
                     <div key={index} className="flex flex-col w-full gap-5">
                       <div className="flex gap-3">
-                        <span
-                          onClick={() => {
-                            setallChecked(!allChecked);
-                            if (!allChecked) {
-                              let newScrap = [...scrap];
-                              it.items.forEach((val) => {
-                                if (!newScrap.includes(val)) {
-                                  newScrap.unshift(val);
-                                }
-                              });
-                              setscrap(newScrap);
-                            } else {
-                              let newScrap = [...scrap];
-                              it.items.forEach((val) => {
-                                if (newScrap.includes(val)) {
-                                  newScrap.splice(
-                                    newScrap.indexOf(val),
-                                    newScrap.indexOf(val) + 1
-                                  );
-                                }
-                              });
-                              setscrap(newScrap);
-                            }
-                          }}
-                          className={`w-[1.2rem] h-[1.2rem] flex justify-center items-center ${
-                            allChecked && "bg-black"
-                          } border border-gray-300 rounded-[5px] cursor-pointer `}
-                        >
-                          {allChecked && (
-                            <span className="flex w-[1.1rem] ">{tick}</span>
-                          )}
-                        </span>
+                        {it.name !== "Custom offer" && (
+                          <span
+                            onClick={() => {
+                              setallChecked(!allChecked);
+                              if (!allChecked) {
+                                let newScrap = [...scrap];
+                                it.items.forEach((val) => {
+                                  if (!newScrap.includes(val)) {
+                                    newScrap.unshift(val);
+                                  }
+                                });
+                                setscrap(newScrap);
+                              } else {
+                                let newScrap = [...scrap];
+                                it.items.forEach((val) => {
+                                  if (newScrap.includes(val)) {
+                                    newScrap.splice(
+                                      newScrap.indexOf(val),
+                                      newScrap.indexOf(val) + 1
+                                    );
+                                  }
+                                });
+                                setscrap(newScrap);
+                              }
+                            }}
+                            className={`w-[1.2rem] h-[1.2rem] flex justify-center items-center ${
+                              allChecked && "bg-black"
+                            } border border-gray-300 rounded-[5px] cursor-pointer `}
+                          >
+                            {allChecked && (
+                              <span className="flex w-[1.1rem] ">{tick}</span>
+                            )}
+                          </span>
+                        )}
                         <p className="formp text-[1.1rem] font-bol ">
                           {it.name === "Custom offer" ? "Others" : it.name}
                         </p>
