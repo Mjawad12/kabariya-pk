@@ -45,6 +45,7 @@ function page() {
     vehic: false,
     pickup: false,
     date: false,
+    scrap: false,
   });
   const [selectedDate, setselectedDate] = useState("");
 
@@ -67,7 +68,6 @@ function page() {
             .querySelector("#quali")
             .scrollIntoView({ behavior: "smooth" });
         } else if (pickupVehicles.length < 1) {
-          seterrorsObj({});
           const obj = errorsObj;
           obj.vehic = true;
           setTimeout(() => seterrorsObj(obj), [100]);
@@ -79,12 +79,18 @@ function page() {
             return it.getAttribute("data-value") === "Select";
           })
         ) {
-          seterrorsObj({});
           const obj = errorsObj;
           obj.pickup = true;
           setTimeout(() => seterrorsObj(obj), [100]);
           document
             .querySelector("#pick-up-Er")
+            .scrollIntoView({ behavior: "smooth" });
+        } else if (scrap.length < 1) {
+          const obj = errorsObj;
+          obj.scrap = true;
+          setTimeout(() => seterrorsObj(obj), [100]);
+          document
+            .querySelector("#scrap-up-Er")
             .scrollIntoView({ behavior: "smooth" });
         } else {
           setpage(1);
@@ -97,12 +103,6 @@ function page() {
           !document.querySelector("#backPic").files[0]
         ) {
           seterrors("Upload Front and Back side image of your CNIC.");
-        } else if (
-          !Array.from(document.querySelectorAll(".shopImg")).every((it) => {
-            return it.files[0];
-          })
-        ) {
-          seterrors("Please Upload Shop Images");
         } else {
           seterrors(null);
           window.scrollTo(0, 0);
@@ -609,6 +609,8 @@ function page() {
                             placeholder="Name"
                             required
                             id="bankname"
+                            maxLength={20}
+                            minLength={5}
                           />
                         </div>
                         <div className=" max-w-[21.7rem] w-full">
@@ -618,6 +620,8 @@ function page() {
                             placeholder="IBAN NO."
                             required
                             id="bankno"
+                            maxLength={34}
+                            minLength={5}
                           />
                         </div>
                         {totalBank.length < 4 &&
@@ -643,7 +647,11 @@ function page() {
                 const [allChecked, setallChecked] = useState(false);
                 return (
                   <Fragment key={index}>
-                    <div key={index} className="flex flex-col w-full gap-5">
+                    <div
+                      id={index === 0 && "scrap-up-Er"}
+                      key={index}
+                      className="flex flex-col w-full gap-5"
+                    >
                       <div className="flex gap-3">
                         {it.name !== "Custom offer" && (
                           <span
@@ -682,6 +690,11 @@ function page() {
                         <p className="formp text-[1.1rem] font-bol ">
                           {it.name === "Custom offer" ? "Others" : it.name}
                         </p>
+                        {index === 0 && errorsObj.scrap && (
+                          <p className="text-red-600 font-pm font-[700] text-[13px]">
+                            * Please Select atleast one item
+                          </p>
+                        )}
                       </div>
                       <div className="flex justify-start items-center gap-[1rem] flex-wrap gap-y-3">
                         {it.name === "Custom offer" ? (
@@ -810,16 +823,16 @@ const InputFull = ({ text, type, require }) => {
         className="forminput userdet"
         type={type}
         placeholder={text === "CNIC" ? "XXXXX-XXXXXX-X" : text}
-        maxLength={text === "CNIC" ? 14 : 25}
-        minLength={text === "CNIC" ? 14 : "undefined"}
-        pattern={text === "CNIC" ? "^[0-9]{5}-[0-9]{6}-[0-9]{1}" : null}
+        maxLength={text === "CNIC" ? 15 : 25}
+        minLength={text === "CNIC" ? 15 : "undefined"}
+        pattern={text === "CNIC" ? "^[0-9]{5}-[0-9]{7}-[0-9]{1}" : null}
         required={require}
         id={text}
         onKeyDown={(e) => {
           if (text === "CNIC") {
             if (
               e.key !== "Backspace" &&
-              (e.target.value.length === 5 || e.target.value.length === 12)
+              (e.target.value.length === 5 || e.target.value.length === 13)
             ) {
               e.target.value += "-";
             }
