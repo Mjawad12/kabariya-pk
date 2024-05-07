@@ -644,15 +644,15 @@ function page() {
                 </div>
               </div>
               {Scrapitems.map((it, index) => {
-                const [checked, setchecked] = useState(false);
+                const [allChecked, setallChecked] = useState(false);
                 return (
                   <Fragment key={index}>
                     <div key={index} className="flex flex-col w-full gap-5">
                       <div className="flex gap-3">
                         <span
                           onClick={() => {
-                            setchecked(!checked);
-                            if (!checked) {
+                            setallChecked(!allChecked);
+                            if (!allChecked) {
                               let newScrap = [...scrap];
                               it.items.forEach((val) => {
                                 if (!newScrap.includes(val)) {
@@ -674,10 +674,10 @@ function page() {
                             }
                           }}
                           className={`w-[1.2rem] h-[1.2rem] flex justify-center items-center ${
-                            checked && "bg-black"
-                          } border border-gray-300 rounded-[5px] `}
+                            allChecked && "bg-black"
+                          } border border-gray-300 rounded-[5px] cursor-pointer `}
                         >
-                          {checked && (
+                          {allChecked && (
                             <span className="flex w-[1.1rem] ">{tick}</span>
                           )}
                         </span>
@@ -717,7 +717,7 @@ function page() {
                               <CustomCheckbox
                                 gap={3}
                                 text={currentItem}
-                                st={checked}
+                                st={allChecked}
                               />
                             </div>
                           ))
