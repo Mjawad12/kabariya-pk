@@ -260,7 +260,7 @@ function page() {
                     <span className="text-red-600 text-[1.1rem]">*</span>
                   </p>
                   <input
-                    type="tel"
+                    type="number"
                     placeholder="Whatsapp Number"
                     className="forminput num"
                     required
@@ -275,7 +275,7 @@ function page() {
                     <span className="text-red-600 text-[1.1rem]">*</span>
                   </p>
                   <input
-                    type="tel"
+                    type="number"
                     placeholder="Phone Number"
                     className="forminput num"
                     required

@@ -270,3 +270,12 @@ input[type="date"]:in-range::-webkit-datetime-edit-day-field,
 input[type="date"]:in-range::-webkit-datetime-edit-text {
   color: transparent;
 }
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  appearance: none;
+  display: none;
+}
+input[type="number"] {
+  -moz-appearance: textfield;
+}
