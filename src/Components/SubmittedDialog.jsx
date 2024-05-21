@@ -2,7 +2,13 @@ import Link from "next/link";
 import React from "react";
 import Loading from "./Loading";
 
-function SubmittedDialog({ setsubmitted, contact, dealerform, loading }) {
+function SubmittedDialog({
+  setsubmitted,
+  contact,
+  dealerform,
+  loading,
+  review,
+}) {
   return (
     <div className="flex flex-col items-center justify-center w-full gap-6">
       <img
@@ -19,7 +25,7 @@ function SubmittedDialog({ setsubmitted, contact, dealerform, loading }) {
         <>
           <div className="flex flex-col items-center justify-center gap-6">
             <p className="text-4xl leading-7 text-center font-pm font-bol smaller:text-2xl">
-              Request Submitted
+              {review ? "Review Sent" : "Request Submitted"}
             </p>
             <p className="text-1xl font-pm font-reg text-gray-500 leading-[20px] text-center smaller:text-[0.9rem]">
               Your Request submitted successfully

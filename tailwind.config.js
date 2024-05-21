@@ -7,7 +7,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      Lar: { max: "1400px" },
+      Lar: { max: "1500px" },
       extLar: { max: "1397px" },
       larger: { max: "1262px" },
       large: { max: "1193px" },

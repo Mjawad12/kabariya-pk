@@ -89,7 +89,14 @@ function Testomonials() {
   );
 }
 
-const CarasouelCard = ({ name, tagline, testmonial, index }) => {
+const CarasouelCard = ({
+  name,
+  tagline,
+  testmonial,
+  index,
+  reviewPage,
+  image,
+}) => {
   return (
     <div
       className={`card max-w-[307px] small:max-w-[290px] w-full m-auto gap-4 border mx-[15px] small:mx-0 shadow-sm
@@ -98,7 +105,7 @@ const CarasouelCard = ({ name, tagline, testmonial, index }) => {
     >
       <div className="cardPic rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
         <Image
-          src={`/Testomonials/${index + 1}.webp`}
+          src={reviewPage ? image : `/Testomonials/${index + 1}.webp`}
           width={5000}
           height={5000}
           alt={name}
