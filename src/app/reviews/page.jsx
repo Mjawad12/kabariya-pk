@@ -179,9 +179,9 @@ function page() {
                 Write Review
               </h2>
               <div className="flex px-10 mt-5 pb-[1.4rem] gap-4 smo:px-6">
-                <span className="flex items-center justify-center p-6  border rounded-full bg-[#FCFCFC] ">
+                <span className="flex items-center justify-center w-[90px] h-[90px] border rounded-full bg-[#FCFCFC] ">
                   <Image
-                    className="w-[28px] h-[34px] user-img"
+                    className="w-[95px] h-[110px] user-img"
                     src="/reviewUser.png"
                     width={600}
                     height={500}
