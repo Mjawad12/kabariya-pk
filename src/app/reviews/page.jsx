@@ -240,7 +240,7 @@ function page() {
                       It will be private and will not be visible on the website.
                     </p>
                   </div>
-                  <div className="flex gap-5 smo:flex-col ">
+                  <div className="flex gap-5 smo:flex-col smo:gap-3 ">
                     <InputFull type={"number"} placeholder="Phone" id="phone" />
                     <InputFull type={"email"} placeholder="Email" id="email" />
                   </div>
