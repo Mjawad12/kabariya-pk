@@ -69,7 +69,7 @@ function page() {
         phone: document.querySelector("input#phone")?.value ?? "unkonwn",
         email: document.querySelector("input#email")?.value ?? "unkonwn",
         rating: +selectedReview + 1,
-        image: parsedimageData?.url ?? "https://kabariya.pk/reviewUser.png",
+        image: parsedimageData?.url ?? "https://kabariya.pk/reviewUserImp.png",
         review: document.querySelector("#rev-cl").value,
       };
       const dt = fetch(`${process.env.NEXT_PUBLIC_PORT}/api/postReview`, {
@@ -182,7 +182,7 @@ function page() {
                 <span className="flex items-center justify-center w-[90px] h-[90px] border rounded-full bg-[#FCFCFC] ">
                   <Image
                     className="w-[95px] h-[110px] user-img"
-                    src="/reviewUser.png"
+                    src="/reviewUserImp.png"
                     width={600}
                     height={500}
                     alt="user default "
