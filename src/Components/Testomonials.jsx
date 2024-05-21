@@ -103,7 +103,7 @@ const CarasouelCard = ({
        border-[#DADADA] h-[480px] small:h-[435px] border-dashed rounded-[24.54px] hover:border-[#0000006f]
     flex flex-col justify-start items-start px-8 pr-7 py-[6rem] pb-[1rem] relative bg-white`}
     >
-      <div className="cardPic rounded-full p-[0.7rem] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
+      <div className="cardPic rounded-full  w-[117px] h-[117px] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
         <Image
           src={reviewPage ? image : `/Testomonials/${index + 1}.webp`}
           width={5000}
