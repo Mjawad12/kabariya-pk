@@ -27,7 +27,7 @@ function Locations() {
               </h3>
               <h3 className="font-se  text-7xl small:text-5xl smaller:text-[2.5rem] ">
                 Across{" "}
-                <span className="text-primaryGreen relative">
+                <span className="relative text-primaryGreen">
                   Nation
                   <span
                     className="w-[100px] absolute top-[53%] right-[-67%] small:hidden
@@ -120,3 +120,5 @@ const LocationContainer = ({ city, service }) => {
 };
 
 export default Locations;
+
+export { LocationContainer };
