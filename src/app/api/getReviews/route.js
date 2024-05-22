@@ -7,3 +7,5 @@ export async function GET() {
 
   return Response.json({ reviews });
 }
+
+export const dynamic = "force-dynamic";
