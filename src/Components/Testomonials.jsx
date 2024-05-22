@@ -99,7 +99,7 @@ const CarasouelCard = ({
 }) => {
   return (
     <div
-      className={`card min-w-[307px] small:max-w-[290px] w-full m-auto gap-4 border mx-[15px] small:mx-0 shadow-sm
+      className={`card w-[307px] small:max-w-[290px] small:!w-full m-auto gap-4 border mx-[15px] small:mx-0 shadow-sm
        border-[#DADADA] h-[480px] small:h-[435px] border-dashed rounded-[24.54px] hover:border-[#0000006f]
     flex flex-col justify-start items-start px-8 pr-7 py-[6rem] pb-[1rem] relative bg-white`}
     >

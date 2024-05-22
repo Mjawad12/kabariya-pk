@@ -142,7 +142,7 @@ function page() {
             </button>
           </div>
           <div className="flex flex-col items-center justify-center w-full">
-            <div className="flex flex-wrap justify-start py-16 max-w-[1360px] w-full m-auto gap-y-[6rem] small:justify-center small:gap-y-[4rem]">
+            <div className="flex flex-wrap justify-start py-16 max-w-[1360px] w-full m-auto gap-4 gap-y-[6rem] small:justify-center small:gap-y-[4rem]">
               {Reviews &&
                 Reviews?.map((it, index) => {
                   return (
