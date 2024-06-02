@@ -1,5 +1,5 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 import { FeedBack, clientReviews, left, star } from "./Consonants";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
@@ -96,11 +96,14 @@ const CarasouelCard = ({
   index,
   reviewPage,
   image,
+  rating,
 }) => {
+  const [seemore, setseemore] = useState(false);
+
   return (
     <div
-      className={`card w-[307px] small:max-w-[290px] small:!w-full m-auto gap-4 border mx-[15px] small:mx-0 shadow-sm
-       border-[#DADADA] h-[480px] small:h-[435px] border-dashed rounded-[24.54px] hover:border-[#0000006f]
+      className={`card max-w-[307px] w-full  m-auto gap-4 border mx-[15px] small:mx-0 shadow-sm
+       border-[#DADADA] min-h-[480px] small:min-h-[435px] border-dashed rounded-[24.54px] hover:border-[#0000006f]
     flex flex-col justify-start items-start px-8 pr-7 py-[6rem] pb-[1rem] relative bg-white`}
     >
       <div className="cardPic rounded-full w-[117px] h-[117px] absolute top-[-50px] flex justify-center items-center border bg-white border-[#DADADA] border-dashed ">
@@ -112,17 +115,27 @@ const CarasouelCard = ({
           className="w-[6.2rem]"
         />
       </div>
-      <span className="absolute top-3 right-3">{star}</span>
+
+      <span className="absolute flex items-center justify-center gap-0.5 top-3 right-3">
+        <p className="text-[16px] font-[500] leading-3">{rating}</p>
+        {star}
+      </span>
+
       <div className="flex flex-col items-start justify-start">
         <p className="text-2xl font-se">{name}</p>
         <p className="font-pm font-med ">{tagline}</p>
       </div>
       <p className="font-pm text-[1.1rem] leading-[26.61px] [font-style:italic] min-h-[14rem] small:min-h-[10rem] ">
-        "{testmonial}"
+        "{seemore ? testmonial : testmonial.slice(0, 200)}"
       </p>
 
-      <p className="[text-decoration:underline] font-pm font-bol cursor-pointer underline-offset-2  ">
-        See more
+      <p
+        onClick={() => {
+          testmonial.length > 200 && setseemore(!seemore);
+        }}
+        className="[text-decoration:underline] font-pm font-bol cursor-pointer underline-offset-2  "
+      >
+        See {seemore ? "less" : "more"}
       </p>
     </div>
   );

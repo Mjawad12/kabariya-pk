@@ -9,7 +9,7 @@ import { Banner } from "@/Components/Footer";
 import SubmittedDialog from "@/Components/SubmittedDialog";
 import { CarasouelCard } from "@/Components/Testomonials";
 import Image from "next/image";
-import React, { useEffect, useRef, useState } from "react";
+import React, { Fragment, useEffect, useRef, useState } from "react";
 function page() {
   const [selectedReview, setselectedReview] = useState(4);
   const [Reviews, setReviews] = useState(null);
@@ -146,7 +146,7 @@ function page() {
               {Reviews &&
                 Reviews?.map((it, index) => {
                   return (
-                    <div key={index} className="tp">
+                    <Fragment key={index}>
                       <CarasouelCard
                         name={it.name}
                         tagline={it.designation}
@@ -154,8 +154,9 @@ function page() {
                         index={index}
                         image={it.image}
                         reviewPage={true}
+                        rating={it.rating}
                       />
-                    </div>
+                    </Fragment>
                   );
                 })}
             </div>
