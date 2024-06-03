@@ -110,11 +110,10 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
     };
     const urls = await Upload(files);
     details.imgUrls = urls;
-    console.log(details);
-    // await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/email`, {
-    //   body: JSON.stringify(details),
-    //   method: "POST",
-    // });
+    await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/email`, {
+      body: JSON.stringify(details),
+      method: "POST",
+    });
     setloading(false);
   };
 
