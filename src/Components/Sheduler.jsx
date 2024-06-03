@@ -1,7 +1,16 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { arrowDown, gallery, item, shedule, tick, user } from "./Consonants";
+import {
+  arrowDown,
+  gallery,
+  item,
+  shedule,
+  tick,
+  trash,
+  user,
+} from "./Consonants";
 import BasicDateCalendar from "./Calender";
+import Image from "next/image";
 
 function Sheduler({ setsubmitted, setloading }) {
   const [selected, setselected] = useState(0);
@@ -55,13 +64,22 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
   const phone = useRef(null);
   const remarks = useRef(null);
   const [files, setfiles] = useState([]);
+  const [err, seterr] = useState(null);
 
   const submitForm = (e) => {
     const valid = form.current.checkValidity();
     if (valid) {
       e.preventDefault();
-      selected < 2 && setselected(selected + 1);
       if (selected === 2) {
+        const imagArr = getImages();
+        if (imagArr.length <= 0) {
+          seterr("Input atleast one image.");
+          return;
+        }
+      }
+      selected < 3 && setselected(selected + 1);
+
+      if (selected === 3) {
         setsubmitted(true);
         SUBMIT();
       }
@@ -92,10 +110,11 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
     };
     const urls = await Upload(files);
     details.imgUrls = urls;
-    await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/email`, {
-      body: JSON.stringify(details),
-      method: "POST",
-    });
+    console.log(details);
+    // await fetch(`${process.env.NEXT_PUBLIC_PORT}/api/email`, {
+    //   body: JSON.stringify(details),
+    //   method: "POST",
+    // });
     setloading(false);
   };
 
@@ -117,14 +136,23 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
       const parsedData = await data.json();
       url.push(parsedData.url);
     }
-    console.log(url);
     return url;
+  };
+  const getImages = () => {
+    let imgArr = [];
+    document.querySelectorAll(`.img-inp-giv`).forEach((it) => {
+      if (it.files[0]) {
+        imgArr = [...imgArr, it.files[0]];
+      }
+    });
+    setfiles(imgArr);
+    return imgArr;
   };
 
   return (
     <>
       <form action="null" ref={form} className="w-full">
-        <div className={`w-full ${selected != 0 && "hidden"}`}>
+        <div className={`w-full ${selected !== 0 && "hidden"}`}>
           <Options1
             setselectedOption={setselectedOption}
             selectedOption={selectedOption}
@@ -134,7 +162,7 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
             phone={phone}
           />
         </div>
-        <div className={`w-full ${selected != 1 && "hidden"}`}>
+        <div className={`w-full ${selected !== 1 && "hidden"}`}>
           <Options2
             setprefrence={setprefrence}
             settype={settype}
@@ -146,7 +174,10 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
             required={selected === 1}
           />
         </div>
-        <div className={`w-full ${selected != 2 && "hidden"}`}>
+        <div className={`w-full ${selected !== 2 && "hidden"}`}>
+          <ImagesInput seterr={seterr} />
+        </div>
+        <div className={`w-full ${selected !== 3 && "hidden"}`}>
           <Options3
             selectedDate={selectedDate}
             setselectedDate={setselectedDate}
@@ -157,43 +188,20 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
           className={`max-w-[100%] small:max-w-full w-full flex justify-between items-center  ${
             selected > 0 ? "mt-3" : "mt-5"
           }  ${
-            selected === 2 && "mt-6"
+            selected === 3 && "mt-6"
           } px-2 small:flex-col small:items-start small:gap-5`}
         >
-          {selected === 1 && (
-            <div
-              onClick={() => document.querySelector("#fileInput").click()}
-              className="flex items-center justify-center gap-2"
-            >
-              <input
-                type="file"
-                id="fileInput"
-                accept="image/*"
-                onInput={(e) => {
-                  const duplicate = files.some((it) => {
-                    return (
-                      it.name.toString() === e.target.files[0]?.name.toString()
-                    );
-                  });
-
-                  if (!duplicate && files.length < 5) {
-                    const images = [...files, e.target?.files[0]];
-                    setfiles(images);
-                  }
-                }}
-                className="hidden"
-              />
-              {gallery}
-              <p className="[text-decoration:underline] max-w-max whitespace-nowrap font-pm font-med text-secondaryGreen">
-                Upload Images
-              </p>
-            </div>
-          )}
           <div className="flex items-center justify-end w-full gap-2">
+            {err && (
+              <p className="font-pm text-[14px] text-red-500 font-[600] w-full text-start ">
+                {err}
+              </p>
+            )}
             {selected > 0 && (
               <button
                 onClick={(e) => {
                   e.preventDefault();
+                  err && seterr(null);
                   setselected(selected - 1);
                 }}
                 className="btn max-w-[6.85rem] small:!max-w-full border z-[999999999999] border-black text-black font-med bg-transparent"
@@ -205,7 +213,7 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
               onClick={submitForm}
               className="btn small:!max-w-full max-w-[6.85rem] w-full "
             >
-              {selected === 2 ? "Submit" : "Next"}
+              {selected === 3 ? "Submit" : "Next"}
             </button>
           </div>
         </div>
@@ -270,13 +278,18 @@ const Options1 = ({
         placeholder="Name"
       />
       <input
-        type="tel"
+        type="number"
         required
         ref={phone}
         minLength={11}
         maxLength={11}
+        onKeyDown={(e) => {
+          if (e.target.value.length >= 14 && e.key !== "Backspace") {
+            e.preventDefault();
+          }
+        }}
         placeholder="Mobile Number"
-        className=" w-[48%]  outline-none focus:border-black  extLar:w-[47%] small:w-full h-[3rem] small:h-[3.5rem]  rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
+        className="w-[48%] outline-none focus:border-black  extLar:w-[47%] small:w-full h-[3rem] small:h-[3.5rem]  rounded-xl px-5 border border-borderColorP focus:text-black  hover:shadow-xl transition duration-[100ms]  "
       />
       <div
         id="City"
@@ -554,7 +567,72 @@ const Options3 = ({ selectedDate, setselectedDate, settime }) => {
     </div>
   );
 };
-
+const ImagesInput = ({ seterr }) => {
+  const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+  return (
+    <div className="flex flex-col gap-2 px-1 py-1">
+      <p className="font-[700] font-pm text-[#0CBC8B]">Upload Images</p>
+      <div className="flex flex-wrap items-center justify-between gap-2 small:justify-center ">
+        {arr.map((it, index) => {
+          const Inputref = useRef(null);
+          const [inp, setinp] = useState(false);
+          return (
+            <div
+              style={{ borderStyle: "dashed" }}
+              className="flex flex-col items-center relative justify-center w-[107px] h-[84px] [&_svg]:stroke-[#7E7E7E] border rounded-[12px] cursor-pointer overflow-hidden"
+              onClick={() => {
+                !inp && Inputref.current.click();
+              }}
+              key={index}
+            >
+              {!inp && (
+                <>
+                  {gallery}
+                  <span className="text-[#7E7E7E] text-[14px]">upload</span>
+                </>
+              )}
+              <img
+                src={""}
+                width={100}
+                height={100}
+                className={`w-full ${inp ? "" : "hidden"} `}
+                alt="uploaded"
+                id={`img-inp-giv-${index}`}
+              />
+              {inp && (
+                <span
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    setinp(false);
+                    document.querySelector(`#img-inp-giv-${index}`).src = "";
+                    document.querySelector(`#inp-img-${index}`).value = "";
+                  }}
+                  className="rounded-[7px] bg-white cursor-pointer p-1.5 absolute top-1.5 right-1.5"
+                >
+                  {trash}
+                </span>
+              )}
+              <input
+                className="hidden img-inp-giv"
+                id={`inp-img-${index}`}
+                ref={Inputref}
+                type="file"
+                onInput={(e) => {
+                  if (e.target.files[0]) {
+                    seterr(null);
+                    setinp(true);
+                    const url = URL.createObjectURL(e.target.files[0]);
+                    document.querySelector(`#img-inp-giv-${index}`).src = url;
+                  }
+                }}
+              />
+            </div>
+          );
+        })}
+      </div>
+    </div>
+  );
+};
 const CustomCheckbox = ({ text, gap, st, sod }) => {
   const [checked, setchecked] = useState(false);
   useEffect(() => {

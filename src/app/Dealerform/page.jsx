@@ -15,7 +15,7 @@ import SubmittedDialog from "@/Components/SubmittedDialog";
 import { motion, useAnimationControls } from "framer-motion";
 import { useRouter } from "next/navigation";
 import React, { Fragment, useEffect, useRef, useState } from "react";
-
+import { useDropzone } from "react-dropzone";
 function page() {
   const [page, setpage] = useState(0);
   const [totalpickups, settotalpickups] = useState([1]);
@@ -967,17 +967,13 @@ const Addbtn = ({ onClick }) => {
 
 const Option2 = ({
   page,
-  profileImg,
   setprofileImg,
-  cnicImg,
   setcnicImg,
-  shopimages,
   setshopimages,
   errors,
 }) => {
   const shopimg = [1, 2, 3];
   const [currentUploaded, setcurrentUploaded] = useState(0);
-  const fileRef = useRef(null);
 
   useEffect(() => {
     if (page === 2) {
@@ -994,6 +990,7 @@ const Option2 = ({
 
   const imageGiverFunc = (id, e) => {
     const Selectedimg = document.querySelector(id);
+
     Selectedimg.parentElement.childNodes.forEach((it) =>
       it.classList.add("hidden")
     );
@@ -1004,43 +1001,32 @@ const Option2 = ({
   const getimages = () => {
     setprofileImg(document.querySelector("#profileInput").files[0]);
     const cnicimg = [
-      document.querySelector("#frontPic").files[0],
-      document.querySelector("#backPic").files[0],
+      document.querySelector("#cnicFront").files[0],
+      document.querySelector("#cnicBack").files[0],
     ];
     setcnicImg(cnicimg);
     let shopimg = [];
-    document.querySelectorAll(".shopImg").forEach((it, index) => {
+    document.querySelectorAll(".shopImages").forEach((it, index) => {
       shopimg[index] = it?.files[0];
     });
     setshopimages(shopimg);
+    console.log(shopimg);
   };
 
   return (
     <>
       <div className="flex flex-col items-start justify-center w-full gap-8 border-b py-9 small:py-5 small:pt-0 border-borderColorP small:border-0 ">
         <p className="formp text-[1.3rem]">Profile</p>
-        <input
-          ref={fileRef}
-          onInput={(e) => imageGiverFunc("#profileImg", e)}
-          type="file"
-          accept="image/*"
-          className="hidden"
-          id="profileInput"
-        />
-        <div
-          onClick={() => fileRef.current.click()}
-          className="flex flex-col justify-center items-center max-w-[11rem] w-full gap-5 cursor-pointer "
-        >
-          <div className="dashedSmDiv max-w-[11rem] w-full min-h-[13rem] flex justify-center items-center flex-col relative">
-            <img
-              src=""
-              className="max-w-[11rem] w-full hidden"
-              id="profileImg"
+        <div className="flex flex-col justify-center items-center max-w-[11rem] w-full gap-5 cursor-pointer ">
+          <div
+            className={`dashedSmDiv max-w-[11rem] w-full min-h-[13rem] flex justify-center items-center flex-col relative`}
+          >
+            <FileInput
+              id={"profileInput"}
+              imageGiverFunc={imageGiverFunc}
+              width={11}
+              height={13}
             />
-            {uploadImg}
-            <p className="underline formp font-med underline-offset-4">
-              Drag & Upload
-            </p>
           </div>
           <p className="formp text-[1.1rem] text-[#828282] leading-[21.78px] small:hidden">
             Profile Picture
@@ -1050,63 +1036,28 @@ const Option2 = ({
       <div className="flex flex-col items-start justify-center w-full gap-8 border-b py-9 border-borderColorP small:border-0 ">
         <p className="formp text-[1.3rem]">CNIC</p>
         <div className="flex flex-wrap items-start justify-start w-full gap-5">
-          <div className="flex flex-col justify-center items-start gap-5 max-w-[25rem] w-full ">
+          <div className="flex flex-col justify-center items-start gap-3  max-w-[25rem] w-full">
             <span className="bg-[#f6f6f6] text-[#828282] font-pm text-[0.85rem] font-med px-3 rounded-[5px]">
               Front
             </span>
-            <input
-              type="file"
-              accept="image/*"
-              className="hidden"
-              id="frontPic"
-              onInput={(e) => imageGiverFunc("#cnicFront", e)}
+            <FileInput
+              id={"cnicFront"}
+              imageGiverFunc={imageGiverFunc}
+              width={25}
+              height={15}
             />
-            <div
-              onClick={() => document.querySelector("#frontPic").click()}
-              className="flex flex-col justify-center items-center  gap-3 cursor-pointer max-w-[25rem] w-full "
-            >
-              <input type="file" accept="image/*" className="hidden" />
-              <img
-                src=""
-                className="max-w-[25rem] w-full h-full hidden"
-                id="cnicFront"
-              />
-              <div className="dashedSmDiv  w-full min-h-[15rem] flex justify-center items-center flex-col">
-                {uploadImg}
-                <p className="underline formp font-med underline-offset-4">
-                  Drag & Upload
-                </p>
-              </div>
-            </div>
           </div>
+
           <div className="flex flex-col justify-center items-start gap-3  max-w-[25rem] w-full">
             <span className="bg-[#f6f6f6] text-[#828282] font-pm text-[0.85rem] font-med px-3 rounded-[5px]">
               Back
             </span>
-            <input
-              type="file"
-              accept="image/*"
-              className="hidden"
-              id="backPic"
-              onInput={(e) => imageGiverFunc("#cnicBack", e)}
+            <FileInput
+              id={"cnicBack"}
+              imageGiverFunc={imageGiverFunc}
+              width={25}
+              height={15}
             />
-            <div
-              onClick={() => document.querySelector("#backPic").click()}
-              className="flex flex-col justify-center items-center  gap-5 cursor-pointer max-w-[25rem] w-full "
-            >
-              <input type="file" accept="image/*" className="hidden" />
-              <img
-                src=""
-                className="max-w-[25rem] w-full h-full hidden"
-                id="cnicBack"
-              />
-              <div className="dashedSmDiv  w-full min-h-[15rem] flex justify-center items-center flex-col">
-                {uploadImg}
-                <p className="underline formp font-med underline-offset-4">
-                  Drag & Upload
-                </p>
-              </div>
-            </div>
           </div>
         </div>
       </div>
@@ -1119,39 +1070,23 @@ const Option2 = ({
         </p>
         <div className="flex flex-wrap w-full gap-3">
           {shopimg.map((it, index) => (
-            <Fragment key={index}>
-              <input
-                type="file"
-                accept="image/*"
-                className="hidden shopImg"
-                id={`shopImg-${index}`}
-                onInput={(e) => {
-                  imageGiverFunc(`#shopimages-${index}`, e, true);
-                  document.querySelectorAll(".shopImg").forEach((it) => {
-                    if (it.files[0]) {
+            <FileInput
+              key={index}
+              height={10}
+              width={12}
+              id={`shopimages-${index}`}
+              imageGiverFunc={imageGiverFunc}
+              inputFunc={() => {
+                document
+                  .querySelectorAll(`#shopimages-${index}img`)
+                  .forEach((it) => {
+                    if (it.src !== "") {
                       setcurrentUploaded(currentUploaded + 1);
                     }
                   });
-                }}
-              />
-              <div
-                onClick={() =>
-                  document.querySelector(`#shopImg-${index}`).click()
-                }
-                key={it}
-                className="dashedSmDiv relative w-full min-h-[10rem] max-w-[12rem] smaller:max-w-[8.5rem] smaller:min-h-[8rem] flex justify-center items-center flex-col cursor-pointer"
-              >
-                <img
-                  src=""
-                  className="min-h-[10rem]  max-w-[12rem] w-full h-full hidden smaller:max-w-[8.5rem] smaller:min-h-[8rem]"
-                  id={`shopimages-${index}`}
-                />
-                {uploadImg}
-                <p className="underline formp font-med underline-offset-4">
-                  Add image
-                </p>
-              </div>
-            </Fragment>
+              }}
+              fotP={true}
+            />
           ))}
         </div>
       </div>
@@ -1428,6 +1363,47 @@ const InputDate = ({ selectedDate, setselectedDate }) => {
           <AB_calender setselectedDate={setselectedDate} setshow={setshow} />
         </div>
       )}
+    </div>
+  );
+};
+
+const FileInput = ({ id, imageGiverFunc, width, height, inputFunc, fotP }) => {
+  const onDrop = (acceptedFiles) => {
+    const fileInput = document.querySelector(`#${id}`);
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(acceptedFiles[0]);
+    fileInput.files = dataTransfer.files;
+    fileInput.dispatchEvent(
+      new Event("input", {
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+  };
+
+  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  return (
+    <div
+      {...getRootProps()}
+      style={{ height: height + "rem" }}
+      className={`dashedSmDiv max-w-[${width}rem] w-full  flex justify-center items-center flex-col relative cursor-pointer overflow-hidden`}
+    >
+      <img src="" className="max-w-[11rem] w-full hidden" id={id + "img"} />
+      <input
+        onInput={(e) => {
+          imageGiverFunc("#" + id + "img", e);
+          inputFunc && inputFunc();
+        }}
+        type="file"
+        accept="image/*"
+        className={`hidden w-full ${fotP ? "shopImages" : ""}`}
+        id={id}
+        {...getInputProps()}
+      />
+      {uploadImg}
+      <p className="underline formp font-med underline-offset-4">
+        {isDragActive ? "Drop Now" : fotP ? "Add Image" : "Drag & Upload"}
+      </p>
     </div>
   );
 };
