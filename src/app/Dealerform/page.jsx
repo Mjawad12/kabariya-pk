@@ -99,8 +99,8 @@ function page() {
         if (!document.querySelector("#profileInput").files[0]) {
           seterrors("Please upload profile image.");
         } else if (
-          !document.querySelector("#frontPic").files[0] ||
-          !document.querySelector("#backPic").files[0]
+          !document.querySelector("#cnicFront").files[0] ||
+          !document.querySelector("#cnicBack").files[0]
         ) {
           seterrors("Upload Front and Back side image of your CNIC.");
         } else {
