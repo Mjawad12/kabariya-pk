@@ -616,12 +616,21 @@ const ImagesInput = ({ seterr }) => {
                 id={`inp-img-${index}`}
                 ref={Inputref}
                 type="file"
+                multiple
+                accept=".png, .jpg, .jpeg, .webp"
                 onInput={(e) => {
-                  if (e.target.files[0]) {
+                  if ([0]) {
                     seterr(null);
                     setinp(true);
-                    const url = URL.createObjectURL(e.target.files[0]);
-                    document.querySelector(`#img-inp-giv-${index}`).src = url;
+                    if (e.target.files.length > 1) {
+                      const files = e.target.files;
+                      for (let i = 0; i < files.length; i++) {
+                        createInputEvent(`inp-img-${index + i}`, files[i]);
+                      }
+                    } else {
+                      const url = URL.createObjectURL(e.target.files[0]);
+                      document.querySelector(`#img-inp-giv-${index}`).src = url;
+                    }
                   }
                 }}
               />
@@ -660,6 +669,21 @@ const CustomCheckbox = ({ text, gap, st, sod }) => {
       {text}
     </label>
   );
+};
+
+const createInputEvent = async (id, file) => {
+  const fileInput = document.querySelector(`#${id}`);
+  if (fileInput) {
+    const dataTransfer = new DataTransfer();
+    dataTransfer.items.add(file);
+    fileInput.files = dataTransfer.files;
+    await fileInput.dispatchEvent(
+      new Event("input", {
+        bubbles: true,
+        cancelable: true,
+      })
+    );
+  }
 };
 
 export default Sheduler;
