@@ -190,30 +190,32 @@ const Form = ({ selected, setselected, setsubmitted, setloading }) => {
             selected === 3 && "mt-6"
           } px-2 small:flex-col small:items-start small:gap-5`}
         >
-          <div className="flex items-center justify-end w-full gap-2">
+          <div className="flex items-center justify-center w-full small:flex-col small:gap-2 ">
             {err && (
               <p className="font-pm text-[14px] text-red-500 font-[600] w-full text-start ">
                 {err}
               </p>
             )}
-            {selected > 0 && (
+            <div className="flex items-center justify-end w-full gap-2 ">
+              {selected > 0 && (
+                <button
+                  onClick={(e) => {
+                    e.preventDefault();
+                    err && seterr(null);
+                    setselected(selected - 1);
+                  }}
+                  className="btn max-w-[6.85rem] small:!max-w-full border z-[999999999999] border-black text-black font-med bg-transparent"
+                >
+                  Back
+                </button>
+              )}
               <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  err && seterr(null);
-                  setselected(selected - 1);
-                }}
-                className="btn max-w-[6.85rem] small:!max-w-full border z-[999999999999] border-black text-black font-med bg-transparent"
+                onClick={submitForm}
+                className="btn small:!max-w-full max-w-[6.85rem] w-full "
               >
-                Back
+                {selected === 3 ? "Submit" : "Next"}
               </button>
-            )}
-            <button
-              onClick={submitForm}
-              className="btn small:!max-w-full max-w-[6.85rem] w-full "
-            >
-              {selected === 3 ? "Submit" : "Next"}
-            </button>
+            </div>
           </div>
         </div>
       </form>
