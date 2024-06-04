@@ -578,7 +578,7 @@ const ImagesInput = ({ seterr }) => {
           return (
             <div
               style={{ borderStyle: "dashed" }}
-              className="flex flex-col items-center relative justify-center w-[107px] h-[84px] [&_svg]:stroke-[#7E7E7E] border rounded-[12px] cursor-pointer overflow-hidden"
+              className="flex flex-col items-center relative justify-center w-[107px] h-[84px] [&_svg]:stroke-[#7E7E7E] border rounded-[12px] cursor-pointer overflow-hidden hover:border-black [&_span]:hover:text-black [&_span]:hover:font-[600] [&_svg]:hover:stroke-black"
               onClick={() => {
                 !inp && Inputref.current.click();
               }}
