@@ -17,7 +17,7 @@ import { useRouter } from "next/navigation";
 import React, { Fragment, useEffect, useRef, useState } from "react";
 import { useDropzone } from "react-dropzone";
 function page() {
-  const [page, setpage] = useState(1);
+  const [page, setpage] = useState(0);
   const [totalpickups, settotalpickups] = useState([1]);
   const [totalBank, settotalBank] = useState([1]);
   const [st1, setst1] = useState(false);
