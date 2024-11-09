@@ -468,7 +468,13 @@ function page() {
                     <span className="text-red-600 text-[1.1rem]">*</span>
                   </p>
                   <DropDown
-                    data={["Karachi", "Islamabad", "Multan", "Lahore"]}
+                    data={[
+                      "Karachi",
+                      "Islamabad",
+                      "Multan",
+                      "Hyderabad",
+                      "Lahore",
+                    ]}
                     selectedOption={city}
                     setselectedOption={setcity}
                   />
