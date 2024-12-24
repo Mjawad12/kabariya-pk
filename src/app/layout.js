@@ -95,15 +95,23 @@ export const metadata = {
   title: "Kabariya",
   description:
     "Kabariya is a secure online platform dedicated to the selling of scrap materials. Our mission is to minimize the accumulation of unwanted and non-essential metals through recycling.",
+  others: {
+    "facebook-domain-verification": "4ttju0lfic241hpi1463valhfnrixq",
+  },
 };
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <head>
+        <meta
+          name="facebook-domain-verification"
+          content="4ttju0lfic241hpi1463valhfnrixq"
+        />
+      </head>
       <body
         className={` ${pacifico.variable} ${inter.variable} ${midan.variable} ${openSans.variable} ${nastaleeq.variable}`}
       >
         <Navbar />
-
         {children}
       </body>
     </html>
